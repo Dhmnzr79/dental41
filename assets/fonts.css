@@ -1,0 +1,50 @@
+/* Подключение локальных шрифтов */
+
+/* Inter - для основного текста */
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* NTSomic - для заголовков */
+@font-face {
+    font-family: 'NTSomic';
+    src: url('./fonts/NTSomic-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NTSomic';
+    src: url('./fonts/NTSomic-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NTSomic';
+    src: url('./fonts/NTSomic-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+/* Переменная для шрифта заголовков */
+:root {
+    --heading-font: 'NTSomic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

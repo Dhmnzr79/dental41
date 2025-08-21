@@ -1,0 +1,11 @@
+# Системные
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Временные
+*.log
+*.tmp

@@ -1,0 +1,26 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон -->
+  <circle cx="50" cy="50" r="50" fill="#E8F5E8"/>
+  
+  <!-- Лицо -->
+  <circle cx="50" cy="40" r="20" fill="#FFB74D"/>
+  
+  <!-- Волосы -->
+  <path d="M30 35 Q50 25 70 35 Q65 45 60 50 Q50 45 40 50 Q35 45 30 35" fill="#5D4037"/>
+  
+  <!-- Глаза -->
+  <circle cx="43" cy="37" r="3" fill="#37474F"/>
+  <circle cx="57" cy="37" r="3" fill="#37474F"/>
+  
+  <!-- Рот (улыбка) -->
+  <path d="M43 50 Q50 58 57 50" stroke="#37474F" stroke-width="2" fill="none"/>
+  
+  <!-- Медицинский халат -->
+  <rect x="35" y="60" width="30" height="25" fill="#40E0D0" rx="3"/>
+  <rect x="37" y="62" width="26" height="19" fill="white" rx="2"/>
+  
+  <!-- Стетоскоп -->
+  <circle cx="42" cy="70" r="4" fill="#424242"/>
+  <circle cx="58" cy="70" r="4" fill="#424242"/>
+  <path d="M42 70 Q50 80 58 70" stroke="#424242" stroke-width="3" fill="none"/>
+</svg>
