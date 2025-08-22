@@ -269,6 +269,79 @@ function setupPhoneMask() {
     });
 }
 
+// Анимация для cta-warning
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaWarning = document.querySelector('.cta-warning');
+    if (!ctaWarning) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target); // Анимация срабатывает только один раз
+            }
+        });
+    }, {
+        threshold: 0.3, // Анимация запускается когда 30% элемента видно
+        rootMargin: '0px 0px -50px 0px' // Небольшой отступ снизу
+    });
+
+    observer.observe(ctaWarning);
+});
+
+// Инициализация табов для implant-tabs-container
+document.addEventListener('DOMContentLoaded', function() {
+    const tabsContainer = document.getElementById('tabs-underline');
+    if (!tabsContainer) return;
+
+    const tablist = tabsContainer.querySelector('.tablist');
+    const tabs = [...tabsContainer.querySelectorAll('.tab')];
+    const panels = [...tabsContainer.querySelectorAll('.panel')];
+    const slider = tabsContainer.querySelector('.slider');
+
+    function moveSlider(i) {
+        if (!slider) return;
+        const el = tabs[i];
+        // учитываем горизонтальный скролл на мобилке
+        const x = el.offsetLeft - tablist.scrollLeft;
+        slider.style.width = el.offsetWidth + 'px';
+        slider.style.transform = `translateX(${x}px)`;
+    }
+
+    function activate(i, scrollIntoView = false) {
+        tabs.forEach((t, k) => {
+            const active = k === i;
+            t.classList.toggle('is-active', active);
+            t.setAttribute('aria-selected', active);
+        });
+        panels.forEach((p, k) => p.classList.toggle('is-active', k === i));
+        if (scrollIntoView) tabs[i].scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+        moveSlider(i);
+        activeIndex = i;
+    }
+
+    let activeIndex = Math.max(0, tabs.findIndex(t => t.classList.contains('is-active')));
+    activate(activeIndex);
+
+    tabs.forEach((t, i) => t.addEventListener('click', () => activate(i, true)));
+
+    // клавиатурная навигация
+    tabsContainer.addEventListener('keydown', e => {
+        if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
+        e.preventDefault();
+        let i = activeIndex;
+        if (e.key === 'ArrowRight') i = (i + 1) % tabs.length;
+        if (e.key === 'ArrowLeft') i = (i - 1 + tabs.length) % tabs.length;
+        if (e.key === 'Home') i = 0;
+        if (e.key === 'End') i = tabs.length - 1;
+        activate(i, true);
+    });
+
+    // держим слайдер в правильном месте при ресайзе и прокрутке списка табов
+    window.addEventListener('resize', () => moveSlider(activeIndex));
+    tablist.addEventListener('scroll', () => moveSlider(activeIndex), { passive: true });
+});
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     setupPhoneMask();

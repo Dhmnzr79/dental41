@@ -10,51 +10,60 @@
 
 <header class="site-header">
     <!-- Мобильная шапка -->
-    <div class="mobile-header">
-        <div class="mobile-header-top">
-            <div class="mobile-logo">
-                <a href="<?php echo home_url(); ?>">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="Логотип" class="logo-svg">
-                </a>
-            </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 12H21" stroke="#23BFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3 6H21" stroke="#23BFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3 18H21" stroke="#23BFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </div>
-        <div class="mobile-header-bottom">
-            <button class="mobile-call-btn">Заказать звонок</button>
-        </div>
-    </div>
+    <header class="site-topbar" aria-label="Верхняя панель сайта">
+        <div class="site-topbar__inner">
+            <a class="brand" href="<?php echo home_url(); ?>" aria-label="На главную">
+                <span class="brand__logo" aria-hidden>Ц</span>
+                <span class="brand__name">ЦЭСИ</span>
+            </a>
 
-    <!-- Мобильное меню -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <button class="mobile-menu-close" id="mobileMenuClose">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18" stroke="#23BFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6 6L18 18" stroke="#23BFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            <div class="actions">
+                <!-- Кнопка звонка -->
+                <a class="icon-btn" href="tel:+74152215499" aria-label="Позвонить">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 17.5v2a2 2 0 0 1-2.18 2 19.77 19.77 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.77 19.77 0 0 1 2.5 3.18 2 2 0 0 1 4.5 1h2a2 2 0 0 1 2 1.72c.12.93.32 1.84.59 2.72a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.36-1.36a2 2 0 0 1 2.11-.45c.88.27 1.79.47 2.72.59A2 2 0 0 1 22 17.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <!-- Бургер -->
+                <button class="icon-btn" id="menuOpen" aria-label="Открыть меню" aria-haspopup="dialog" aria-controls="menuDialog">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Fullscreen overlay menu -->
+    <div class="nav-overlay" id="menuDialog" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="nav-head">
+            <span style="font-weight:800">Меню</span>
+            <button class="nav-close" id="menuClose" aria-label="Закрыть меню">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
         </div>
-        <nav class="mobile-nav">
-            <ul class="mobile-nav-menu">
-                <li><a href="<?php echo home_url(); ?>">Главная</a></li>
-                <li><a href="<?php echo home_url('/implantatsiya'); ?>">Имплантация</a></li>
-                <li><a href="<?php echo home_url('/doctor'); ?>">Врачи</a></li>
-                <li><a href="<?php echo home_url('/o-organizatsii'); ?>">О клинике</a></li>
+
+        <div class="nav-body">
+            <!-- CTA — первым пунктом -->
+            <a class="cta" href="#callback" onclick="openPopup()">Заказать звонок</a>
+
+            <!-- Навигация сайта -->
+            <ul class="nav" role="list">
+                <li><a href="<?php echo home_url(); ?>">Главная <span>о клинике</span></a></li>
+                <li><a href="<?php echo home_url('/implantatsiya'); ?>">Имплантация <span>цены, этапы</span></a></li>
+                <li><a href="<?php echo home_url('/doctor'); ?>">Врачи <span>опыт, дипломы</span></a></li>
+                <li><a href="<?php echo home_url('/o-organizatsii'); ?>">О клинике <span>информация</span></a></li>
                 <li><a href="<?php echo home_url('/blog'); ?>">Блог</a></li>
                 <li><a href="<?php echo home_url('/kontakty'); ?>">Контакты</a></li>
             </ul>
-        </nav>
-        <div class="mobile-menu-footer">
-            <div class="mobile-contacts">
-                <a href="tel:+74152215499" class="mobile-phone">+7(4152) 21-54-99</a>
-                <div class="mobile-address">г. Елизово, ул. Ленина 15-а</div>
-                <div class="mobile-hours">Звоните 8:00-20:00, сб. 08:00-14:00</div>
+
+            <!-- Контакты / альтернативные каналы -->
+            <div class="contacts">
+                <a class="link-tel" href="tel:+74152215499" aria-label="Позвонить в клинику">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 17.5v2a2 2 0 0 1-2.18 2 19.77 19.77 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.77 19.77 0 0 1 2.5 3.18 2 2 0 0 1 4.5 1h2a2 2 0 0 1 2 1.72c.12.93.32 1.84.59 2.72a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.36-1.36a2 2 0 0 1 2.11-.45c.88.27 1.79.47 2.72.59A2 2 0 0 1 22 17.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    +7 (4152) 21‑54‑99
+                </a>
+                <a class="link-wa" href="https://wa.me/74152215499" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.92 11.92 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.95c0 2.11.55 4.16 1.59 5.98L0 24l6.23-1.62a12 12 0 0 0 5.77 1.47h.01c6.6 0 11.95-5.35 11.95-11.95 0-3.19-1.24-6.19-3.44-8.42Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.6 7.9c-.2-.45-.41-.46-.6-.47h-.51c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.28s.97 2.64 1.11 2.82c.14.18 1.89 3.03 4.68 4.13 2.31.91 2.77.73 3.27.69.5-.04 1.61-.66 1.84-1.29.23-.63.23-1.17.16-1.29-.07-.12-.25-.2-.51-.34-.27-.14-1.61-.8-1.86-.89-.25-.09-.43-.14-.61.14-.18.27-.7.89-.86 1.07-.16.18-.32.2-.58.07-.27-.14-1.13-.42-2.16-1.34-.8-.71-1.35-1.58-1.51-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.47-.84-2.01Z" fill="currentColor"/></svg>
+                    Написать в WhatsApp
+                </a>
+                <div class="foot-note">Мы на связи: пн–пт 8:00–20:00, сб 8:00–14:00</div>
             </div>
         </div>
     </div>
@@ -118,40 +127,39 @@
         </div>
     </div>
     
-    <!-- Оверлей для мобильного меню -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 </header>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    
-    // Открытие меню
-    mobileMenuToggle.addEventListener('click', function() {
-        mobileMenu.classList.add('active');
-        mobileMenuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-    
-    // Закрытие меню
-    function closeMobileMenu() {
-        mobileMenu.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    mobileMenuClose.addEventListener('click', closeMobileMenu);
-    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-    
-    // Закрытие по Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            closeMobileMenu();
-        }
-    });
+const openBtn = document.getElementById('menuOpen');
+const closeBtn = document.getElementById('menuClose');
+const dialog = document.getElementById('menuDialog');
+const DUR = 280;
+
+function openMenu() {
+    dialog.classList.add('is-open');
+    dialog.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+    // фокус на первую ссылку меню
+    setTimeout(() => {
+        const first = dialog.querySelector('.cta, .nav a, button, [href]');
+        first && first.focus && first.focus();
+    }, DUR);
+}
+
+function closeMenu() {
+    dialog.setAttribute('aria-hidden', 'true');
+    dialog.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
+    openBtn.focus();
+}
+
+openBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+dialog.addEventListener('click', (e) => {
+    // клик по пустому месту не закрывает, чтобы не мешать
+});
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && dialog.classList.contains('is-open')) closeMenu();
 });
 </script>
 

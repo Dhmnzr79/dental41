@@ -3,13 +3,18 @@ Theme Name: Dental Clinic Child
 Description: Дочерняя тема для стоматологической клиники
 Template: twentytwentyfour
 Author: Your Name
-Version: 1.0
+Version: 1.2
 */
 
 @import url('../twentytwentyfour/style.css');
 
 /* Подключение шрифтов */
 /* Шрифты подключаются через assets/fonts.css */
+
+/* Глобальное правило для box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 :root {
     --text-color: #454545;
@@ -18,6 +23,11 @@ Version: 1.0
     --white: #ffffff;
     --heading-font: 'omnes-cyrillic', sans-serif;
     --body-font: 'Inter', sans-serif;
+    --accent: #23BFCF;
+    --muted: #8A8F98;
+    --border: #E8EBEF;
+    --bg: #ffffff;
+    --text: #111827;
 }
 
 /* Общие стили для всех кнопок */
@@ -41,186 +51,270 @@ body {
 }
 
 p {
+    font-size: clamp(16px, 1.2vw, 18px);
     line-height: 1.6;
+    margin-block: 0 1em; /* сверху 0, снизу 1em */
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'omnes-cyrillic', sans-serif;
     font-weight: 600;
     color: var(--heading-color);
-    line-height: 1.3;
 }
 
-h3 {
-    font-size: 24px;
+:where(h2) {
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.1;
+    margin-block: 0 0.5em;
+}
+
+:where(h3) {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.3;
+    margin-block: 0 0.5em;
+}
+
+:where(h4) {
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.3;
+    margin-block: 0 0.5em;
 }
 
 /* ===================================
    МОБИЛЬНАЯ ШАПКА
    =================================== */
 
-.mobile-header {
-    display: none;
-    background: #fff;
-    border-bottom: 1px solid #E8EBEF;
-    padding: 15px 20px;
-}
-
-.mobile-header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.mobile-logo {
-    flex: 1;
-}
-
-.mobile-logo .logo-svg {
-    height: 40px;
-    width: auto;
-}
-
-.mobile-menu-toggle {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mobile-header-bottom {
-    display: flex;
-    justify-content: center;
-}
-
-.mobile-call-btn {
-    background: var(--brand-color);
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.mobile-call-btn:hover {
-    background: #1a9ba8;
-}
-
-/* Мобильное меню */
-.mobile-menu {
-    position: fixed;
+/* ===== Topbar (fixed) ===== */
+.site-topbar {
+    position: sticky;
     top: 0;
-    left: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: 100vh;
-    background: #fff;
-    z-index: 1000;
-    transition: left 0.3s ease;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 50;
+    height: var(--topbar-h, 60px);
+    background: var(--bg, #fff);
+    border-bottom: 1px solid rgba(0,0,0,.04);
+    box-shadow: 0 1px 0 rgba(0,0,0,.02);
+    display: none;
+}
+
+.site-topbar__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand__logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--accent, #23BFCF);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+.brand__name {
+    font-weight: 800;
+    letter-spacing: .4px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn {
+    appearance: none;
+    border: 0;
+    background: #F3F4F6;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+.call-btn {
+    display: none;
+}
+
+/* ====== Fullscreen overlay menu ====== */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--bg, #fff);
     display: flex;
     flex-direction: column;
+    padding-top: calc(var(--topbar-h, 60px) + env(safe-area-inset-top));
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .28s ease, visibility .28s step-end;
 }
 
-.mobile-menu.active {
+.nav-overlay.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity .28s ease, visibility .28s step-start;
+}
+
+.nav-head {
+    position: fixed;
     left: 0;
-}
-
-.mobile-menu-header {
-    padding: 20px;
-    border-bottom: 1px solid #E8EBEF;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.mobile-menu-close {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: var(--topbar-h, 60px);
+    background: var(--bg, #fff);
+    border-bottom: 1px solid var(--border, #E5E7EB);
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 2;
+}
+
+.nav-close {
+    appearance: none;
+    border: 0;
+    background: #F3F4F6;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.mobile-nav {
+.nav-body {
     flex: 1;
-    padding: 20px;
+    overflow: auto;
+    padding: 18px 16px 24px;
 }
 
-.mobile-nav-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.mobile-nav-menu li {
-    margin-bottom: 15px;
-}
-
-.mobile-nav-menu a {
-    text-decoration: none;
+.cta {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 0;
+    background: var(--accent, #23BFCF);
+    color: #fff;
+    font-weight: 700;
     font-size: 16px;
-    font-weight: 600;
-    display: block;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-    transition: color 0.3s ease;
-}
-
-.mobile-nav-menu a:hover {
-    color: var(--brand-color);
-}
-
-.mobile-menu-footer {
-    padding: 20px;
-    border-top: 1px solid #E8EBEF;
-    background: #f8f9fa;
-}
-
-.mobile-contacts {
     text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,.12);
 }
 
-.mobile-phone {
-    display: block;
-    color: var(--brand-color);
-    text-decoration: none;
+.cta--outline {
+    background: #fff;
+    color: var(--accent, #23BFCF);
+    border: 2px solid var(--accent, #23BFCF);
+    box-shadow: none;
+}
+
+.nav {
+    list-style: none;
+    padding: 10px 0 0;
+    margin: 14px 0 0;
+    border-top: 1px solid var(--border, #E5E7EB);
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 6px;
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border, #E5E7EB);
+    color: inherit;
+    text-decoration: none;
 }
 
-.mobile-address,
-.mobile-hours {
+.nav a span {
+    color: var(--muted, #6B7280);
     font-size: 14px;
-    margin-bottom: 5px;
+    font-weight: 500;
 }
 
-/* Оверлей для мобильного меню */
-.mobile-menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+.contacts {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-.mobile-menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
+.link-tel, .link-wa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border, #E5E7EB);
+    border-radius: 12px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+}
+
+.foot-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--muted, #6B7280);
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ===== Desktop tweaks (non-blocking) ===== */
+@media (min-width: 992px) {
+    :root {
+        --topbar-h: 68px;
+    }
+    .call-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        background: #E6FFFB;
+        color: #065F46;
+        border: 1px solid #99F6E4;
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .call-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-overlay {
+        transition: none;
+    }
 }
 
 /* ===== ЕДИНАЯ СИСТЕМА СЕТКИ ===== */
@@ -292,7 +386,7 @@ h3 {
     }
     
     /* Показываем мобильную шапку */
-    .mobile-header {
+    .site-topbar {
         display: block;
     }
     
@@ -396,15 +490,9 @@ h1 {
     font-size: 2.5rem;
 }
 
-h2 {
-    font-size: 48px;
 
-}
 
-h3 {
-    font-size: 22px;
 
-}
 
 h4 {
     font-size: 20px;
@@ -1602,7 +1690,6 @@ h6 {
 }
 
 .header h2 {
-    font-size: 2.5rem;
     color: var(--text-color);
     margin-bottom: 15px;
 }
@@ -2167,7 +2254,7 @@ h6 {
 /* Удаляем старый indices-grid - теперь используем grid-system */
 
 .index-card {
-    background: #f8f9fa;
+    background: #fff;
     border-radius: 15px;
     padding: 30px;
     position: relative;
@@ -2300,7 +2387,7 @@ h6 {
 .overlapping-circles .circle:last-child {
     margin-left: -15px;
     z-index: 2;
-    border: 4px solid white;
+    border: 4px solid #F0F8FB;
 }
 
 /* Контекстные селекторы для разных мест размещения */
@@ -2620,7 +2707,17 @@ h6 {
     gap: 30px;
 }
 
+.online-consultation-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.online-consultation-bottom p {
+    font-size: 24px;
+    padding-right: 200px;
+    line-height: 1.4;
+}
 
 /* Адаптивность для онлайн-консультации */
 @media (max-width: 1023px) {
@@ -2718,8 +2815,8 @@ h6 {
 }
 
 .consequence-icon svg {
-    width: 21px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 }
 
 
@@ -2951,23 +3048,8 @@ h6 {
 }
 
 .cta-form-container {
-    background: rgba(255, 255, 255, 0.6);
-    padding: 30px;
-    border-radius: 15px;
     text-align: center;
-    border-top: 1px solid white;
-    border-left: 1px solid white;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-
-
-.cta-form-container h3 {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    
+    max-width: 460px;
 }
 
 .cta-form .btn-1 {
@@ -3037,10 +3119,7 @@ h6 {
         font-size: 1.8rem;
     }
     
-    .cta-form-container {
-        max-width: 500px;
-        margin: 0 auto;
-    }
+
 }
 
 @media (max-width: 767px) {
@@ -3057,9 +3136,7 @@ h6 {
         font-size: 1rem;
     }
     
-    .cta-form-container {
-        padding: 20px;
-    }
+
     
     .cta-form-text {
         font-size: 1rem;
@@ -3074,23 +3151,16 @@ h6 {
 }
 
 /* Первый ряд - заголовок */
-.trust-header {
-    margin-bottom: 60px;
-    text-align: center;
-}
-
 .trust-header h2 {
-    font-size: 48px;
-    font-weight: 600;
-
-    margin: 0;
 }
 
-/* Второй ряд - карточки */
-.trust-cards {
+/* Единая сетка доверия 3x2 */
+.trust-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-rows: auto auto;
+    gap: 30px 30px;
+    row-gap: 60px;
     margin-bottom: 60px;
 }
 
@@ -3101,8 +3171,6 @@ h6 {
     gap: 20px;
 }
 
-
-
 .trust-icon {
     flex-shrink: 0;
 }
@@ -3111,55 +3179,60 @@ h6 {
     font-size: 24px;
     font-weight: 600;
     margin: 0;
-
 }
 
-.trust-card p {
-    font-size: 16px;
 
-    
-    margin: 0;
-}
-
-/* Третий ряд - гарантии */
-.trust-guarantees {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 40px;
-    align-items: flex-start;
-}
 
 .guarantees-left {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: flex-end;
+    gap: 20px;
+    height: 100%;
 }
 
 .guarantees-left h3 {
     font-size: 32px;
     font-weight: 600;
     margin: 0;
-
 }
 
-.guarantees-left p {
-    font-size: 18px;
+.guarantees-content h3 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
 
-    
+.guarantees-content p {
+    font-size: 18px;
     margin: 0;
 }
 
 .guarantees-right {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 40px;
+    background: #e8f4f8;
+}
+
+.guarantees-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     min-width: 0;
 }
 
 .guarantees-table {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 30px;
-    width: 100%;
+    flex: 1;
     overflow: hidden;
-    box-sizing: border-box;
+    min-width: 0;
+}
+
+.guarantees-table {
+    overflow: hidden;
+    min-width: 0;
 }
 
 .guarantee-row {
@@ -3176,17 +3249,18 @@ h6 {
 
 .guarantee-item {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
     flex: 1;
     min-width: 0;
     overflow: hidden;
 }
 
 .guarantee-period {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
-    color: var(--brand-color);
+    color: var(--heading-color);
     margin-left: 20px;
+    font-family: 'omnes-cyrillic';
 }
 
 .safety-point {
@@ -3197,10 +3271,8 @@ h6 {
 }
 
 .point-icon {
-    width: 12px;
-    height: 12px;
-    background: var(--brand-color);
-    border-radius: 50%;
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
     margin-top: 8px;
 }
@@ -3243,7 +3315,7 @@ h6 {
     }
     
     .trust-header h2 {
-        font-size: 36px;
+        /* font-size удален - используем глобальные стили */
     }
     
     .trust-cards {
@@ -3271,7 +3343,7 @@ h6 {
 
 @media (max-width: 480px) {
     .trust-header h2 {
-        font-size: 28px;
+        /* font-size удален - используем глобальные стили */
     }
     
     .trust-card {
@@ -3294,9 +3366,7 @@ h6 {
         font-size: 16px;
     }
     
-    .guarantees-table {
-        padding: 20px;
-    }
+
     
     .guarantee-item,
     .guarantee-period {
@@ -3927,7 +3997,7 @@ h6 {
 }
 
 .rating-card {
-    background: #f8f9fa;
+    background: #fff;
     border-radius: 15px;
     padding: 20px;
     height: auto;
@@ -4111,14 +4181,9 @@ h6 {
     justify-content: flex-start;
 }
 
-.doctors-title-block h2 {
-    margin-top: 0;
-}
 
-.faq-section {
-    padding: 80px 0;
-    background-color: var(--brand-color);
-}
+
+
 
 
 
@@ -4729,9 +4794,7 @@ h6 {
     margin: 0;
 }
 
-.doctor-selection-left h2 {
-    margin-top: 0;
-}
+
 
 .doctor-selection-right {
     display: flex;
@@ -4848,6 +4911,7 @@ h6 {
 }
 
 .tab.is-active {
+    color: #000;
 }
 
 .tab:is(:focus-visible) {
@@ -4895,7 +4959,7 @@ h6 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 0;
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -5306,6 +5370,7 @@ h6 {
 .prices-left-block {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 30px;
 }
 
@@ -5315,11 +5380,7 @@ h6 {
     gap: 15px;
 }
 
-.prices-title-wrapper h2 {
-    margin: 0;
-    font-size: 48px;
 
-}
 
 .prices-subtitle-main {
     font-size: 32px;
@@ -5330,17 +5391,17 @@ h6 {
 
 .prices-description {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 15px;
-    border-bottom: 3px solid var(--brand-color);
+    gap: 20px;
 }
 
-.prices-subtitle {
-    margin: 0;
+.prices-description p {
+    margin-block-end: 0;
 }
+
+
 
 /* Второй блок (5-8 колонка) - картинка */
 .prices-image-block {
@@ -5400,9 +5461,7 @@ h6 {
         gap: 25px;
     }
     
-    .prices-title-wrapper h2 {
-        font-size: 42px;
-    }
+
     
     .prices-subtitle-main {
         font-size: 28px;
@@ -5425,7 +5484,7 @@ h6 {
     }
     
     .prices-title-wrapper h2 {
-        font-size: 36px;
+        /* font-size удален - используем глобальные стили */
     }
     
     .prices-subtitle-main {
@@ -5445,7 +5504,7 @@ h6 {
     }
     
     .prices-title-wrapper h2 {
-        font-size: 28px;
+        /* font-size удален - используем глобальные стили */
     }
     
     .prices-subtitle-main {
@@ -5483,7 +5542,6 @@ h6 {
 }
 
 .technologies-header h2 {
-    font-size: 48px;
     font-weight: 600;
     margin: 0;
     color: var(--heading-color);
@@ -5571,7 +5629,7 @@ h6 {
     }
     
     .technologies-header h2 {
-        font-size: 42px;
+        /* font-size удален - используем глобальные стили */
     }
     
     .tech-lab {
@@ -5616,7 +5674,7 @@ h6 {
     }
     
     .technologies-header h2 {
-        font-size: 36px;
+        /* font-size удален - используем глобальные стили */
     }
     
     .tech-lab {
@@ -5645,7 +5703,7 @@ h6 {
 
 @media (max-width: 480px) {
     .technologies-header h2 {
-        font-size: 28px;
+        /* font-size удален - используем глобальные стили */
     }
     
     .tech-card {
@@ -5715,6 +5773,8 @@ h6 {
 .implant-tabs-container {
     width: 100%;
     background: #fff;
+    box-sizing: border-box;
+    padding: 20px 30px;
 }
 
 .implant-tabs {
@@ -5808,13 +5868,7 @@ h6 {
     opacity: 0.8;
 }
 
-/* Контент блока */
-.guarantees-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 50%;
-}
+
 
 
 
@@ -6012,7 +6066,7 @@ h6 {
 /* FAQ Section */
 .faq-section {
     padding: 80px 0;
-    background-color: #f5f5f5;
+    background-color: #6CBED5;
 }
 
 .faq-container {
@@ -6044,8 +6098,6 @@ h6 {
 
 .faq-accordion {
     width: 100%;
-    max-width: 600px;
-    font-family: var(--heading-font);
 }
 
 .faq-item {
@@ -6085,10 +6137,11 @@ h6 {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    background: #ffffff;
+    background: #ffffffc4;
     padding: 0 25px;
     border-radius: 0 0 8px 8px;
     margin-top: -1px;
+    font-size: 16px;
 }
 
 .faq-item.active .faq-answer {
@@ -6116,9 +6169,6 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    .faq-section {
-        padding: 60px 0;
-    }
     
     .faq-container {
         padding: 0 20px;
@@ -6487,10 +6537,7 @@ h6 {
     margin: 0;
 }
 
-/* CTA form */
-.cta-form-container p {
-    margin-bottom: 25px;
-}
+
 
 /* Fears consequences */
 .consequence-item p {
@@ -6586,11 +6633,7 @@ h6 {
 
 
 
-/* CTA disclaimer */
-.cta-form-container p:last-child {
-    text-align: center;
-    margin-top: 15px;
-}
+
 
 /* Chatbot disclaimer */
 .chatbot-cta p:last-child {
@@ -6701,32 +6744,7 @@ h6 {
     display: block;
 }
 
-/* Отступы для заголовков в разных секциях */
 
-.consultation-section h2,
-.online-consultation-left h2,
-.fears-left h2,
-.cta-left h2 {
-    margin-top: 10px;
-}
-
-.cta-left h2,
-.trust-left h2,
-.doctors-title-block h2,
-.doctor-selection-left h2,
-.implant-title-main h2,
-.implants-title-main h2,
-.prices-title-main h2,
-.guarantees-title-block h2,
-.faq-title-block h2,
-.contacts-info h2 {
-    margin-bottom: 30px;
-}
-
-.reviews-left h2 {
-    margin-bottom: 30px;
-    margin-top: 0;
-}
 
 .consultation-form h3,
 .chatbot-info h3,
@@ -6748,7 +6766,7 @@ h6 {
 
 @media (max-width: 767px) {
     h2 {
-        font-size: 28px;
+        /* font-size удален - используем глобальные стили */
     }
     
     h1 {

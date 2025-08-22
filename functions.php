@@ -250,7 +250,7 @@ function dental_clinic_enqueue_styles() {
     wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), wp_get_theme()->get('Version'));
     
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style', 'local-fonts'), '1.0.' . time());
+    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style', 'local-fonts'), wp_get_theme()->get('Version'));
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles');
 
@@ -1143,5 +1143,16 @@ function show_cta_form_messages() {
         echo '</div>';
     }
 }
+
+// Подключение overrides.css для переопределения стилей
+add_action('wp_enqueue_scripts', function () {
+    // Наши оверрайды - ЗАВИСЯТ от child-style, грузятся ПОТОМ
+    wp_enqueue_style(
+        'custom-overrides',
+        get_stylesheet_directory_uri() . '/overrides.css',
+        ['child-style'],
+        '1.0'
+    );
+}, 20); // приоритет повыше, чтобы точно было последним
 
 ?>
