@@ -4,16 +4,27 @@
 <section class="hero-section">
     <div class="grid-system">
         <div class="hero-left grid-6">
+            <div class="overlapping-circles">
+                <div class="circle">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Лицо">
+                </div>
+                <div class="circle">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-date.svg" alt="Дата">
+                </div>
+            </div>
+            
             <h1 class="hero-title">
-                ИМПЛАНТАЦИЯ<br>
-                <span class="reveal" data-text="ЗА 1 ДЕНЬ">ЗА 1 ДЕНЬ</span><br>
-                С ГАРАНТИЕЙ,<br>
-                БЕЗ БОЛИ И ПЕРЕПЛАТ
+                Имплантация<br>
+                <span class="highlight">за 1 день</span>
             </h1>
             
-            <p class="hero-subtitle">
+            <h2 class="hero-subtitle">
+                с гарантией, без боли и переплат
+            </h2>
+            
+            <h3 class="hero-description">
                 Установим имплант и временную коронку уже на первом визите. 99,8% приживаемость. Всё включено — без доплат и навязываний.
-            </p>
+            </h3>
             
             <div class="hero-features">
                 <div class="hero-feature">
@@ -41,23 +52,23 @@
         </div>
         
         <div class="hero-right grid-6">
-            <div class="hero-doctor">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/test-doctor.svg" alt="Врач" class="doctor-image">
-                
-                <div class="hero-stats">
-                    <div class="stat-item stat-item-1">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/25.svg" alt="25 000+" class="stat-image">
-                        <span class="stat-label">имплантаций за 26 лет работы на Камчатке</span>
+            <div class="hero-photo">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-main.png" alt="Кирилл Моисеев - хирург-имплантолог" class="hero-doctor-photo">
+            </div>
+            
+            <div class="hero-indices">
+                <div class="indices-container">
+                    <div class="hero-index">
+                        <h3>25 000+</h3>
+                        <p>имплантаций за 26 лет<br>работы на Камчатке</p>
                     </div>
-                    <div class="stat-item stat-item-2">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/99.svg" alt="99,8%" class="stat-image">
-                        <span class="stat-label">Приживаемость</span>
+                    <div class="hero-index">
+                        <h3>99.8</h3>
+                        <p>приживаемость<br>имплантов</p>
                     </div>
                 </div>
-                
-                <div class="doctor-info">
-                    <div class="hero-doctor-name">Кирилл Моисеев</div>
-                    <div class="hero-doctor-specialty">Врач-имплантолог</div>
+                <div class="hero-doctor-info">
+                    <p>Кирилл Моисеев<br>хирург-имплантолог</p>
                 </div>
             </div>
         </div>
@@ -121,9 +132,9 @@
             </div>
             
             <h2>
-                <span class="highlight">БЕСПЛАТНАЯ</span><br>
-                КОНСУЛЬТАЦИЯ<br>
-                ПО ИМПЛАНТАЦИИ
+                                    <span class="highlight">Бесплатная</span><br>
+                    консультация<br>
+                    по имплантации
             </h2>
             
             <div class="consultation-benefits">
@@ -508,17 +519,15 @@
     <div class="grid-system">
         <!-- Первый ряд - заголовок на всю ширину -->
         <div class="trust-header grid-12">
-            <h2>Нам доверяют потому что у нас БЕЗОПАСНО</h2>
+                            <h2>Нам доверяют потому что у нас безопасно</h2>
         </div>
         
         <!-- Второй ряд - 3 карточки -->
         <div class="trust-cards grid-12">
             <div class="trust-card">
                 <div class="trust-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="24" fill="#23BFCF"/>
-                        <path d="M16 24L22 30L32 18" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <div class="trust-icon-main"></div>
+                    <div class="trust-icon-arrow"></div>
                 </div>
                 <h3>Абсолютная стерильность</h3>
                 <p>Ваше здоровье под полной защитой — каждый инструмент проходит централизованную стерилизацию и строгий контроль.</p>
@@ -526,10 +535,8 @@
             
             <div class="trust-card">
                 <div class="trust-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="24" fill="#23BFCF"/>
-                        <path d="M24 12V24L32 32" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <div class="trust-icon-main"></div>
+                    <div class="trust-icon-arrow"></div>
                 </div>
                 <h3>Гарантированная приживаемость 99,8%</h3>
                 <p>Импланты надежно приживаются благодаря опыту врачей и проверенным методикам — вы можете быть спокойны за результат.</p>
@@ -537,10 +544,8 @@
             
             <div class="trust-card">
                 <div class="trust-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="24" fill="#23BFCF"/>
-                        <path d="M12 24H36M24 12V36" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <div class="trust-icon-main"></div>
+                    <div class="trust-icon-arrow"></div>
                 </div>
                 <h3>Биотехнология APRF</h3>
                 <p>Ваше заживление проходит быстрее и комфортнее: снижается риск отторжения и ускоряется восстановление тканей.</p>
@@ -643,7 +648,7 @@
         </div>
         
         <div class="comparison-cta grid-12">
-            <button type="button" class="btn-1" onclick="openPopup()">Я хочу также</button>
+                            <button type="button" class="btn-1" onclick="openPopup('popup-2')">Я хочу также</button>
         </div>
     </div>
 </section>
@@ -1425,7 +1430,6 @@
 <!-- Блок с ценами -->
 <section class="prices-section">
     <div class="grid-system">
-        <!-- Первый блок (1-4 колонка) -->
         <div class="prices-left-block grid-4">
             <div class="prices-title-wrapper">
                 <h2>
@@ -1443,24 +1447,52 @@
             </div>
         </div>
         
-        <!-- Второй блок (5-8 колонка) - картинка -->
         <div class="prices-image-block grid-4">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/prices-image.jpg" alt="Цены на имплантацию" class="prices-image">
         </div>
         
-        <!-- Третий блок (9-12 колонка) -->
         <div class="prices-cards-block grid-4">
             <div class="price-card">
+                <svg width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_2340_161)">
+                        <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_2340_161">
+                            <rect width="20" height="16" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
                 <h3>Качество важнее скидок</h3>
                 <p>Мы не используем дешёвые аналоги и «одноразовые» материалы. В работе только сертифицированные импланты и современное оборудование.</p>
             </div>
             
             <div class="price-card">
+                <svg width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_2340_161)">
+                        <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_2340_161">
+                            <rect width="20" height="16" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
                 <h3>Прозрачность с первой консультации</h3>
                 <p>Вы сразу получаете план лечения с точными цифрами. Стоимость фиксируется в договоре и не меняется в процессе.</p>
             </div>
             
             <div class="price-card">
+                <svg width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_2340_161)">
+                        <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_2340_161">
+                            <rect width="20" height="16" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
                 <h3>Дополнительная выгода</h3>
                 <p>Часть суммы можно вернуть через налоговый вычет (13%). Оплата возможна поэтапно, без скрытых переплат.</p>
             </div>
@@ -1471,44 +1503,24 @@
 <!-- Блок технологий -->
 <section class="technologies-section">
     <div class="grid-system">
-        <!-- Первый ряд - заголовок -->
-        <div class="technologies-header" style="grid-column: 5 / 13;">
-                            <h2>Европейский уровень технологий — на Камчатке:</h2>
-        </div>
-        
-        <!-- Второй ряд - 3 карточки -->
-        <div class="technologies-cards grid-12">
-            <div class="tech-card grid-4">
-                <div class="tech-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="24" fill="#23BFCF"/>
-                        <path d="M16 24L22 30L32 18" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>3D-моделирование</h3>
-                <p>Лечение планируется заранее в цифровом формате: врач создаёт точную модель будущей улыбки, учитывая все особенности пациента. Это позволяет избежать ошибок и добиться предсказуемого результата.</p>
+        <div class="technologies-grid grid-12">
+            <div class="technologies-header">
+                <h2>Европейский уровень технологий — на Камчатке:</h2>
             </div>
             
-            <div class="tech-card grid-4">
-                <div class="tech-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="24" fill="#23BFCF"/>
-                        <path d="M24 12V24L32 32" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
+            <div class="tech-card tech-lab">
+                <h3>Цифровая лаборатория</h3>
+                <p>Протезы изготавливаются прямо в нашей клинике на современном оборудовании. Это ускоряет процесс и делает его доступнее: нередко готовое решение пациент получает уже в течение одного дня.</p>
+            </div>
+            
+            <div class="tech-card tech-ai">
                 <h3>ИИ-диагностика</h3>
                 <p>Система искусственного интеллекта анализирует 3D-снимки по множеству параметров и помогает врачу поставить максимально точный диагноз. Благодаря этому выбирается оптимальный план лечения именно для вас.</p>
             </div>
             
-            <div class="tech-card grid-4">
-                <div class="tech-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="24" fill="#23BFCF"/>
-                        <path d="M12 24H36M24 12V36" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Цифровая лаборатория</h3>
-                <p>Протезы изготавливаются прямо в нашей клинике на современном оборудовании. Это ускоряет процесс и делает его доступнее: нередко готовое решение пациент получает уже в течение одного дня.</p>
+            <div class="tech-card tech-3d">
+                <h3>3D-моделирование</h3>
+                <p>Лечение планируется заранее в цифровом формате: врач создаёт точную модель будущей улыбки, учитывая все особенности пациента. Это позволяет избежать ошибок и добиться предсказуемого результата.</p>
             </div>
         </div>
     </div>
@@ -2281,3 +2293,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // createProgressBar(document.body, { height: '8px', shadow: true, animationDelay: '0.5s' });
 });
 </script>
+
+<?php get_footer(); ?>
+
+<!-- Подключение попапов -->
+<?php include get_stylesheet_directory() . '/popup.php'; ?>
