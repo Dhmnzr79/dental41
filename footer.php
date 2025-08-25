@@ -2,54 +2,38 @@
     <div class="footer-content">
         <!-- Информация о клинике -->
         <div class="footer-section">
-            <h3>Стоматологическая клиника</h3>
-            <p>Современная стоматология с использованием новейших технологий и материалов. Мы заботимся о здоровье ваших зубов.</p>
+            <div class="footer-logo">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="ЦЭСИ" class="footer-logo-img">
+            </div>
+            <p>Центр Эстетической стоматологии и имплантации</p>
         </div>
         
         <!-- Контакты -->
-        <div class="footer-section">
+        <div class="footer-section footer-contacts">
             <h3>Контакты</h3>
             <ul>
-                <li>📍 ул. Примерная, 123</li>
-                <li>📞 +7 (999) 123-45-67</li>
-                <li>✉️ info@dental41.ru</li>
-                <li>🕒 Пн-Пт: 9:00 - 20:00</li>
-                <li>🕒 Сб-Вс: 10:00 - 18:00</li>
-            </ul>
-        </div>
-        
-        <!-- Услуги -->
-        <div class="footer-section">
-            <h3>Услуги</h3>
-            <ul>
-                <li><a href="/services/treatment">Лечение зубов</a></li>
-                <li><a href="/services/whitening">Отбеливание</a></li>
-                <li><a href="/services/implants">Имплантация</a></li>
-                <li><a href="/services/prosthetics">Протезирование</a></li>
-                <li><a href="/services/consultation">Консультация</a></li>
-            </ul>
-        </div>
-        
-        <!-- Социальные сети -->
-        <div class="footer-section">
-            <h3>Социальные сети</h3>
-            <ul>
-                <li><a href="#" target="_blank">Facebook</a></li>
-                <li><a href="#" target="_blank">Instagram</a></li>
-                <li><a href="#" target="_blank">VKontakte</a></li>
-                <li><a href="#" target="_blank">Telegram</a></li>
+                <li>г. Елизово, ул. Ленина 15-а</li>
+                <li>+7(4152) 21-55-82</li>
+                <li>+7(908) 495-24-24</li>
+                <li>Пн-Пт: 8:00 - 20:00</li>
+                <li>Сб: 8:00 – 14:00</li>
             </ul>
         </div>
     </div>
     
     <div class="footer-bottom">
-        <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Все права защищены.</p>
+        <div class="footer-legal">
+            <p>ООО «Дента» ИНН 4105000950 КПП 410501001 ОГРН 1024101222408</p>
+            <p>Имеются противопоказания. Необходима консультация специалиста</p>
+        </div>
+        <a href="dental41.ru/privacy.pdf" target="_blank" class="privacy-link">Политика конфиденциальности</a>
     </div>
 </footer>
 
 <?php wp_footer(); ?>
 </body>
 </html>
+
 
 
 

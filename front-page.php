@@ -6,10 +6,10 @@
         <div class="hero-left grid-6">
             <div class="overlapping-circles">
                 <div class="circle">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Лицо">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Лицо">
                 </div>
                 <div class="circle">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-date.svg" alt="Дата">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Лицо">
                 </div>
             </div>
             
@@ -59,16 +59,16 @@
             <div class="hero-indices">
                 <div class="indices-container">
                     <div class="hero-index">
-                        <h3>25 000+</h3>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/25.svg" alt="25 000+">
                         <p>имплантаций за 26 лет<br>работы на Камчатке</p>
                     </div>
                     <div class="hero-index">
-                        <h3>99.8</h3>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/99.svg" alt="99.8">
                         <p>приживаемость<br>имплантов</p>
                     </div>
                 </div>
                 <div class="hero-doctor-info">
-                    <p>Кирилл Моисеев<br>хирург-имплантолог</p>
+                    <p><strong>Кирилл Моисеев</strong><br>хирург-имплантолог</p>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@
             </h2>
             
             <div class="consultation-benefits">
-                <div class="benefit-item">
+                <div class="benefit-item consultation-benefit-item">
                     <div class="benefit-icon">
                         <svg width="45" height="64" viewBox="0 0 45 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.9463 34.8935L20.8895 36.9504C20.6837 37.1568 20.4391 37.3204 20.1699 37.4319C19.9007 37.5434 19.612 37.6006 19.3206 37.6002C19.0292 37.6006 18.7406 37.5434 18.4714 37.4319C18.2022 37.3204 17.9577 37.1568 17.7519 36.9504L14.1991 33.3978C13.3484 32.5471 13.2855 31.161 14.1054 30.2807C14.9663 29.3565 16.4139 29.3373 17.2991 30.2225L19.0475 31.9709C19.0834 32.0068 19.126 32.0352 19.1728 32.0546C19.2197 32.0741 19.2699 32.0841 19.3207 32.0841C19.3714 32.0841 19.4216 32.0741 19.4685 32.0546C19.5154 32.0352 19.558 32.0068 19.5938 31.9709L27.7509 23.8139C28.6173 22.9474 30.0221 22.9474 30.8884 23.8139C31.7548 24.6803 31.7548 26.085 30.8884 26.9514L25.0393 32.8005" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -153,7 +153,7 @@
                     </div>
                     <p>Составим для вас понятный план: 3 варианта по бюджету, этапы, сроки</p>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item consultation-benefit-item">
                     <div class="benefit-icon">
                         <svg width="51" height="64" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.76001 40.36L14.85 19.0643C15.0153 18.659 15.5874 18.6584 15.7535 19.0634L23.77 40.36M9.28302 35.0563H21.2876M30.2799 18.7601V40.36" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -163,7 +163,7 @@
                     </div>
                     <p>Ответим на все ваши вопросы, а искусственный интеллект проведет проверку ваших зубов по 65 параметрам.</p>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item consultation-benefit-item">
                     <div class="benefit-icon">
                         <svg width="50" height="64" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M38.9678 7.19247V15.3129" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -376,17 +376,47 @@
             <div class="cta-left">
                 <div class="cta-content">
                     <h2>
-                        Начните сейчас — и через 2 приема:
+                        Начните сейчас<br>и через 2 приема:
                     </h2>
                     
                     <div class="cta-benefits">
                         <div class="benefit-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2389_87)">
+                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2389_87">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
                             <p>Избежите боли, пластики и больших затрат</p>
                         </div>
                         <div class="benefit-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2389_87)">
+                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2389_87">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
                             <p>Сможете улыбаться и есть любую пищу</p>
                         </div>
                         <div class="benefit-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2389_87)">
+                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2389_87">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
                             <p>Вы сможете помолодеть на 5-10 лет</p>
                         </div>
                     </div>
@@ -432,10 +462,20 @@
 <section class="plus-grid-section">
     <div class="plus-grid-layout">
         <div class="header">
-            <h2>Премиум-лечение — по разумной цене.</h2>
+            <h2>Премиум лечение<br>по разумной цене</h2>
         </div>
         
         <div class="header-plus">
+            <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_2340_161)">
+                    <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_2340_161">
+                        <rect width="20" height="16" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
             <h3>Улыбка без боли и лишних визитов — с гарантией качества и прозрачной ценой.</h3>
         </div>
         
@@ -519,7 +559,7 @@
     <div class="grid-system">
         <!-- Заголовок на всю ширину -->
         <div class="trust-header grid-12">
-            <h2>Нам доверяют<br><span>потому что у нас безопасно</span></h2>
+            <h2>Нам доверяют<br><span>потому что <span class="highlight">у нас безопасно</span></span></h2>
         </div>
         
         <!-- Единая сетка 3x2 -->
@@ -554,41 +594,15 @@
             
             <!-- Второй ряд - гарантии -->
             <div class="guarantees-left" style="grid-area: 2 / 1 / 3 / 2;">
-                <div class="overlapping-circles">
-                    <div class="circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Лицо">
-                    </div>
-                    <div class="circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-date.svg" alt="Дата">
-                    </div>
-                </div>
-                <h3>Есть вопросы по гарантиям?</h3>
-                <button type="button" class="btn-1" onclick="openPopup()">Задать вопрос</button>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/warranty-bg.jpg" alt="Гарантии">
             </div>
             
             <div class="guarantees-right" style="grid-area: 2 / 2 / 3 / 4;">
-                <div class="guarantees-content">
-                    <h3>Все гарантии официально по договору</h3>
-                    <p>На врача и на импланты – до пожизненной</p>
-                </div>
-                <div class="guarantees-table">
-                    <div class="guarantee-row">
-                        <div class="guarantee-item">На работу врача</div>
-                        <div class="guarantee-period">1 год</div>
-                    </div>
-                    <div class="guarantee-row">
-                        <div class="guarantee-item">На импланты<br>Implantium (Корея)</div>
-                        <div class="guarantee-period">5 лет</div>
-                    </div>
-                    <div class="guarantee-row">
-                        <div class="guarantee-item">На импланты<br>Nobel (Швейцария)</div>
-                        <div class="guarantee-period">Пожизненно</div>
-                    </div>
-                    <div class="guarantee-row">
-                        <div class="guarantee-item">На импланты<br>Impro (Германия)</div>
-                        <div class="guarantee-period">Пожизненно</div>
-                    </div>
-                </div>
+                <h3>Все гарантии официально по договору</h3>
+                <ul class="guarantees-list">
+                    <li>Гарантия на работу врача — 1 год. Мы уверены в профессионализме наших специалистов и берём на себя ответственность за качество лечения.</li>
+                    <li>Мы работаем только с надёжными системами: Implantium (Корея) с гарантией 5 лет, а премиальные Nobel (Швейцария) и Impro (Германия) идут с официальной пожизненной гарантией от производителя.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -711,11 +725,29 @@
                                 }
                         ?>
                             <div class="slider-video-review-card">
-                                <div class="reviewer-photo">
-                                    <?php if (has_post_thumbnail()) : ?>
-                                        <?php the_post_thumbnail('thumbnail'); ?>
-                                    <?php else : ?>
-                                        <div class="reviewer-placeholder">👤</div>
+                                <div class="review-header">
+                                    <div class="reviewer-photo">
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <?php the_post_thumbnail('thumbnail'); ?>
+                                        <?php else : ?>
+                                            <div class="reviewer-placeholder">👤</div>
+                                        <?php endif; ?>
+                                    </div>
+                                    
+                                    <?php if ($video_url) : ?>
+                                                                            <button class="review-video-btn" data-video="<?php echo esc_url($video_url); ?>">
+                                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_2402_132)">
+                                                <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
+                                                <path d="M50 0C22.3861 0 0 22.3857 0 50C0 77.6143 22.3861 100 50 100C77.6139 100 100 77.6143 100 50C100 22.3857 77.6139 0 50 0ZM67.2813 52.6504L42.2812 68.2754C41.808 68.5708 41.2644 68.7342 40.7067 68.7487C40.1491 68.7632 39.5977 68.6283 39.1098 68.3578C38.6219 68.0875 38.2153 67.6915 37.9323 67.2109C37.6492 66.7303 37.4999 66.1827 37.5 65.625V34.375C37.5 33.2383 38.1164 32.193 39.1098 31.6422C39.5974 31.3707 40.1489 31.2352 40.7068 31.2497C41.2647 31.2641 41.8084 31.4282 42.2812 31.7246L67.2813 47.3496C68.1945 47.9219 68.75 48.9229 68.75 50C68.75 51.0771 68.1945 52.0783 67.2813 52.6504Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_2402_132">
+                                                    <rect width="100" height="100" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
                                     <?php endif; ?>
                                 </div>
                                 
@@ -733,15 +765,6 @@
                                         ?>
                                     </div>
                                 </div>
-                                
-                                <?php if ($video_url) : ?>
-                                    <button class="review-video-btn" data-video="<?php echo esc_url($video_url); ?>">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12" r="12" fill="#ff6b35"/>
-                                            <path d="M10 8L16 12L10 16V8Z" fill="white"/>
-                                        </svg>
-                                    </button>
-                                <?php endif; ?>
                             </div>
                         <?php
                             endwhile;
@@ -749,8 +772,10 @@
                         else :
                         ?>
                             <div class="slider-video-review-card">
-                                <div class="reviewer-photo">
-                                    <div class="reviewer-placeholder">👤</div>
+                                <div class="review-header">
+                                    <div class="reviewer-photo">
+                                        <div class="reviewer-placeholder">👤</div>
+                                    </div>
                                 </div>
                                 <div class="review-content">
                                     <div class="review-text">
@@ -864,9 +889,10 @@
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" fill="#000000"/>
-                                <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
                             </svg>
                         </div>
                         <p>
@@ -876,9 +902,10 @@
                     
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" fill="#000000"/>
-                                <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
                             </svg>
                         </div>
                         <p>
@@ -888,9 +915,10 @@
                     
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" fill="#000000"/>
-                                <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
                             </svg>
                         </div>
                         <p>
@@ -900,9 +928,10 @@
                     
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" fill="#000000"/>
-                                <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
                             </svg>
                         </div>
                         <p>
@@ -970,9 +999,16 @@
                                 <div class="slider-doctor-experience">Опыт работы: <?php echo esc_html($doctor_experience); ?> лет</div>
                                 <?php if ($doctor_video) : ?>
                                     <button class="doctor-video-btn" data-video="<?php echo esc_url($doctor_video); ?>">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12" r="12" fill="rgba(255,255,255,0.9)"/>
-                                            <path d="M10 8L16 12L10 16V8Z" fill="#333"/>
+                                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_2402_132)">
+                                                <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
+                                                <path d="M50 0C22.3861 0 0 22.3857 0 50C0 77.6143 22.3861 100 50 100C77.6139 100 100 77.6143 100 50C100 22.3857 77.6139 0 50 0ZM67.2813 52.6504L42.2812 68.2754C41.808 68.5708 41.2644 68.7342 40.7067 68.7487C40.1491 68.7632 39.5977 68.6283 39.1098 68.3578C38.6219 68.0875 38.2153 67.6915 37.9323 67.2109C37.6492 66.7303 37.4999 66.1827 37.5 65.625V34.375C37.5 33.2383 38.1164 32.193 39.1098 31.6422C39.5974 31.3707 40.1489 31.2352 40.7068 31.2497C41.2647 31.2641 41.8084 31.4282 42.2812 31.7246L67.2813 47.3496C68.1945 47.9219 68.75 48.9229 68.75 50C68.75 51.0771 68.1945 52.0783 67.2813 52.6504Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_2402_132">
+                                                    <rect width="100" height="100" fill="white"/>
+                                                </clipPath>
+                                            </defs>
                                         </svg>
                                     </button>
                                 <?php endif; ?>
@@ -1048,28 +1084,21 @@
     </div>
 </section>
 
-<!-- Анимация прогресса -->
-<div class="grid-system">
-    <div class="progress-animation-container">
-        <div class="progress-animation-bar"></div>
-    </div>
-</div>
+
 
 <!-- Блок видов имплантов -->
 <section class="implant-types-section">
     <div class="grid-system">
-        <div class="implant-types-header grid-12">
-            <div class="implant-title-main">
-                <h2>
-                    Подберём подходящий метод имплантации именно для вас
-                </h2>
-            </div>
-            
-            <div class="implant-title-description">
-                <p class="implant-types-description">
-                    Мы не используем один протокол для всех. Мы подбираем подход в зависимости от вашей анатомии, целей и бюджета:
-                </p>
-            </div>
+        <div class="implant-title-main grid-8">
+            <h2>
+                Подберём подходящий метод имплантации именно для вас
+            </h2>
+        </div>
+        
+        <div class="implant-title-description grid-4">
+            <p class="implant-types-description">
+                Мы не используем один протокол для всех. Мы подбираем подход в зависимости от вашей анатомии, целей и бюджета:
+            </p>
         </div>
         
         <div class="implant-tabs-container grid-12">
@@ -1084,7 +1113,7 @@
 
                 <section id="p1" class="panel is-active" role="tabpanel" aria-labelledby="t1">
                     <div class="tab-photo">
-                        <!-- Здесь будет картинка -->
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/odnomoment.jpg" alt="Одномоментная имплантация">
                     </div>
                     <div class="tab-content-grid">
                         <div>
@@ -1127,7 +1156,7 @@
                 </section>
                 <section id="p2" class="panel" role="tabpanel" aria-labelledby="t2">
                     <div class="tab-photo">
-                        <!-- Здесь будет картинка -->
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/classik.jpg" alt="Классическая имплантация">
                     </div>
                     <div class="tab-content-grid">
                         <div>
@@ -1170,7 +1199,7 @@
                 </section>
                 <section id="p3" class="panel" role="tabpanel" aria-labelledby="t3">
                     <div class="tab-photo">
-                        <!-- Здесь будет картинка -->
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/four.jpg" alt="All-on-4 имплантация">
                     </div>
                     <div class="tab-content-grid">
                         <div>
@@ -1213,7 +1242,7 @@
                 </section>
                 <section id="p4" class="panel" role="tabpanel" aria-labelledby="t4">
                     <div class="tab-photo">
-                        <!-- Здесь будет картинка -->
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/six.jpg" alt="All-on-6 имплантация">
                     </div>
                     <div class="tab-content-grid">
                         <div>
@@ -1258,6 +1287,13 @@
         </div>
 </section>
 
+<!-- Анимация прогресса -->
+<div class="grid-system">
+    <div class="progress-animation-container">
+        <div class="progress-animation-bar"></div>
+    </div>
+</div>
+
 <!-- Блок видов имплантов -->
 <section class="implants-section">
     <div class="implants-header grid-system">
@@ -1268,6 +1304,14 @@
         </div>
         
         <div class="implants-description grid-4">
+            <div class="overlapping-circles">
+                <div class="circle">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-01.jpg" alt="Тип импланта 1">
+                </div>
+                <div class="circle">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-02.jpg" alt="Тип импланта 2">
+                </div>
+            </div>
             <p class="implants-subtitle">
                 Мы используем только проверенные импланты от ведущих производителей с гарантией качества и приживаемости.
             </p>
@@ -1279,7 +1323,6 @@
         <div class="implant-card grid-4 grid-6-tablet grid-12-mobile">
                 <div class="card-header">
                     <div class="brand-info">
-                        <div class="brand-logo">IMPLANTIUM</div>
                         <div class="brand-name">Implantium</div>
                         <div class="brand-origin">Южная Корея</div>
                     </div>
@@ -1317,7 +1360,6 @@
             <div class="implant-card grid-4 grid-6-tablet grid-12-mobile">
                 <div class="card-header">
                     <div class="brand-info">
-                        <div class="brand-logo">IMPRO</div>
                         <div class="brand-name">Impro</div>
                         <div class="brand-origin">Германия</div>
                     </div>
@@ -1360,7 +1402,6 @@
             <div class="implant-card grid-4 grid-6-tablet grid-12-mobile">
                 <div class="card-header">
                     <div class="brand-info">
-                        <div class="brand-logo" style="color: #e74c3c;">NOBEL BIOCARE</div>
                         <div class="brand-name">Nobel Biocare</div>
                         <div class="brand-origin">Швейцария</div>
                     </div>
@@ -1401,7 +1442,6 @@
                     <div class="implant-card">
                         <div class="card-header">
                             <div class="brand-info">
-                                <div class="brand-logo">IMPLANTIUM</div>
                                 <div class="brand-name">Implantium</div>
                                 <div class="brand-origin">Южная Корея</div>
                             </div>
@@ -1441,7 +1481,6 @@
                     <div class="implant-card">
                         <div class="card-header">
                             <div class="brand-info">
-                                <div class="brand-logo">IMPRO</div>
                                 <div class="brand-name">Impro</div>
                                 <div class="brand-origin">Германия</div>
                             </div>
@@ -1486,7 +1525,6 @@
                     <div class="implant-card">
                         <div class="card-header">
                             <div class="brand-info">
-                                <div class="brand-logo" style="color: #e74c3c;">NOBEL BIOCARE</div>
                                 <div class="brand-name">Nobel Biocare</div>
                                 <div class="brand-origin">Швейцария</div>
                             </div>
@@ -1549,10 +1587,10 @@
             <div class="prices-description">
                 <div class="overlapping-circles">
                     <div class="circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Лицо">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Лицо">
                     </div>
                     <div class="circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-date.svg" alt="Дата">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="Вопрос">
                     </div>
                 </div>
                 <p>
@@ -1647,33 +1685,35 @@
     <div class="china-risks-layout">
         <div class="header">
                             <h2>Собирались лететь в Китай на протезирование?</h2>
-            <p>Риски и проблемы лечения зубов за границей</p>
         </div>
         
         <div class="header-plus">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.5 17.5L0 10L2.5 7.5L7.5 12.5L17.5 2.5L20 5" fill="#FF0000"/>
+</svg>
             <h3>Сомнительные китайские аналоги имплантов — двойная плата: деньги и здоровье.</h3>
         </div>
         
         <div class="plus-card risk-1">
-            <div class="plus-icon">❌</div>
+            <div class="plus-icon">.01</div>
             <h3>Языковой барьер</h3>
             <p>Вы не объясните врачу, что чувствуете. Ошибка на этапе имплантации – это не возврат товара.</p>
         </div>
         
         <div class="plus-card risk-2">
-            <div class="plus-icon">❌</div>
+            <div class="plus-icon">.02</div>
             <h3>Выбор клиники вслепую</h3>
             <p>По факту, вы доверяете здоровье и деньги неизвестной системе.</p>
         </div>
         
         <div class="plus-card risk-3">
-            <div class="plus-icon">❌</div>
+            <div class="plus-icon">.03</div>
             <h3>Скрытые доплаты</h3>
             <p>Один счёт за операцию, другой – за «мелочи» на месте, а через неделю ещё за «коронки».</p>
         </div>
         
         <div class="plus-card risk-4">
-            <div class="plus-icon">❌</div>
+            <div class="plus-icon">.04</div>
             <h3>Гарантия?</h3>
             <p>Только пока вы в стране. А если что – останетесь с проблемой один на один.</p>
         </div>
@@ -1681,7 +1721,7 @@
         <div class="plus-card risk-5">
             <h3>В ЦЭСИ – всё прозрачно и безопасно:</h3>
             <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
-            <a href="#contact" class="plus-btn">Записаться на консультацию</a>
+            <button class="btn-1">Записаться на консультацию</button>
         </div>
     </div>
 </section>
@@ -1758,9 +1798,7 @@
             <div class="contacts-details">
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 0C6.12 0 3 3.12 3 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.88-3.12-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#2c1810"/>
-                        </svg>
+                        📍
                     </div>
                     <div class="contact-text">
                         г. Елизово, ул. Ленина 15-а
@@ -1769,10 +1807,7 @@
                 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="9" stroke="#2c1810" stroke-width="2" fill="none"/>
-                            <path d="M10 4v6l4 2" stroke="#2c1810" stroke-width="2" fill="none"/>
-                        </svg>
+                        🕒
                     </div>
                     <div class="contact-text">
                         Пн-Пт: 8:00 - 20:00, Сб 8:00 – 14:00
@@ -1781,10 +1816,7 @@
                 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.5 14.5c-.5.5-1.2.8-1.9.8-.7 0-1.4-.3-1.9-.8l-2.1-2.1c-.5-.5-.8-1.2-.8-1.9 0-.7.3-1.4.8-1.9l2.1-2.1c.5-.5 1.2-.8 1.9-.8.7 0 1.4.3 1.9.8l2.1 2.1c.5.5.8 1.2.8 1.9 0 .7-.3 1.4-.8 1.9l-2.1 2.1z" fill="#2c1810"/>
-                            <path d="M12.5 7.5l-5 5" stroke="white" stroke-width="1.5"/>
-                        </svg>
+                        📞
                     </div>
                     <div class="contact-text">
                         +7(4152) 21-55-82
@@ -1793,9 +1825,7 @@
                 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm5 11h-4v4H9v-4H5V9h4V5h2v4h4v2z" fill="#2c1810"/>
-                        </svg>
+                        📞
                     </div>
                     <div class="contact-text">
                         +7(908) 495-24-24
@@ -1808,13 +1838,13 @@
             </div>
             
             <div class="contacts-button">
-                <button class="callback-btn">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
+                <button class="btn-1">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
             </div>
         </div>
         
         <div class="contacts-photo grid-6">
             <div class="building-photo">
-                <div class="building-placeholder"></div>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map-pin.jpg" alt="Карта" class="building-placeholder">
             </div>
             <div class="map-link">
                 <a href="#" class="map-link-btn" id="showMapBtn">Посмотреть на карте</a>
