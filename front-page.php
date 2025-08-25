@@ -1,5 +1,55 @@
 <?php get_header(); ?>
 
+<!-- Мобильный Hero Section -->
+<section class="mobile-hero">
+    <div class="overlapping-circles">
+        <div class="circle">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Лицо">
+        </div>
+        <div class="circle">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Лицо">
+        </div>
+    </div>
+    
+    <h1 class="hero-title">
+        Имплантация<br>
+        <span class="highlight">за 1 день</span>
+    </h1>
+    
+    <h2 class="hero-subtitle">
+        с гарантией, без боли и переплат
+    </h2>
+    
+    <h3 class="hero-description">
+        Установим имплант и временную коронку уже на первом визите. 99,8% приживаемость. Всё включено — без доплат и навязываний.
+    </h3>
+    
+    <div class="hero-features">
+        <div class="hero-feature">
+            <svg class="feature-icon" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6C5 2.68629 7.68629 -6.71957e-07 11 -9.6165e-07L18 -1.57361e-06C18.5523 -1.62189e-06 19 0.447714 19 0.999998C19 1.55228 18.5523 2 18 2L11 2C8.79086 2 7 3.79086 7 6L7 14C7 14.5523 6.55229 15 6 15C5.44772 15 5 14.5523 5 14L5 6Z" fill="#23BFCF"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7071 9.29289C12.0976 9.68342 12.0976 10.3166 11.7071 10.7071L6.70712 15.7071L5.29291 14.2929L10.2929 9.29289C10.6834 8.90237 11.3166 8.90237 11.7071 9.29289Z" fill="#23BFCF"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70712 15.7071C7.09765 15.3166 7.09763 14.6834 6.70711 14.2929L1.70711 9.29289C1.31658 8.90237 0.683418 8.90237 0.292894 9.29289C-0.0976302 9.68342 -0.0976303 10.3166 0.292894 10.7071L5.29289 15.7071C5.68342 16.0976 6.3166 16.0976 6.70712 15.7071Z" fill="#23BFCF"/>
+            </svg>
+            <p>С персональным куратором на каждом этапе — от консультации до улыбки</p>
+        </div>
+        <div class="hero-feature">
+            <svg class="feature-icon" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6C5 2.68629 7.68629 -6.71957e-07 11 -9.6165e-07L18 -1.57361e-06C18.5523 -1.62189e-06 19 0.447714 19 0.999998C19 1.55228 18.5523 2 18 2L11 2C8.79086 2 7 3.79086 7 6L7 14C7 14.5523 6.55229 15 6 15C5.44772 15 5 14.5523 5 14L5 6Z" fill="#23BFCF"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7071 9.29289C12.0976 9.68342 12.0976 10.3166 11.7071 10.7071L6.70712 15.7071L5.29291 14.2929L10.2929 9.29289C10.6834 8.90237 11.3166 8.90237 11.7071 9.29289Z" fill="#23BFCF"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70712 15.7071C7.09765 15.3166 7.09763 14.6834 6.70711 14.2929L1.70711 9.29289C1.31658 8.90237 0.683418 8.90237 0.292894 9.29289C-0.0976302 9.68342 -0.0976303 10.3166 0.292894 10.7071L5.29289 15.7071C5.68342 16.0976 6.3166 16.0976 6.70712 15.7071Z" fill="#23BFCF"/>
+            </svg>
+            <p>Ведущие специалисты на Камчатке с опытом от 7 до 22 лет.</p>
+        </div>
+    </div>
+    
+    <div class="mobile-index">
+        Mobile Index Block
+    </div>
+    
+    <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
+</section>
+
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="grid-system">
@@ -80,9 +130,7 @@
     <div class="grid-system">
         <div class="index-card grid-3">
             <div class="index-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                </svg>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rating-icon.png" alt="Рейтинг">
             </div>
             <div class="index-content">
                 <div class="index-number">01</div>
@@ -192,11 +240,13 @@
         
         <div class="consultation-right grid-6">
             <div class="doctor-quote">
-                <p class="quote-text">
-                    "Чем дольше ждёте — тем сложнее и дороже будет лечение"
-                </p>
                 <div class="quote-doctor-photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-little.png" alt="Доктор" class="quote-doctor-image">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-little.png" alt="Доктор">
+                </div>
+                <div class="quote-doctor-text">
+                    <p class="quote-text">
+                        "Чем дольше ждёте — тем сложнее и дороже будет лечение"
+                    </p>
                 </div>
             </div>
             
@@ -545,6 +595,7 @@
         </div>
         
         <div class="plus-card plus-5">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-bg.png" alt="Имплантация за 1 день" class="plus-5-image">
             <div class="plus-5-content">
                 <h3>Имплантация за 1 день</h3>
                 <p>Без боли, с временной коронкой и без лишних визитов. Благодаря нашей цифровой лаборатории и протоколу All-on-4»</p>
@@ -623,53 +674,68 @@
         </div>
         
         <div class="comparison-cards-container grid-12" id="compareSlider">
-            <div class="compare-card">
-                <div class="compare-wrapper">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-down.webp" alt="До">
-                    <div class="after">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-up.webp" alt="После">
+            <div class="cards__track" id="cardsTrack">
+                <!-- 1 -->
+                <article class="compare-card">
+                    <div class="card__media">
+                        <div class="ba" data-start="40">
+                            <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-up.webp" alt="После">
+                            <div class="ba__layer ba__after">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-down.webp" alt="До">
+                            </div>
+                            <div class="ba__handle" aria-hidden="true"></div>
+                            <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
+                        </div>
                     </div>
-                    <div class="slider"></div>
-                </div>
-                <div class="compare-text">
-                    <h3>Эстетика и здоровье</h3>
-                    <p>Пациент получил идеальную улыбку после сложной коррекции прикуса.</p>
-                </div>
-            </div>
-            
-            <div class="compare-card">
-                <div class="compare-wrapper">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-down.webp" alt="До">
-                    <div class="after">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-up.webp" alt="После">
+                    <div class="compare-text">
+                        <h3>Улыбка для свадьбы</h3>
+                        <p>Виктория, 32 года, п. Палана. Перед свадьбой прилетела к нам, чтобы быть безупречной в важный день. В ЦЭСИ выполнили: костную пластику верхней челюсти; установку имплантов Impro (Германия); полное лечение своих зубов; протезирование коронками из диоксида циркония.</p>
                     </div>
-                    <div class="slider"></div>
-                </div>
-                <div class="compare-text">
-                    <h3>Полное преображение</h3>
-                    <p>Результат лечения с использованием новейших технологий в клинике.</p>
-                </div>
-            </div>
-            
-            <div class="compare-card">
-                <div class="compare-wrapper">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-down.webp" alt="До">
-                    <div class="after">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-up.webp" alt="После">
+                </article>
+                
+                <!-- 2 -->
+                <article class="compare-card">
+                    <div class="card__media">
+                        <div class="ba" data-start="40">
+                            <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-up.webp" alt="После">
+                            <div class="ba__layer ba__after">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-down.webp" alt="До">
+                            </div>
+                            <div class="ba__handle" aria-hidden="true"></div>
+                            <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
+                        </div>
                     </div>
-                    <div class="slider"></div>
-                </div>
-                <div class="compare-text">
-                    <h3>Видимый результат</h3>
-                    <p>Улыбка стала ярче и гармоничнее всего за несколько процедур.</p>
-                </div>
+                    <div class="compare-text">
+                        <h3>Перерождение улыбки</h3>
+                        <p>Комплексное лечение: импланты, виниры и коронки. Работали Моисеев К.Н. и Ларин К.Е. Результат — естественная и надёжная улыбка.</p>
+                    </div>
+                </article>
+                
+                <!-- 3 -->
+                <article class="compare-card">
+                    <div class="card__media">
+                        <div class="ba" data-start="40">
+                            <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-up.webp" alt="После">
+                            <div class="ba__layer ba__after">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-down.webp" alt="До">
+                            </div>
+                            <div class="ba__handle" aria-hidden="true"></div>
+                            <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
+                        </div>
+                    </div>
+                    <div class="compare-text">
+                        <h3>Новая улыбка — новая уверенность</h3>
+                        <p>Зубы пролечены под микроскопом. Установлены импланты. Установлены коронки из циркония. Результат — восстановлены здоровье и эстетика, пациент снова улыбается без стеснения.</p>
+                    </div>
+                </article>
             </div>
         </div>
         
-        <div class="compare-nav grid-12" id="compareNav">
-            <div class="dot active" data-index="0"></div>
-            <div class="dot" data-index="1"></div>
-            <div class="dot" data-index="2"></div>
+        <!-- точки пагинации для мобильных -->
+        <div class="cards__dots grid-12" aria-label="Пагинация" id="cardsDots">
+            <button class="cards__dot" aria-label="Слайд 1"></button>
+            <button class="cards__dot" aria-label="Слайд 2"></button>
+            <button class="cards__dot" aria-label="Слайд 3"></button>
         </div>
         
         <div class="comparison-cta grid-12">
@@ -1287,12 +1353,7 @@
         </div>
 </section>
 
-<!-- Анимация прогресса -->
-<div class="grid-system">
-    <div class="progress-animation-container">
-        <div class="progress-animation-bar"></div>
-    </div>
-</div>
+
 
 <!-- Блок видов имплантов -->
 <section class="implants-section">
@@ -1600,7 +1661,7 @@
         </div>
         
         <div class="prices-image-block grid-4">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/prices-image.jpg" alt="Цены на имплантацию" class="prices-image">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/price-bg.jpg" alt="Цены на имплантацию" class="prices-image">
         </div>
         
         <div class="prices-cards-block grid-4">
@@ -1719,6 +1780,11 @@
         </div>
         
         <div class="plus-card risk-5">
+            <div class="overlapping-circles">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
             <h3>В ЦЭСИ – всё прозрачно и безопасно:</h3>
             <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
             <button class="btn-1">Записаться на консультацию</button>
@@ -1886,52 +1952,173 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll(".compare-wrapper").forEach(wrapper => {
-        const before = wrapper.querySelector(".after");
-        const slider = wrapper.querySelector(".slider");
-        let isDragging = false;
 
-        const updatePosition = x => {
-            const rect = wrapper.getBoundingClientRect();
-            let offset = x - rect.left;
-            offset = Math.max(0, Math.min(offset, rect.width));
-            before.style.width = `${offset}px`;
-            slider.style.left = `${offset}px`;
-        };
 
-        slider.addEventListener("mousedown", () => {
-            isDragging = true;
-            wrapper.classList.add('dragging');
+    // === НОВЫЙ СЛАЙДЕР СРАВНЕНИЯ ДО/ПОСЛЕ ===
+    
+    /* Before/After (проценты + rAF) */
+    (() => {
+        document.querySelectorAll('.ba').forEach((root) => {
+            const range = root.querySelector('.ba__range');
+            let pct = parseFloat(root.dataset.start || range.value || '40') || 40;
+
+            const setPct = (p) => {
+                pct = Math.max(0, Math.min(100, p));
+                root.style.setProperty('--pct', pct + '%');
+                range.value = String(Math.round(pct));
+            };
+            setPct(pct);
+
+            const pctFromX = (clientX) => {
+                const r = root.getBoundingClientRect();
+                const x = Math.max(0, Math.min(r.width, clientX - r.left));
+                return (x / r.width) * 100;
+            };
+
+            let dragging = false, lastX = null, ticking = false;
+            const schedule = () => {
+                if (ticking || lastX == null) return;
+                ticking = true;
+                requestAnimationFrame(() => { setPct(pctFromX(lastX)); ticking = false; });
+            };
+            const start = (x) => { dragging = true; root.classList.add('dragging'); lastX = x; schedule(); };
+            const move = (x) => { if (!dragging) return; lastX = x; schedule(); };
+            const end = () => { dragging = false; root.classList.remove('dragging'); lastX = null; };
+
+            root.addEventListener('mousedown', (e) => { e.preventDefault(); start(e.clientX); });
+            window.addEventListener('mousemove', (e) => move(e.clientX));
+            window.addEventListener('mouseup', end);
+
+            // Важно: не блокируем родительский горизонтальный скролл
+            root.addEventListener('touchstart', (e) => {
+                if (e.touches.length !== 1) return;
+                start(e.touches[0].clientX);
+            }, { passive: true });
+
+            root.addEventListener('touchmove', (e) => {
+                if (!dragging || e.touches.length !== 1) return;
+                e.preventDefault(); // чтобы тач внутри .ba не прокручивал страницу
+                move(e.touches[0].clientX);
+            }, { passive: false });
+
+            window.addEventListener('touchend', end, { passive: true });
+            window.addEventListener('touchcancel', end, { passive: true });
+
+            range.addEventListener('input', (e) => {
+                const v = parseFloat(e.target.value);
+                if (!Number.isNaN(v)) setPct(v);
+            });
+
+            new ResizeObserver(() => setPct(pct)).observe(root);
         });
-        
-        window.addEventListener("mouseup", () => {
-            isDragging = false;
-            wrapper.classList.remove('dragging');
-        });
-        
-        window.addEventListener("mousemove", e => {
-            if (!isDragging) return;
-            updatePosition(e.clientX);
+    })();
+
+    /* Mobile dots for scroll-snap */
+    (() => {
+        const track = document.getElementById('cardsTrack');
+        const dots = Array.from(document.getElementById('cardsDots').querySelectorAll('.cards__dot'));
+        if (!track) return;
+
+        const isMobile = () => window.matchMedia('(max-width: 680px)').matches;
+
+        function updateDotsByScroll() {
+            if (!isMobile()) { dots.forEach(d => d.removeAttribute('aria-current')); return; }
+            const i = Math.round(track.scrollLeft / track.clientWidth);
+            dots.forEach((d, idx) => d.setAttribute('aria-current', idx === i ? 'true' : 'false'));
+        }
+        updateDotsByScroll();
+
+        // Клик по точке — прокрутить к карточке
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                track.scrollTo({ left: idx * track.clientWidth, behavior: 'smooth' });
+            });
         });
 
-        wrapper.addEventListener("touchstart", e => {
-            if (e.touches.length === 1) {
-                isDragging = true;
-                wrapper.classList.add('dragging');
+        // Обновляем активную точку при скролле и ресайзе
+        track.addEventListener('scroll', () => { requestAnimationFrame(updateDotsByScroll); }, { passive: true });
+        window.addEventListener('resize', updateDotsByScroll);
+    })();
+
+    // ===================================
+    // АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+    // ===================================
+    
+    // Intersection Observer для анимаций
+    const observerOptions = {
+        threshold: 0.3, // Анимация запускается когда 30% элемента видно
+        rootMargin: '0px 0px -50px 0px' // Небольшой отступ снизу
+    };
+    
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Добавляем класс для запуска анимации
+                entry.target.classList.add('animate');
+                
+                // Если это прогресс-бар, запускаем анимацию
+                const progressBar = entry.target.querySelector('.progress-animation-bar');
+                if (progressBar) {
+                    progressBar.classList.add('animate');
+                }
             }
         });
-
-        wrapper.addEventListener("touchmove", e => {
-            if (!isDragging || e.touches.length !== 1) return;
-            updatePosition(e.touches[0].clientX);
-        });
-
-        window.addEventListener("touchend", () => {
-            isDragging = false;
-            wrapper.classList.remove('dragging');
-        });
+    }, observerOptions);
+    
+    // Находим все элементы для анимации
+    const animatedElements = document.querySelectorAll('.progress-animation-container');
+    animatedElements.forEach(element => {
+        animationObserver.observe(element);
     });
+    
+    // Функция для создания прогресс-бара
+    function createProgressBar(container, options = {}) {
+        const {
+            height = '10px',
+            backgroundColor = '#e0e0e0',
+            progressColor = 'var(--primary-color)',
+            borderRadius = '5px',
+            animationDuration = '1.2s',
+            animationDelay = '0s',
+            gradient = false,
+            shadow = false,
+            bounce = false
+        } = options;
+        
+        // Создаем контейнер
+        const progressContainer = document.createElement('div');
+        progressContainer.className = 'progress-animation-container';
+        progressContainer.style.height = height;
+        progressContainer.style.backgroundColor = backgroundColor;
+        progressContainer.style.borderRadius = borderRadius;
+        
+        // Создаем прогресс-бар
+        const progressBar = document.createElement('div');
+        progressBar.className = 'progress-animation-bar';
+        progressBar.style.background = progressColor;
+        progressBar.style.transitionDuration = animationDuration;
+        progressBar.style.transitionDelay = animationDelay;
+        
+        // Добавляем дополнительные классы
+        if (gradient) progressBar.classList.add('gradient');
+        if (shadow) progressBar.classList.add('shadow');
+        if (bounce) progressBar.classList.add('bounce');
+        
+        // Собираем элементы
+        progressContainer.appendChild(progressBar);
+        container.appendChild(progressContainer);
+        
+        // Добавляем в observer
+        animationObserver.observe(progressContainer);
+        
+        return progressContainer;
+    }
+    
+    // Примеры использования:
+    // createProgressBar(document.body, { height: '15px', gradient: true, bounce: true });
+    // createProgressBar(document.body, { height: '8px', shadow: true, animationDelay: '0.5s' });
 
+    // Старый код для совместимости
     const compareSlider = document.getElementById("compareSlider");
     const compareDots = document.querySelectorAll(".compare-nav .dot");
     let compareIndex = 0;
@@ -2358,83 +2545,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ===================================
-    // АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
-    // ===================================
-    
-    // Intersection Observer для анимаций
-    const observerOptions = {
-        threshold: 0.3, // Анимация запускается когда 30% элемента видно
-        rootMargin: '0px 0px -50px 0px' // Небольшой отступ снизу
-    };
-    
-    const animationObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Добавляем класс для запуска анимации
-                entry.target.classList.add('animate');
-                
-                // Если это прогресс-бар, запускаем анимацию
-                const progressBar = entry.target.querySelector('.progress-animation-bar');
-                if (progressBar) {
-                    progressBar.classList.add('animate');
-                }
-            }
-        });
-    }, observerOptions);
-    
-    // Находим все элементы для анимации
-    const animatedElements = document.querySelectorAll('.progress-animation-container');
-    animatedElements.forEach(element => {
-        animationObserver.observe(element);
-    });
-    
-    // Функция для создания прогресс-бара
-    function createProgressBar(container, options = {}) {
-        const {
-            height = '10px',
-            backgroundColor = '#e0e0e0',
-            progressColor = 'var(--primary-color)',
-            borderRadius = '5px',
-            animationDuration = '1.2s',
-            animationDelay = '0s',
-            gradient = false,
-            shadow = false,
-            bounce = false
-        } = options;
-        
-        // Создаем контейнер
-        const progressContainer = document.createElement('div');
-        progressContainer.className = 'progress-animation-container';
-        progressContainer.style.height = height;
-        progressContainer.style.backgroundColor = backgroundColor;
-        progressContainer.style.borderRadius = borderRadius;
-        
-        // Создаем прогресс-бар
-        const progressBar = document.createElement('div');
-        progressBar.className = 'progress-animation-bar';
-        progressBar.style.background = progressColor;
-        progressBar.style.transitionDuration = animationDuration;
-        progressBar.style.transitionDelay = animationDelay;
-        
-        // Добавляем дополнительные классы
-        if (gradient) progressBar.classList.add('gradient');
-        if (shadow) progressBar.classList.add('shadow');
-        if (bounce) progressBar.classList.add('bounce');
-        
-        // Собираем элементы
-        progressContainer.appendChild(progressBar);
-        container.appendChild(progressContainer);
-        
-        // Добавляем в observer
-        animationObserver.observe(progressContainer);
-        
-        return progressContainer;
-    }
-    
-    // Примеры использования:
-    // createProgressBar(document.body, { height: '15px', gradient: true, bounce: true });
-    // createProgressBar(document.body, { height: '8px', shadow: true, animationDelay: '0.5s' });
+
 });
 </script>
 
