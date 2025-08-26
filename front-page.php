@@ -244,9 +244,9 @@
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-little.png" alt="Доктор">
                 </div>
                 <div class="quote-doctor-text">
-                    <p class="quote-text">
-                        "Чем дольше ждёте — тем сложнее и дороже будет лечение"
-                    </p>
+                <p class="quote-text">
+                    "Чем дольше ждёте — тем сложнее и дороже будет лечение"
+                </p>
                 </div>
             </div>
             
@@ -681,16 +681,16 @@
                         <div class="ba" data-start="40">
                             <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-up.webp" alt="После">
                             <div class="ba__layer ba__after">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-down.webp" alt="До">
-                            </div>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-down.webp" alt="До">
+                    </div>
                             <div class="ba__handle" aria-hidden="true"></div>
                             <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
                         </div>
-                    </div>
-                    <div class="compare-text">
+                </div>
+                <div class="compare-text">
                         <h3>Улыбка для свадьбы</h3>
                         <p>Виктория, 32 года, п. Палана. Перед свадьбой прилетела к нам, чтобы быть безупречной в важный день. В ЦЭСИ выполнили: костную пластику верхней челюсти; установку имплантов Impro (Германия); полное лечение своих зубов; протезирование коронками из диоксида циркония.</p>
-                    </div>
+                </div>
                 </article>
                 
                 <!-- 2 -->
@@ -699,16 +699,16 @@
                         <div class="ba" data-start="40">
                             <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-up.webp" alt="После">
                             <div class="ba__layer ba__after">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-down.webp" alt="До">
-                            </div>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-down.webp" alt="До">
+                    </div>
                             <div class="ba__handle" aria-hidden="true"></div>
                             <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
                         </div>
-                    </div>
-                    <div class="compare-text">
+                </div>
+                <div class="compare-text">
                         <h3>Перерождение улыбки</h3>
                         <p>Комплексное лечение: импланты, виниры и коронки. Работали Моисеев К.Н. и Ларин К.Е. Результат — естественная и надёжная улыбка.</p>
-                    </div>
+                </div>
                 </article>
                 
                 <!-- 3 -->
@@ -717,16 +717,16 @@
                         <div class="ba" data-start="40">
                             <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-up.webp" alt="После">
                             <div class="ba__layer ba__after">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-down.webp" alt="До">
-                            </div>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-down.webp" alt="До">
+                    </div>
                             <div class="ba__handle" aria-hidden="true"></div>
                             <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
                         </div>
-                    </div>
-                    <div class="compare-text">
+                </div>
+                <div class="compare-text">
                         <h3>Новая улыбка — новая уверенность</h3>
                         <p>Зубы пролечены под микроскопом. Установлены импланты. Установлены коронки из циркония. Результат — восстановлены здоровье и эстетика, пациент снова улыбается без стеснения.</p>
-                    </div>
+                </div>
                 </article>
             </div>
         </div>

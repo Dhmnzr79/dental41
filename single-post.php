@@ -5,7 +5,7 @@
     <div class="container">
         <a href="<?php echo home_url(); ?>">Главная</a>
         <span class="separator">/</span>
-        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Блог</a>
+        <a href="<?php echo home_url('/blog/'); ?>">Блог</a>
         <span class="separator">/</span>
         <span><?php the_title(); ?></span>
     </div>
@@ -42,7 +42,7 @@
                 </div>
                 
                 <div class="article-footer">
-                    <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="back-to-blog">← Вернуться к блогу</a>
+                    <a href="<?php echo home_url('/blog/'); ?>" class="back-to-blog">← Вернуться к блогу</a>
                 </div>
             </div>
             

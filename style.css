@@ -753,6 +753,69 @@ h6 {
     color: var(--text-color);
     text-decoration: none;
     transition: background-color 0.3s ease;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+    color: var(--brand-color);
+}
+
+/* Адаптивность для выпадающего меню */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        margin-left: 20px;
+    }
+    
+    .dropdown-menu a {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+/* Выпадающее меню */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 1001;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-menu a:hover {
@@ -8137,6 +8200,395 @@ body.popup-open {
 .article-image img {
     width: 100%;
     height: auto;
+}
+
+/* Дисклеймер */
+.article-disclaimer {
+    background: #f8f9fa;
+    border-left: 4px solid var(--brand-color);
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.article-disclaimer p {
+    margin: 0;
+    color: #495057;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.article-disclaimer strong {
+    color: var(--heading-color);
+}
+
+/* Бирюзовая полоска */
+.article-brand-stripe {
+    height: 4px;
+    background: var(--brand-color);
+    margin-bottom: 40px;
+    border-radius: 2px;
+}
+
+/* Встроенные изображения в топ-статьях */
+.article-inline-image {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.article-image-inline {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Страницы клиники */
+.clinic-page-content {
+    padding: 80px 0;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+}
+
+.clinic-page-article {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.clinic-page-article h2 {
+    font-size: 2rem;
+    margin: 40px 0 20px;
+    color: var(--heading-color);
+}
+
+.clinic-page-article h3 {
+    font-size: 1.4rem;
+    margin: 30px 0 15px;
+    color: var(--heading-color);
+}
+
+.clinic-page-article p {
+    margin-bottom: 20px;
+}
+
+.clinic-page-article ul, .clinic-page-article ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.clinic-page-article li {
+    margin-bottom: 10px;
+}
+
+.clinic-page-article strong {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.license-notice, .legal-notice {
+    background: #f8f9fa;
+    border-left: 4px solid var(--brand-color);
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 8px;
+}
+
+.license-notice p, .legal-notice p {
+    margin: 0;
+    color: #495057;
+}
+
+/* Адаптивность для страниц клиники */
+@media (max-width: 767px) {
+    .clinic-page-content {
+        padding: 60px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .clinic-page-article h2 {
+        font-size: 1.6rem;
+    }
+    
+    .clinic-page-article h3 {
+        font-size: 1.2rem;
+    }
+    
+    .clinic-page-article {
+        font-size: 1rem;
+    }
+}
+
+/* Стандартные страницы */
+.page-content {
+    padding: 80px 0;
+}
+
+.page-content .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-content .page-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.page-content .page-header h1 {
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+}
+
+.page-article {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.page-article h2 {
+    font-size: 2rem;
+    margin: 40px 0 20px;
+    color: var(--heading-color);
+}
+
+.page-article h3 {
+    font-size: 1.4rem;
+    margin: 30px 0 15px;
+    color: var(--heading-color);
+}
+
+.page-article p {
+    margin-bottom: 20px;
+}
+
+.page-article ul, .page-article ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.page-article li {
+    margin-bottom: 10px;
+}
+
+.page-article strong {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+/* Адаптивность для стандартных страниц */
+@media (max-width: 767px) {
+    .page-content {
+        padding: 60px 0;
+    }
+    
+    .page-content .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .page-article h2 {
+        font-size: 1.6rem;
+    }
+    
+    .page-article h3 {
+        font-size: 1.2rem;
+    }
+    
+    .page-article {
+        font-size: 1rem;
+    }
+}
+
+/* Страницы информации о клинике */
+.clinic-info-page {
+    padding: 80px 0;
+}
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.content-main {
+    min-width: 0;
+}
+
+.content-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.clinic-info-article {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.clinic-info-article h2 {
+    font-size: 2rem;
+    margin: 40px 0 20px;
+    color: var(--heading-color);
+}
+
+.clinic-info-article h3 {
+    font-size: 1.4rem;
+    margin: 30px 0 15px;
+    color: var(--heading-color);
+}
+
+.clinic-info-article p {
+    margin-bottom: 20px;
+}
+
+.clinic-info-article ul, .clinic-info-article ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.clinic-info-article li {
+    margin-bottom: 10px;
+}
+
+.clinic-info-article strong {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+/* Унифицированная форма обратной связи */
+.contact-form-sticky {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    position: sticky;
+    top: 100px;
+}
+
+.contact-form-sticky h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+
+.contact-form-sticky p {
+    margin-bottom: 25px;
+    color: #6c757d;
+}
+
+.article-contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.article-contact-form input,
+.article-contact-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.article-contact-form input:focus,
+.article-contact-form textarea:focus {
+    outline: none;
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(35, 191, 207, 0.1);
+}
+
+.article-contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.article-contact-form .btn-1 {
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--brand-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.article-contact-form .btn-1:hover {
+    background: #1ea8b8;
+}
+
+.contact-info {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.contact-item svg {
+    color: var(--brand-color);
+}
+
+/* Адаптивность для страниц клиники */
+@media (max-width: 991px) {
+    .content-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .content-sidebar {
+        position: static;
+    }
+    
+    .contact-form-sticky {
+        position: static;
+    }
+}
+
+@media (max-width: 767px) {
+    .clinic-info-page {
+        padding: 60px 0;
+    }
+    
+    .clinic-info-article h2 {
+        font-size: 1.6rem;
+    }
+    
+    .clinic-info-article h3 {
+        font-size: 1.2rem;
+    }
+    
+    .clinic-info-article {
+        font-size: 1rem;
+    }
+    
+    .contact-form-sticky {
+        padding: 20px;
+    }
 }
 
 .article-content {

@@ -1,53 +1,46 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: Информация о клинике
+ * 
+ * Шаблон для страниц с информацией о клинике (О организации, Реквизиты, Лицензии, Юридическая информация)
+ */
+
+get_header(); ?>
 
 <!-- Хлебные крошки -->
 <div class="breadcrumbs">
     <div class="container">
         <a href="<?php echo home_url(); ?>">Главная</a>
         <span class="separator">/</span>
-        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Блог</a>
+        <a href="<?php echo home_url('/o-organizatsii'); ?>">О клинике</a>
         <span class="separator">/</span>
         <span><?php the_title(); ?></span>
     </div>
 </div>
 
-<!-- Статья -->
-<article class="single-article">
+<!-- Основной контент -->
+<main class="clinic-info-page">
     <div class="container">
-        <div class="article-layout">
-            <!-- Контент статьи -->
-            <div class="article-content-wrapper">
-                <header class="article-header">
+        <div class="content-layout">
+            <!-- Левая колонка с контентом -->
+            <div class="content-main">
+                <!-- Заголовок страницы -->
+                <header class="page-header">
                     <h1><?php the_title(); ?></h1>
                 </header>
                 
-                <?php if (has_post_thumbnail()) : ?>
-                    <div class="article-image">
-                        <?php the_post_thumbnail('large'); ?>
-                    </div>
-                <?php endif; ?>
-                
-                <?php if (!is_featured_article()) : ?>
-                    <!-- Дисклеймер -->
-                    <div class="article-disclaimer">
-                        <p><strong>Уважаемый пациент!</strong> Клиника «ЦЭСИ» уведомляет Вас, что тщательное соблюдение данных рекомендаций очень важно и является обязательным условием обеспечения высокой вероятности положительного результата проведенного лечения, безопасного пользования результатами оказанной медицинской услуги, отсутствия осложнений.</p>
-                    </div>
-                    
-                    <!-- Бирюзовая полоска -->
-                    <div class="article-brand-stripe"></div>
-                <?php endif; ?>
-                
-                <div class="article-content">
-                    <?php the_content(); ?>
-                </div>
-                
-                <div class="article-footer">
-                    <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="back-to-blog">← Вернуться к блогу</a>
+                <!-- Контент страницы -->
+                <div class="page-content">
+                    <?php while (have_posts()) : the_post(); ?>
+                        <article class="clinic-info-article">
+                            <?php the_content(); ?>
+                        </article>
+                    <?php endwhile; ?>
                 </div>
             </div>
             
             <!-- Форма обратной связи -->
-            <div class="article-sidebar">
+            <aside class="content-sidebar">
                 <div class="contact-form-sticky">
                     <h3>Остались вопросы?</h3>
                     <p>Запишитесь на консультацию, и мы ответим на все ваши вопросы</p>
@@ -80,9 +73,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
-</article>
+</main>
 
 <?php get_footer(); ?>

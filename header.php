@@ -108,6 +108,7 @@
                         'theme_location' => 'primary',
                         'container' => false,
                         'menu_class' => 'nav-menu',
+                        'walker' => new Dental_Clinic_Walker_Nav_Menu(),
                         'fallback_cb' => 'dental_clinic_fallback_menu'
                     ));
                 } else {
