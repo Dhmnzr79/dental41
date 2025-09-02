@@ -1,0 +1,15 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "explicit",
+        "source.fixAll.eslint": "explicit"
+    },
+    "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[php]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.useTabs": false
+}
+  

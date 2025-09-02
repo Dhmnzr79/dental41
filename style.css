@@ -1124,10 +1124,6 @@ h6 {
 
 .title-line {
     margin-bottom: 0.05em;
-}
-
-/* Lottie анимация в заголовке */
-.title-lottie {
     display: inline-block;
     width: 60px;
     height: 60px;

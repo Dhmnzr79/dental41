@@ -1,0 +1,20 @@
+{
+    "name": "dental-clinic-child-theme",
+    "version": "1.0.0",
+    "description": "Child theme for dental clinic WordPress theme",
+    "scripts": {
+        "lint:css": "stylelint \"**/*.{css,scss}\"",
+        "fix:css": "stylelint \"**/*.{css,scss}\" --fix",
+        "format:css": "prettier --write \"**/*.{css,scss}\"",
+        "format:js": "prettier --write \"**/*.js\"",
+        "format:php": "prettier --write \"**/*.php\"",
+        "format:html": "prettier --write \"**/*.html\"",
+        "format:all": "prettier --write \"**/*.{css,scss,js,php,html}\""
+    },
+    "devDependencies": {
+        "prettier": "^3.0.0",
+        "stylelint": "^15.11.0",
+        "stylelint-config-standard": "^34.0.0"
+    }
+}
+

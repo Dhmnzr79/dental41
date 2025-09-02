@@ -2,7 +2,7 @@
 /**
  * Functions for Dental Clinic Child Theme
  * 
- * Добавляет поддержку Lottie анимаций и другие функции
+ * Основные функции для детской темы стоматологической клиники
  */
 
 // Подключение Adobe Fonts
@@ -16,42 +16,8 @@ function dental_clinic_enqueue_adobe_fonts() {
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_adobe_fonts');
 
-// Подключение Lottie анимаций
-function dental_clinic_enqueue_lottie_scripts() {
-    // Подключаем основную библиотеку Lottie с CDN
-    wp_enqueue_script(
-        'lottie-web',
-        'https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js',
-        array(),
-        time(), // Используем временную метку для избежания кэширования
-        true
-    );
-    
-    // Подключаем CSS для Lottie
-    wp_enqueue_style(
-        'dental-clinic-lottie-styles',
-        get_stylesheet_directory_uri() . '/lottie-styles.css',
-        array(),
-        '1.0.1'
-    );
-    
-    // Подключаем JS для Lottie
-    wp_enqueue_script(
-        'dental-clinic-lottie-integration',
-        get_stylesheet_directory_uri() . '/lottie-integration.js',
-        array('lottie-web'),
-        '1.0.1',
-        true
-    );
-    
-    // Добавляем отладочную информацию
-    wp_add_inline_script('dental-clinic-lottie-integration', '
-        console.log("Lottie скрипт подключен");
-        console.log("Путь к теме:", "' . get_stylesheet_directory_uri() . '");
-        console.log("Lottie библиотека загружена:", typeof lottie !== "undefined");
-    ');
-    
-    // Подключаем скрипт для анимаций при скролле
+// Подключение скрипта для анимаций при скролле
+function dental_clinic_enqueue_scroll_animations() {
     wp_enqueue_script(
         'dental-clinic-scroll-animations',
         get_stylesheet_directory_uri() . '/scroll-animations.js',
@@ -60,7 +26,7 @@ function dental_clinic_enqueue_lottie_scripts() {
         true
     );
 }
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_lottie_scripts');
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_scroll_animations');
 
 // Подключение скрипта для маски телефона
 function dental_clinic_enqueue_phone_mask() {
@@ -149,166 +115,9 @@ class Dental_Clinic_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
-// Шорткод для Lottie анимаций
-function dental_lottie_shortcode($atts) {
-    $atts = shortcode_atts(array(
-        'path' => '',
-        'class' => '',
-        'autoplay' => 'false',
-        'loop' => 'true',
-        'speed' => '1.0',
-        'width' => '100',
-        'height' => '100',
-        'renderer' => 'svg'
-    ), $atts);
-    
-    if (empty($atts['path'])) {
-        return '<p>Ошибка: не указан путь к Lottie анимации</p>';
-    }
-    
-    $style = "width: {$atts['width']}px; height: {$atts['height']}px;";
-    
-    return sprintf(
-        '<div class="lottie-container %s" style="%s" data-lottie="%s" data-lottie-autoplay="%s" data-lottie-loop="%s" data-lottie-speed="%s" data-lottie-renderer="%s"></div>',
-        esc_attr($atts['class']),
-        esc_attr($style),
-        esc_url($atts['path']),
-        esc_attr($atts['autoplay']),
-        esc_attr($atts['loop']),
-        esc_attr($atts['speed']),
-        esc_attr($atts['renderer'])
-    );
-}
-add_shortcode('lottie', 'dental_lottie_shortcode');
 
-// Виджет для Lottie анимаций
-class Dental_Lottie_Widget extends WP_Widget {
-    public function __construct() {
-        parent::__construct(
-            'dental_lottie_widget',
-            'Lottie Анимация',
-            array('description' => 'Виджет для отображения Lottie анимаций')
-        );
-    }
-    
-    public function widget($args, $instance) {
-        echo $args['before_widget'];
-        
-        if (!empty($instance['title'])) {
-            echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
-        }
-        
-        if (!empty($instance['lottie_path'])) {
-            echo sprintf(
-                '<div class="lottie-container" style="width: %spx; height: %spx;" data-lottie="%s" data-lottie-autoplay="%s" data-lottie-loop="%s"></div>',
-                esc_attr($instance['width']),
-                esc_attr($instance['height']),
-                esc_url($instance['lottie_path']),
-                esc_attr($instance['autoplay']),
-                esc_attr($instance['loop'])
-            );
-        }
-        
-        echo $args['after_widget'];
-    }
-    
-    public function form($instance) {
-        $title = !empty($instance['title']) ? $instance['title'] : '';
-        $lottie_path = !empty($instance['lottie_path']) ? $instance['lottie_path'] : '';
-        $width = !empty($instance['width']) ? $instance['width'] : '100';
-        $height = !empty($instance['height']) ? $instance['height'] : '100';
-        $autoplay = !empty($instance['autoplay']) ? $instance['autoplay'] : 'false';
-        $loop = !empty($instance['loop']) ? $instance['loop'] : 'true';
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>">Заголовок:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id('lottie_path'); ?>">Путь к Lottie JSON:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id('lottie_path'); ?>" name="<?php echo $this->get_field_name('lottie_path'); ?>" type="url" value="<?php echo esc_attr($lottie_path); ?>">
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id('width'); ?>">Ширина (px):</label>
-            <input class="widefat" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="number" value="<?php echo esc_attr($width); ?>">
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id('height'); ?>">Высота (px):</label>
-            <input class="widefat" id="<?php echo $this->get_field_id('height'); ?>" name="<?php echo $this->get_field_name('height'); ?>" type="number" value="<?php echo esc_attr($height); ?>">
-        </p>
-        <p>
-            <input id="<?php echo $this->get_field_id('autoplay'); ?>" name="<?php echo $this->get_field_name('autoplay'); ?>" type="checkbox" value="true" <?php checked($autoplay, 'true'); ?>>
-            <label for="<?php echo $this->get_field_id('autoplay'); ?>">Автозапуск</label>
-        </p>
-        <p>
-            <input id="<?php echo $this->get_field_id('loop'); ?>" name="<?php echo $this->get_field_name('loop'); ?>" type="checkbox" value="true" <?php checked($loop, 'true'); ?>>
-            <label for="<?php echo $this->get_field_id('loop'); ?>">Зацикливание</label>
-        </p>
-        <?php
-    }
-    
-    public function update($new_instance, $old_instance) {
-        $instance = array();
-        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-        $instance['lottie_path'] = (!empty($new_instance['lottie_path'])) ? esc_url_raw($new_instance['lottie_path']) : '';
-        $instance['width'] = (!empty($new_instance['width'])) ? intval($new_instance['width']) : 100;
-        $instance['height'] = (!empty($new_instance['height'])) ? intval($new_instance['height']) : 100;
-        $instance['autoplay'] = (!empty($new_instance['autoplay'])) ? 'true' : 'false';
-        $instance['loop'] = (!empty($new_instance['loop'])) ? 'true' : 'false';
-        return $instance;
-    }
-}
 
-// Регистрация виджета
-function dental_register_lottie_widget() {
-    register_widget('Dental_Lottie_Widget');
-}
-add_action('widgets_init', 'dental_register_lottie_widget');
 
-// Добавление поддержки загрузки Lottie файлов
-function dental_add_lottie_mime_types($mimes) {
-    $mimes['json'] = 'application/json';
-    return $mimes;
-}
-add_filter('upload_mimes', 'dental_add_lottie_mime_types');
-
-// Функция для получения Lottie анимации по ID
-function dental_get_lottie_animation($animation_id, $args = array()) {
-    $defaults = array(
-        'class' => '',
-        'autoplay' => 'false',
-        'loop' => 'true',
-        'speed' => '1.0',
-        'width' => '100',
-        'height' => '100'
-    );
-    
-    $args = wp_parse_args($args, $defaults);
-    
-    // Получаем URL файла по ID
-    $file_url = wp_get_attachment_url($animation_id);
-    
-    if (!$file_url) {
-        return '<p>Ошибка: файл анимации не найден</p>';
-    }
-    
-    $style = "width: {$args['width']}px; height: {$args['height']}px;";
-    
-    return sprintf(
-        '<div class="lottie-container %s" style="%s" data-lottie="%s" data-lottie-autoplay="%s" data-lottie-loop="%s" data-lottie-speed="%s"></div>',
-        esc_attr($args['class']),
-        esc_attr($style),
-        esc_url($file_url),
-        esc_attr($args['autoplay']),
-        esc_attr($args['loop']),
-        esc_attr($args['speed'])
-    );
-}
-
-// Хелпер функция для вывода Lottie анимации
-function dental_lottie($animation_id, $args = array()) {
-    echo dental_get_lottie_animation($animation_id, $args);
-}
 
 function dental_clinic_enqueue_styles() {
     wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), wp_get_theme()->get('Version'));
