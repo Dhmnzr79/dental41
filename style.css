@@ -956,6 +956,21 @@ h6 {
 
 /* Footer */
 
+.footer-contacts {
+    text-align: right;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-item svg {
+    color: var(--brand-color);
+}
+
 .footer-content {
     max-width: 1440px;
     margin: 0 auto;
@@ -2230,6 +2245,41 @@ h6 {
         padding: 0 10px;
     }
 
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .footer-contacts {
+        text-align: left;
+    }
+
+    .contact-text {
+        font-size: 16px;
+    }
+
+    .faq-container.grid-system {
+        padding: 0 10px;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: none !important;
+    }
+
+    .faq-question {
+        font-size: 14px;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+    }
+
     .section-padding {
         padding: 40px 0;
     }
@@ -2379,11 +2429,6 @@ h6 {
 
     .nav-menu {
         display: none;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
     }
 
     .doctor-card-large {
@@ -2916,12 +2961,6 @@ h6 {
 
     .consultation-form {
         padding: 25px;
-    }
-
-    .consultation-form h3 {
-        text-align: center;
-        line-height: 1;
-        font-size: 30px;
     }
 
     /* Поля формы в столбик на мобильных */
@@ -4691,6 +4730,12 @@ h6 {
 }
 
 /* Левая часть - заголовок */
+.doctors-title {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
 .doctors-title-block {
     flex: 1;
     display: flex;
@@ -5212,11 +5257,6 @@ h6 {
     .doctors-title {
         text-align: center;
         font-size: 36px;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
     }
 
     .slider-doctor-card {
@@ -6071,10 +6111,6 @@ h6 {
 
     .prices-cards-block {
         gap: 15px;
-    }
-
-    .price-card {
-        padding: 15px;
     }
 }
 
@@ -6973,7 +7009,99 @@ h6 {
 
     /* Специальные стили для FAQ в grid-system */
     .faq-container.grid-system {
+        padding: 0 10px;
+    }
+
+    .china-risks-layout .risk-5 {
+        padding: 20px;
+    }
+
+    .doctor-selection-left::after {
+        display: none;
+    }
+
+    .implant-title-description {
+        display: none;
+    }
+
+    .slider-doctor-card.active {
+        height: 400px;
+    }
+
+    .price-card {
+        padding: 0px;
+    }
+
+    .doctor-slider-track {
+        height: 400px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .doctors-section {
         padding: 0;
+    }
+
+    .doctor-selection-container {
+        padding: 0px;
+    }
+
+    .doctor-selection-left h2 {
+        font-size: 32px;
+        margin: 0;
+    }
+
+    .plus-grid-section {
+        padding: 60px 0 0;
+    }
+
+    .trust-card {
+        padding: 0;
+    }
+
+    .reviews-left {
+        padding-right: 0;
+        margin-bottom: 0px;
+    }
+
+    .plus-5 {
+        padding: 10px 20px 20px 20px;
+    }
+
+    .reviews-stats {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .cta-left h2 {
+        text-align: left;
+        font-size: 30px;
+        padding-top: 20px;
+    }
+
+    .implant-image {
+        height: 180px;
+    }
+
+    .after-image {
+        height: 180px;
+    }
+
+    .fears-left h2 {
+        margin: 0;
+        font-size: 28px;
+    }
+
+    .doctor-photo {
+        width: auto;
+        height: 370px;
+        margin-bottom: 15px;
+        position: absolute;
+        bottom: -20px;
+        right: -50px;
     }
 
     /* Заголовок и контент на всю ширину - еще более компактно */
@@ -7179,10 +7307,6 @@ h6 {
         font-size: 36px;
     }
 
-    .contact-text {
-        font-size: 14px;
-    }
-
     .contacts-description p {
         font-size: 16px;
     }
@@ -7208,16 +7332,12 @@ h6 {
     }
 
     .contact-item {
-        gap: 12px;
+        gap: 16px;
     }
 
     .contact-icon {
         width: 20px;
         height: 20px;
-    }
-
-    .contact-text {
-        font-size: 13px;
     }
 
     .contacts-description p {
@@ -7245,10 +7365,6 @@ h6 {
 
     .contacts-title {
         font-size: 24px;
-    }
-
-    .contact-text {
-        font-size: 12px;
     }
 
     .contacts-description p {
@@ -7494,6 +7610,20 @@ h6 {
 
     .overlapping-circles {
         margin-bottom: 0;
+        margin-top: 20px;
+    }
+
+    .consultation-form h3 {
+        text-align: center;
+        line-height: 1;
+        font-size: 30px;
+    }
+
+    .online-consultation-left h2 {
+        text-align: left;
+    }
+
+    .online-consultation-bottom {
         margin-top: 20px;
     }
 }
@@ -8565,19 +8695,6 @@ body.popup-open {
     border-top: 1px solid #e9ecef;
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
-.contact-item svg {
-    color: var(--brand-color);
-}
-
 /* Адаптивность для страниц клиники */
 @media (max-width: 991px) {
     .content-layout {
@@ -8733,18 +8850,6 @@ body.popup-open {
     padding-top: 20px;
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.contact-item svg {
-    color: var(--brand-color);
-    flex-shrink: 0;
-}
-
 /* Адаптивность для блога */
 @media (max-width: 1023px) {
     .blog-grid {
@@ -8871,10 +8976,6 @@ body.popup-open {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-}
-
-.footer-contacts {
-    text-align: right;
 }
 
 .site-footer {
