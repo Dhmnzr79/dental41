@@ -2,7 +2,8 @@
 
 <!-- Мобильный Hero Section -->
 <section class="mobile-hero">
-    <div class="overlapping-circles">
+    <div class="grid-system">
+        <div class="overlapping-circles">
         <div class="circle">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Лицо">
         </div>
@@ -12,42 +13,68 @@
     </div>
     
     <h1 class="hero-title">
-        Имплантация<br>
-        <span class="highlight">за 1 день</span>
+        ОТСУТСТВУЕТ ЗУБ?
     </h1>
     
     <h2 class="hero-subtitle">
-        с гарантией, без боли и переплат
+        Верните красивую улыбку и уверенность за 1 день
     </h2>
     
-    <h3 class="hero-description">
-        Установим имплант и временную коронку уже на первом визите. 99,8% приживаемость. Всё включено — без доплат и навязываний.
-    </h3>
-    
-    <div class="hero-features">
-        <div class="hero-feature">
-            <svg class="feature-icon" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6C5 2.68629 7.68629 -6.71957e-07 11 -9.6165e-07L18 -1.57361e-06C18.5523 -1.62189e-06 19 0.447714 19 0.999998C19 1.55228 18.5523 2 18 2L11 2C8.79086 2 7 3.79086 7 6L7 14C7 14.5523 6.55229 15 6 15C5.44772 15 5 14.5523 5 14L5 6Z" fill="#23BFCF"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7071 9.29289C12.0976 9.68342 12.0976 10.3166 11.7071 10.7071L6.70712 15.7071L5.29291 14.2929L10.2929 9.29289C10.6834 8.90237 11.3166 8.90237 11.7071 9.29289Z" fill="#23BFCF"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70712 15.7071C7.09765 15.3166 7.09763 14.6834 6.70711 14.2929L1.70711 9.29289C1.31658 8.90237 0.683418 8.90237 0.292894 9.29289C-0.0976302 9.68342 -0.0976303 10.3166 0.292894 10.7071L5.29289 15.7071C5.68342 16.0976 6.3166 16.0976 6.70712 15.7071Z" fill="#23BFCF"/>
+    <div class="hero-description">
+        <div class="hero-benefit">
+            <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_2345_50)">
+                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_2345_50">
+                        <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                </defs>
             </svg>
-            <p>С персональным куратором на каждом этапе — от консультации до улыбки</p>
+            <span>Без боли — идете домой с красивыми зубами</span>
         </div>
-        <div class="hero-feature">
-            <svg class="feature-icon" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6C5 2.68629 7.68629 -6.71957e-07 11 -9.6165e-07L18 -1.57361e-06C18.5523 -1.62189e-06 19 0.447714 19 0.999998C19 1.55228 18.5523 2 18 2L11 2C8.79086 2 7 3.79086 7 6L7 14C7 14.5523 6.55229 15 6 15C5.44772 15 5 14.5523 5 14L5 6Z" fill="#23BFCF"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7071 9.29289C12.0976 9.68342 12.0976 10.3166 11.7071 10.7071L6.70712 15.7071L5.29291 14.2929L10.2929 9.29289C10.6834 8.90237 11.3166 8.90237 11.7071 9.29289Z" fill="#23BFCF"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70712 15.7071C7.09765 15.3166 7.09763 14.6834 6.70711 14.2929L1.70711 9.29289C1.31658 8.90237 0.683418 8.90237 0.292894 9.29289C-0.0976302 9.68342 -0.0976303 10.3166 0.292894 10.7071L5.29289 15.7071C5.68342 16.0976 6.3166 16.0976 6.70712 15.7071Z" fill="#23BFCF"/>
+        <div class="hero-benefit">
+            <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_2345_50)">
+                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_2345_50">
+                        <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                </defs>
             </svg>
-            <p>Ведущие специалисты на Камчатке с опытом от 7 до 22 лет.</p>
+            <span>Без переплат — прозрачные цены</span>
+        </div>
+        <div class="hero-benefit">
+            <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_2345_50)">
+                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_2345_50">
+                        <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            <span>99,8% приживаемость + пожизненная гарантия на импланты</span>
+        </div>
+        <div class="hero-conclusion">
+            Ешьте любимую еду. Выглядите на 10 лет моложе.
         </div>
     </div>
     
+    
     <div class="mobile-index">
-        Mobile Index Block
+        <div class="index-item">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/25.svg" alt="25 000 имплантов">
+            <span>25 000 имплантов установили мы за 26 лет работы</span>
+        </div>
     </div>
     
     <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
+    </div>
 </section>
 
 <!-- Hero Section -->
@@ -64,37 +91,58 @@
             </div>
             
             <h1 class="hero-title">
-                Имплантация<br>
-                <span class="highlight">за 1 день</span>
+                ОТСУТСТВУЕТ ЗУБ?
             </h1>
             
             <h2 class="hero-subtitle">
-                с гарантией, без боли и переплат
+                Верните красивую улыбку и уверенность за 1 день
             </h2>
             
-            <h3 class="hero-description">
-                Установим имплант и временную коронку уже на первом визите. 99,8% приживаемость. Всё включено — без доплат и навязываний.
-            </h3>
-            
-            <div class="hero-features">
-                <div class="hero-feature">
-                    <svg class="feature-icon" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6C5 2.68629 7.68629 -6.71957e-07 11 -9.6165e-07L18 -1.57361e-06C18.5523 -1.62189e-06 19 0.447714 19 0.999998C19 1.55228 18.5523 2 18 2L11 2C8.79086 2 7 3.79086 7 6L7 14C7 14.5523 6.55229 15 6 15C5.44772 15 5 14.5523 5 14L5 6Z" fill="#23BFCF"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7071 9.29289C12.0976 9.68342 12.0976 10.3166 11.7071 10.7071L6.70712 15.7071L5.29291 14.2929L10.2929 9.29289C10.6834 8.90237 11.3166 8.90237 11.7071 9.29289Z" fill="#23BFCF"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70712 15.7071C7.09765 15.3166 7.09763 14.6834 6.70711 14.2929L1.70711 9.29289C1.31658 8.90237 0.683418 8.90237 0.292894 9.29289C-0.0976302 9.68342 -0.0976303 10.3166 0.292894 10.7071L5.29289 15.7071C5.68342 16.0976 6.3166 16.0976 6.70712 15.7071Z" fill="#23BFCF"/>
+            <div class="hero-description">
+                <div class="hero-benefit">
+                    <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_2345_50)">
+                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2345_50">
+                                <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                        </defs>
                     </svg>
-                    <p>С персональным куратором на каждом этапе — от консультации до улыбки</p>
+                    <span>Без боли — идете домой с красивыми зубами</span>
                 </div>
-                <div class="hero-feature">
-                    <svg class="feature-icon" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6C5 2.68629 7.68629 -6.71957e-07 11 -9.6165e-07L18 -1.57361e-06C18.5523 -1.62189e-06 19 0.447714 19 0.999998C19 1.55228 18.5523 2 18 2L11 2C8.79086 2 7 3.79086 7 6L7 14C7 14.5523 6.55229 15 6 15C5.44772 15 5 14.5523 5 14L5 6Z" fill="#23BFCF"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7071 9.29289C12.0976 9.68342 12.0976 10.3166 11.7071 10.7071L6.70712 15.7071L5.29291 14.2929L10.2929 9.29289C10.6834 8.90237 11.3166 8.90237 11.7071 9.29289Z" fill="#23BFCF"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70712 15.7071C7.09765 15.3166 7.09763 14.6834 6.70711 14.2929L1.70711 9.29289C1.31658 8.90237 0.683418 8.90237 0.292894 9.29289C-0.0976302 9.68342 -0.0976303 10.3166 0.292894 10.7071L5.29289 15.7071C5.68342 16.0976 6.3166 16.0976 6.70712 15.7071Z" fill="#23BFCF"/>
+                <div class="hero-benefit">
+                    <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_2345_50)">
+                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2345_50">
+                                <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                        </defs>
                     </svg>
-                    <p>Ведущие специалисты на Камчатке с опытом от 7 до 22 лет.</p>
+                    <span>Без переплат — прозрачные цены</span>
                 </div>
-
+                <div class="hero-benefit">
+                    <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_2345_50)">
+                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2345_50">
+                                <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span>99,8% приживаемость + пожизненная гарантия на импланты</span>
+                </div>
+                <div class="hero-conclusion">
+                    Ешьте любимую еду. Выглядите на 10 лет моложе.
+                </div>
             </div>
+            
             
             <div class="hero-button">
                 <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
@@ -103,7 +151,7 @@
         
         <div class="hero-right grid-6">
             <div class="hero-photo">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-main.png" alt="Кирилл Моисеев - хирург-имплантолог" class="hero-doctor-photo">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-first.png" alt="Александр Хан - Главный врач" class="hero-doctor-photo">
             </div>
             
             <div class="hero-indices">
@@ -118,7 +166,7 @@
                     </div>
                 </div>
                 <div class="hero-doctor-info">
-                    <p><strong>Кирилл Моисеев</strong><br>хирург-имплантолог</p>
+                    <p><strong>Александр Хан</strong><br>Главный врач</p>
                 </div>
             </div>
         </div>
@@ -134,7 +182,7 @@
             </div>
             <div class="index-content">
                 <div class="index-number">01</div>
-                <p>Используем AI и Diagnocat для диагностики как в Москве и Европе</p>
+                <p>Применяем технологии нового поколения для точной диагностики, как в ведущих клиниках Москвы и Европы</p>
             </div>
         </div>
 
@@ -209,7 +257,7 @@
                             <path d="M41.9059 1.91659L44.2597 6.22027L48.5634 8.57409C49.7854 9.24243 49.7854 10.9976 48.5634 11.666L44.2597 14.0198L41.9059 18.3235C41.2376 19.5455 39.4823 19.5455 38.814 18.3235L36.4602 14.0198L32.1565 11.666C30.9345 10.9976 30.9345 9.24243 32.1565 8.57409L36.4602 6.22027L38.814 1.91659C39.4824 0.69447 41.2376 0.69447 41.9059 1.91659Z" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <p>Ответим на все ваши вопросы, а искусственный интеллект проведет проверку ваших зубов по 65 параметрам.</p>
+                    <p>При необходимости проведём КТ с высокоточной диагностикой. Это позволит составить точный план и рекомендации по каждому зубу. КТ оплачивается отдельно.</p>
                 </div>
                 <div class="benefit-item consultation-benefit-item">
                     <div class="benefit-icon">
@@ -233,15 +281,12 @@
                 </div>
             </div>
             
-            <div class="ct-warning">
-                <p>* В некоторых случаях может потребоваться КТ — мы делаем его только по показаниям. Никаких лишних процедур. КТ оплачивается отдельно</p>
-            </div>
                 </div>
         
         <div class="consultation-right grid-6">
             <div class="doctor-quote">
                 <div class="quote-doctor-photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-little.png" alt="Доктор">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор">
                 </div>
                 <div class="quote-doctor-text">
                 <p class="quote-text">
@@ -1384,10 +1429,14 @@
         <div class="implant-card grid-4 grid-6-tablet grid-12-mobile">
                 <div class="card-header">
                     <div class="brand-info">
+                        <div class="tariff-name">Стандарт</div>
                         <div class="brand-name">Implantium</div>
                         <div class="brand-origin">Южная Корея</div>
                     </div>
-                    <div class="price-box">69 800 р.</div>
+                    <div class="price-box">
+                        <div class="old-price">91 800 ₽</div>
+                        <div class="current-price">76 200 ₽</div>
+                    </div>
                 </div>
                 
                 <p class="card-description">Отличается повышенной устойчивостью к нагрузкам и максимально доступной стоимостью.</p>
@@ -1415,16 +1464,21 @@
                     </li>
                 </ul>
                 
-                <button class="card-button">Подробнее об импланте</button>
+                <button class="card-button">Выбрать комфорт</button>
+                <div class="savings-text">Экономия 15 600 ₽ при записи сегодня</div>
             </div>
             
             <div class="implant-card grid-4 grid-6-tablet grid-12-mobile">
                 <div class="card-header">
                     <div class="brand-info">
+                        <div class="tariff-name">Оптимальный</div>
                         <div class="brand-name">Impro</div>
                         <div class="brand-origin">Германия</div>
                     </div>
-                    <div class="price-box">76 800 р.</div>
+                    <div class="price-box">
+                        <div class="old-price">105 200 ₽</div>
+                        <div class="current-price">85 200 ₽</div>
+                    </div>
                 </div>
                 
                 <div class="recommendation-badge">
@@ -1457,16 +1511,21 @@
                     </li>
                 </ul>
                 
-                <button class="card-button">Подробнее об импланте</button>
+                <button class="card-button">Выбрать оптимальный</button>
+                <div class="savings-text">Экономия до 20 000 ₽ при записи сегодня</div>
             </div>
             
             <div class="implant-card grid-4 grid-6-tablet grid-12-mobile">
                 <div class="card-header">
                     <div class="brand-info">
+                        <div class="tariff-name">Премиум</div>
                         <div class="brand-name">Nobel Biocare</div>
                         <div class="brand-origin">Швейцария</div>
                     </div>
-                    <div class="price-box">92 800 р.</div>
+                    <div class="price-box">
+                        <div class="old-price">117 000 ₽</div>
+                        <div class="current-price">101 200 ₽</div>
+                    </div>
                 </div>
                 
                 <p class="card-description">Пожалуй, самые известные импланты во всем мире. Обладает уникальными особенностями, которые обеспечивают почти 100% приживаемости</p>
@@ -1494,7 +1553,8 @@
                     </li>
                 </ul>
                 
-                <button class="card-button">Подробнее об импланте</button>
+                <button class="card-button">Выбрать премиум</button>
+                <div class="savings-text">Экономия до 16 000 ₽ при записи сегодня</div>
             </div>
         
         <div class="mobile-slider">
@@ -1503,10 +1563,14 @@
                     <div class="implant-card">
                         <div class="card-header">
                             <div class="brand-info">
+                                <div class="tariff-name">Стандарт</div>
                                 <div class="brand-name">Implantium</div>
                                 <div class="brand-origin">Южная Корея</div>
                             </div>
-                            <div class="price-box">69 800 р.</div>
+                            <div class="price-box">
+                                <div class="old-price">91 800 ₽</div>
+                                <div class="current-price">76 200 ₽</div>
+                            </div>
                         </div>
                         
                         <p class="card-description">Отличается повышенной устойчивостью к нагрузкам и максимально доступной стоимостью.</p>
@@ -1534,7 +1598,8 @@
                             </li>
                         </ul>
                         
-                        <button class="card-button">Подробнее об импланте</button>
+                        <button class="card-button">Выбрать комфорт</button>
+                <div class="savings-text">Экономия 15 600 ₽ при записи сегодня</div>
                     </div>
                 </div>
                 
@@ -1542,10 +1607,14 @@
                     <div class="implant-card">
                         <div class="card-header">
                             <div class="brand-info">
+                                <div class="tariff-name">Оптимальный</div>
                                 <div class="brand-name">Impro</div>
                                 <div class="brand-origin">Германия</div>
                             </div>
-                            <div class="price-box">76 800 р.</div>
+                            <div class="price-box">
+                                <div class="old-price">105 200 ₽</div>
+                                <div class="current-price">85 200 ₽</div>
+                            </div>
                         </div>
                         
                         <div class="recommendation-badge">
@@ -1578,7 +1647,8 @@
                             </li>
                         </ul>
                         
-                        <button class="card-button">Подробнее об импланте</button>
+                        <button class="card-button">Выбрать оптимальный</button>
+                <div class="savings-text">Экономия до 20 000 ₽ при записи сегодня</div>
                     </div>
                 </div>
                 
@@ -1586,10 +1656,14 @@
                     <div class="implant-card">
                         <div class="card-header">
                             <div class="brand-info">
+                                <div class="tariff-name">Премиум</div>
                                 <div class="brand-name">Nobel Biocare</div>
                                 <div class="brand-origin">Швейцария</div>
                             </div>
-                            <div class="price-box">92 800 р.</div>
+                            <div class="price-box">
+                                <div class="old-price">117 000 ₽</div>
+                                <div class="current-price">101 200 ₽</div>
+                            </div>
                         </div>
                         
                         <p class="card-description">Пожалуй, самые известные импланты во всем мире. Обладает уникальными особенностями, которые обеспечивают почти 100% приживаемости</p>
@@ -1617,7 +1691,8 @@
                             </li>
                         </ul>
                         
-                        <button class="card-button">Подробнее об импланте</button>
+                        <button class="card-button">Выбрать премиум</button>
+                <div class="savings-text">Экономия до 16 000 ₽ при записи сегодня</div>
                     </div>
                 </div>
             </div>
