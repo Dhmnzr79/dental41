@@ -27,6 +27,7 @@
             <p>Имеются противопоказания. Необходима консультация специалиста</p>
         </div>
         <a href="dental41.ru/privacy.pdf" target="_blank" class="privacy-link">Политика конфиденциальности</a>
+        <a href="#" onclick="showCookieSettings(); return false;" class="privacy-link">Настройки cookies</a>
     </div>
 </footer>
 

@@ -10,12 +10,19 @@
     <div class="cookie-banner-content">
         <div class="cookie-banner-text">
             <h3>🍪 Мы используем cookies</h3>
-            <p>Наш сайт использует файлы cookies для улучшения работы и анализа посещаемости. Продолжая использовать сайт, вы соглашаетесь с нашей <a href="<?php echo home_url('/politika-konfidentsialnosti/'); ?>" target="_blank">Политикой конфиденциальности</a>.</p>
+            <p class="desktop-text">Мы используем cookie-файлы для работы сайта, аналитики и маркетинга. Нажимая «Принять все», вы даёте согласие на обработку cookie в соответствии с <a href="<?php echo home_url('/politika-konfidentsialnosti/'); ?>" target="_blank">Политикой cookies</a>. Вы можете отклонить не-обязательные cookie или настроить их состав.</p>
+            <p class="mobile-text">Мы используем cookies для работы сайта, аналитики и маркетинга</p>
         </div>
         <div class="cookie-banner-actions">
-            <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Принять все</button>
+            <button id="cookie-accept" class="cookie-btn cookie-btn-accept">
+                <span class="desktop-btn-text">Принять все</span>
+                <span class="mobile-btn-text">Принять</span>
+            </button>
             <button id="cookie-settings" class="cookie-btn cookie-btn-settings">Настройки</button>
-            <button id="cookie-reject" class="cookie-btn cookie-btn-reject">Отклонить</button>
+            <button id="cookie-reject" class="cookie-btn cookie-btn-reject">
+                <span class="desktop-btn-text">Отклонить все</span>
+                <span class="mobile-btn-text">Отклонить</span>
+            </button>
         </div>
     </div>
 </div>
@@ -35,8 +42,8 @@
                         <span class="cookie-slider"></span>
                     </label>
                     <div class="cookie-category-info">
-                        <h4>Необходимые cookies</h4>
-                        <p>Эти cookies необходимы для работы сайта и не могут быть отключены.</p>
+                        <h4>Обязательные</h4>
+                        <p>Нужны для работы сайта (без них сервис не функционирует). Устанавливаются всегда.</p>
                     </div>
                 </div>
             </div>
@@ -48,8 +55,8 @@
                         <span class="cookie-slider"></span>
                     </label>
                     <div class="cookie-category-info">
-                        <h4>Аналитические cookies</h4>
-                        <p>Помогают нам понять, как посетители взаимодействуют с сайтом.</p>
+                        <h4>Аналитические</h4>
+                        <p>Помогают улучшать сайт на основе обезличенной статистики.</p>
                     </div>
                 </div>
             </div>
@@ -61,15 +68,16 @@
                         <span class="cookie-slider"></span>
                     </label>
                     <div class="cookie-category-info">
-                        <h4>Маркетинговые cookies</h4>
-                        <p>Используются для показа релевантной рекламы и отслеживания эффективности кампаний.</p>
+                        <h4>Маркетинговые</h4>
+                        <p>Используются для показа релевантной рекламы и измерения её эффективности.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="cookie-modal-footer">
-            <button id="cookie-save-settings" class="cookie-btn cookie-btn-accept">Сохранить настройки</button>
+            <button id="cookie-save-settings" class="cookie-btn cookie-btn-accept">Сохранить выбор</button>
             <button id="cookie-accept-all" class="cookie-btn cookie-btn-accept">Принять все</button>
+            <button id="cookie-reject-all" class="cookie-btn cookie-btn-reject">Отклонить все</button>
         </div>
     </div>
 </div>
@@ -106,11 +114,20 @@
     margin: 0;
     color: #333;
     line-height: 1.4;
+    font-size: 16px;
 }
 
 .cookie-banner-text a {
     color: var(--brand-color);
     text-decoration: underline;
+}
+
+.mobile-text {
+    display: none;
+}
+
+.mobile-btn-text {
+    display: none;
 }
 
 .cookie-banner-actions {
@@ -292,20 +309,59 @@ input:disabled + .cookie-slider {
 
 /* Mobile Styles */
 @media (max-width: 767px) {
+    .cookie-banner {
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin: 0 10px 10px 10px;
+        max-height: auto;
+    }
+    
     .cookie-banner-content {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        align-items: center;
         gap: 15px;
     }
     
+    .cookie-banner-text {
+        flex: 1;
+    }
+    
+    .cookie-banner-text h3 {
+        display: none;
+    }
+    
+    .desktop-text {
+        display: none;
+    }
+    
+    .mobile-text {
+        display: block;
+        font-size: 13px;
+        line-height: 1.3;
+        margin: 0;
+    }
+    
     .cookie-banner-actions {
-        width: 100%;
-        justify-content: center;
+        flex-shrink: 0;
+        gap: 8px;
     }
     
     .cookie-btn {
-        flex: 1;
-        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 12px;
+        min-width: 70px;
+    }
+    
+    .cookie-btn-settings {
+        display: none;
+    }
+    
+    .desktop-btn-text {
+        display: none;
+    }
+    
+    .mobile-btn-text {
+        display: inline;
     }
     
     .cookie-modal-content {
@@ -358,6 +414,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.getElementById('cookie-accept-all')?.addEventListener('click', function() {
         acceptAllCookies();
+    });
+    
+    document.getElementById('cookie-reject-all')?.addEventListener('click', function() {
+        rejectAllCookies();
     });
     
     // Функции
@@ -431,5 +491,10 @@ document.addEventListener('DOMContentLoaded', function() {
             loadAnalytics();
         }
     }
+    
+    // Глобальная функция для вызова из footer
+    window.showCookieSettings = function() {
+        showCookieSettings();
+    };
 });
 </script>

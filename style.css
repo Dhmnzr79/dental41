@@ -1095,7 +1095,7 @@ h6 {
     width: 120%;
     height: auto;
     object-fit: contain;
-    max-width: 440px;
+    max-width: 390px;
 }
 
 .hero-indices {
@@ -1354,12 +1354,6 @@ h6 {
     flex-shrink: 0;
     width: 24px;
     height: 24px;
-}
-
-.hero-benefit span {
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.4;
 }
 
 .hero-conclusion {
@@ -2281,10 +2275,6 @@ h6 {
         max-height: none !important;
     }
 
-    .faq-question {
-        font-size: 14px;
-    }
-
     .faq-answer {
         font-size: 14px;
     }
@@ -2363,12 +2353,23 @@ h6 {
         margin-top: 60px;
     }
 
+    .mobile-hero-wrapper {
+        background: linear-gradient(-59.68deg, #ffd7ef 9.01%, #9ce8f4 54.01%, #8fc0e4 93.18%);
+        border-radius: 20px;
+        padding: 10px;
+    }
+
     .mobile-hero-content {
         position: relative;
-        margin-top: 50px;
-        background: linear-gradient(101.9deg, #cfc7fb 1.82%, #68cbd8 101.17%);
-        border-radius: 20px;
         padding: 15px;
+    }
+
+    .mobile-hero-text {
+        background: #ffffffc7;
+        padding: 25px 15px;
+        border-radius: 13px;
+        border-left: 1px solid #fff;
+        border-top: 1px solid #fff;
     }
 
     .mobile-hero .hero-title {
@@ -2424,9 +2425,7 @@ h6 {
         align-items: center;
         justify-content: center;
         font-size: 1.5rem;
-        background: linear-gradient(101.9deg, #c7fbf1 1.82%, #68cbd8 101.17%);
         padding: 20px;
-        border-radius: 100px;
     }
 
     .mobile-index .index-item {
@@ -7008,8 +7007,8 @@ h6 {
     }
 
     .faq-question {
-        padding: 15px 20px;
-        font-size: 14px;
+        padding: 12px 15px;
+        font-size: 16px;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
@@ -7142,13 +7141,6 @@ h6 {
     .faq-subtitle {
         font-size: 13px;
         text-align: center;
-    }
-
-    .faq-question {
-        padding: 12px 15px;
-        font-size: 13px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
 
     .faq-answer {
@@ -9024,10 +9016,20 @@ body.popup-open {
         margin-top: 5px;
     }
 
+    .hero-benefit {
+        display: flex;
+        gap: 15px;
+        padding: 10px 0;
+        border-bottom: 1px dashed #b3b3b3;
+        margin-bottom: 0;
+    }
+
     .hero-benefit span {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.4;
+        font-size: 16px;
+    }
+
+    .promo-date {
+        font-weight: 500;
     }
 
     .btn-1 {
@@ -9036,5 +9038,9 @@ body.popup-open {
 
     .nav-body .btn-1 {
         width: 100%;
+    }
+
+    .consultation-benefit-item p {
+        margin: 0;
     }
 }

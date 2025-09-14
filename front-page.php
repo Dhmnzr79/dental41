@@ -3,18 +3,20 @@
 <!-- Мобильный Hero Section -->
 <section class="mobile-hero">
     <div class="grid-system">
-        <div class="mobile-hero-content">
-            <h1 class="hero-title">
-                Отсутствует зуб?
-            </h1>
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="mobile-hero-image">
-        </div>
-    
-    <h2 class="hero-subtitle">
-        Верните красивую улыбку и уверенность за 1 день
-    </h2>
-    
-    <div class="hero-description">
+        <div class="mobile-hero-wrapper">
+            <div class="mobile-hero-content">
+                <h1 class="hero-title">
+                    Отсутствует зуб?
+                </h1>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="mobile-hero-image">
+            </div>
+        
+            <div class="mobile-hero-text">
+                <h2 class="hero-subtitle">
+                    Верните красивую улыбку и уверенность за 1 день
+                </h2>
+                
+                <div class="hero-description">
         <div class="hero-benefit">
             <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_2345_50)">
@@ -57,12 +59,14 @@
         <div class="hero-conclusion">
             Ешьте любимую еду. Выглядите на 10 лет моложе.
         </div>
-    </div>
+                </div>
+            </div>
+        </div>
     
     
     <div class="mobile-index">
         <div class="index-item">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/25.svg" alt="25 000 имплантов">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/25-1.svg" alt="25 000 имплантов">
             <span>25 000 имплантов установили мы за 26 лет работы</span>
         </div>
     </div>
@@ -217,12 +221,12 @@
                     </div>
                 </div>
                 <div class="promo-date">
-                    <span class="date-text">Акция до 31 августа</span>
+                    <span class="date-text">Акция до 30 сентября</span>
                 </div>
             </div>
             
             <h2>
-                                    <span class="highlight">Бесплатная</span><br>
+                                    <span class="highlight">Бесплатная</span>
                     консультация<br>
                     по имплантации
             </h2>
@@ -326,9 +330,7 @@
                 </div>
             </div>
             <h2>
-                Есть сомнения или<br>
-                просто хотите<br>
-                спросить?
+                Есть сомнения или просто хотите спросить?
             </h2>
             
             <p>
