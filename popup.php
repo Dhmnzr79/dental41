@@ -16,7 +16,7 @@
             подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.
         </p>
 
-        <form class="popup-form" method="post">
+        <form class="popup-form" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
             <input type="text" name="name" class="popup-field" placeholder="Ваше имя" autocomplete="name" required>
             <input type="tel" name="phone" class="popup-field" placeholder="+7 (___) ___-__-__" inputmode="numeric" autocomplete="tel" required>
             
@@ -107,7 +107,7 @@
                     Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.
                 </p>
                 
-                <form class="popup-form" method="post">
+                <form class="popup-form" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
                     <input type="text" name="name" class="popup-field" placeholder="Ваше имя" autocomplete="name" required>
                     <input type="tel" name="phone" class="popup-field" placeholder="+7 (___) ___-__-__" inputmode="numeric" autocomplete="tel" required>
                     

@@ -3,18 +3,12 @@
 <!-- Мобильный Hero Section -->
 <section class="mobile-hero">
     <div class="grid-system">
-        <div class="overlapping-circles">
-        <div class="circle">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Лицо">
+        <div class="mobile-hero-content">
+            <h1 class="hero-title">
+                Отсутствует зуб?
+            </h1>
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="mobile-hero-image">
         </div>
-        <div class="circle">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Лицо">
-        </div>
-    </div>
-    
-    <h1 class="hero-title">
-        ОТСУТСТВУЕТ ЗУБ?
-    </h1>
     
     <h2 class="hero-subtitle">
         Верните красивую улыбку и уверенность за 1 день
@@ -299,7 +293,7 @@
                 <h3>Оставьте заявку<br><span>– и мы всё подробно объясним</span></h3>
                 <p>Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.</p>
                 
-                <form class="contact-form" method="post" action="">
+                <form class="contact-form" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Ваше имя" required class="form-input">
@@ -308,7 +302,7 @@
                             <input type="tel" name="phone" id="phone" placeholder="+7 (___) ___-__-__" inputmode="numeric" maxlength="18" autocomplete="tel" pattern="\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}" required class="form-input">
                         </div>
                     </div>
-                    <button type="submit" class="btn-1 form-submit">Записаться на консультацию</button>
+                    <button type="submit" class="btn-1 form-submit" onclick="openPopup()">Записаться на консультацию</button>
                 </form>
                 
                 <p>
@@ -531,7 +525,7 @@
                     <p>И мы разберём, как сохранить кость и сэкономить до 30% на лечении — пока не стало поздно</p>
                     
                     <?php show_cta_form_messages(); ?>
-                    <form class="cta-form" method="post" action="">
+                    <form class="cta-form" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
                         <?php add_cta_form_nonce(); ?>
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Ваше имя" required class="cta-input">
@@ -539,7 +533,7 @@
                         <div class="form-group">
                             <input type="tel" name="phone" id="cta-phone" placeholder="Телефон" required class="cta-input">
                         </div>
-                        <button type="submit" class="btn-1">Записаться на консультацию</button>
+                        <button type="submit" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
                     </form>
                     
                     <p>
@@ -784,7 +778,7 @@
         </div>
         
         <div class="comparison-cta grid-12">
-                            <button type="button" class="btn-1" onclick="openPopup('popup-2')">Я хочу также</button>
+                            <button type="button" class="btn-1" onclick="openPopup()">Я хочу также</button>
         </div>
     </div>
 </section>
@@ -1189,7 +1183,7 @@
             <div class="doctor-selection-right">
                 <p>Неправильный выбор врача может стоить вам времени, денег — и повторного лечения.</p>
                 <p>Расскажите о своей ситуации — мы подберём проверенного специалиста и покажем похожие успешные кейсы.</p>
-                <button type="button" class="btn-1">Подобрать врача</button>
+                <button type="button" class="btn-1" onclick="openPopup()">Подобрать врача</button>
             </div>
         </div>
     </div>
@@ -1464,7 +1458,7 @@
                     </li>
                 </ul>
                 
-                <button class="card-button">Выбрать комфорт</button>
+                <button class="card-button" onclick="openPopup()">Выбрать комфорт</button>
                 <div class="savings-text">Экономия 15 600 ₽ при записи сегодня</div>
             </div>
             
@@ -1511,7 +1505,7 @@
                     </li>
                 </ul>
                 
-                <button class="card-button">Выбрать оптимальный</button>
+                <button class="card-button" onclick="openPopup()">Выбрать оптимальный</button>
                 <div class="savings-text">Экономия до 20 000 ₽ при записи сегодня</div>
             </div>
             
@@ -1553,7 +1547,7 @@
                     </li>
                 </ul>
                 
-                <button class="card-button">Выбрать премиум</button>
+                <button class="card-button" onclick="openPopup()">Выбрать премиум</button>
                 <div class="savings-text">Экономия до 16 000 ₽ при записи сегодня</div>
             </div>
         
@@ -1598,7 +1592,7 @@
                             </li>
                         </ul>
                         
-                        <button class="card-button">Выбрать комфорт</button>
+                        <button class="card-button" onclick="openPopup()">Выбрать комфорт</button>
                 <div class="savings-text">Экономия 15 600 ₽ при записи сегодня</div>
                     </div>
                 </div>
@@ -1647,7 +1641,7 @@
                             </li>
                         </ul>
                         
-                        <button class="card-button">Выбрать оптимальный</button>
+                        <button class="card-button" onclick="openPopup()">Выбрать оптимальный</button>
                 <div class="savings-text">Экономия до 20 000 ₽ при записи сегодня</div>
                     </div>
                 </div>
@@ -1691,7 +1685,7 @@
                             </li>
                         </ul>
                         
-                        <button class="card-button">Выбрать премиум</button>
+                        <button class="card-button" onclick="openPopup()">Выбрать премиум</button>
                 <div class="savings-text">Экономия до 16 000 ₽ при записи сегодня</div>
                     </div>
                 </div>
@@ -1862,7 +1856,7 @@
             </div>
             <h3>В ЦЭСИ – всё прозрачно и безопасно:</h3>
             <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
-            <button class="btn-1">Записаться на консультацию</button>
+            <button class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
         </div>
     </div>
 </section>
@@ -1979,7 +1973,7 @@
             </div>
             
             <div class="contacts-button">
-                <button class="btn-1">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
+                <button class="btn-1" onclick="openPopup()">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
             </div>
         </div>
         

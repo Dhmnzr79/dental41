@@ -41,7 +41,7 @@
 
         <div class="nav-body">
             <!-- CTA — первым пунктом -->
-            <a class="cta" href="#callback" onclick="openPopup()">Заказать звонок</a>
+            <button type="button" class="btn-1" onclick="openPopup()">Заказать звонок</button>
 
             <!-- Навигация сайта -->
             <ul class="nav" role="list">

@@ -5,6 +5,36 @@
  * Основные функции для детской темы стоматологической клиники
  */
 
+// Cookie Management Functions
+function get_cookie_consent() {
+    if (isset($_COOKIE['cookie_consent'])) {
+        return json_decode(stripslashes($_COOKIE['cookie_consent']), true);
+    }
+    return null;
+}
+
+function set_cookie_consent($consent) {
+    $consent_json = json_encode($consent);
+    setcookie('cookie_consent', $consent_json, time() + (365 * 24 * 60 * 60), '/', '', false, true);
+}
+
+function has_cookie_consent($type = 'all') {
+    $consent = get_cookie_consent();
+    if (!$consent) return false;
+    
+    switch ($type) {
+        case 'analytics':
+            return $consent['analytics'] ?? false;
+        case 'marketing':
+            return $consent['marketing'] ?? false;
+        case 'essential':
+            return $consent['essential'] ?? true;
+        case 'all':
+        default:
+            return ($consent['analytics'] ?? false) && ($consent['marketing'] ?? false);
+    }
+}
+
 // Подключение Adobe Fonts
 function dental_clinic_enqueue_adobe_fonts() {
     wp_enqueue_style(

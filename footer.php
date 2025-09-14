@@ -31,6 +31,9 @@
 </footer>
 
 <?php wp_footer(); ?>
+
+<?php include 'cookie-banner.php'; ?>
+
 </body>
 </html>
 

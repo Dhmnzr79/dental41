@@ -68,7 +68,7 @@ get_header(); ?>
             </div>
             
             <div class="contacts-button">
-                <button class="btn-1">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
+                <button class="btn-1" onclick="openPopup()">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
             </div>
         </div>
         
