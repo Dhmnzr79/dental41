@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <section class="doctor-single">
-    <div class="container">
+    <div class="container-grid">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <div class="doctor-profile">
                 <!-- Левая колонка - фото и основная информация -->
@@ -12,6 +12,23 @@
                         <?php else : ?>
                             <div class="doctor-placeholder-single">👨‍⚕️</div>
                         <?php endif; ?>
+                        <?php 
+                        $video_url = get_post_meta(get_the_ID(), '_doctor_video_url', true);
+                        if ($video_url) : ?>
+                            <button class="doctor-video-btn-single" data-video="<?php echo esc_url($video_url); ?>">
+                                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_2402_132)">
+                                        <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
+                                        <path d="M50 0C22.3861 0 0 22.3857 0 50C0 77.6143 22.3861 100 50 100C77.6139 100 100 77.6143 100 50C100 22.3857 77.6139 0 50 0ZM67.2813 52.6504L42.2812 68.2754C41.808 68.5708 41.2644 68.7342 40.7067 68.7487C40.1491 68.7632 39.5977 68.6283 39.1098 68.3578C38.6219 68.0875 38.2153 67.6915 37.9323 67.2109C37.6492 66.7303 37.4999 66.1827 37.5 65.625V34.375C37.5 33.2383 38.1164 32.193 39.1098 31.6422C39.5974 31.3707 40.1489 31.2352 40.7068 31.2497C41.2647 31.2641 41.8084 31.4282 42.2812 31.7246L67.2813 47.3496C68.1945 47.9219 68.75 48.9229 68.75 50C68.75 51.0771 68.1945 52.0783 67.2813 52.6504Z" fill="#23BFCF"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_2402_132">
+                                            <rect width="100" height="100" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+                        <?php endif; ?>
                     </div>
                     
                     <div class="doctor-basic-info">
@@ -19,19 +36,8 @@
                         <div class="doctor-position-single"><?php echo get_post_meta(get_the_ID(), '_doctor_position', true); ?></div>
                         <div class="doctor-experience-single">Опыт работы: <?php echo get_post_meta(get_the_ID(), '_doctor_experience', true); ?> лет</div>
                         
-                        <?php 
-                        $video_url = get_post_meta(get_the_ID(), '_doctor_video_url', true);
-                        if ($video_url) : ?>
-                            <a href="<?php echo esc_url($video_url); ?>" target="_blank" class="doctor-video-btn-single">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="12" r="12" fill="#ff6b6b"/>
-                                    <path d="M10 8L16 12L10 16V8Z" fill="white"/>
-                                </svg>
-                                Смотреть видео
-                            </a>
-                        <?php endif; ?>
                         
-                        <button class="doctor-appointment-btn" onclick="openAppointmentModal()">
+                        <button class="btn-1" onclick="openPopup()">
                             Записаться к врачу
                         </button>
                     </div>
@@ -91,25 +97,14 @@
 </section>
 
 <style>
-.doctor-single {
-    padding: 80px 0;
-    background: #f8f9fa;
-}
+/* Стили .doctor-single перенесены в style.css */
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+/* Стили .container-grid перенесены в style.css */
 
 .doctor-profile {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 60px;
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .doctor-profile-left {
@@ -117,19 +112,19 @@
 }
 
 .doctor-photo-single {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+    width: 100%;
+    height: 420px;
     overflow: hidden;
-    margin: 0 auto 30px;
-    border: 6px solid #ff6b6b;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #dff7f4 40%, #8fe0db 100%);
+    border-radius: 20px;
+    position: relative;
 }
 
 .doctor-photo-single img {
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
 }
 
 .doctor-placeholder-single {
@@ -143,17 +138,11 @@
 }
 
 .doctor-name-single {
-    font-size: 32px;
-    font-weight: 700;
-    color: #2A2A2A;
-    margin: 0 0 15px 0;
-    font-family: 'NTSomic', sans-serif;
+    font-size: 24px;
 }
 
 .doctor-position-single {
-    font-size: 20px;
-    font-weight: 600;
-    color: #666;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
@@ -164,45 +153,18 @@
 }
 
 .doctor-video-btn-single {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-    color: white;
-    text-decoration: none;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 auto;
-}
-
-.doctor-video-btn-single:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
-    color: white;
-    text-decoration: none;
-}
-
-.doctor-appointment-btn {
-    display: block;
-    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-    color: white;
+    background: none;
     border: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
+    border-radius: 25px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 20px auto 0 auto;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 
-.doctor-appointment-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
-}
+/* Стили .doctor-appointment-btn перенесены в style.css */
 
 .doctor-profile-right {
     padding-left: 20px;
@@ -254,8 +216,7 @@
     }
     
     .doctor-photo-single {
-        width: 250px;
-        height: 250px;
+        height: 350px;
     }
     
     .doctor-name-single {
@@ -274,8 +235,7 @@
     }
     
     .doctor-photo-single {
-        width: 200px;
-        height: 200px;
+        height: 300px;
     }
     
     .doctor-name-single {
@@ -287,20 +247,11 @@
     }
 }
 
-// Функция для открытия попапа записи к врачу
-function openAppointmentModal() {
-    // Здесь можно использовать существующий попап на сайте
-    // Или создать новый попап с формой
-    alert('Функция записи к врачу будет добавлена позже');
-}
+/* Функция openAppointmentModal удалена - используется основной попап openPopup() */
 </style>
 
 <script>
-function openAppointmentModal() {
-    // Здесь можно использовать существующий попап на сайте
-    // Или создать новый попап с формой
-    alert('Функция записи к врачу будет добавлена позже');
-}
+/* Функция openAppointmentModal удалена - используется основной попап openPopup() */
 </script>
 
 <?php get_footer(); ?>

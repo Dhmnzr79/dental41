@@ -46,10 +46,8 @@
             <!-- Навигация сайта -->
             <ul class="nav" role="list">
                 <li><a href="<?php echo home_url(); ?>">Главная <span>о клинике</span></a></li>
-                <li><a href="<?php echo home_url('/implantatsiya'); ?>">Имплантация <span>цены, этапы</span></a></li>
                 <li><a href="<?php echo home_url('/doctor'); ?>">Врачи <span>опыт, дипломы</span></a></li>
-                <li><a href="<?php echo home_url('/o-organizatsii'); ?>">О клинике <span>информация</span></a></li>
-                <li><a href="<?php echo home_url('/blog'); ?>">Блог</a></li>
+                <li><a href="<?php echo home_url('/o-klinike'); ?>">О клинике <span>информация</span></a></li>
                 <li><a href="<?php echo home_url('/kontakty'); ?>">Контакты</a></li>
             </ul>
 
@@ -169,18 +167,15 @@ window.addEventListener('keydown', (e) => {
 function dental_clinic_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Главная</a></li>';
-    echo '<li><a href="' . home_url('/implantatsiya') . '">Имплантация</a></li>';
     echo '<li><a href="' . home_url('/doctor') . '">Врачи</a></li>';
     echo '<li class="dropdown">';
     echo '<a href="#" class="dropdown-toggle">О клинике</a>';
     echo '<ul class="dropdown-menu">';
-    echo '<li><a href="' . home_url('/o-organizatsii') . '">О организации</a></li>';
+    echo '<li><a href="' . home_url('/o-klinike') . '">О клинике</a></li>';
     echo '<li><a href="' . home_url('/rekvizity') . '">Реквизиты</a></li>';
     echo '<li><a href="' . home_url('/litsenzii') . '">Лицензии</a></li>';
-    echo '<li><a href="' . home_url('/yuridicheskaya-informatsiya') . '">Юридическая информация</a></li>';
     echo '</ul>';
     echo '</li>';
-    echo '<li><a href="' . home_url('/blog') . '">Блог</a></li>';
     echo '<li><a href="' . home_url('/kontakty') . '">Контакты</a></li>';
     echo '</ul>';
 }

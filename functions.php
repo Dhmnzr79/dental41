@@ -135,6 +135,8 @@ function dental_clinic_setup() {
 }
 add_action('after_setup_theme', 'dental_clinic_setup');
 
+
+
 function dental_clinic_register_post_types() {
     register_post_type('doctor', array(
         'labels' => array(
@@ -612,7 +614,7 @@ function dental_clinic_doctors_slider_shortcode($atts) {
         $output .= '<div class="doctor-actions">';
         $output .= '<a href="' . get_permalink() . '" class="doctor-btn">Подробнее</a>';
         if ($video_url) {
-            $output .= '<button class="doctor-video-btn" data-video="' . esc_url($video_url) . '">🎥 Видео</button>';
+            $output .= '<button class="doctor-video-btn-shortcode" data-video="' . esc_url($video_url) . '">🎥 Видео</button>';
         }
         $output .= '</div>';
         

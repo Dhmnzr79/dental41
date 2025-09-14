@@ -1325,6 +1325,11 @@ h6 {
     left: 0;
 }
 
+/* Кнопка в карточке врача */
+.btn-doctor-card {
+    padding: 15px;
+}
+
 .hero-subtitle {
     font-size: 34px;
     margin-bottom: 0;
@@ -1524,20 +1529,16 @@ h6 {
     flex-wrap: wrap;
 }
 
-.doctor-video-btn {
-    background: var(--accent-color);
-    color: var(--white);
-    padding: 8px 15px;
+.doctor-video-btn-slider {
+    background: none;
     border: none;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.doctor-video-btn:hover {
-    transform: translateY(-2px);
+    position: absolute;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    top: 160px;
 }
 
 /* Кнопки для врачей */
@@ -1559,11 +1560,7 @@ h6 {
 .doctor-btn:hover {
 }
 
-/* Page Content */
-.page-content {
-    padding: 120px 0 80px;
-    margin-top: 80px;
-}
+/* Page Content - удален дублирующий стиль */
 
 /* ===== КОНТЕЙНЕРЫ И СЕТКИ ===== */
 
@@ -1661,7 +1658,7 @@ h6 {
 
 /* Doctors Archive */
 .doctors-archive {
-    padding: 120px 0 80px;
+    padding: 80px 0;
 }
 
 .doctors-grid {
@@ -1672,33 +1669,48 @@ h6 {
 }
 
 .doctor-card-large {
-    background: var(--white);
-    border-radius: 15px;
-    padding: 40px;
-    margin-bottom: 40px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     display: flex;
-    gap: 40px;
     align-items: center;
+    flex-direction: column;
 }
 
 .doctor-photo-large {
-    flex: 0 0 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: #f0f0f0;
+    background: linear-gradient(135deg, #dff7f4 40%, #8fe0db 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
-
     overflow: hidden;
+    width: 100%;
+    max-height: 400px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.doctor-card-large:nth-child(2n) .doctor-photo-large {
+    background: linear-gradient(135deg, #e7f1fa 40%, #a8c9f0 100%);
+}
+
+.doctor-card-large:nth-child(3n) .doctor-photo-large {
+    background: linear-gradient(135deg, #f3e9f6 40%, #d8a9c9 100%);
+}
+
+.doctor-card-large:nth-child(4n) .doctor-photo-large {
+    background: linear-gradient(135deg, #e4f7f9 40%, #8dd5e5 100%);
+}
+
+.doctor-card-large:nth-child(5n) .doctor-photo-large {
+    background: linear-gradient(135deg, #eafbf6 40%, #9fdacb 100%);
+}
+
+.doctor-card-large:nth-child(6n) .doctor-photo-large {
+    background: linear-gradient(135deg, #c8e1f2 44%, #379fea 100%);
 }
 
 .doctor-photo-large img {
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
 }
 
 /* Контекстные стили для больших карточек врачей */
@@ -1750,7 +1762,7 @@ h6 {
 
 /* Single Doctor */
 .doctor-single {
-    padding: 120px 0 80px;
+    padding: 80px 0 80px;
 }
 
 .doctor-single-content {
@@ -1780,12 +1792,9 @@ h6 {
     margin: 0 auto;
 }
 
-.doctor-photo-single img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+/* Стили .doctor-photo-single img перенесены в single-doctor.php */
+
+/* Кнопка записи к врачу использует .btn-1 */
 
 /* Контекстные стили для страницы врача */
 .doctor-single .single-doctor-name {
@@ -2954,6 +2963,11 @@ h6 {
         padding-left: 0;
     }
 
+    .doctor-quote {
+        display: flex;
+        gap: 0;
+    }
+
     .consultation-quote-doctor-image {
         width: 80px;
         height: 80px;
@@ -3364,12 +3378,16 @@ h6 {
     gap: 350px;
     align-items: flex-start;
     box-sizing: border-box;
-    background:
-        url('./assets/images/cta-bg.png') center bottom no-repeat,
+    background-image:
+        url('./assets/images/cta-bg.png'),
         linear-gradient(96.62deg, #ffd7ef -2.25%, #9ce8f4 48.88%, #8fc0e4 93.39%);
+    background-position:
+        center bottom,
+        center center;
+    background-repeat: no-repeat, no-repeat;
     background-size:
         43% auto,
-        cover;
+        100% 100%;
     border-radius: 20px;
 }
 
@@ -3461,8 +3479,12 @@ h6 {
 @media (max-width: 1023px) {
     .cta-container {
         flex-direction: column;
-        gap: 40px;
-        padding: 0 20px;
+        gap: 20px;
+        padding: 100px 20px 0;
+        background-position: center top;
+        background-size:
+            60% auto,
+            100% 100%;
     }
 
     .cta-left {
@@ -3475,6 +3497,7 @@ h6 {
 
     .cta-benefits {
         padding-right: 0;
+        gap: 0;
     }
 
     .cta-title {
@@ -3492,6 +3515,7 @@ h6 {
 
     .cta-benefits {
         padding-right: 0;
+        gap: 0;
     }
 
     .cta-title {
@@ -4964,25 +4988,37 @@ h6 {
     font-size: 16px;
 }
 
-.doctor-video-btn {
+/* Кнопка видео для архива докторов */
+.doctor-video-btn-archive {
     background: none;
     border: none;
-    padding: 8px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    text-decoration: none;
-    margin-top: 15px;
-    align-self: flex-start;
+    border-radius: 25px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 
-.doctor-video-btn:hover {
-    transform: scale(1.1);
+/* Кнопка видео для шорткода */
+.doctor-video-btn-shortcode {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.doctor-video-btn svg {
-    width: 50px;
-    height: 50px;
+.doctor-video-btn-shortcode:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
 }
 
 /* Попап для видео врачей */
@@ -5047,14 +5083,9 @@ h6 {
     height: 100%;
 }
 
-/* Архивная страница врачей */
-.doctors-archive {
-    padding: 80px 0;
-    background: #f8f9fa;
-}
+/* Архивная страница врачей - удален дублирующий стиль */
 
 .doctors-archive .container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -5084,36 +5115,9 @@ h6 {
     margin-top: 40px;
 }
 
-.doctor-card-large {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    transition: transform 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    height: 420px;
-}
+/* Дублирующие стили .doctor-card-large удалены */
 
-.doctor-card-large:hover {
-    transform: translateY(-5px);
-}
-
-.doctor-photo-large {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px;
-    border: 4px solid rgba(255, 255, 255, 0.8);
-}
-
-.doctor-photo-large img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/* Дублирующие стили .doctor-photo-large удалены */
 
 .doctor-placeholder-large {
     width: 100%;
@@ -5134,8 +5138,8 @@ h6 {
 }
 
 .doctor-name-large {
-    font-size: 24px;
-    margin: 0 0 10px 0;
+    font-size: 22px;
+    margin: 20px 0 10px 0;
 
     font-family: var(--heading-font);
 }
@@ -5218,15 +5222,9 @@ h6 {
         gap: 20px;
     }
 
-    .doctor-card-large {
-        height: 380px;
-        padding: 25px;
-    }
+    /* Мобильный стиль .doctor-card-large удален */
 
-    .doctor-photo-large {
-        width: 100px;
-        height: 100px;
-    }
+    /* Мобильный стиль .doctor-photo-large удален */
 
     .doctor-name-large {
         font-size: 20px;
@@ -8147,8 +8145,7 @@ body.popup-open {
 /* Хлебные крошки */
 .breadcrumbs {
     padding: 20px 0;
-    background: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    font-size: 16px;
 }
 
 .breadcrumbs .container {
@@ -8395,7 +8392,6 @@ body.popup-open {
 
 /* Страницы клиники */
 .clinic-page-content {
-    padding: 80px 0;
 }
 
 .content-wrapper {
@@ -8411,7 +8407,8 @@ body.popup-open {
 .page-header h1 {
     font-size: 2.5rem;
     color: var(--heading-color);
-    margin-bottom: 20px;
+    text-align: left;
+    margin: 0;
 }
 
 .clinic-page-article {
@@ -8468,7 +8465,6 @@ body.popup-open {
 /* Адаптивность для страниц клиники */
 @media (max-width: 767px) {
     .clinic-page-content {
-        padding: 60px 0;
     }
 
     .page-header h1 {
@@ -8627,7 +8623,7 @@ body.popup-open {
 
 /* Унифицированная форма обратной связи */
 .contact-form-sticky {
-    background: #f8f9fa;
+    background: linear-gradient(143.28deg, #d6e5e8 9%, #9be8f4 46.5%, #cec1de 98.5%);
     padding: 30px;
     border-radius: 12px;
     border: 1px solid #e9ecef;
@@ -8786,16 +8782,7 @@ body.popup-open {
     color: white;
 }
 
-/* Sticky форма обратной связи */
-.contact-form-sticky {
-    position: sticky;
-    top: 20px;
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e9ecef;
-}
+/* Sticky форма обратной связи - удален дублирующий стиль */
 
 .contact-form-sticky h3 {
     font-size: 1.4rem;
@@ -8910,6 +8897,10 @@ body.popup-open {
 
     .breadcrumbs .container {
         padding: 0 20px;
+    }
+
+    .breadcrumbs {
+        font-size: 14px;
     }
 
     /* Адаптивность для отдельной статьи */
