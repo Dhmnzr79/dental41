@@ -1147,6 +1147,82 @@ function process_featured_article_content($content) {
 add_filter('the_content', 'process_featured_article_content');
 
 /**
+ * Обработчик AJAX для формы заявки
+ */
+function handle_contact_form_submission() {
+    // Проверяем nonce для безопасности
+    if (!wp_verify_nonce($_POST['_wpnonce'], 'contact_form_nonce')) {
+        wp_die('Ошибка безопасности');
+    }
+    
+    // Получаем данные из формы
+    $name = sanitize_text_field($_POST['name']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    $message_text = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+    $form_type = isset($_POST['form_type']) ? sanitize_text_field($_POST['form_type']) : 'Заявка с сайта';
+    
+    // Валидация
+    if (empty($name) || empty($phone)) {
+        wp_send_json_error('Заполните все обязательные поля');
+        return;
+    }
+    
+    // Email для получения заявок (несколько адресов)
+    $to_email = array(
+        'denis.today@yandex.ru',
+        'second-email@yandex.ru',
+        'third-email@gmail.com'
+    );
+    
+    // Формируем сообщение
+    $subject = "Новая заявка: $form_type";
+    $message = "
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Новая заявка с сайта</title>
+    </head>
+    <body>
+        <h2>Новая заявка с сайта</h2>
+        <p><strong>Тип заявки:</strong> $form_type</p>
+        <p><strong>Имя:</strong> $name</p>
+        <p><strong>Телефон:</strong> $phone</p>";
+    
+    if (!empty($email)) {
+        $message .= "<p><strong>Email:</strong> $email</p>";
+    }
+    
+    if (!empty($message_text)) {
+        $message .= "<p><strong>Сообщение:</strong> $message_text</p>";
+    }
+    
+    $message .= "
+        <p><strong>Время отправки:</strong> " . date('d.m.Y H:i:s') . "</p>
+        <p><strong>IP адрес:</strong> " . $_SERVER['REMOTE_ADDR'] . "</p>
+        <p><strong>User Agent:</strong> " . $_SERVER['HTTP_USER_AGENT'] . "</p>
+    </body>
+    </html>";
+    
+    // Отправляем email через WordPress (плагин WP Mail SMTP)
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $email_sent = wp_mail($to_email, $subject, $message, $headers);
+    
+    // Логируем результат
+    error_log("Form submission: Name=$name, Phone=$phone, Email sent=" . ($email_sent ? 'YES' : 'NO'));
+    
+    if ($email_sent) {
+        wp_send_json_success('Заявка отправлена успешно!');
+    } else {
+        wp_send_json_error('Ошибка отправки заявки');
+    }
+}
+
+// Регистрируем AJAX обработчики
+add_action('wp_ajax_submit_contact_form', 'handle_contact_form_submission');
+add_action('wp_ajax_nopriv_submit_contact_form', 'handle_contact_form_submission');
+
+/**
  * Добавляем мета-боксы для топ-статьи
  */
 function add_featured_article_meta_boxes() {

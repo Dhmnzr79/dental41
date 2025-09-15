@@ -71,7 +71,10 @@
         </div>
     </div>
     
+    <div class="mobile-hero-buttons">
     <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
+        <button type="button" class="btn-whatsapp" onclick="window.open('https://wa.me/79084952424', '_blank')">Рассчитать стоимость в WhatsApp</button>
+    </div>
     </div>
 </section>
 
@@ -144,6 +147,7 @@
             
             <div class="hero-button">
                 <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
+                <button type="button" class="btn-whatsapp" onclick="window.open('https://wa.me/79084952424', '_blank')">Рассчитать стоимость в WhatsApp</button>
             </div>
         </div>
         
@@ -579,8 +583,8 @@
                     <path d="M42.3098 9.51733C40.5866 9.93697 38.8004 10.1467 36.7818 10.1467C34.7632 10.1467 32.977 9.93697 31.2538 9.51733M48.8427 28.2793L44.7021 57.0797C44.0823 61.3911 41.1377 65 36.782 65C32.2905 65 29.4566 61.2183 28.8617 57.0797L24.7211 28.2794M24.4335 35.6699H49.1301M25.4616 42.8206H48.1021M26.4896 49.9713H47.074M27.5443 57.1219H46.0191M12.4487 18.5006C9.65378 17.1202 3.9725 18.1096 1 21.0821M61.1149 18.5006C63.9098 17.1202 69.591 18.1096 72.5636 21.0821" stroke="black" stroke-width="2" stroke-miterlimit="22.9256" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <h3>Импланты от ведущих производителей</h3>
-            <p>По протоколу All-on-4: уходите с временной коронкой уже в день приёма</p>
+            <h3>Оригинальные импланты с пожизненной гарантией</h3>
+            <p>Nobel (Швейцария) и Impro (Германия) — никаких подделок и дешёвых аналогов.</p>
         </div>
         
         <div class="plus-card plus-2">
@@ -605,11 +609,11 @@
                     <path d="M30.8568 21.5503H32.9213" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <h3>Врачи с опытом 20 000+ операций</h3>
-            <p>Узкопрофильные хирурги регулярно проходят обучение в Европе и Москве</p>
+            <h3>Опытные врачи</h3>
+            <p>Более 20 000 установленных имплантов, регулярное обучение в Европе и Москве.</p>
         </div>
         
-        <div class="plus-card plus-3" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/price-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="plus-card plus-3" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/plus-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         </div>
         
         <div class="plus-card plus-4">
@@ -622,8 +626,8 @@
                     <path d="M21.3088 27.4429V37.545C21.3088 38.8224 22.3444 39.858 23.6219 39.858C24.8993 39.858 25.9349 38.8224 25.9349 37.5448L25.9347 24.4714M44.6914 31.9506L44.6915 37.5451C44.6915 38.8225 43.6559 39.8581 42.3785 39.8581C41.1011 39.8581 40.0655 38.8225 40.0655 37.545L40.0656 24.4716" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <h3>Куратор до результата</h3>
-            <p>Вы не одни: вас сопровождает специалист, который отвечает на все вопросы - до полного завершения</p>
+            <h3>Куратор рядом</h3>
+            <p>Вы не одни: вас сопровождает специалист, который отвечает на все вопросы - до полного завершения лечения.</p>
         </div>
         
         <div class="plus-card plus-5">
@@ -676,37 +680,37 @@
             </div>
             
             <!-- Второй ряд - гарантии -->
-            <div class="guarantees-left" style="grid-area: 2 / 1 / 3 / 2; background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/warranty-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="guarantees-left" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/warranty-bg.jpg');">
                 <h3>Мы отвечаем за свою работу и даём официальные гарантии</h3>
                 <p>Все гарантии прописаны в договоре — вы защищены документально.</p>
             </div>
             
-            <div class="guarantees-right" style="grid-area: 2 / 2 / 3 / 4; display: grid; gap: 10px;">
+            <div class="guarantees-right">
                 <!-- 1 ряд - 2 колонки -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
                     <div>
-                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                        <div class="guarantee-item">
+                            <svg class="guarantee-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                             </svg>
                             <p><strong>Работа врача</strong> — гарантия 1 год</p>
                         </div>
-                        <div style="display: flex; align-items: center;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                        <div class="guarantee-item">
+                            <svg class="guarantee-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                             </svg>
                             <p><strong>Импланты Implantium (Корея)</strong> — 5 лет гарантии</p>
                         </div>
                     </div>
                     <div>
-                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                        <div class="guarantee-item">
+                            <svg class="guarantee-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                             </svg>
                             <p><strong>Импланты Nobel (Швейцария)</strong> — пожизненная гарантия</p>
                         </div>
-                        <div style="display: flex; align-items: center;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                        <div class="guarantee-item">
+                            <svg class="guarantee-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                             </svg>
                             <p><strong>Импланты Impro (Германия)</strong> — пожизненная гарантия</p>
@@ -716,7 +720,7 @@
                 
                 <!-- 2 ряд - одна фраза -->
                 <div>
-                    <p>Гарантия действует при регулярных осмотрах и гигиене.</p>
+                    <p><em>* Гарантия действует при регулярных осмотрах и гигиене.</em></p>
                 </div>
                 
                 <!-- 3 ряд - одна колонка на всю ширину -->
@@ -1625,30 +1629,33 @@
                             </div>
                         </div>
                         
-                        <p class="card-description">Отличается повышенной устойчивостью к нагрузкам и максимально доступной стоимостью.</p>
-                        
-                        <ul class="features-list">
-                            <li class="feature-item">
-                                <span class="feature-label">Гарантия на работу врача</span>
-                                <span class="feature-value">1 год</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Гарантия</span>
-                                <span class="feature-value">5 лет</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Время приживания</span>
-                                <span class="feature-value">Стандартное</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Имплантация за 1 день</span>
-                                <span class="feature-value">Да</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Возможность есть сразу</span>
-                                <span class="feature-value">Да</span>
-                            </li>
+                        <div class="card-details">
+                            <div class="details-section">
+                                <h4 class="details-title">В стоимость включено:</h4>
+                                <ul class="details-list">
+                                    <li>Имплант Implantium (Южная Корея)</li>
+                                    <li>Циркониевая коронка</li>
+                                    <li>Хирургический этап + анестезия</li>
+                                    <li>Ортопедический этап (через 3-4 месяца)</li>
+                                    <li>Бесплатные контрольные осмотры</li>
+                                    <li>Персональный куратор</li>
                         </ul>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4 class="details-title">Оплата:</h4>
+                                <p class="details-text">1 этап (хирургия) ~ <strong>45 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4 class="details-title">Гарантии:</h4>
+                                <p class="details-text">На имплант 5 лет<br>На работу доктора 1 год</p>
+                            </div>
+                            
+                            <div class="details-section">
+                                <p class="details-note">* КТ оплачивается отдельно</p>
+                            </div>
+                        </div>
                         
                         <button class="card-button" onclick="openPopup()">Выбрать комфорт</button>
                 <div class="savings-text">Экономия 15 600 ₽ при записи сегодня</div>
@@ -1674,30 +1681,33 @@
                             ЦЭСИ РЕКОМЕНДУЕТ
                         </div>
                         
-                        <p class="card-description">Отличаются высокой скоростью приживления в костной ткани, простотой установки. Отличное сочетание цены и качества.</p>
-                        
-                        <ul class="features-list">
-                            <li class="feature-item">
-                                <span class="feature-label">Гарантия на работу врача</span>
-                                <span class="feature-value">1 год</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Гарантия</span>
-                                <span class="feature-value">Пожизненная</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Время приживания</span>
-                                <span class="feature-value">Ускоренное</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Имплантация за 1 день</span>
-                                <span class="feature-value">Да</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Возможность есть сразу</span>
-                                <span class="feature-value">Да</span>
-                            </li>
+                        <div class="card-details">
+                            <div class="details-section">
+                                <h4 class="details-title">В стоимость включено:</h4>
+                                <ul class="details-list">
+                                    <li>Пожизненная гарантия на имплант</li>
+                                    <li>Циркониевая коронка</li>
+                                    <li>Хирургический этап: установка импланта + анестезия</li>
+                                    <li>Ортопедический этап: коронка на импланте (через 3–4 месяца)+ сканирование</li>
+                                    <li>Бесплатные контрольные осмотры</li>
+                                    <li>Персональный куратор</li>
                         </ul>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4 class="details-title">Оплата:</h4>
+                                <p class="details-text">1 этап (хирургия) ~ <strong>54 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4 class="details-title">Гарантии:</h4>
+                                <p class="details-text">На имплант пожизненная<br>На работу доктора 1 год</p>
+                            </div>
+                            
+                            <div class="details-section">
+                                <p class="details-note">* КТ оплачивается отдельно</p>
+                            </div>
+                        </div>
                         
                         <button class="card-button" onclick="openPopup()">Выбрать оптимальный</button>
                 <div class="savings-text">Экономия до 20 000 ₽ при записи сегодня</div>
@@ -1718,30 +1728,33 @@
                             </div>
                         </div>
                         
-                        <p class="card-description">Пожалуй, самые известные импланты во всем мире. Обладает уникальными особенностями, которые обеспечивают почти 100% приживаемости</p>
-                        
-                        <ul class="features-list">
-                            <li class="feature-item">
-                                <span class="feature-label">Гарантия на работу врача</span>
-                                <span class="feature-value">1 год</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Гарантия</span>
-                                <span class="feature-value">Пожизненная</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Время приживания</span>
-                                <span class="feature-value">Ускоренное</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Имплантация за 1 день</span>
-                                <span class="feature-value">Да</span>
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-label">Возможность есть сразу</span>
-                                <span class="feature-value">Да</span>
-                            </li>
+                        <div class="card-details">
+                            <div class="details-section">
+                                <h4 class="details-title">В стоимость включено:</h4>
+                                <ul class="details-list">
+                                    <li>Имплант Nobel Biocare — №1 в мире</li>
+                                    <li>Коронка из диоксида циркония</li>
+                                    <li>Хирургический этап: установка импланта + анестезия</li>
+                                    <li>Ортопедический этап: коронка на импланте (через 3–4 месяца)+ сканирование</li>
+                                    <li>Бесплатные контрольные осмотры</li>
+                                    <li>Персональный куратор</li>
                         </ul>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4 class="details-title">Оплата:</h4>
+                                <p class="details-text">1 этап (хирургия) ~ <strong>70 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4 class="details-title">Гарантии:</h4>
+                                <p class="details-text">На имплант пожизненная<br>На работу доктора 1 год</p>
+                            </div>
+                            
+                            <div class="details-section">
+                                <p class="details-note">* КТ оплачивается отдельно</p>
+                            </div>
+                        </div>
                         
                         <button class="card-button" onclick="openPopup()">Выбрать премиум</button>
                 <div class="savings-text">Экономия до 16 000 ₽ при записи сегодня</div>
@@ -2039,6 +2052,34 @@
     </div>
 </section>
 
+
+<div id="mapModal" class="map-modal">
+    <div class="map-modal-content">
+        <span class="map-modal-close">&times;</span>
+        <div class="map-container">
+            <div id="yandexMap" style="width: 100%; height: 400px;"></div>
+        </div>
+    </div>
+</div>
+
+<div id="videoReviewModal" class="video-review-modal">
+    <div class="video-review-modal-content">
+        <span class="video-review-modal-close">&times;</span>
+        <div class="video-review-modal-video">
+            <iframe id="videoReviewIframe" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<div id="doctorVideoModal" class="doctor-video-modal">
+    <div class="doctor-video-modal-content">
+        <span class="doctor-video-modal-close">&times;</span>
+        <div class="doctor-video-modal-video">
+            <iframe id="doctorVideoIframe" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
 <!-- Блок контактов -->
 <section class="contacts-section">
     <div class="contacts-container grid-system">
@@ -2071,68 +2112,23 @@
                         📞
                     </div>
                     <div class="contact-text">
-                        +7(4152) 21-55-82
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        📞
-                    </div>
-                    <div class="contact-text">
-                        +7(908) 495-24-24
+                        <a href="tel:+74152500129">+7(4152) 50-01-29</a>
                     </div>
                 </div>
             </div>
             
-            <div class="contacts-description">
                 <p>Мы расположены в современном бизнес-центре с охраняемой парковкой. В клинике действует IP телефония, не одно обращение не останется без внимания.</p>
-            </div>
             
-            <div class="contacts-button">
                 <button class="btn-1" onclick="openPopup()">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
-            </div>
         </div>
         
         <div class="contacts-photo grid-6">
             <div class="building-photo">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map-pin.jpg" alt="Карта" class="building-placeholder">
-            </div>
-            <div class="map-link">
-                <a href="#" class="map-link-btn" id="showMapBtn">Посмотреть на карте</a>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map-pin.jpg" alt="Здание клиники" class="building-placeholder">
             </div>
         </div>
     </div>
 </section>
-
-<div id="mapModal" class="map-modal">
-    <div class="map-modal-content">
-        <span class="map-modal-close">&times;</span>
-        <div class="map-container">
-            <div id="yandexMap" style="width: 100%; height: 400px;"></div>
-        </div>
-    </div>
-</div>
-
-<div id="videoReviewModal" class="video-review-modal">
-    <div class="video-review-modal-content">
-        <span class="video-review-modal-close">&times;</span>
-        <div class="video-review-modal-video">
-            <iframe id="videoReviewIframe" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
-
-<div id="doctorVideoModal" class="doctor-video-modal">
-    <div class="doctor-video-modal-content">
-        <span class="doctor-video-modal-close">&times;</span>
-        <div class="doctor-video-modal-video">
-            <iframe id="doctorVideoIframe" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
-
-
 
 <?php get_footer(); ?>
 

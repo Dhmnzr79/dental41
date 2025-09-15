@@ -12,24 +12,24 @@ let isClosing = false;
  */
 function openPopup(popupId = 'popup-1') {
     if (isClosing) return;
-    
+
     const popup = document.getElementById(popupId);
     if (!popup) return;
-    
+
     currentPopup = popup;
-    
+
     // Блокируем скролл
     document.body.classList.add('popup-open');
-    
+
     // Показываем попап
     popup.classList.add('show');
-    
+
     // Фокус на первое поле
     setTimeout(() => {
         const firstField = popup.querySelector('input');
         if (firstField) firstField.focus();
     }, 300);
-    
+
     // Обработчики событий
     setupPopupEvents(popup);
 }
@@ -39,12 +39,12 @@ function openPopup(popupId = 'popup-1') {
  */
 function closePopup() {
     if (!currentPopup || isClosing) return;
-    
+
     isClosing = true;
-    
+
     // Анимация закрытия
     currentPopup.classList.add('closing');
-    
+
     setTimeout(() => {
         currentPopup.classList.remove('show', 'closing');
         document.body.classList.remove('popup-open');
@@ -59,27 +59,27 @@ function closePopup() {
  */
 function setupPopupEvents(popup) {
     // Закрытие по клику на overlay
-    popup.addEventListener('click', (e) => {
+    popup.addEventListener('click', e => {
         if (e.target === popup) {
             closePopup();
         }
     });
-    
+
     // Закрытие по Escape
     document.addEventListener('keydown', handleEscape);
-    
+
     // Закрытие по клику на кнопку закрытия
     const closeBtn = popup.querySelector('.popup-close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closePopup);
     }
-    
+
     // Обработка формы
     const form = popup.querySelector('.popup-form');
     if (form) {
         form.addEventListener('submit', handleFormSubmit);
     }
-    
+
     // Обработка табов (для мобильной версии)
     setupTabs(popup);
 }
@@ -100,15 +100,15 @@ function handleEscape(e) {
  */
 function handleFormSubmit(e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const formData = new FormData(form);
-    
+
     // Валидация
     if (!validateForm(formData)) {
         return;
     }
-    
+
     // Отправка данных (здесь будет AJAX запрос)
     submitForm(formData);
 }
@@ -121,20 +121,20 @@ function handleFormSubmit(e) {
 function validateForm(formData) {
     const name = formData.get('name');
     const phone = formData.get('phone');
-    
+
     // Проверка имени
     if (!name || name.trim().length < 2) {
         showError('Введите корректное имя');
         return false;
     }
-    
+
     // Проверка телефона
     const phoneRegex = /^\+7\s?\(?(\d{3})\)?\s?(\d{3})-?(\d{2})-?(\d{2})$/;
     if (!phone || !phoneRegex.test(phone.replace(/\s/g, ''))) {
         showError('Введите корректный номер телефона');
         return false;
     }
-    
+
     return true;
 }
 
@@ -148,18 +148,35 @@ function submitForm(formData) {
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Отправляем...';
     submitBtn.disabled = true;
-    
-    // Здесь будет AJAX запрос к WordPress
-    // Пока что имитируем отправку
-    setTimeout(() => {
-        submitBtn.textContent = 'Отправлено!';
-        
-        setTimeout(() => {
-            closePopup();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 1000);
-    }, 1500);
+
+    // AJAX запрос через WordPress AJAX API
+    formData.append('action', 'submit_contact_form');
+
+    fetch('/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        body: formData,
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                submitBtn.textContent = 'Отправлено!';
+                setTimeout(() => {
+                    closePopup();
+                    // Переадресация на страницу благодарности
+                    window.location.href = '/spasibo-za-zayavku/';
+                }, 1000);
+            } else {
+                throw new Error(data.data || 'Ошибка отправки');
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+            submitBtn.textContent = 'Ошибка отправки';
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
 }
 
 /**
@@ -172,7 +189,7 @@ function showError(message) {
     if (existingError) {
         existingError.remove();
     }
-    
+
     // Создаем элемент ошибки
     const error = document.createElement('div');
     error.className = 'popup-error';
@@ -187,11 +204,11 @@ function showError(message) {
         border-radius: 6px;
         border: 1px solid #fecaca;
     `;
-    
+
     // Вставляем ошибку после формы
     const form = currentPopup.querySelector('.popup-form');
     form.appendChild(error);
-    
+
     // Удаляем ошибку через 5 секунд
     setTimeout(() => {
         if (error.parentNode) {
@@ -207,18 +224,18 @@ function showError(message) {
 function setupTabs(popup) {
     const tabs = popup.querySelectorAll('.popup-tab');
     const panes = popup.querySelectorAll('.popup-pane');
-    
+
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const target = tab.getAttribute('data-target');
             const targetPane = popup.querySelector(target);
-            
+
             if (!targetPane) return;
-            
+
             // Убираем активный класс со всех табов и панелей
             tabs.forEach(t => t.classList.remove('is-active'));
             panes.forEach(p => p.classList.remove('is-active'));
-            
+
             // Добавляем активный класс к выбранному табу и панели
             tab.classList.add('is-active');
             targetPane.classList.add('is-active');
@@ -231,24 +248,24 @@ function setupTabs(popup) {
  */
 function setupPhoneMask() {
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
-    
+
     phoneInputs.forEach(input => {
-        input.addEventListener('input', (e) => {
+        input.addEventListener('input', e => {
             let value = e.target.value.replace(/\D/g, '');
-            
+
             if (value.length === 0) {
                 e.target.value = '';
                 return;
             }
-            
+
             if (value.length === 1 && value[0] !== '7') {
                 value = '7' + value;
             }
-            
+
             if (value.length > 11) {
                 value = value.slice(0, 11);
             }
-            
+
             // Форматирование
             let formatted = '+7';
             if (value.length > 1) {
@@ -263,34 +280,37 @@ function setupPhoneMask() {
                     }
                 }
             }
-            
+
             e.target.value = formatted;
         });
     });
 }
 
 // Анимация для cta-warning
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const ctaWarning = document.querySelector('.cta-warning');
     if (!ctaWarning) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target); // Анимация срабатывает только один раз
-            }
-        });
-    }, {
-        threshold: 0.3, // Анимация запускается когда 30% элемента видно
-        rootMargin: '0px 0px -50px 0px' // Небольшой отступ снизу
-    });
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target); // Анимация срабатывает только один раз
+                }
+            });
+        },
+        {
+            threshold: 0.3, // Анимация запускается когда 30% элемента видно
+            rootMargin: '0px 0px -50px 0px', // Небольшой отступ снизу
+        }
+    );
 
     observer.observe(ctaWarning);
 });
 
 // Инициализация табов для implant-tabs-container
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const tabsContainer = document.getElementById('tabs-underline');
     if (!tabsContainer) return;
 
@@ -315,12 +335,16 @@ document.addEventListener('DOMContentLoaded', function() {
             t.setAttribute('aria-selected', active);
         });
         panels.forEach((p, k) => p.classList.toggle('is-active', k === i));
-        if (scrollIntoView) tabs[i].scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+        if (scrollIntoView)
+            tabs[i].scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
         moveSlider(i);
         activeIndex = i;
     }
 
-    let activeIndex = Math.max(0, tabs.findIndex(t => t.classList.contains('is-active')));
+    let activeIndex = Math.max(
+        0,
+        tabs.findIndex(t => t.classList.contains('is-active'))
+    );
     activate(activeIndex);
 
     tabs.forEach((t, i) => t.addEventListener('click', () => activate(i, true)));
@@ -350,5 +374,3 @@ document.addEventListener('DOMContentLoaded', () => {
 // Экспорт функций для использования в HTML
 window.openPopup = openPopup;
 window.closePopup = closePopup;
-
-

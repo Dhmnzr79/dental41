@@ -49,16 +49,7 @@ get_header(); ?>
                         📞
                     </div>
                     <div class="contact-text">
-                        +7(4152) 21-55-82
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        📞
-                    </div>
-                    <div class="contact-text">
-                        +7(908) 495-24-24
+                        <a href="tel:+74152500129">+7(4152) 50-01-29</a>
                     </div>
                 </div>
             </div>
