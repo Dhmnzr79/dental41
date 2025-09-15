@@ -33,7 +33,7 @@ if ($_POST && isset($_POST['name']) && isset($_POST['phone'])) {
             'host' => 'smtp.yandex.ru',
             'port' => 587,
             'username' => 'denis.today@yandex.ru',
-            'password' => 'your-password',
+            'password' => 'yckweckkiymfxhwq',
             'encryption' => 'tls',
             'from_email' => 'denis.today@yandex.ru',
             'from_name' => 'Сайт стоматологии'

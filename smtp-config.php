@@ -14,7 +14,7 @@ $smtp_configs = array(
         'port' => 587,
         'encryption' => 'tls',
         'username' => 'denis.today@yandex.ru',
-        'password' => 'your-app-password', // Используйте пароль приложения
+        'password' => 'yckweckkiymfxhwq', // Пароль приложения
         'from_email' => 'denis.today@yandex.ru',
         'from_name' => 'Сайт стоматологии'
     ),
@@ -68,7 +68,7 @@ $smtp_configs = array(
 $active_config = 'yandex';
 
 // Email для получения заявок
-$to_email = 'info@dental41.ru'; // замените на нужный email
+$to_email = 'denis.today@yandex.ru'; // Email для заявок
 
 // Дополнительные настройки
 $settings = array(
