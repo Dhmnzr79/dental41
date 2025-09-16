@@ -74,11 +74,7 @@ function setupPopupEvents(popup) {
         closeBtn.addEventListener('click', closePopup);
     }
 
-    // Обработка формы
-    const form = popup.querySelector('.popup-form');
-    if (form) {
-        form.addEventListener('submit', handleFormSubmit);
-    }
+    // Обработка формы удалена: отправка теперь через Contact Form 7
 
     // Обработка табов (для мобильной версии)
     setupTabs(popup);
@@ -94,24 +90,7 @@ function handleEscape(e) {
     }
 }
 
-/**
- * Обработка отправки формы
- * @param {Event} e - Событие формы
- */
-function handleFormSubmit(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-
-    // Валидация
-    if (!validateForm(formData)) {
-        return;
-    }
-
-    // Отправка данных (здесь будет AJAX запрос)
-    submitForm(formData);
-}
+// Удалено: перехват и самописная отправка формы
 
 /**
  * Валидация формы
@@ -138,46 +117,7 @@ function validateForm(formData) {
     return true;
 }
 
-/**
- * Отправка формы
- * @param {FormData} formData - Данные формы
- */
-function submitForm(formData) {
-    // Показываем индикатор загрузки
-    const submitBtn = currentPopup.querySelector('.popup-cta');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправляем...';
-    submitBtn.disabled = true;
-
-    // AJAX запрос через WordPress AJAX API
-    formData.append('action', 'submit_contact_form');
-
-    fetch('/wp-admin/admin-ajax.php', {
-        method: 'POST',
-        body: formData,
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                submitBtn.textContent = 'Отправлено!';
-                setTimeout(() => {
-                    closePopup();
-                    // Переадресация на страницу благодарности
-                    window.location.href = '/spasibo-za-zayavku/';
-                }, 1000);
-            } else {
-                throw new Error(data.data || 'Ошибка отправки');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-            submitBtn.textContent = 'Ошибка отправки';
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-}
+// Удалено: самописная AJAX-отправка. CF7 обрабатывает сабмит самостоятельно.
 
 /**
  * Показать ошибку

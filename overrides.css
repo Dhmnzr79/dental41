@@ -1,5 +1,8 @@
-:root {
-    --wp--preset--font-size--large: clamp(18px, 2vw, 24px);
+/* overrides for specific tweaks */
+
+/* Стили для форм Contact Form 7 */
+.wpcf7-form {
+    margin: 0;
 }
 
 h2 {
@@ -8,8 +11,16 @@ h2 {
     margin-block: 0 0.5em;
 }
 
-.percentage-text {
+.wpcf7-form input[type='text'],
+.wpcf7-form input[type='tel'],
+.wpcf7-form input[type='email'],
+.wpcf7-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
 /* Скрыть все ссылки на WhatsApp, кроме кнопки в hero и попапов */
@@ -57,6 +68,7 @@ a[href*='wa.me'] {
 .btn-whatsapp {
     background: #25d366;
     color: white;
+    border: none;
     padding: 12px 24px;
     border-radius: 10px;
     font-weight: 500;
@@ -116,6 +128,8 @@ h3 {
     font-size: 15px;
     margin: 0 0 8px 0;
     color: #23bfcf;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .details-list {
@@ -499,5 +513,140 @@ h3 {
     .brand__logo {
         width: 100%;
         height: 34px;
+    }
+}
+
+/* Убираем подчёркивание у ссылок в сайдбарах */
+.contact-form-sticky a {
+    text-decoration: none;
+}
+
+.contact-form-sticky a:hover {
+    text-decoration: underline;
+}
+
+/* Скрываем reCAPTCHA v3 badge согласно требованиям Google */
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
+/* Убираем отступы у p тегов CF7 */
+.wpcf7 p {
+    margin: 0;
+}
+
+/* Стили для последнего параграфа в формах консультации */
+.consultation-form p:last-child {
+    margin-top: 0;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* Стили для заголовков в формах консультации */
+.consultation-form h3 {
+    text-align: center;
+    font-size: 48px;
+    line-height: 0.8;
+    padding-bottom: 10px;
+}
+
+/* Отступы между полями формы */
+.wpcf7 input[type='text'],
+.wpcf7 input[type='email'],
+.wpcf7 input[type='tel'],
+.wpcf7 textarea {
+    margin-bottom: 10px;
+}
+
+/* Отступ между полями формы и кнопкой */
+.wpcf7 input[type='submit'],
+.wpcf7-submit {
+    margin-top: 0;
+}
+
+/* Стили для кнопок Contact Form 7 с hover анимацией как у btn-1 */
+.wpcf7 input[type='submit'],
+.wpcf7-submit {
+    display: inline-block;
+    padding: 25px;
+    border-radius: 10px;
+    color: #fff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, #edad35 0%, #ed63a5 100%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    width: 100%;
+    min-width: auto;
+}
+
+.wpcf7 input[type='submit']:before,
+.wpcf7-submit:before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0% !important;
+    height: 100% !important;
+    background-color: #eda635 !important;
+    transition: all 0.3s ease !important;
+    border-radius: 10px !important;
+    z-index: -1 !important;
+}
+
+.wpcf7 input[type='submit']:hover,
+.wpcf7-submit:hover {
+    color: #fff !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+}
+
+.wpcf7 input[type='submit']:hover:before,
+.wpcf7-submit:hover:before {
+    width: 100% !important;
+    border-radius: 10px !important;
+}
+
+/* ===== МЕДИА-ЗАПРОСЫ ===== */
+
+/* Десктоп: высота инпутов */
+@media (min-width: 768px) {
+    .wpcf7 input[type='text'],
+    .wpcf7 input[type='email'],
+    .wpcf7 input[type='tel'] {
+        height: 60px;
+    }
+}
+
+/* Мобилки: высота кнопок с центрированием */
+@media (max-width: 767px) {
+    .wpcf7 input[type='submit'],
+    .wpcf7-submit {
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .btn-1 {
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup-policy {
+        margin: -15px 0 0;
+        font: 12px/1.4 var(--body-font);
+        color: #8a919b;
+        text-align: center;
+        font-size: 14px;
     }
 }

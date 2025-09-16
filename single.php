@@ -52,18 +52,11 @@
                     <h3>Остались вопросы?</h3>
                     <p>Запишитесь на консультацию, и мы ответим на все ваши вопросы</p>
                     
-                    <form class="article-contact-form" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Телефон" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Ваш вопрос (необязательно)" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
-                    </form>
+                    <?php echo do_shortcode('[contact-form-7 id="adc9765" title="Заявка вопрос"]'); ?>
+                    
+                    <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                        * Нажимая кнопку, вы даете согласие на обработку <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener">персональных данных</a>
+                    </p>
                     
                     <div class="contact-info">
                         <div class="contact-item">

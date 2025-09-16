@@ -301,20 +301,10 @@
                 <h3>Оставьте заявку<br><span>– и мы всё подробно объясним</span></h3>
                 <p>Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.</p>
                 
-                <form class="contact-form" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Ваше имя" required class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" id="phone" placeholder="+7 (___) ___-__-__" inputmode="numeric" maxlength="18" autocomplete="tel" pattern="\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}" required class="form-input">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-1 form-submit" onclick="openPopup()">Записаться на консультацию</button>
-                </form>
+                <?php echo do_shortcode('[contact-form-7 id="2a35edb" title="Заявка попап"]'); ?>
                 
                 <p>
-                    * Нажимая кнопку, вы даете согласие на обработку <a href="dental41.ru/privacy.pdf" target="_blank">персональных данных</a>
+                    * Нажимая кнопку, вы даете согласие на обработку <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener">персональных данных</a>
                 </p>
             </div>
         </div>
@@ -532,20 +522,10 @@
                     <h3>Оставьте заявку сейчас</h3>
                     <p>И мы разберём, как сохранить кость и сэкономить до 30% на лечении — пока не стало поздно</p>
                     
-                    <?php show_cta_form_messages(); ?>
-                    <form class="cta-form" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
-                        <?php add_cta_form_nonce(); ?>
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Ваше имя" required class="cta-input">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" id="cta-phone" placeholder="Телефон" required class="cta-input">
-                        </div>
-                        <button type="submit" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
-                    </form>
+                    <?php echo do_shortcode('[contact-form-7 id="2a35edb" title="Заявка общая"]'); ?>
                     
                     <p>
-                        * Никаких обязательств — только разбор ситуации и рекомендации
+                        * Нажимая кнопку, вы даете согласие на обработку <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener">персональных данных</a>
                     </p>
                 </div>
             </div>
