@@ -72,7 +72,7 @@
     </div>
     
     <div class="mobile-hero-buttons">
-    <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
+    <button type="button" class="btn-1" onclick="openPopup()">Вернуть улыбку</button>
         <button type="button" class="btn-whatsapp" onclick="window.open('https://wa.me/79084952424', '_blank')">Рассчитать стоимость в WhatsApp</button>
     </div>
     </div>
@@ -146,7 +146,7 @@
             
             
             <div class="hero-button">
-                <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
+                <button type="button" class="btn-1" onclick="openPopup()">Вернуть улыбку</button>
                 <button type="button" class="btn-whatsapp" onclick="window.open('https://wa.me/79084952424', '_blank')">Рассчитать стоимость в WhatsApp</button>
             </div>
         </div>
@@ -770,55 +770,34 @@
                 <!-- 1 -->
                 <article class="compare-card">
                     <div class="card__media">
-                        <div class="ba" data-start="40">
-                            <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-up.webp" alt="После">
-                            <div class="ba__layer ba__after">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-01-down.webp" alt="До">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after01.jpg" alt="Улыбка для свадьбы - результат">
                     </div>
-                            <div class="ba__handle" aria-hidden="true"></div>
-                            <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
-                        </div>
-                </div>
-                <div class="compare-text">
+                    <div class="compare-text">
                         <h3>Улыбка для свадьбы</h3>
                         <p>Виктория, 32 года, п. Палана. Перед свадьбой прилетела к нам, чтобы быть безупречной в важный день. В ЦЭСИ выполнили: костную пластику верхней челюсти; установку имплантов Impro (Германия); полное лечение своих зубов; протезирование коронками из диоксида циркония.</p>
-                </div>
+                    </div>
                 </article>
                 
                 <!-- 2 -->
                 <article class="compare-card">
                     <div class="card__media">
-                        <div class="ba" data-start="40">
-                            <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-up.webp" alt="После">
-                            <div class="ba__layer ba__after">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-02-down.webp" alt="До">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after02.jpg" alt="Перерождение улыбки - результат">
                     </div>
-                            <div class="ba__handle" aria-hidden="true"></div>
-                            <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
-                        </div>
-                </div>
-                <div class="compare-text">
+                    <div class="compare-text">
                         <h3>Перерождение улыбки</h3>
                         <p>Комплексное лечение: импланты, виниры и коронки. Работали Моисеев К.Н. и Ларин К.Е. Результат — естественная и надёжная улыбка.</p>
-                </div>
+                    </div>
                 </article>
                 
                 <!-- 3 -->
                 <article class="compare-card">
                     <div class="card__media">
-                        <div class="ba" data-start="40">
-                            <img class="ba__layer ba__before" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-up.webp" alt="После">
-                            <div class="ba__layer ba__after">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/do-i-posle-03-down.webp" alt="До">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after03.jpg" alt="Новая улыбка — новая уверенность - результат">
                     </div>
-                            <div class="ba__handle" aria-hidden="true"></div>
-                            <input class="ba__range" type="range" min="0" max="100" value="40" aria-label="Сравнить: До / После">
-                        </div>
-                </div>
-                <div class="compare-text">
+                    <div class="compare-text">
                         <h3>Новая улыбка — новая уверенность</h3>
                         <p>Зубы пролечены под микроскопом. Установлены импланты. Установлены коронки из циркония. Результат — восстановлены здоровье и эстетика, пациент снова улыбается без стеснения.</p>
-                </div>
+                    </div>
                 </article>
             </div>
         </div>
@@ -2136,64 +2115,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 
-    // === НОВЫЙ СЛАЙДЕР СРАВНЕНИЯ ДО/ПОСЛЕ ===
-    
-    /* Before/After (проценты + rAF) */
-    (() => {
-        document.querySelectorAll('.ba').forEach((root) => {
-            const range = root.querySelector('.ba__range');
-            let pct = parseFloat(root.dataset.start || range.value || '40') || 40;
-
-            const setPct = (p) => {
-                pct = Math.max(0, Math.min(100, p));
-                root.style.setProperty('--pct', pct + '%');
-                range.value = String(Math.round(pct));
-            };
-            setPct(pct);
-
-            const pctFromX = (clientX) => {
-                const r = root.getBoundingClientRect();
-                const x = Math.max(0, Math.min(r.width, clientX - r.left));
-                return (x / r.width) * 100;
-            };
-
-            let dragging = false, lastX = null, ticking = false;
-            const schedule = () => {
-                if (ticking || lastX == null) return;
-                ticking = true;
-                requestAnimationFrame(() => { setPct(pctFromX(lastX)); ticking = false; });
-            };
-            const start = (x) => { dragging = true; root.classList.add('dragging'); lastX = x; schedule(); };
-            const move = (x) => { if (!dragging) return; lastX = x; schedule(); };
-            const end = () => { dragging = false; root.classList.remove('dragging'); lastX = null; };
-
-            root.addEventListener('mousedown', (e) => { e.preventDefault(); start(e.clientX); });
-            window.addEventListener('mousemove', (e) => move(e.clientX));
-            window.addEventListener('mouseup', end);
-
-            // Важно: не блокируем родительский горизонтальный скролл
-            root.addEventListener('touchstart', (e) => {
-                if (e.touches.length !== 1) return;
-                start(e.touches[0].clientX);
-            }, { passive: true });
-
-            root.addEventListener('touchmove', (e) => {
-                if (!dragging || e.touches.length !== 1) return;
-                e.preventDefault(); // чтобы тач внутри .ba не прокручивал страницу
-                move(e.touches[0].clientX);
-            }, { passive: false });
-
-            window.addEventListener('touchend', end, { passive: true });
-            window.addEventListener('touchcancel', end, { passive: true });
-
-            range.addEventListener('input', (e) => {
-                const v = parseFloat(e.target.value);
-                if (!Number.isNaN(v)) setPct(v);
-            });
-
-            new ResizeObserver(() => setPct(pct)).observe(root);
-        });
-    })();
+    // === СТАТИЧНЫЕ ИЗОБРАЖЕНИЯ РЕЗУЛЬТАТОВ ===
 
     /* Mobile dots for scroll-snap */
     (() => {
@@ -2403,11 +2325,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalClose = document.querySelector('.video-review-modal-close');
     
     function openVideoModal(videoUrl) {
-        // Конвертируем Vimeo URL в embed URL
+        // Конвертируем URL в embed URL
         let embedUrl = videoUrl;
+        
         if (videoUrl.includes('vimeo.com/')) {
             const videoId = videoUrl.split('vimeo.com/')[1];
             embedUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+        } else if (videoUrl.includes('youtube.com/watch') || videoUrl.includes('youtu.be/')) {
+            let videoId = '';
+            if (videoUrl.includes('youtube.com/watch')) {
+                videoId = videoUrl.split('v=')[1]?.split('&')[0];
+            } else if (videoUrl.includes('youtu.be/')) {
+                videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
+            }
+            if (videoId) {
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            }
+        } else if (videoUrl.includes('rutube.ru/video/')) {
+            const videoId = videoUrl.split('rutube.ru/video/')[1]?.split('/')[0];
+            if (videoId) {
+                embedUrl = `https://rutube.ru/play/embed/${videoId}?autoplay=1`;
+            }
         }
         
         videoIframe.src = embedUrl;
@@ -2556,11 +2494,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const doctorModalClose = document.querySelector('.doctor-video-modal-close');
     
     function openDoctorVideoModal(videoUrl) {
-        // Конвертируем Vimeo URL в embed URL
+        // Конвертируем URL в embed URL
         let embedUrl = videoUrl;
+        
         if (videoUrl.includes('vimeo.com/')) {
             const videoId = videoUrl.split('vimeo.com/')[1];
             embedUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+        } else if (videoUrl.includes('youtube.com/watch') || videoUrl.includes('youtu.be/')) {
+            let videoId = '';
+            if (videoUrl.includes('youtube.com/watch')) {
+                videoId = videoUrl.split('v=')[1]?.split('&')[0];
+            } else if (videoUrl.includes('youtu.be/')) {
+                videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
+            }
+            if (videoId) {
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            }
+        } else if (videoUrl.includes('rutube.ru/video/')) {
+            const videoId = videoUrl.split('rutube.ru/video/')[1]?.split('/')[0];
+            if (videoId) {
+                embedUrl = `https://rutube.ru/play/embed/${videoId}?autoplay=1`;
+            }
         }
         
         doctorVideoIframe.src = embedUrl;

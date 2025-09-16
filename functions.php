@@ -373,8 +373,8 @@ function dental_clinic_doctor_meta_box_callback($post) {
     echo '<tr><th><label for="doctor_education">Образование:</label></th>';
     echo '<td><textarea id="doctor_education" name="doctor_education" rows="3" class="large-text" placeholder="Укажите образование врача">' . esc_textarea($education) . '</textarea></td></tr>';
     
-    echo '<tr><th><label for="doctor_video_url">Ссылка на видео (Vimeo):</label></th>';
-    echo '<td><input type="url" id="doctor_video_url" name="doctor_video_url" value="' . esc_url($video_url) . '" class="regular-text" placeholder="https://vimeo.com/..." /></td></tr>';
+    echo '<tr><th><label for="doctor_video_url">Ссылка на видео (Vimeo/YouTube/RuTube):</label></th>';
+    echo '<td><input type="url" id="doctor_video_url" name="doctor_video_url" value="' . esc_url($video_url) . '" class="regular-text" placeholder="https://vimeo.com/... или https://youtube.com/... или https://rutube.ru/..." /></td></tr>';
     
     echo '<tr><th><label for="doctor_short_preview">Краткое превью (1-2 предложения):</label></th>';
     echo '<td><textarea id="doctor_short_preview" name="doctor_short_preview" rows="2" class="large-text" placeholder="Краткое описание для карточек">' . esc_textarea($short_preview) . '</textarea></td></tr>';
@@ -442,8 +442,8 @@ function dental_clinic_review_meta_box_callback($post) {
     echo '<tr><th><label for="reviewer_name">Имя пациента:</label></th>';
     echo '<td><input type="text" id="reviewer_name" name="reviewer_name" value="' . esc_attr($reviewer_name) . '" class="regular-text" placeholder="например: Анна Петрова" /></td></tr>';
     
-    echo '<tr><th><label for="review_video_url">Ссылка на видео отзыв (Vimeo):</label></th>';
-    echo '<td><input type="url" id="review_video_url" name="review_video_url" value="' . esc_url($video_url) . '" class="regular-text" placeholder="https://vimeo.com/..." /></td></tr>';
+    echo '<tr><th><label for="review_video_url">Ссылка на видео отзыв (Vimeo/YouTube/RuTube):</label></th>';
+    echo '<td><input type="url" id="review_video_url" name="review_video_url" value="' . esc_url($video_url) . '" class="regular-text" placeholder="https://vimeo.com/... или https://youtube.com/... или https://rutube.ru/..." /></td></tr>';
     
     echo '<tr><th><label>Фото пациента:</label></th>';
     echo '<td><p>Используйте "Изображение записи" (Featured Image) для загрузки фото пациента</p></td></tr>';
@@ -782,19 +782,19 @@ function dental_clinic_create_sample_reviews() {
             'title' => 'Отзыв Анны Петровой',
             'content' => 'Каждый врач – специалист с опытом от 7 до 22 лет. Профессионализм наших врачей проверен временем и подтверждён тысячами довольных пациентов.',
             'reviewer_name' => 'Анна Петрова',
-            'video_url' => 'https://vimeo.com/123456789'
+            'video_url' => 'https://rutube.ru/video/123456789/'
         ),
         array(
             'title' => 'Отзыв Михаила Иванова',
             'content' => 'Очень доволен результатом лечения. Врачи настоящие профессионалы, используют современное оборудование. Рекомендую всем!',
             'reviewer_name' => 'Михаил Иванов',
-            'video_url' => 'https://vimeo.com/987654321'
+            'video_url' => 'https://rutube.ru/video/987654321/'
         ),
         array(
             'title' => 'Отзыв Елены Сидоровой',
             'content' => 'Прошла полное лечение зубов. Все прошло безболезненно и качественно. Спасибо за мою новую улыбку!',
             'reviewer_name' => 'Елена Сидорова',
-            'video_url' => 'https://vimeo.com/456789123'
+            'video_url' => 'https://rutube.ru/video/456789123/'
         )
     );
     

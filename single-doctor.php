@@ -251,7 +251,123 @@
 </style>
 
 <script>
-/* Функция openAppointmentModal удалена - используется основной попап openPopup() */
+// Функция для открытия видео врача
+function openDoctorVideoModal(videoUrl) {
+    // Конвертируем URL в embed URL
+    let embedUrl = videoUrl;
+    
+    if (videoUrl.includes('vimeo.com/')) {
+        const videoId = videoUrl.split('vimeo.com/')[1];
+        embedUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+    } else if (videoUrl.includes('youtube.com/watch') || videoUrl.includes('youtu.be/')) {
+        let videoId = '';
+        if (videoUrl.includes('youtube.com/watch')) {
+            videoId = videoUrl.split('v=')[1]?.split('&')[0];
+        } else if (videoUrl.includes('youtu.be/')) {
+            videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
+        }
+        if (videoId) {
+            embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        }
+    } else if (videoUrl.includes('rutube.ru/video/')) {
+        const videoId = videoUrl.split('rutube.ru/video/')[1]?.split('/')[0];
+        if (videoId) {
+            embedUrl = `https://rutube.ru/play/embed/${videoId}?autoplay=1`;
+        }
+    }
+    
+    // Создаем модальное окно для видео
+    const modal = document.createElement('div');
+    modal.className = 'doctor-video-modal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    `;
+    
+    const modalContent = document.createElement('div');
+    modalContent.style.cssText = `
+        position: relative;
+        width: 90%;
+        max-width: 800px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+    `;
+    
+    const closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        z-index: 10001;
+        background: rgba(0,0,0,0.5);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    `;
+    
+    const iframe = document.createElement('iframe');
+    iframe.src = embedUrl;
+    iframe.style.cssText = `
+        width: 100%;
+        height: 450px;
+        border: none;
+    `;
+    iframe.setAttribute('allowfullscreen', '');
+    
+    modalContent.appendChild(closeBtn);
+    modalContent.appendChild(iframe);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    
+    // Обработчики закрытия
+    closeBtn.addEventListener('click', () => {
+        document.body.removeChild(modal);
+        document.body.style.overflow = '';
+    });
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            document.body.removeChild(modal);
+            document.body.style.overflow = '';
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.body.contains(modal)) {
+            document.body.removeChild(modal);
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// Добавляем обработчики для кнопок видео
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.doctor-video-btn-single').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const videoUrl = this.getAttribute('data-video');
+            if (videoUrl) {
+                openDoctorVideoModal(videoUrl);
+            }
+        });
+    });
+});
 </script>
 
 <?php get_footer(); ?>

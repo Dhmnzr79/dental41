@@ -70,11 +70,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const doctorModalClose = document.querySelector('.doctor-video-modal-close');
     
     function openDoctorVideoModal(videoUrl) {
-        // Конвертируем Vimeo URL в embed URL
+        // Конвертируем URL в embed URL
         let embedUrl = videoUrl;
+        
         if (videoUrl.includes('vimeo.com/')) {
             const videoId = videoUrl.split('vimeo.com/')[1];
             embedUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+        } else if (videoUrl.includes('youtube.com/watch') || videoUrl.includes('youtu.be/')) {
+            let videoId = '';
+            if (videoUrl.includes('youtube.com/watch')) {
+                videoId = videoUrl.split('v=')[1]?.split('&')[0];
+            } else if (videoUrl.includes('youtu.be/')) {
+                videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
+            }
+            if (videoId) {
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            }
+        } else if (videoUrl.includes('rutube.ru/video/')) {
+            const videoId = videoUrl.split('rutube.ru/video/')[1]?.split('/')[0];
+            if (videoId) {
+                embedUrl = `https://rutube.ru/play/embed/${videoId}?autoplay=1`;
+            }
         }
         
         doctorVideoIframe.src = embedUrl;
