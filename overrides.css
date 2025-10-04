@@ -650,3 +650,11 @@ h3 {
         font-size: 14px;
     }
 }
+
+/* Стили только для главной страницы */
+body.home .hero-subtitle {
+    font-size: 22px;
+    margin-bottom: 0;
+    font-weight: 500;
+    line-height: 1.3;
+}

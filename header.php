@@ -45,6 +45,7 @@
             <!-- Навигация сайта -->
             <ul class="nav" role="list">
                 <li><a href="<?php echo home_url(); ?>">Главная <span>о клинике</span></a></li>
+                <li><a href="<?php echo home_url('/implantatsiya'); ?>">Имплантация <span>восстановление зубов</span></a></li>
                 <li><a href="<?php echo home_url('/doctor'); ?>">Врачи <span>опыт, дипломы</span></a></li>
                 <li><a href="<?php echo home_url('/o-klinike'); ?>">О клинике <span>информация</span></a></li>
                 <li><a href="<?php echo home_url('/kontakty'); ?>">Контакты</a></li>
@@ -154,6 +155,7 @@ window.addEventListener('keydown', (e) => {
 function dental_clinic_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Главная</a></li>';
+    echo '<li><a href="' . home_url('/implantatsiya') . '">Имплантация</a></li>';
     echo '<li><a href="' . home_url('/doctor') . '">Врачи</a></li>';
     echo '<li class="dropdown">';
     echo '<a href="#" class="dropdown-toggle">О клинике</a>';

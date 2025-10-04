@@ -1149,7 +1149,6 @@ h6 {
 }
 
 .hero-description {
-    font-family: 'Inter', sans-serif;
     margin: 20px 0 40px;
 }
 
@@ -1946,7 +1945,6 @@ h6 {
     font-size: 1.3rem;
     font-weight: 400;
     color: var(--text-color);
-    font-family: 'Inter', sans-serif;
     line-height: 1.5;
     padding-bottom: 50px;
 }
@@ -2760,7 +2758,6 @@ h6 {
 }
 
 .promo-date {
-    font-family: 'Inter';
     font-weight: 600;
 }
 
@@ -3683,55 +3680,6 @@ h6 {
     border-radius: 50%;
 }
 
-/* Стили для guarantees-content больше не нужны */
-/* .guarantees-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    min-width: 0;
-} */
-
-/* Стили для guarantees-table больше не нужны */
-/* .guarantees-table {
-    flex: 1;
-    overflow: hidden;
-    min-width: 0;
-}
-
-.guarantees-table {
-    overflow: hidden;
-    min-width: 0;
-} */
-
-/* Стили для guarantee-row больше не нужны */
-/* .guarantee-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.guarantee-row:last-child {
-    border-bottom: none;
-}
-
-.guarantee-item {
-    font-size: 16px;
-    font-weight: 400;
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-}
-
-.guarantee-period {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--heading-color);
-    margin-left: 20px;
-    font-family: 'Inter', sans-serif;
-} */
 
 .safety-point {
     display: flex;
@@ -4439,16 +4387,12 @@ h6 {
 }
 
 .compare-text {
-    padding: 16px 22px 22px;
+    padding: 15px 0;
     text-align: center;
 }
 
 .compare-text h3 {
     font-size: 20px;
-    margin: 10px 0 6px;
-    color: var(--text-color);
-    font-family: var(--heading-font);
-    line-height: 1.2;
 }
 
 .compare-text p {
@@ -4573,7 +4517,6 @@ h6 {
 .rating-number {
     font-size: 32px;
     color: var(--text-color);
-    font-family: var(--heading-font);
     flex-shrink: 0;
 }
 
@@ -4902,7 +4845,6 @@ h6 {
 .slider-doctor-name {
     font-size: 20px;
     margin: 0 0 10px 0;
-    font-family: var(--heading-font);
     padding-right: 40%;
     margin-bottom: 0;
 }
@@ -4924,8 +4866,6 @@ h6 {
 .shortcode-doctor-name {
     font-size: 24px;
     margin: 0 0 10px 0;
-
-    font-family: var(--heading-font);
 }
 
 .shortcode-doctor-position {
@@ -5070,10 +5010,8 @@ h6 {
 
 .archive-title {
     font-size: 48px;
-
     text-align: center;
     margin: 0 0 20px 0;
-    font-family: var(--heading-font);
 }
 
 .archive-description {
@@ -5118,8 +5056,6 @@ h6 {
 .doctor-name-large {
     font-size: 22px;
     margin: 20px 0 10px 0;
-
-    font-family: var(--heading-font);
 }
 
 .doctor-position-large {
@@ -5683,7 +5619,6 @@ h6 {
 .brand-name {
     font-size: 1.5rem;
     margin-bottom: 5px;
-    font-family: var(--heading-font);
     font-weight: 600;
 }
 
@@ -7395,10 +7330,6 @@ h6 {
     margin-bottom: 15px;
 }
 
-/* Feature cards */
-.feature-card p {
-    font-family: 'Inter', sans-serif !important;
-}
 
 /* Chatbot features */
 .chatbot-features li {

@@ -738,7 +738,7 @@ function dental_clinic_create_pages() {
     $pages = array(
         'implantatsiya' => array(
             'title' => 'Имплантация',
-            'content' => '<h1>Имплантация</h1><p>Страница в разработке</p>'
+            'content' => '<h1>Имплантация зубов</h1><p>Восстановите зубы навсегда с помощью имплантации</p>'
         ),
         'o-organizatsii' => array(
             'title' => 'О организации',
@@ -784,6 +784,179 @@ function dental_clinic_create_pages() {
     }
 }
 add_action('after_switch_theme', 'dental_clinic_create_pages');
+
+// Создаем страницу имплантации при каждом запуске, если её нет
+function dental_clinic_ensure_implant_page() {
+    $implant_page = get_page_by_path('implantatsiya');
+    if (!$implant_page) {
+        wp_insert_post(array(
+            'post_title' => 'Имплантация',
+            'post_content' => '<h1>Имплантация зубов</h1><p>Восстановите зубы навсегда с помощью имплантации</p>',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'post_name' => 'implantatsiya'
+        ));
+    }
+}
+add_action('init', 'dental_clinic_ensure_implant_page');
+
+// Создаем меню при активации темы
+function dental_clinic_create_menu() {
+    // Проверяем, существует ли уже меню
+    $menu_name = 'Главное меню';
+    $menu_exists = wp_get_nav_menu_object($menu_name);
+    
+    if (!$menu_exists) {
+        // Создаем меню
+        $menu_id = wp_create_nav_menu($menu_name);
+        
+        if ($menu_id) {
+            // Получаем ID страниц
+            $home_page = get_option('page_on_front');
+            $doctor_page = get_post_type_archive_link('doctor');
+            $about_page = get_page_by_path('o-klinike');
+            $contacts_page = get_page_by_path('kontakty');
+            $implant_page = get_page_by_path('implantatsiya');
+            
+            // Добавляем пункты меню
+            $menu_items = array();
+            
+            // Главная страница
+            $menu_items[] = array(
+                'title' => 'Главная',
+                'url' => home_url(),
+                'menu_order' => 1
+            );
+            
+            if ($implant_page) {
+                $menu_items[] = array(
+                    'title' => 'Имплантация',
+                    'url' => get_permalink($implant_page->ID),
+                    'menu_order' => 2
+                );
+            }
+            
+            // Врачи (архив)
+            $menu_items[] = array(
+                'title' => 'Врачи',
+                'url' => get_post_type_archive_link('doctor'),
+                'menu_order' => 3
+            );
+            
+            if ($about_page) {
+                $menu_items[] = array(
+                    'title' => 'О клинике',
+                    'url' => get_permalink($about_page->ID),
+                    'menu_order' => 4
+                );
+            }
+            
+            if ($contacts_page) {
+                $menu_items[] = array(
+                    'title' => 'Контакты',
+                    'url' => get_permalink($contacts_page->ID),
+                    'menu_order' => 5
+                );
+            }
+            
+            // Добавляем пункты в меню
+            foreach ($menu_items as $item) {
+                wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' => $item['title'],
+                    'menu-item-url' => $item['url'],
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => $item['menu_order']
+                ));
+            }
+            
+            // Привязываем меню к локации
+            $locations = get_theme_mod('nav_menu_locations');
+            $locations['primary'] = $menu_id;
+            set_theme_mod('nav_menu_locations', $locations);
+        }
+    } else {
+        // Если меню уже существует, проверяем, есть ли в нем ссылка на имплантацию
+        $menu_items = wp_get_nav_menu_items($menu_exists->term_id);
+        $has_implant_link = false;
+        
+        foreach ($menu_items as $item) {
+            if (strpos($item->url, 'implantatsiya') !== false) {
+                $has_implant_link = true;
+                break;
+            }
+        }
+        
+        // Если ссылки на имплантацию нет, добавляем её
+        if (!$has_implant_link) {
+            $implant_page = get_page_by_path('implantatsiya');
+            if ($implant_page) {
+                wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                    'menu-item-title' => 'Имплантация',
+                    'menu-item-url' => get_permalink($implant_page->ID),
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 2
+                ));
+            }
+        }
+    }
+}
+add_action('after_switch_theme', 'dental_clinic_create_menu');
+
+// Проверяем и создаем меню при каждом запуске
+function dental_clinic_ensure_menu() {
+    $menu_name = 'Главное меню';
+    $menu_exists = wp_get_nav_menu_object($menu_name);
+    
+    if (!$menu_exists) {
+        dental_clinic_create_menu();
+    } else {
+        // Проверяем, есть ли ссылка на имплантацию в существующем меню
+        $menu_items = wp_get_nav_menu_items($menu_exists->term_id);
+        $has_implant_link = false;
+        
+        if ($menu_items) {
+            foreach ($menu_items as $item) {
+                if (strpos($item->url, 'implantatsiya') !== false) {
+                    $has_implant_link = true;
+                    break;
+                }
+            }
+        }
+        
+        // Если ссылки на имплантацию нет, добавляем её
+        if (!$has_implant_link) {
+            $implant_page = get_page_by_path('implantatsiya');
+            if ($implant_page) {
+                wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                    'menu-item-title' => 'Имплантация',
+                    'menu-item-url' => get_permalink($implant_page->ID),
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 2
+                ));
+            }
+        }
+    }
+}
+add_action('init', 'dental_clinic_ensure_menu');
+
+// Принудительное обновление меню (выполнить один раз)
+function dental_clinic_force_update_menu() {
+    if (isset($_GET['force_update_menu']) && current_user_can('administrator')) {
+        // Удаляем старое меню
+        $menu_name = 'Главное меню';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+        if ($menu_exists) {
+            wp_delete_nav_menu($menu_exists->term_id);
+        }
+        
+        // Создаем новое меню
+        dental_clinic_create_menu();
+        
+        echo "Меню обновлено!";
+        exit;
+    }
+}
+add_action('init', 'dental_clinic_force_update_menu');
 
 // Создаем тестовые отзывы при активации темы
 function dental_clinic_create_sample_reviews() {

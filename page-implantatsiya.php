@@ -6,14 +6,14 @@
         <div class="mobile-hero-wrapper">
             <div class="mobile-hero-content">
                 <h1 class="hero-title">
-                Стоматология нового поколения на Камчатке
+                Отсутствует зуб?
                 </h1>
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="mobile-hero-image">
             </div>
         
             <div class="mobile-hero-text">
                 <h2 class="hero-subtitle">
-                Все виды лечения. Бережная имплантация. С максимальным комфортом, без боли и переплат.
+                Верните красивую улыбку и уверенность за 1 день
                 </h2>
                 
                 <div class="hero-description">
@@ -92,11 +92,11 @@
             </div>
             
             <h1 class="hero-title">
-            Стоматология нового поколения на Камчатке
+            Отсутствует зуб?
             </h1>
             
             <h2 class="hero-subtitle">
-            Все виды лечения. Бережная имплантация. С максимальным комфортом, без боли и переплат.
+            Верните красивую улыбку и уверенность за 1 день
             </h2>
             
             <div class="hero-description">
@@ -170,7 +170,7 @@
                 
                 <div class="hero-testimonial">
                     <p><strong>Лилия Питерская:</strong><br>"Делюсь историей своей новой улыбки"</p>
-                    <a href="<?php echo home_url('/istoriya-moei-ulybki'); ?>" class="testimonial-link">Читать</a>
+                    <a href="#" class="testimonial-link">Читать</a>
                 </div>
             </div>
         </div>
@@ -313,31 +313,7 @@
     </div>
 </section>
 
-<!-- Блок "Наши услуги" -->
-<section class="services-section">
-    <div class="grid-system">
-        <div class="services-header">
-            <div class="services-title grid-8">
-                <h2>Все виды стоматологических услуг в одном месте</h2>
-            </div>
-            <div class="services-description grid-4">
-                <div class="description-item">
-                    <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_2345_50)">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_2345_50">
-                                <rect width="24" height="24" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                    <p>Более 20 000 улыбок мы подарили нашим клиентам за 26 лет работы</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- Блок онлайн-консультации -->
 <section class="online-consultation-section">
