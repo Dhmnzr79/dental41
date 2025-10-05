@@ -76,20 +76,24 @@
         <button type="button" class="btn-whatsapp" onclick="window.open('https://wa.me/79084952424', '_blank')">Рассчитать стоимость в WhatsApp</button>
     </div>
     </div>
+   
+
+    <style>
+    /* Локальные стили для карточек услуг на главной */
+    .services-section .services-row { display: flex; gap: 30px; align-items: stretch; margin-top: 30px; }
+    .services-section .service-card { flex: 1 1 0; }
+    .services-section .service-card-content { padding: 16px; }
+    @media (max-width: 768px) {
+        .services-section .services-row { flex-direction: column; }
+    }
+    </style>
 </section>
 
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="grid-system">
         <div class="hero-left grid-6">
-            <div class="overlapping-circles">
-                <div class="circle">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Лицо">
-                </div>
-                <div class="circle">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Лицо">
-                </div>
-            </div>
+ 
             
             <h1 class="hero-title">
             Стоматология нового поколения на Камчатке
@@ -153,7 +157,7 @@
         
         <div class="hero-right grid-6">
             <div class="hero-photo">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-first.png" alt="Александр Хан - Главный врач" class="hero-doctor-photo">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Александр Хан - Главный врач" class="hero-doctor-photo">
             </div>
             
             <div class="hero-indices">
@@ -316,12 +320,11 @@
 <!-- Блок "Наши услуги" -->
 <section class="services-section">
     <div class="grid-system">
-        <div class="services-header">
-            <div class="services-title grid-8">
-                <h2>Все виды стоматологических услуг в одном месте</h2>
-            </div>
-            <div class="services-description grid-4">
-                <div class="description-item">
+        <div class="services-title grid-8">
+            <h2>Все виды стоматологических услуг в одном месте</h2>
+        </div>
+        <div class="services-description grid-4">
+            <div class="description-item">
                     <svg class="benefit-checkbox" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_2345_50)">
                             <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
@@ -333,10 +336,116 @@
                         </defs>
                     </svg>
                     <p>Более 20 000 улыбок мы подарили нашим клиентам за 26 лет работы</p>
-                </div>
             </div>
         </div>
     </div>
+    <!-- Карточки услуг: простой контейнер без сетки -->
+    <div class="services-cards">
+        <div class="services-row">
+            <div class="service-card">
+                <div class="service-card-body">
+                    <div class="overlapping-circles">
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Лицо">
+                        </div>
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-06.svg" alt="Иконка услуги">
+                        </div>
+                    </div>
+                    <h3>Бережная имплантация</h3>
+                    <p>Используем только проверенные имплантаты зубов от ведущих мировых производителей. Возможна установка за одно посещение. Пожизненная гарантия на модели имплантов Nobel (Швейцария) и Impro (Германия). Опытные имплантологи, прошедшие обучение за границей.</p>
+                    <p class="service-price">JОт 4000 тыс.</p>
+                </div>
+                <button type="button" class="btn-1" onclick="openPopup()">Узнать подробнее</button>
+            </div>
+            <div class="service-card">
+                <div class="service-card-body">
+                    <div class="overlapping-circles">
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Лицо">
+                        </div>
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-05.svg" alt="Вопрос">
+                        </div>
+                    </div>
+                    <h3>Протезирование</h3>
+                    <p>Протезы изготавливаются из импортных материалов в собственной лаборатории. Быстрое изготовление конструкции. В большинстве случаев всего за 1 день! Мы предлагаем все виды протезирования с гарантией до 5 лет.</p>
+                    <p class="service-price">JОт 4000 тыс.</p>
+                </div>
+                <button type="button" class="btn-1" onclick="openPopup()">Узнать подробнее</button>
+            </div>
+        </div>
+        <div class="services-row">
+            <div class="service-card">
+                <div class="service-card-body">
+                    <div class="overlapping-circles">
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-09.jpg" alt="Лицо">
+                        </div>
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="Вопрос">
+                        </div>
+                    </div>
+                    <h3>Виниры</h3>
+                    <p>Только у нас виниры, созданные по технологии ведущего мирового специалиста в области реставрации Назария Махайлюка. Полная реставрация всего за 1–2 визита, без дискомфорта. Срок службы до 15 лет при простом уходе.</p>
+                    <p class="service-price">JОт 4000 тыс.</p>
+                </div>
+                <button type="button" class="btn-1" onclick="openPopup()">Узнать подробнее</button>
+            </div>
+            <div class="service-card">
+                <div class="service-card-body">
+                    <div class="overlapping-circles">
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Лицо">
+                        </div>
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-04.svg" alt="Вопрос">
+                        </div>
+                    </div>
+                    <h3>Все виды лечения</h3>
+                    <p>Все виды лечения зубов без боли с гарантией результата. Мы используем самую современную анестезию, в том числе электронную. Применяем надёжные пломбировочные материалы.</p>
+                    <p class="service-price">JОт 4000 тыс.</p>
+                </div>
+                <button type="button" class="btn-1" onclick="openPopup()">Узнать подробнее</button>
+            </div>
+        </div>
+        <div class="services-row">
+            <div class="service-card">
+                <div class="service-card-body">
+                    <div class="overlapping-circles">
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Лицо">
+                        </div>
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-03.svg" alt="Вопрос">
+                        </div>
+                    </div>
+                    <h3>Отбеливание</h3>
+                    <p>Красивые белые зубы без вреда для эмали! Зубы светлее на 7–10 тонов всего за 1 посещение. Эффект сохраняется на 3–5 лет.</p>
+                    <p class="service-price">JОт 4000 тыс.</p>
+                </div>
+                <button type="button" class="btn-1" onclick="openPopup()">Узнать подробнее</button>
+            </div>
+            <div class="service-card">
+                <div class="service-card-body">
+                    <div class="overlapping-circles">
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-05.jpg" alt="Лицо">
+                        </div>
+                        <div class="circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-02.svg" alt="Вопрос">
+                        </div>
+                    </div>
+                    <h3>Художественная реставрация</h3>
+                    <p>Реставрация зубов любой сложности. Превосходный эстетический результат за 1–2 часа. Мы провели более 12 000 успешных восстановлений зубов и зубной эмали.</p>
+                    <p class="service-price">JОт 4000 тыс.</p>
+                </div>
+                <button type="button" class="btn-1" onclick="openPopup()">Узнать подробнее</button>
+            </div>
+        </div>
+    </div>
+
+ 
 </section>
 
 <!-- Блок онлайн-консультации -->
@@ -415,151 +524,7 @@
     </div>
 </section>
 
-<!-- Блок про страхи -->
-<section class="fears-section">
-    <div class="grid-system">
-        <div class="fears-left grid-6">
-            <h2>Почему важно не откладывать?</h2>
-            <h3>90% пациентов приходят поздно - когда приходится удалять уже и соседние зубы</h3>
-            <h3>Без зуба костная ткань убывает на 30% за первый год</h3>
-            <p class="fears-warning-text">
-                Откладывая имплантацию, вы теряете не только зуб, но и кость.
-            </p>
-            
-            <div class="fears-consequences">
-                <div class="consequence-item">
-                    <div class="consequence-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_2345_52)">
-                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_2345_52">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <p>Соседние зубы смещаются — лечение усложняется</p>
-                </div>
-                <div class="consequence-item">
-                    <div class="consequence-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_2345_53)">
-                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_2345_53">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <p>Лицо "западает" — человек выглядит на несколько лет старше</p>
-                </div>
 
-            </div>
-                </div>
-        
-        <div class="fears-right grid-6">
-            <div class="fears-visual-grid">
-                <div class="visual-left">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/fear-img-01.jpg" alt="Страх перед имплантацией" class="implant-image">
-                    
-                    <div class="percentage-block">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/30-percent.svg" alt="30%" class="percentage-image">
-                        <div class="percentage-text">Костная пластика добавит +3 месяца и до +30% к цене</div>
-                    </div>
-                </div>
-                
-                <div class="visual-right">
-                    <div class="image-container-right">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/fear-img-02.jpg" alt="Результат имплантации" class="after-image">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/3-years.svg" alt="3 года" class="years-badge">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Блок призыва к действию -->
-<section class="cta-section">
-    <div class="grid-system">
-        <div class="cta-container">
-            <div class="cta-left">
-                <div class="cta-content">
-                    <h2>
-                        Начните сейчас<br>и через 2 приема:
-                    </h2>
-                    
-                    <div class="cta-benefits">
-                        <div class="benefit-item">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_2389_87)">
-                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="white"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_2389_87">
-                                        <rect width="24" height="24" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <p>Снова едите любую пищу</p>
-                        </div>
-                        <div class="benefit-item">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_2389_87)">
-                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="white"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_2389_87">
-                                        <rect width="24" height="24" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <p>Улыбаетесь без стеснения</p>
-                        </div>
-                        <div class="benefit-item">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_2389_87)">
-                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="white"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_2389_87">
-                                        <rect width="24" height="24" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <p>Выглядите на 10 лет моложе</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-warning">
-                    <div class="cta-warning-overlay"></div>
-                    <div class="cta-warning-content">
-                        <h3>Все за 1 день</h3>
-                        <p>Утром - проблема, вечером - новая жизнь</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cta-right">
-                <div class="cta-form-container">
-                    <h3>Оставьте заявку сейчас</h3>
-                    <p>И мы разберём, как сохранить кость и сэкономить до 30% на лечении — пока не стало поздно</p>
-                    
-                    <?php echo do_shortcode('[contact-form-7 id="620f6b6" title="Заявка молодость"]'); ?>
-                    
-                    <p>
-                        * Нажимая кнопку, вы даете согласие на обработку <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener">персональных данных</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
@@ -1978,66 +1943,6 @@
     </div>
 </section>
 
-<!-- Блок FAQ -->
-<section class="faq-section">
-    <div class="faq-container grid-system">
-        <div class="faq-title-block grid-4">
-            <h2>
-                Ответы на самые важные вопросы об имплантации
-            </h2>
-            <p class="faq-subtitle">
-                Мы собрали честные и понятные ответы врачей ЦЭСИ, чтобы развеять страхи и помочь вам чувствовать себя спокойнее перед лечением.
-            </p>
-        </div>
-        
-        <div class="faq-content grid-8">
-            <div class="faq-accordion">
-                <div class="faq-item active">
-                    <div class="faq-question">Имплантация — это очень больно?</div>
-                    <div class="faq-answer">
-                        На самом деле — нет. В кости нет нервных окончаний, поэтому боли во время установки импланта вы не почувствуете. Перед процедурой мы используем современную анестезию: врач обязательно проверяет, подействовало ли обезболивание, и только после этого начинает работу. В большинстве случаев пациенты удивляются: «Я зря боялся, всё прошло легко». Максимум — небольшой дискомфорт, как при обычной пломбе.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Будет ли много осложнений после имплантации?</div>
-                    <div class="faq-answer">
-                        Серьёзных осложнений практически не бывает. Возможна лёгкая припухлость или небольшая кровоточивость — это естественная реакция организма, и она проходит быстро. Наши врачи всегда расскажут, как правильно ухаживать за полостью рта после операции. Благодаря современным протоколам и опыту специалистов ЦЭСИ имплантация проходит предсказуемо и безопасно.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">А если имплант не приживётся?</div>
-                    <div class="faq-answer">
-                        Вероятность этого минимальна — всего 0,5–1%. В ЦЭСИ работают хирурги-имплантологи с опытом от 7 до 22 лет и более 20 000 операций за плечами. По нашей статистике приживаемость составляет 99,8%. Мы используем сертифицированные системы имплантов и международные протоколы. А если вдруг возникнет редкая ситуация — мы всегда рядом и решаем её в пользу пациента.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Не все врачи умеют грамотно ставить импланты?</div>
-                    <div class="faq-answer">
-                        Имплантация действительно считается высшей лигой в стоматологии. Но в ЦЭСИ вы в надёжных руках: у нас работают врачи, которые специализируются именно на имплантации и постоянно проходят обучение в Европе и России. Наши результаты не уступают уровню Германии и США, потому что мы используем одинаковые технологии и стандарты.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Имплантация — это очень дорого?</div>
-                    <div class="faq-answer">
-                        Стоимость имплантации выше, чем у пломбы, но и срок службы совсем другой — 20–30 лет. Это инвестиция в здоровье и качество жизни. В ЦЭСИ всегда есть несколько вариантов по бюджету, рассрочка и прозрачный план лечения. А ещё часть расходов можно вернуть за счёт налогового вычета.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">После имплантации будет «дырка» между зубами?</div>
-                    <div class="faq-answer">
-                        Нет, имплант полностью скрыт в кости. Сразу после установки мы при необходимости ставим временную коронку или каппу, чтобы не было эстетических неудобств. Вы можете улыбаться и общаться свободно, пока идёт процесс приживления.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Установка импланта занимает очень много времени?</div>
-                    <div class="faq-answer">
-                        Сама операция длится всего 20–30 минут — быстрее, чем обычный обед. Полное лечение действительно включает несколько этапов, ведь природе нужно время, чтобы имплант надёжно сросся с костью. Обычно это 3–4 месяца. Но если условия позволяют, мы можем выполнить одномоментную имплантацию и поставить временную коронку уже на следующий день.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <div id="mapModal" class="map-modal">

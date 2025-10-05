@@ -47,7 +47,14 @@
                 <li><a href="<?php echo home_url(); ?>">Главная <span>о клинике</span></a></li>
                 <li><a href="<?php echo home_url('/implantatsiya'); ?>">Имплантация <span>восстановление зубов</span></a></li>
                 <li><a href="<?php echo home_url('/doctor'); ?>">Врачи <span>опыт, дипломы</span></a></li>
-                <li><a href="<?php echo home_url('/o-klinike'); ?>">О клинике <span>информация</span></a></li>
+                <li class="dropdown">
+                    <a href="<?php echo home_url('/o-klinike'); ?>" class="dropdown-toggle">О клинике <span>информация</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo home_url('/o-klinike'); ?>">Информация</a></li>
+                        <li><a href="<?php echo home_url('/rekvizity'); ?>">Реквизиты</a></li>
+                        <li><a href="<?php echo home_url('/litsenzii'); ?>">Лицензии</a></li>
+                    </ul>
+                </li>
                 <li><a href="<?php echo home_url('/kontakty'); ?>">Контакты</a></li>
             </ul>
 
@@ -147,6 +154,29 @@ dialog.addEventListener('click', (e) => {
 });
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && dialog.classList.contains('is-open')) closeMenu();
+});
+
+// Блокируем переход по клику на родительские ссылки с подпунктами в десктопном меню
+document.addEventListener('DOMContentLoaded', function() {
+    var parentLinks = document.querySelectorAll('.header-bottom .dropdown > a.dropdown-toggle');
+    parentLinks.forEach(function(link){
+        link.addEventListener('click', function(e){
+            var submenu = link.parentElement.querySelector('.dropdown-menu');
+            if (submenu) {
+                e.preventDefault();
+                // Блокируем переход и явно показываем, что это раскрывающийся пункт
+                link.setAttribute('href', '#');
+                link.setAttribute('aria-haspopup', 'true');
+                link.setAttribute('aria-expanded', 'true');
+            }
+        });
+        // На всякий случай сразу заменим href, если у пункта есть подменю
+        var submenu = link.parentElement.querySelector('.dropdown-menu');
+        if (submenu) {
+            link.setAttribute('href', '#');
+            link.setAttribute('aria-haspopup', 'true');
+        }
+    });
 });
 </script>
 

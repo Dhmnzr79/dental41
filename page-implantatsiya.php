@@ -169,8 +169,8 @@
                 </div>
                 
                 <div class="hero-testimonial">
-                    <p><strong>Лилия Питерская:</strong><br>"Делюсь историей своей новой улыбки"</p>
-                    <a href="#" class="testimonial-link">Читать</a>
+                    <p><strong>Александр Хан</strong><br>Главный врач</p>
+             
                 </div>
             </div>
         </div>

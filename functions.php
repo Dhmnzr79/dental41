@@ -740,6 +740,11 @@ function dental_clinic_create_pages() {
             'title' => 'Имплантация',
             'content' => '<h1>Имплантация зубов</h1><p>Восстановите зубы навсегда с помощью имплантации</p>'
         ),
+        'sovety-kitay' => array(
+            'title' => 'Советы для тех, кто решил делать имплантацию в Китае',
+            'content' => '<h1>Советы для имплантации в Китае</h1><p>Важная информация для безопасного и качественного лечения</p>',
+            'template' => 'page-sovety-kitay.php'
+        ),
         'o-organizatsii' => array(
             'title' => 'О организации',
             'content' => '<h1>О организации</h1><p>Страница в разработке</p>'
@@ -773,13 +778,20 @@ function dental_clinic_create_pages() {
     foreach ($pages as $slug => $page_data) {
         $existing_page = get_page_by_path($slug);
         if (!$existing_page) {
-            wp_insert_post(array(
+            $page_args = array(
                 'post_title' => $page_data['title'],
                 'post_content' => $page_data['content'],
                 'post_status' => 'publish',
                 'post_type' => 'page',
                 'post_name' => $slug
-            ));
+            );
+            
+            $page_id = wp_insert_post($page_args);
+            
+            // Если указан шаблон, устанавливаем его
+            if ($page_id && isset($page_data['template'])) {
+                update_post_meta($page_id, '_wp_page_template', $page_data['template']);
+            }
         }
     }
 }
@@ -799,6 +811,25 @@ function dental_clinic_ensure_implant_page() {
     }
 }
 add_action('init', 'dental_clinic_ensure_implant_page');
+
+// Создаем страницу советов по Китаю при каждом запуске, если её нет
+function dental_clinic_ensure_china_advice_page() {
+    $china_page = get_page_by_path('sovety-kitay');
+    if (!$china_page) {
+        $page_id = wp_insert_post(array(
+            'post_title' => 'Советы для тех, кто решил делать имплантацию в Китае',
+            'post_content' => '<h1>Советы для имплантации в Китае</h1><p>Важная информация для безопасного и качественного лечения</p>',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'post_name' => 'sovety-kitay'
+        ));
+        
+        if ($page_id) {
+            update_post_meta($page_id, '_wp_page_template', 'page-sovety-kitay.php');
+        }
+    }
+}
+add_action('init', 'dental_clinic_ensure_china_advice_page');
 
 // Создаем меню при активации темы
 function dental_clinic_create_menu() {
@@ -844,11 +875,44 @@ function dental_clinic_create_menu() {
             );
             
             if ($about_page) {
-                $menu_items[] = array(
-                    'title' => 'О клинике',
-                    'url' => get_permalink($about_page->ID),
-                    'menu_order' => 4
-                );
+                // Добавляем родительский пункт "О клинике"
+                $about_parent_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' => 'О клинике',
+                    'menu-item-url' => get_permalink($about_page->ID),
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 4
+                ));
+
+                // Дочерние пункты: Информация, Реквизиты, Лицензии
+                if ($about_parent_item_id && !is_wp_error($about_parent_item_id)) {
+                    // Информация → та же страница o-klinike
+                    wp_update_nav_menu_item($menu_id, 0, array(
+                        'menu-item-title' => 'Информация',
+                        'menu-item-url' => get_permalink($about_page->ID),
+                        'menu-item-status' => 'publish',
+                        'menu-item-parent-id' => $about_parent_item_id
+                    ));
+
+                    $rekvizity_page = get_page_by_path('rekvizity');
+                    if ($rekvizity_page) {
+                        wp_update_nav_menu_item($menu_id, 0, array(
+                            'menu-item-title' => 'Реквизиты',
+                            'menu-item-url' => get_permalink($rekvizity_page->ID),
+                            'menu-item-status' => 'publish',
+                            'menu-item-parent-id' => $about_parent_item_id
+                        ));
+                    }
+
+                    $litsenzii_page = get_page_by_path('litsenzii');
+                    if ($litsenzii_page) {
+                        wp_update_nav_menu_item($menu_id, 0, array(
+                            'menu-item-title' => 'Лицензии',
+                            'menu-item-url' => get_permalink($litsenzii_page->ID),
+                            'menu-item-status' => 'publish',
+                            'menu-item-parent-id' => $about_parent_item_id
+                        ));
+                    }
+                }
             }
             
             if ($contacts_page) {
@@ -878,11 +942,26 @@ function dental_clinic_create_menu() {
         // Если меню уже существует, проверяем, есть ли в нем ссылка на имплантацию
         $menu_items = wp_get_nav_menu_items($menu_exists->term_id);
         $has_implant_link = false;
+        $about_parent_item = null;
+        $has_about_children = array(
+            'Информация' => false,
+            'Реквизиты' => false,
+            'Лицензии' => false,
+        );
         
         foreach ($menu_items as $item) {
             if (strpos($item->url, 'implantatsiya') !== false) {
                 $has_implant_link = true;
-                break;
+            }
+            // Ищем родительский пункт "О клинике"
+            if (!$about_parent_item && $item->title === 'О клинике') {
+                $about_parent_item = $item;
+            }
+            // Отмечаем дочерние пункты, если они уже есть
+            if ($item->menu_item_parent) {
+                if (isset($has_about_children[$item->title])) {
+                    $has_about_children[$item->title] = true;
+                }
             }
         }
         
@@ -896,6 +975,86 @@ function dental_clinic_create_menu() {
                     'menu-item-status' => 'publish',
                     'menu-item-position' => 2
                 ));
+            }
+        }
+
+        // Если есть родитель "О клинике", убеждаемся, что у него есть нужные подпункты
+        if ($about_parent_item) {
+            $parent_id = $about_parent_item->ID;
+            // Информация
+            if (!$has_about_children['Информация']) {
+                $about_page = get_page_by_path('o-klinike');
+                if ($about_page) {
+                    wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                        'menu-item-title' => 'Информация',
+                        'menu-item-url' => get_permalink($about_page->ID),
+                        'menu-item-status' => 'publish',
+                        'menu-item-parent-id' => $parent_id
+                    ));
+                }
+            }
+            // Реквизиты
+            if (!$has_about_children['Реквизиты']) {
+                $rekvizity_page = get_page_by_path('rekvizity');
+                if ($rekvizity_page) {
+                    wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                        'menu-item-title' => 'Реквизиты',
+                        'menu-item-url' => get_permalink($rekvizity_page->ID),
+                        'menu-item-status' => 'publish',
+                        'menu-item-parent-id' => $parent_id
+                    ));
+                }
+            }
+            // Лицензии
+            if (!$has_about_children['Лицензии']) {
+                $litsenzii_page = get_page_by_path('litsenzii');
+                if ($litsenzii_page) {
+                    wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                        'menu-item-title' => 'Лицензии',
+                        'menu-item-url' => get_permalink($litsenzii_page->ID),
+                        'menu-item-status' => 'publish',
+                        'menu-item-parent-id' => $parent_id
+                    ));
+                }
+            }
+        } else {
+            // Если родителя "О клинике" нет вообще — создаём его и дочерние пункты
+            $about_page = get_page_by_path('o-klinike');
+            if ($about_page) {
+                $about_parent_item_id = wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                    'menu-item-title' => 'О клинике',
+                    'menu-item-url' => get_permalink($about_page->ID),
+                    'menu-item-status' => 'publish',
+                ));
+                if ($about_parent_item_id && !is_wp_error($about_parent_item_id)) {
+                    // Информация
+                    wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                        'menu-item-title' => 'Информация',
+                        'menu-item-url' => get_permalink($about_page->ID),
+                        'menu-item-status' => 'publish',
+                        'menu-item-parent-id' => $about_parent_item_id
+                    ));
+                    // Реквизиты
+                    $rekvizity_page = get_page_by_path('rekvizity');
+                    if ($rekvizity_page) {
+                        wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                            'menu-item-title' => 'Реквизиты',
+                            'menu-item-url' => get_permalink($rekvizity_page->ID),
+                            'menu-item-status' => 'publish',
+                            'menu-item-parent-id' => $about_parent_item_id
+                        ));
+                    }
+                    // Лицензии
+                    $litsenzii_page = get_page_by_path('litsenzii');
+                    if ($litsenzii_page) {
+                        wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                            'menu-item-title' => 'Лицензии',
+                            'menu-item-url' => get_permalink($litsenzii_page->ID),
+                            'menu-item-status' => 'publish',
+                            'menu-item-parent-id' => $about_parent_item_id
+                        ));
+                    }
+                }
             }
         }
     }
@@ -957,6 +1116,176 @@ function dental_clinic_force_update_menu() {
     }
 }
 add_action('init', 'dental_clinic_force_update_menu');
+
+// Одноразовый триггер: принудительно добавить подпункты под «О клинике» в существующее меню
+function dental_clinic_add_about_children_manual() {
+    if (!is_user_logged_in() || !current_user_can('administrator')) {
+        return;
+    }
+    if (!isset($_GET['add_about_children']) || $_GET['add_about_children'] != '1') {
+        return;
+    }
+
+    $menu_name = 'Главное меню';
+    $menu = wp_get_nav_menu_object($menu_name);
+    if (!$menu) {
+        echo 'Меню не найдено';
+        exit;
+    }
+
+    $items = wp_get_nav_menu_items($menu->term_id);
+    $about_parent = null;
+    if ($items) {
+        foreach ($items as $item) {
+            if ($item->title === 'О клинике' || (strpos($item->url, 'o-klinike') !== false)) {
+                $about_parent = $item;
+                break;
+            }
+        }
+    }
+
+    if (!$about_parent) {
+        $about_page = get_page_by_path('o-klinike');
+        if ($about_page) {
+            $parent_id = wp_update_nav_menu_item($menu->term_id, 0, array(
+                'menu-item-title' => 'О клинике',
+                'menu-item-url' => get_permalink($about_page->ID),
+                'menu-item-status' => 'publish',
+            ));
+            if (!is_wp_error($parent_id)) {
+                $about_parent = (object) array('ID' => $parent_id);
+            }
+        }
+    }
+
+    if ($about_parent) {
+        $parent_id = $about_parent->ID;
+
+        // Список уже существующих дочерних по заголовкам
+        $existing_children = array();
+        $items = wp_get_nav_menu_items($menu->term_id);
+        if ($items) {
+            foreach ($items as $item) {
+                if ((int)$item->menu_item_parent === (int)$parent_id) {
+                    $existing_children[$item->title] = true;
+                }
+            }
+        }
+
+        // Информация
+        if (empty($existing_children['Информация'])) {
+            $about_page = get_page_by_path('o-klinike');
+            if ($about_page) {
+                wp_update_nav_menu_item($menu->term_id, 0, array(
+                    'menu-item-title' => 'Информация',
+                    'menu-item-url' => get_permalink($about_page->ID),
+                    'menu-item-status' => 'publish',
+                    'menu-item-parent-id' => $parent_id
+                ));
+            }
+        }
+
+        // Реквизиты
+        if (empty($existing_children['Реквизиты'])) {
+            $rekvizity_page = get_page_by_path('rekvizity');
+            if ($rekvizity_page) {
+                wp_update_nav_menu_item($menu->term_id, 0, array(
+                    'menu-item-title' => 'Реквизиты',
+                    'menu-item-url' => get_permalink($rekvizity_page->ID),
+                    'menu-item-status' => 'publish',
+                    'menu-item-parent-id' => $parent_id
+                ));
+            }
+        }
+
+        // Лицензии
+        if (empty($existing_children['Лицензии'])) {
+            $litsenzii_page = get_page_by_path('litsenzii');
+            if ($litsenzii_page) {
+                wp_update_nav_menu_item($menu->term_id, 0, array(
+                    'menu-item-title' => 'Лицензии',
+                    'menu-item-url' => get_permalink($litsenzii_page->ID),
+                    'menu-item-status' => 'publish',
+                    'menu-item-parent-id' => $parent_id
+                ));
+            }
+        }
+
+        echo 'Подпункты добавлены';
+    } else {
+        echo 'Не удалось найти/создать пункт «О клинике»';
+    }
+    exit;
+}
+add_action('init', 'dental_clinic_add_about_children_manual');
+
+// Гарантируем подпункты под «О клинике» в меню, привязанном к локации primary
+function dental_clinic_ensure_about_children_in_primary_menu() {
+    // Выполняем только на фронтенде
+    if (is_admin()) return;
+
+    $locations = get_nav_menu_locations();
+    if (empty($locations['primary'])) return;
+
+    $menu_id = (int) $locations['primary'];
+    if (!$menu_id) return;
+
+    $items = wp_get_nav_menu_items($menu_id);
+    if (!$items) return;
+
+    // Ищем родителя «О клинике» — по заголовку или по ссылке /o-klinike
+    $about_parent = null;
+    foreach ($items as $itm) {
+        $title = trim(wp_strip_all_tags($itm->title));
+        if ($title === 'О клинике' || strpos($itm->url, '/o-klinike') !== false) {
+            $about_parent = $itm;
+            break;
+        }
+    }
+
+    // Если нет — выходим, не вмешиваемся в чужую структуру
+    if (!$about_parent) return;
+
+    // Собираем существующие дочерние
+    $existing_children = array();
+    foreach ($items as $itm) {
+        if ((int)$itm->menu_item_parent === (int)$about_parent->ID) {
+            $existing_children[trim(wp_strip_all_tags($itm->title))] = true;
+        }
+    }
+
+    // Страницы-источники
+    $about_page     = get_page_by_path('o-klinike');
+    $rekvizity_page = get_page_by_path('rekvizity');
+    $litsenzii_page = get_page_by_path('litsenzii');
+
+    // Добавляем недостающие
+    if ($about_page && empty($existing_children['Информация'])) {
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' => 'Информация',
+            'menu-item-url' => get_permalink($about_page->ID),
+            'menu-item-status' => 'publish',
+            'menu-item-parent-id' => (int)$about_parent->ID,
+        ));
+    }
+    if ($rekvizity_page && empty($existing_children['Реквизиты'])) {
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' => 'Реквизиты',
+            'menu-item-url' => get_permalink($rekvizity_page->ID),
+            'menu-item-status' => 'publish',
+            'menu-item-parent-id' => (int)$about_parent->ID,
+        ));
+    }
+    if ($litsenzii_page && empty($existing_children['Лицензии'])) {
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' => 'Лицензии',
+            'menu-item-url' => get_permalink($litsenzii_page->ID),
+            'menu-item-status' => 'publish',
+            'menu-item-parent-id' => (int)$about_parent->ID,
+        ));
+    }
+}
+add_action('init', 'dental_clinic_ensure_about_children_in_primary_menu');
 
 // Создаем тестовые отзывы при активации темы
 function dental_clinic_create_sample_reviews() {
