@@ -30,12 +30,14 @@
                         </div>
                         
                         <div class="blog-card-content">
-                            <h2 class="blog-card-title">
-                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                            </h2>
-                            
-                            <div class="blog-card-excerpt">
-                                <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
+                            <div class="blog-card-text">
+                                <h2 class="blog-card-title">
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                </h2>
+                                
+                                <div class="blog-card-excerpt">
+                                    <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
+                                </div>
                             </div>
                             
                             <a href="<?php the_permalink(); ?>" class="blog-card-btn">Читать далее</a>

@@ -149,13 +149,39 @@ class Dental_Clinic_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 
-function dental_clinic_enqueue_styles() {
-    wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), wp_get_theme()->get('Version'));
-    
-    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style', 'local-fonts'), wp_get_theme()->get('Version'));
+// Добавляем класс v2-site на body для front-page.php (v2 версия)
+function dental_clinic_add_v2_body_class($classes) {
+    if (is_front_page() && file_exists(get_stylesheet_directory() . '/front-page.php')) {
+        $classes[] = 'v2-site';
+    }
+    return $classes;
 }
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles');
+add_filter('body_class', 'dental_clinic_add_v2_body_class');
+
+// Подключение стилей v2 для front-page
+function dental_clinic_enqueue_v2_styles() {
+    if (is_front_page()) {
+        $ver = wp_get_theme()->get('Version');
+        $uri = get_stylesheet_directory_uri() . '/assets/css/v2/';
+        
+        wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), $ver);
+        wp_enqueue_style('v2-base', $uri . 'base.css', array('local-fonts'), $ver);
+        wp_enqueue_style('v2-layout', $uri . 'layout.css', array('v2-base'), $ver);
+        wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-layout'), $ver);
+        wp_enqueue_style('v2-utilities', $uri . 'utilities.css', array('v2-components'), $ver);
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);
+
+function dental_clinic_enqueue_styles() {
+    // Для front-page не загружаем старые стили
+    if (!is_front_page()) {
+        wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), wp_get_theme()->get('Version'));
+        wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+        wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style', 'local-fonts'), wp_get_theme()->get('Version'));
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles', 10);
 
 function dental_clinic_setup() {
     register_nav_menus(array(
@@ -915,11 +941,21 @@ function dental_clinic_create_menu() {
                 }
             }
             
+            // Блог
+            $blog_page = get_page_by_path('blog');
+            if ($blog_page) {
+                $menu_items[] = array(
+                    'title' => 'Блог',
+                    'url' => get_permalink($blog_page->ID),
+                    'menu_order' => 5
+                );
+            }
+            
             if ($contacts_page) {
                 $menu_items[] = array(
                     'title' => 'Контакты',
                     'url' => get_permalink($contacts_page->ID),
-                    'menu_order' => 5
+                    'menu_order' => 6
                 );
             }
             
@@ -981,18 +1017,6 @@ function dental_clinic_create_menu() {
         // Если есть родитель "О клинике", убеждаемся, что у него есть нужные подпункты
         if ($about_parent_item) {
             $parent_id = $about_parent_item->ID;
-            // Информация
-            if (!$has_about_children['Информация']) {
-                $about_page = get_page_by_path('o-klinike');
-                if ($about_page) {
-                    wp_update_nav_menu_item($menu_exists->term_id, 0, array(
-                        'menu-item-title' => 'Информация',
-                        'menu-item-url' => get_permalink($about_page->ID),
-                        'menu-item-status' => 'publish',
-                        'menu-item-parent-id' => $parent_id
-                    ));
-                }
-            }
             // Реквизиты
             if (!$has_about_children['Реквизиты']) {
                 $rekvizity_page = get_page_by_path('rekvizity');
@@ -1072,12 +1096,15 @@ function dental_clinic_ensure_menu() {
         // Проверяем, есть ли ссылка на имплантацию в существующем меню
         $menu_items = wp_get_nav_menu_items($menu_exists->term_id);
         $has_implant_link = false;
+        $has_blog_link = false;
         
         if ($menu_items) {
             foreach ($menu_items as $item) {
                 if (strpos($item->url, 'implantatsiya') !== false) {
                     $has_implant_link = true;
-                    break;
+                }
+                if (strpos($item->url, 'blog') !== false) {
+                    $has_blog_link = true;
                 }
             }
         }
@@ -1094,9 +1121,43 @@ function dental_clinic_ensure_menu() {
                 ));
             }
         }
+        
+        // Если ссылки на блог нет, добавляем её
+        if (!$has_blog_link) {
+            $blog_page = get_page_by_path('blog');
+            if ($blog_page) {
+                wp_update_nav_menu_item($menu_exists->term_id, 0, array(
+                    'menu-item-title' => 'Блог',
+                    'menu-item-url' => get_permalink($blog_page->ID),
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 5
+                ));
+            }
+        }
+        
     }
 }
 add_action('init', 'dental_clinic_ensure_menu');
+
+// Принудительное пересоздание меню с правильным порядком
+function dental_clinic_recreate_menu() {
+    if (isset($_GET['recreate_menu']) && current_user_can('administrator')) {
+        // Удаляем старое меню
+        $menu_name = 'Главное меню';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+        
+        if ($menu_exists) {
+            wp_delete_nav_menu($menu_exists->term_id);
+        }
+        
+        // Создаем новое меню с правильным порядком
+        dental_clinic_create_menu();
+        
+        wp_redirect(admin_url('nav-menus.php?menu_created=1'));
+        exit;
+    }
+}
+add_action('admin_init', 'dental_clinic_recreate_menu');
 
 // Принудительное обновление меню (выполнить один раз)
 function dental_clinic_force_update_menu() {
@@ -1172,18 +1233,6 @@ function dental_clinic_add_about_children_manual() {
             }
         }
 
-        // Информация
-        if (empty($existing_children['Информация'])) {
-            $about_page = get_page_by_path('o-klinike');
-            if ($about_page) {
-                wp_update_nav_menu_item($menu->term_id, 0, array(
-                    'menu-item-title' => 'Информация',
-                    'menu-item-url' => get_permalink($about_page->ID),
-                    'menu-item-status' => 'publish',
-                    'menu-item-parent-id' => $parent_id
-                ));
-            }
-        }
 
         // Реквизиты
         if (empty($existing_children['Реквизиты'])) {
@@ -1260,14 +1309,6 @@ function dental_clinic_ensure_about_children_in_primary_menu() {
     $litsenzii_page = get_page_by_path('litsenzii');
 
     // Добавляем недостающие
-    if ($about_page && empty($existing_children['Информация'])) {
-        wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' => 'Информация',
-            'menu-item-url' => get_permalink($about_page->ID),
-            'menu-item-status' => 'publish',
-            'menu-item-parent-id' => (int)$about_parent->ID,
-        ));
-    }
     if ($rekvizity_page && empty($existing_children['Реквизиты'])) {
         wp_update_nav_menu_item($menu_id, 0, array(
             'menu-item-title' => 'Реквизиты',

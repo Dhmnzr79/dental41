@@ -40,7 +40,7 @@
 
         <div class="nav-body">
             <!-- CTA — первым пунктом -->
-            <button type="button" class="btn-1" onclick="openPopup()">Заказать звонок</button>
+            <button type="button" class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
 
             <!-- Навигация сайта -->
             <ul class="nav" role="list">
@@ -55,6 +55,7 @@
                         <li><a href="<?php echo home_url('/litsenzii'); ?>">Лицензии</a></li>
                     </ul>
                 </li>
+                <li><a href="<?php echo home_url('/blog'); ?>">Блог</a></li>
                 <li><a href="<?php echo home_url('/kontakty'); ?>">Контакты</a></li>
             </ul>
 

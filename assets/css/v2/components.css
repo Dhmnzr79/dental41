@@ -1,0 +1,667 @@
+/* Компоненты v2 */
+/* Блоки добавляются по одному */
+
+/* ===== БЛОК ИНДЕКСОВ ===== */
+.v2-site .v2-indices {
+    background: linear-gradient(90deg, #99eaf3 0%, #b7c3ff 100%);
+}
+
+.v2-site .v2-indices__card {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 15px;
+    padding: 20px 30px;
+    position: relative;
+    transition: transform 0.3s ease;
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 1);
+}
+
+.v2-site .v2-indices__card:hover {
+    transform: translateY(-5px);
+}
+
+.v2-site .v2-indices__icon {
+    position: absolute;
+    top: -45px;
+    left: 30px;
+    width: 100px;
+    height: 100px;
+}
+
+.v2-site .v2-indices__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.v2-site .v2-indices__content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.v2-site .v2-indices__number {
+    font-size: 1.5rem;
+    color: var(--brand-color);
+    font-family: var(--heading-font);
+    align-self: flex-end;
+    font-weight: 500;
+}
+
+.v2-site .v2-indices__card p {
+    margin: 0;
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+    .v2-site .v2-indices__card {
+        padding: 15px 20px;
+    }
+
+    .v2-site .v2-indices__number {
+        font-size: 1.2rem;
+    }
+
+    .v2-site .v2-indices__icon {
+        width: 80px;
+        height: 80px;
+        top: -35px;
+        left: 20px;
+    }
+}
+
+/* ===== БЛОК КОНСУЛЬТАЦИИ ===== */
+.v2-site .v2-consultation__left {
+    padding-right: 40px;
+}
+
+.v2-site .v2-consultation__promo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Общие стили для overlapping circles вынесены в utilities.css */
+
+.v2-site .v2-consultation__date {
+    font-weight: 600;
+}
+
+.v2-site .v2-consultation__title {
+    margin-bottom: 30px;
+}
+
+.v2-site .v2-consultation__highlight {
+    color: var(--brand-color);
+}
+
+.v2-site .v2-consultation__benefits {
+    margin-bottom: 30px;
+}
+
+.v2-site .v2-consultation__benefit {
+    display: flex;
+    gap: 20px;
+    padding: 5px 0;
+}
+
+.v2-site .v2-consultation__benefit-icon {
+    width: auto;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-color);
+    flex-shrink: 0;
+}
+
+.v2-site .v2-consultation__benefit-icon svg {
+    width: auto;
+    height: 64px;
+}
+
+.v2-site .v2-consultation__benefit-text {
+    margin: 0;
+}
+
+.v2-site .v2-consultation__right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.v2-site .v2-consultation__quote {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    min-height: 100px;
+}
+
+.v2-site .v2-consultation__quote-photo {
+    flex: 0 0 35%;
+    position: relative;
+}
+
+.v2-site .v2-consultation__quote-photo::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 220px;
+    height: 100px;
+    background: #ddf2f5;
+    z-index: -1;
+    border-radius: 100px;
+}
+
+.v2-site .v2-consultation__quote-img {
+    width: 150px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 35px;
+}
+
+.v2-site .v2-consultation__quote-text {
+    flex: 0 0 65%;
+}
+
+.v2-site .v2-consultation__quote-content {
+    margin: 0;
+    font-weight: 600;
+}
+
+.v2-site .v2-consultation__form {
+    background: linear-gradient(
+        143.28deg,
+        #d6e5e8 9%,
+        #9be8f4 46.5%,
+        #cec1de 98.5%
+    );
+    padding: 40px 30px;
+    border-radius: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.v2-site .v2-consultation__form-title {
+    margin-bottom: 15px;
+}
+
+.v2-site .v2-consultation__form-subtitle {
+    font-weight: 400;
+}
+
+.v2-site .v2-consultation__form-description {
+    margin-bottom: 20px;
+}
+
+.v2-site .v2-consultation__form-privacy {
+    margin-top: 15px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.v2-site .v2-consultation__form-link {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.v2-site .v2-consultation__form-link:hover {
+    text-decoration: none;
+}
+
+/* Media queries */
+@media (max-width: 1023px) {
+    .v2-site .v2-consultation__left {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .v2-site .v2-consultation__promo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .v2-site .v2-consultation__benefit-icon {
+        height: 40px;
+    }
+
+    .v2-site .v2-consultation__benefit-icon svg {
+        height: 40px;
+    }
+
+    .v2-site .v2-consultation__quote {
+        gap: 0;
+    }
+
+    .v2-site .v2-consultation__quote-img {
+        width: 90px;
+        left: 18px;
+    }
+
+    .v2-site .v2-consultation__quote-photo::before {
+        width: 120px;
+        height: 80px;
+        border-radius: 20px;
+    }
+
+    .v2-site .v2-consultation__form {
+        padding: 25px;
+    }
+}
+
+/* ===== БЛОК "НАШИ УСЛУГИ" ===== */
+.v2-site .v2-services__title-col {
+    margin-bottom: 30px;
+}
+
+.v2-site .v2-services__description {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.v2-site .v2-services__icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.v2-site .v2-services__description-text {
+    margin: 0;
+}
+
+.v2-site .v2-services__cards {
+    margin-top: 40px;
+}
+
+.v2-site .v2-services__cards .v2-row {
+    margin-bottom: 30px;
+}
+
+.v2-site .v2-services__cards .v2-row:last-child {
+    margin-bottom: 0;
+}
+
+.v2-site .v2-services__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.v2-site .v2-services__card-body {
+    background: #f2f2f2;
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.v2-site .v2-services__circles {
+    margin-bottom: 20px;
+}
+
+.v2-site .v2-services__card-title {
+    margin-bottom: 15px;
+}
+
+.v2-site .v2-services__card-text {
+    margin-bottom: 15px;
+}
+
+.v2-site .v2-services__card-price {
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.v2-site .v2-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.v2-site .v2-btn--primary {
+    background: var(--brand-color);
+    color: var(--white);
+}
+
+.v2-site .v2-btn--primary:hover {
+    background: #1ea8b8;
+    transform: translateY(-2px);
+}
+
+.v2-site .v2-btn--whatsapp {
+    background: #25d366;
+    color: var(--white);
+}
+
+.v2-site .v2-btn--whatsapp:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+    .v2-site .v2-services__description {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .v2-site .v2-services__cards .v2-row {
+        margin-bottom: 20px;
+    }
+
+    .v2-site .v2-services__card-body {
+        padding: 20px;
+    }
+}
+
+/* ===== БЛОК ПЛЮСОВ ===== */
+.v2-site .v2-plus__header {
+    margin-bottom: 30px;
+}
+
+.v2-site .v2-plus__header-plus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 50px;
+}
+
+.v2-site .v2-plus__header-icon {
+    flex-shrink: 0;
+}
+
+.v2-site .v2-plus__header-text {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.v2-site .v2-plus__left-row {
+    margin-bottom: 30px;
+}
+
+.v2-site .v2-plus__left-row:last-child {
+    margin-bottom: 0;
+}
+
+.v2-site .v2-plus__card {
+    padding: 0;
+    text-align: left;
+}
+
+.v2-site .v2-plus__icon {
+    color: var(--brand-color);
+    margin-bottom: 15px;
+}
+
+.v2-site .v2-plus__icon svg {
+    height: 48px;
+    width: auto;
+}
+
+.v2-site .v2-plus__card-title {
+    margin: 15px 0 10px 0;
+}
+
+.v2-site .v2-plus__card-text {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.v2-site .v2-plus__card--bg {
+    border-radius: 20px;
+    min-height: 200px;
+}
+
+.v2-site .v2-plus__card--featured {
+    padding: 10px 20px 40px 20px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    min-height: 550px;
+    background: linear-gradient(
+        123.98deg,
+        #3ad5e3 11.49%,
+        #84d0e4 50.21%,
+        #cec1de 87.46%
+    );
+}
+
+.v2-site .v2-plus__card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.v2-site .v2-plus__card-content {
+    position: relative;
+    z-index: 3;
+}
+
+.v2-site .v2-plus__card--featured-title {
+    color: var(--white);
+}
+
+.v2-site .v2-plus__card--featured-text {
+    color: var(--white);
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+    .v2-site .v2-plus__header-plus {
+        padding-bottom: 30px;
+    }
+
+    .v2-site .v2-plus__left-row {
+        margin-bottom: 20px;
+    }
+
+    .v2-site .v2-plus__card--featured {
+        min-height: 400px;
+        padding: 20px;
+    }
+}
+
+/* ===== БЛОК ДОВЕРИЯ ===== */
+.v2-site .v2-trust__header {
+    margin-bottom: 40px;
+}
+
+.v2-site .v2-trust__title-span {
+    font-weight: 400;
+}
+
+.v2-site .v2-trust__highlight {
+    color: var(--brand-color);
+}
+
+.v2-site .v2-trust__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.v2-site .v2-trust__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+}
+
+.v2-site .v2-trust__icon-main {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.v2-site .v2-trust__card:nth-child(1) .v2-trust__icon-main {
+    background-image: url('../../../images/tech-icon-01.png');
+}
+
+.v2-site .v2-trust__card:nth-child(2) .v2-trust__icon-main {
+    background-image: url('../../../images/tech-icon-02.jpg');
+}
+
+.v2-site .v2-trust__card:nth-child(3) .v2-trust__icon-main {
+    background-image: url('../../../images/tech-icon-03.jpg');
+}
+
+.v2-site .v2-trust__icon-arrow {
+    width: 50px;
+    height: 50px;
+    background-image: url('../../../svg/tech-arrow.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.v2-site .v2-trust__card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.v2-site .v2-trust__card-text {
+    margin: 0;
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+    .v2-site .v2-trust__icon-main {
+        width: 60px;
+        height: 60px;
+    }
+
+    .v2-site .v2-trust__icon-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .v2-site .v2-trust__card-title {
+        font-size: 20px;
+    }
+}
+
+/* ===== БЛОК ГАРАНТИЙ ===== */
+.v2-site .v2-guarantees__header {
+    margin-bottom: 40px;
+}
+
+.v2-site .v2-guarantees__subtitle {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.v2-site .v2-guarantees__left .v2-row {
+    margin-bottom: 30px;
+}
+
+.v2-site .v2-guarantees__left .v2-row:last-of-type {
+    margin-bottom: 0;
+}
+
+.v2-site .v2-guarantees__item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.v2-site .v2-guarantees__icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.v2-site .v2-guarantees__text {
+    margin: 0;
+}
+
+.v2-site .v2-guarantees__additional {
+    margin-top: 40px;
+}
+
+.v2-site .v2-guarantees__additional-title {
+    margin-bottom: 20px;
+}
+
+.v2-site .v2-guarantees__additional-items {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.v2-site .v2-guarantees__additional-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.v2-site .v2-guarantees__additional-text {
+    margin: 0;
+}
+
+.v2-site .v2-guarantees__right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.v2-site .v2-guarantees__right-title {
+    margin-bottom: 0;
+}
+
+.v2-site .v2-guarantees__right-text {
+    margin: 0;
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+    .v2-site .v2-guarantees__item {
+        margin-bottom: 15px;
+    }
+
+    .v2-site .v2-guarantees__additional-items {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .v2-site .v2-guarantees__additional-item {
+        min-width: auto;
+    }
+}
