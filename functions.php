@@ -81,6 +81,102 @@ function dental_clinic_enqueue_popup() {
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_popup');
 
+function dental_clinic_enqueue_v2_works_slider() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-v2-works-slider',
+            get_stylesheet_directory_uri() . '/v2-works-slider.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_works_slider');
+
+function dental_clinic_enqueue_v2_reviews_slider() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-v2-reviews-slider',
+            get_stylesheet_directory_uri() . '/v2-reviews-slider.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_reviews_slider');
+
+function dental_clinic_enqueue_v2_header_menu() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-v2-header-menu',
+            get_stylesheet_directory_uri() . '/v2-header-menu.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_header_menu');
+
+function dental_clinic_enqueue_v2_doctors_slider() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-v2-doctors-slider',
+            get_stylesheet_directory_uri() . '/v2-doctors-slider.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_doctors_slider');
+
+function dental_clinic_enqueue_v2_implant_types() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-v2-implant-types',
+            get_stylesheet_directory_uri() . '/v2-implant-types.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implant_types');
+
+function dental_clinic_enqueue_v2_implants_slider() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-v2-implants-slider',
+            get_stylesheet_directory_uri() . '/v2-implants-slider.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implants_slider');
+
+function dental_clinic_v2_fallback_menu() {
+    echo '<ul class="v2-header__menu-list">';
+    echo '<li><a href="' . home_url() . '">Главная</a></li>';
+    echo '<li><a href="' . home_url('/implantatsiya') . '">Имплантация</a></li>';
+    echo '<li><a href="' . home_url('/doctor') . '">Врачи</a></li>';
+    echo '<li class="dropdown">';
+    echo '<a href="' . home_url('/o-klinike') . '" class="dropdown-toggle">О клинике</a>';
+    echo '<ul class="dropdown-menu">';
+    echo '<li><a href="' . home_url('/o-klinike') . '">Информация</a></li>';
+    echo '<li><a href="' . home_url('/rekvizity') . '">Реквизиты</a></li>';
+    echo '<li><a href="' . home_url('/litsenzii') . '">Лицензии</a></li>';
+    echo '</ul>';
+    echo '</li>';
+    echo '<li><a href="' . home_url('/blog') . '">Блог</a></li>';
+    echo '<li><a href="' . home_url('/kontakty') . '">Контакты</a></li>';
+    echo '</ul>';
+}
+
 // Поддержка выпадающих меню
 function dental_clinic_nav_menu_css_class($classes, $item, $args) {
     if ($args->theme_location == 'primary') {

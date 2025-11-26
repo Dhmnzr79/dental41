@@ -17,6 +17,124 @@
 </head>
 <body <?php body_class('v2-site'); ?>>
 
+<header class="v2-header" itemscope itemtype="https://schema.org/MedicalBusiness">
+    <div class="v2-header__topbar" aria-label="Верхняя панель сайта">
+        <div class="v2-container">
+            <div class="v2-header__topbar-inner">
+                <a class="v2-header__logo" href="<?php echo home_url(); ?>" aria-label="На главную" itemprop="url">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="ЦЭСИ" class="v2-header__logo-img" width="40" height="40" itemprop="logo">
+                </a>
+
+                <div class="v2-header__actions">
+                    <a class="v2-header__icon-btn" href="tel:+74152500129" aria-label="Позвонить" itemprop="telephone">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M22 17.5v2a2 2 0 0 1-2.18 2 19.77 19.77 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.77 19.77 0 0 1 2.5 3.18 2 2 0 0 1 4.5 1h2a2 2 0 0 1 2 1.72c.12.93.32 1.84.59 2.72a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.36-1.36a2 2 0 0 1 2.11-.45c.88.27 1.79.47 2.72.59A2 2 0 0 1 22 17.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+
+                    <button class="v2-header__icon-btn" id="v2-menu-open" aria-label="Открыть меню" aria-haspopup="dialog" aria-controls="v2-menu-dialog">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="v2-header__overlay" id="v2-menu-dialog" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="v2-menu-title">
+        <div class="v2-header__overlay-head">
+            <span class="v2-header__overlay-title" id="v2-menu-title">Меню</span>
+            <button class="v2-header__overlay-close" id="v2-menu-close" aria-label="Закрыть меню">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="v2-header__overlay-body">
+            <button type="button" class="v2-btn v2-btn--primary v2-header__overlay-cta" onclick="openPopup()">Записаться на консультацию</button>
+
+            <nav class="v2-header__nav" role="navigation" aria-label="Основная навигация">
+                <ul class="v2-header__nav-list" role="list">
+                    <li class="v2-header__nav-item"><a href="<?php echo home_url(); ?>" class="v2-header__nav-link">Главная <span class="v2-header__nav-desc">о клинике</span></a></li>
+                    <li class="v2-header__nav-item"><a href="<?php echo home_url('/implantatsiya'); ?>" class="v2-header__nav-link">Имплантация <span class="v2-header__nav-desc">восстановление зубов</span></a></li>
+                    <li class="v2-header__nav-item"><a href="<?php echo home_url('/doctor'); ?>" class="v2-header__nav-link">Врачи <span class="v2-header__nav-desc">опыт, дипломы</span></a></li>
+                    <li class="v2-header__nav-item v2-header__nav-item--dropdown">
+                        <a href="<?php echo home_url('/o-klinike'); ?>" class="v2-header__nav-link v2-header__nav-link--toggle">О клинике <span class="v2-header__nav-desc">информация</span></a>
+                        <ul class="v2-header__dropdown">
+                            <li class="v2-header__dropdown-item"><a href="<?php echo home_url('/o-klinike'); ?>" class="v2-header__dropdown-link">Информация</a></li>
+                            <li class="v2-header__dropdown-item"><a href="<?php echo home_url('/rekvizity'); ?>" class="v2-header__dropdown-link">Реквизиты</a></li>
+                            <li class="v2-header__dropdown-item"><a href="<?php echo home_url('/litsenzii'); ?>" class="v2-header__dropdown-link">Лицензии</a></li>
+                        </ul>
+                    </li>
+                    <li class="v2-header__nav-item"><a href="<?php echo home_url('/blog'); ?>" class="v2-header__nav-link">Блог</a></li>
+                    <li class="v2-header__nav-item"><a href="<?php echo home_url('/kontakty'); ?>" class="v2-header__nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="v2-header__content">
+        <div class="v2-container">
+            <div class="v2-row v2-header__top">
+                <div class="v2-col-sm-12 v2-col-lg-8 v2-header__left">
+                    <a class="v2-header__brand" href="<?php echo home_url(); ?>" itemprop="url">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="Логотип ЦЭСИ" class="v2-header__brand-img" itemprop="logo">
+                    </a>
+                    <div class="v2-header__info" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                        <div class="v2-header__name" itemprop="name">Центр эстетической стоматологии и имплантации</div>
+                        <div class="v2-header__address" itemprop="streetAddress">г. Елизово, ул. Ленина 15-а</div>
+                    </div>
+                </div>
+
+                <div class="v2-col-sm-12 v2-col-lg-4 v2-header__right">
+                    <div class="v2-header__contacts">
+                        <div class="v2-header__phone-block">
+                            <a href="tel:+74152500129" class="v2-header__phone" itemprop="telephone">+7(4152) 50-01-29</a>
+                            <a href="https://wa.me/79084952424" class="v2-header__whatsapp" target="_blank" rel="noopener" aria-label="Написать в WhatsApp" title="Написать в WhatsApp">
+                                <svg class="v2-header__whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="v2-header__hours" itemprop="openingHours">Звоните 8:00-20:00, сб. 08:00-14:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="v2-row v2-header__bottom">
+                <div class="v2-col-sm-12 v2-col-lg-10 v2-header__menu-col">
+                    <nav class="v2-header__menu" role="navigation" aria-label="Основное меню">
+                        <?php
+                        if (has_nav_menu('primary')) {
+                            wp_nav_menu(array(
+                                'theme_location' => 'primary',
+                                'container' => false,
+                                'menu_class' => 'v2-header__menu-list',
+                                'walker' => new Dental_Clinic_Walker_Nav_Menu(),
+                                'fallback_cb' => 'dental_clinic_v2_fallback_menu'
+                            ));
+                        } else {
+                            dental_clinic_v2_fallback_menu();
+                        }
+                        ?>
+                    </nav>
+                </div>
+
+                <div class="v2-col-sm-12 v2-col-lg-2 v2-header__button-col">
+                    <button type="button" class="v2-btn v2-btn--secondary v2-header__cta" onclick="openPopup()">
+                        <span class="v2-btn__text">Заказать звонок</span>
+                        <svg class="v2-btn__arrow" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M15.7347 6.6483C15.9046 6.47928 16 6.25007 16 6.01108C16 5.77208 15.9046 5.54287 15.7347 5.37385L10.6085 0.275158C10.5249 0.189074 10.4249 0.120411 10.3144 0.073174C10.2038 0.0259374 10.0849 0.00107371 9.96458 3.37663e-05C9.84426 -0.00100618 9.72493 0.0217987 9.61357 0.0671172C9.5022 0.112436 9.40103 0.179361 9.31595 0.263987C9.23086 0.348613 9.16358 0.449245 9.11802 0.560012C9.07245 0.67078 9.04952 0.789464 9.05057 0.909139C9.05162 1.02881 9.07661 1.14708 9.1241 1.25705C9.1716 1.36701 9.24063 1.46646 9.32718 1.54961L12.9065 5.10977L0.906168 5.10977C0.665837 5.10977 0.435349 5.20473 0.26541 5.37376C0.0954706 5.54278 3.39719e-07 5.77203 3.2927e-07 6.01108C3.18821e-07 6.25012 0.0954705 6.47937 0.26541 6.6484C0.435349 6.81742 0.665837 6.91238 0.906167 6.91238L12.9065 6.91238L9.32718 10.4725C9.16211 10.6425 9.07078 10.8702 9.07284 11.1065C9.07491 11.3428 9.17021 11.5689 9.33822 11.736C9.50623 11.9031 9.73351 11.9979 9.9711 12C10.2087 12.002 10.4376 11.9112 10.6085 11.747L15.7347 6.6483Z" fill="#23BFCF"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 <section class="v2-hero v2-section" itemscope itemtype="https://schema.org/MedicalBusiness">
     <div class="v2-container">
         <div class="v2-row">
@@ -148,6 +266,111 @@
                     <div class="v2-indices__number">04</div>
                     <p itemprop="name">Входим в ТОП рейтинга Яндекса, ПроДокторов и Google</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-works" aria-labelledby="v2-works-title" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row v2-works__head">
+            <div class="v2-col-sm-12 v2-col-lg-8 v2-works__head-main">
+                <h2 id="v2-works-title" class="v2-works__title" itemprop="name">
+                    Посмотрите, как мы<br>
+                    возвращаем людям улыбку и<br>
+                    уверенность
+                </h2>
+            </div>
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-works__head-aside">
+                <p class="v2-works__subtitle" itemprop="description">
+                    Настоящие истории наших пациентов. Эти результаты достигнуты у нас, в клинике ЦЭСИ.
+                </p>
+            </div>
+        </div>
+
+        <div class="v2-works__slider" data-slider="works" aria-roledescription="carousel" aria-label="Наши работы">
+            <div class="v2-row v2-works__list">
+                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
+                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="1">
+                        <div class="v2-works__media">
+                            <img
+                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after01.jpg"
+                                alt="Улыбка для свадьбы - результат"
+                                loading="lazy"
+                                itemprop="image"
+                            >
+                        </div>
+                        <div class="v2-works__content">
+                            <h3 class="v2-works__card-title" itemprop="name">Улыбка для свадьбы</h3>
+                            <p class="v2-works__card-text" itemprop="description">
+                                Виктория, 32 года, п. Палана. Перед свадьбой прилетела к нам, чтобы быть безупречной в важный день. В ЦЭСИ выполнили: костную пластику верхней челюсти; установку имплантов Impro (Германия); полное лечение своих зубов; протезирование коронками из диоксида циркония.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
+                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="2">
+                        <div class="v2-works__media">
+                            <img
+                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after02.jpg"
+                                alt="Перерождение улыбки - результат"
+                                loading="lazy"
+                                itemprop="image"
+                            >
+                        </div>
+                        <div class="v2-works__content">
+                            <h3 class="v2-works__card-title" itemprop="name">Перерождение улыбки</h3>
+                            <p class="v2-works__card-text" itemprop="description">
+                                Комплексное лечение: импланты, виниры и коронки. Работали Моисеев К.Н. и Ларин К.Е. Результат — естественная и надёжная улыбка.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
+                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="3">
+                        <div class="v2-works__media">
+                            <img
+                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after03.jpg"
+                                alt="Новая улыбка — новая уверенность - результат"
+                                loading="lazy"
+                                itemprop="image"
+                            >
+                        </div>
+                        <div class="v2-works__content">
+                            <h3 class="v2-works__card-title" itemprop="name">Новая улыбка — новая уверенность</h3>
+                            <p class="v2-works__card-text" itemprop="description">
+                                Зубы пролечены под микроскопом. Установлены импланты. Установлены коронки из циркония. Результат — восстановлены здоровье и эстетика, пациент снова улыбается без стеснения.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="v2-row v2-works__pagination-row">
+                <div class="v2-col-sm-12 v2-col-lg-12">
+                    <div class="v2-works__pagination" aria-label="Пагинация слайдера по работам">
+                        <button class="v2-works__dot" type="button" aria-label="Слайд 1" aria-current="true" data-slider-dot="1"></button>
+                        <button class="v2-works__dot" type="button" aria-label="Слайд 2" data-slider-dot="2"></button>
+                        <button class="v2-works__dot" type="button" aria-label="Слайд 3" data-slider-dot="3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="v2-row v2-works__cta-row">
+            <div class="v2-col-sm-12 v2-col-lg-12">
+                <button
+                    type="button"
+                    class="v2-btn v2-btn--primary v2-works__cta-button"
+                    onclick="openPopup()"
+                >
+                    Я хочу также
+                </button>
             </div>
         </div>
     </div>
@@ -618,9 +841,947 @@
     </div>
 </section>
 
+<section class="v2-section v2-reviews" aria-labelledby="v2-reviews-title" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row">
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-reviews__left">
+                <h2 id="v2-reviews-title" class="v2-reviews__title" itemprop="name">
+                    Что говорят пациенты<br>
+                    после лечения
+                </h2>
+                
+                <div class="v2-reviews__stats">
+                    <div class="v2-reviews__circles">
+                        <div class="v2-reviews__circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Довольная пациентка" loading="lazy">
+                        </div>
+                        <div class="v2-reviews__circle">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="Довольная пациентка" loading="lazy">
+                        </div>
+                    </div>
+                    <p class="v2-reviews__stats-text">
+                        +25000 улыбок мы подарили нашим пациентам за 26 лет работы
+                    </p>
+                </div>
+            </div>
+            
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-reviews__right">
+                <div class="v2-reviews__slider-wrapper">
+                    <div class="v2-reviews__slider" data-slider="reviews" aria-roledescription="carousel" aria-label="Отзывы пациентов">
+                        <div class="v2-reviews__track">
+                            <?php
+                            $reviews = new WP_Query(array(
+                                'post_type' => 'review',
+                                'posts_per_page' => 6,
+                                'post_status' => array('publish', 'draft'),
+                                'orderby' => 'date',
+                                'order' => 'DESC'
+                            ));
+                            
+                            if ($reviews->have_posts()) :
+                                $review_index = 0;
+                                while ($reviews->have_posts()) : $reviews->the_post();
+                                    $review_index++;
+                                    $reviewer_name = get_post_meta(get_the_ID(), '_reviewer_name', true);
+                                    $video_url = get_post_meta(get_the_ID(), '_review_video_url', true);
+                            ?>
+                                <article class="v2-reviews__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+                                    <meta itemprop="position" content="<?php echo esc_attr($review_index); ?>">
+                                    
+                                    <div class="v2-reviews__header">
+                                        <div class="v2-reviews__photo">
+                                            <?php if (has_post_thumbnail()) : ?>
+                                                <?php the_post_thumbnail('thumbnail', array('itemprop' => 'image', 'loading' => 'lazy', 'alt' => $reviewer_name ? esc_attr($reviewer_name) : 'Фото пациента')); ?>
+                                            <?php else : ?>
+                                                <div class="v2-reviews__photo-placeholder" aria-hidden="true">👤</div>
+                                            <?php endif; ?>
+                                        </div>
+                                        
+                                        <?php if ($video_url) : ?>
+                                            <button 
+                                                class="v2-reviews__video-btn" 
+                                                type="button"
+                                                data-video="<?php echo esc_url($video_url); ?>"
+                                                aria-label="Смотреть видео отзыв <?php echo $reviewer_name ? esc_attr($reviewer_name) : 'пациента'; ?>"
+                                            >
+                                                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <g clip-path="url(#clip0_2402_132)">
+                                                        <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
+                                                        <path d="M50 0C22.3861 0 0 22.3857 0 50C0 77.6143 22.3861 100 50 100C77.6139 100 100 77.6143 100 50C100 22.3857 77.6139 0 50 0ZM67.2813 52.6504L42.2812 68.2754C41.808 68.5708 41.2644 68.7342 40.7067 68.7487C40.1491 68.7632 39.5977 68.6283 39.1098 68.3578C38.6219 68.0875 38.2153 67.6915 37.9323 67.2109C37.6492 66.7303 37.4999 66.1827 37.5 65.625V34.375C37.5 33.2383 38.1164 32.193 39.1098 31.6422C39.5974 31.3707 40.1489 31.2352 40.7068 31.2497C41.2647 31.2641 41.8084 31.4282 42.2812 31.7246L67.2813 47.3496C68.1945 47.9219 68.75 48.9229 68.75 50C68.75 51.0771 68.1945 52.0783 67.2813 52.6504Z" fill="#23BFCF"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_2402_132">
+                                                            <rect width="100" height="100" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </button>
+                                        <?php endif; ?>
+                                    </div>
+                                    
+                                    <div class="v2-reviews__content">
+                                        <div class="v2-reviews__text" itemprop="reviewBody">
+                                            <?php the_content(); ?>
+                                        </div>
+                                        <div class="v2-reviews__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                            <span class="v2-reviews__name" itemprop="name">
+                                                <?php 
+                                                if ($reviewer_name) {
+                                                    echo esc_html($reviewer_name);
+                                                } else {
+                                                    echo 'Анонимный пациент';
+                                                }
+                                                ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </article>
+                            <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            else :
+                            ?>
+                                <article class="v2-reviews__card">
+                                    <div class="v2-reviews__header">
+                                        <div class="v2-reviews__photo">
+                                            <div class="v2-reviews__photo-placeholder" aria-hidden="true">👤</div>
+                                        </div>
+                                    </div>
+                                    <div class="v2-reviews__content">
+                                        <div class="v2-reviews__text">
+                                            Отзывы загружаются...
+                                        </div>
+                                        <div class="v2-reviews__author">
+                                            <span class="v2-reviews__name">Загрузка</span>
+                                        </div>
+                                    </div>
+                                </article>
+                            <?php endif; ?>
+                        </div>
+                        
+                        <div class="v2-reviews__pagination" aria-label="Пагинация слайдера отзывов"></div>
+                    </div>
+                    
+                    <div class="v2-reviews__nav">
+                        <button 
+                            class="v2-reviews__nav-btn v2-reviews__nav-btn--prev" 
+                            type="button"
+                            data-slider-nav="prev"
+                            aria-label="Предыдущий отзыв"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M19 12H5M11 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button 
+                            class="v2-reviews__nav-btn v2-reviews__nav-btn--next" 
+                            type="button"
+                            data-slider-nav="next"
+                            aria-label="Следующий отзыв"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-ratings" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row v2-ratings__list">
+            <div class="v2-col-sm-6 v2-col-lg-3 v2-ratings__col">
+                <article class="v2-ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
+                    <meta itemprop="position" content="1">
+                    <div class="v2-ratings__icon v2-ratings__icon--ya"></div>
+                    <div class="v2-ratings__info">
+                        <div class="v2-ratings__number" itemprop="ratingValue">4.9</div>
+                        <div class="v2-ratings__stars" itemprop="ratingCount" content="1">
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="v2-col-sm-6 v2-col-lg-3 v2-ratings__col">
+                <article class="v2-ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
+                    <meta itemprop="position" content="2">
+                    <div class="v2-ratings__icon v2-ratings__icon--google"></div>
+                    <div class="v2-ratings__info">
+                        <div class="v2-ratings__number" itemprop="ratingValue">4.5</div>
+                        <div class="v2-ratings__stars" itemprop="ratingCount" content="1">
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--half" aria-label="Половина звезды" aria-hidden="true">★</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="v2-col-sm-6 v2-col-lg-3 v2-ratings__col">
+                <article class="v2-ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
+                    <meta itemprop="position" content="3">
+                    <div class="v2-ratings__icon v2-ratings__icon--2gis"></div>
+                    <div class="v2-ratings__info">
+                        <div class="v2-ratings__number" itemprop="ratingValue">4.8</div>
+                        <div class="v2-ratings__stars" itemprop="ratingCount" content="1">
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="v2-col-sm-6 v2-col-lg-3 v2-ratings__col">
+                <article class="v2-ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
+                    <meta itemprop="position" content="4">
+                    <div class="v2-ratings__icon v2-ratings__icon--prodoctorov"></div>
+                    <div class="v2-ratings__info">
+                        <div class="v2-ratings__number" itemprop="ratingValue">4.9</div>
+                        <div class="v2-ratings__stars" itemprop="ratingCount" content="1">
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                            <span class="v2-ratings__star v2-ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-doctors" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row v2-doctors__info">
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-doctors__title-col">
+                <h2 class="v2-doctors__title" itemprop="name">
+                    Мы собрали лучших<br>
+                    специалистов<br>
+                    Камчатки в одной<br>
+                    клинике
+                </h2>
+            </div>
+
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-doctors__features-col">
+                <div class="v2-doctors__features-grid">
+                    <div class="v2-doctors__feature-card">
+                        <div class="v2-doctors__feature-icon">
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
+                            </svg>
+                        </div>
+                        <p class="v2-doctors__feature-text">
+                            Каждый врач – специалист с опытом от 7 до 22 лет.
+                        </p>
+                    </div>
+
+                    <div class="v2-doctors__feature-card">
+                        <div class="v2-doctors__feature-icon">
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
+                            </svg>
+                        </div>
+                        <p class="v2-doctors__feature-text">
+                            70+ наград и сертификатов – от Германии до Кореи
+                        </p>
+                    </div>
+
+                    <div class="v2-doctors__feature-card">
+                        <div class="v2-doctors__feature-icon">
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
+                            </svg>
+                        </div>
+                        <p class="v2-doctors__feature-text">
+                            Врачи, обученные у основателей имплантологии в Европе и Москве
+                        </p>
+                    </div>
+
+                    <div class="v2-doctors__feature-card">
+                        <div class="v2-doctors__feature-icon">
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
+                            </svg>
+                        </div>
+                        <p class="v2-doctors__feature-text">
+                            С вами работают сразу несколько специалистов – хирург, ортопед и куратор, а не один врач на всё
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="v2-row v2-doctors__slider-row">
+            <div class="v2-col-sm-12 v2-col-lg-12">
+                <div class="v2-doctors__slider" data-slider="doctors" aria-roledescription="carousel" aria-label="Наши врачи">
+                    <div class="v2-doctors__slider-track">
+                        <?php
+                        $doctors = new WP_Query(array(
+                            'post_type' => 'doctor',
+                            'posts_per_page' => 6,
+                            'post_status' => 'publish',
+                            'meta_query' => array(
+                                array(
+                                    'key' => '_doctor_show_in_slider',
+                                    'value' => '1',
+                                    'compare' => '='
+                                )
+                            ),
+                            'orderby' => 'menu_order',
+                            'order' => 'ASC'
+                        ));
+
+                        if (!$doctors->have_posts()) {
+                            $doctors = new WP_Query(array(
+                                'post_type' => 'doctor',
+                                'posts_per_page' => 6,
+                                'post_status' => 'publish',
+                                'orderby' => 'menu_order',
+                                'order' => 'ASC'
+                            ));
+                        }
+
+                        if ($doctors->have_posts()) :
+                            $doctor_index = 0;
+                            while ($doctors->have_posts()) : $doctors->the_post();
+                                $doctor_index++;
+                                $doctor_fio = get_post_meta(get_the_ID(), '_doctor_full_name', true);
+                                $doctor_position = get_post_meta(get_the_ID(), '_doctor_position', true);
+                                $doctor_experience = get_post_meta(get_the_ID(), '_doctor_experience', true);
+                                $doctor_preview = get_post_meta(get_the_ID(), '_doctor_short_preview', true);
+                                $doctor_video = get_post_meta(get_the_ID(), '_doctor_video_url', true);
+                        ?>
+                            <article class="v2-doctors__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Person">
+                                <meta itemprop="position" content="<?php echo esc_attr($doctor_index); ?>">
+                                
+                                <div class="v2-doctors__photo">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('doctor-medium', array('itemprop' => 'image', 'loading' => 'lazy', 'alt' => $doctor_fio ? esc_attr($doctor_fio) : 'Фото врача')); ?>
+                                    <?php else : ?>
+                                        <div class="v2-doctors__photo-placeholder" aria-hidden="true">👨‍⚕️</div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="v2-doctors__card-info">
+                                    <h3 class="v2-doctors__name" itemprop="name">
+                                        <?php echo esc_html($doctor_fio ?: get_the_title()); ?>
+                                    </h3>
+                                    <div class="v2-doctors__position" itemprop="jobTitle">
+                                        <?php echo esc_html($doctor_position); ?>
+                                    </div>
+                                    <div class="v2-doctors__experience">
+                                        Опыт работы: <?php echo esc_html($doctor_experience); ?> лет
+                                    </div>
+                                    <?php if ($doctor_video) : ?>
+                                        <button 
+                                            class="v2-doctors__video-btn" 
+                                            type="button"
+                                            data-video="<?php echo esc_url($doctor_video); ?>"
+                                            aria-label="Смотреть видео о враче <?php echo $doctor_fio ? esc_attr($doctor_fio) : 'враче'; ?>"
+                                        >
+                                            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                <g clip-path="url(#clip0_2402_132)">
+                                                    <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
+                                                    <path d="M50 0C22.3861 0 0 22.3857 0 50C0 77.6143 22.3861 100 50 100C77.6139 100 100 77.6143 100 50C100 22.3857 77.6139 0 50 0ZM67.2813 52.6504L42.2812 68.2754C41.808 68.5708 41.2644 68.7342 40.7067 68.7487C40.1491 68.7632 39.5977 68.6283 39.1098 68.3578C38.6219 68.0875 38.2153 67.6915 37.9323 67.2109C37.6492 66.7303 37.4999 66.1827 37.5 65.625V34.375C37.5 33.2383 38.1164 32.193 39.1098 31.6422C39.5974 31.3707 40.1489 31.2352 40.7068 31.2497C41.2647 31.2641 41.8084 31.4282 42.2812 31.7246L67.2813 47.3496C68.1945 47.9219 68.75 48.9229 68.75 50C68.75 51.0771 68.1945 52.0783 67.2813 52.6504Z" fill="#23BFCF"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_2402_132">
+                                                        <rect width="100" height="100" fill="white"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </button>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="v2-doctors__preview">
+                                    <p><?php echo esc_html($doctor_preview); ?></p>
+                                </div>
+                            </article>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                        ?>
+                            <article class="v2-doctors__card">
+                                <div class="v2-doctors__photo">
+                                    <div class="v2-doctors__photo-placeholder" aria-hidden="true">👨‍⚕️</div>
+                                </div>
+                                <div class="v2-doctors__card-info">
+                                    <h3 class="v2-doctors__name">Загрузка...</h3>
+                                    <div class="v2-doctors__position">Должность</div>
+                                    <div class="v2-doctors__experience">Опыт работы</div>
+                                </div>
+                                <div class="v2-doctors__preview">
+                                    <p>Информация о враче загружается...</p>
+                                </div>
+                            </article>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="v2-doctors__nav">
+                        <button 
+                            id="v2-doctors-prev" 
+                            class="v2-doctors__nav-btn v2-doctors__nav-btn--prev" 
+                            type="button"
+                            data-slider-nav="prev"
+                            aria-label="Предыдущий врач"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M19 12H5M11 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button 
+                            id="v2-doctors-next" 
+                            class="v2-doctors__nav-btn v2-doctors__nav-btn--next" 
+                            type="button"
+                            data-slider-nav="next"
+                            aria-label="Следующий врач"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="v2-doctors__pagination" aria-label="Пагинация слайдера врачей"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-doctor-selection" itemscope itemtype="https://schema.org/Service">
+    <div class="v2-container">
+        <div class="v2-row v2-doctor-selection__container">
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-doctor-selection__left">
+                <div class="v2-doctor-selection__circles">
+                    <div class="v2-doctor-selection__circle">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-05.jpg" alt="Довольный пациент" loading="lazy">
+                    </div>
+                    <div class="v2-doctor-selection__circle">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-question.svg" alt="Вопрос" loading="lazy">
+                    </div>
+                </div>
+                <h2 class="v2-doctor-selection__title" itemprop="name">
+                    Сомневаетесь, к<br>
+                    кому записаться?
+                </h2>
+            </div>
+
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-doctor-selection__right">
+                <p class="v2-doctor-selection__text" itemprop="description">
+                    Неправильный выбор врача может стоить вам времени, денег — и повторного лечения.
+                </p>
+                <p class="v2-doctor-selection__text">
+                    Расскажите о своей ситуации — мы подберём проверенного специалиста и покажем похожие успешные кейсы.
+                </p>
+                <button type="button" class="v2-btn v2-btn--primary v2-doctor-selection__button" onclick="openPopup()">Подобрать врача</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-implant-types" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row">
+            <div class="v2-col-sm-12 v2-col-lg-8 v2-implant-types__title-col">
+                <h2 class="v2-implant-types__title">Подберём подходящий метод имплантации именно для вас</h2>
+            </div>
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-implant-types__desc-col">
+                <p class="v2-implant-types__description">Мы не используем один протокол для всех. Мы подбираем подход в зависимости от вашей анатомии, целей и бюджета:</p>
+            </div>
+        </div>
+
+        <div class="v2-row">
+            <div class="v2-col-12 v2-implant-types__tabs-container">
+                <div class="v2-implant-types__tabs" id="v2-tabs-underline">
+                    <div class="v2-implant-types__tablist" role="tablist" aria-label="Виды имплантации">
+                        <button class="v2-implant-types__tab v2-implant-types__tab--active" role="tab" aria-selected="true" aria-controls="v2-p1" id="v2-t1">Одномоментная</button>
+                        <button class="v2-implant-types__tab" role="tab" aria-selected="false" aria-controls="v2-p2" id="v2-t2">Классическая</button>
+                        <button class="v2-implant-types__tab" role="tab" aria-selected="false" aria-controls="v2-p3" id="v2-t3">All-on-4</button>
+                        <button class="v2-implant-types__tab" role="tab" aria-selected="false" aria-controls="v2-p4" id="v2-t4">All-on-6</button>
+                        <span class="v2-implant-types__slider" aria-hidden="true"></span>
+                    </div>
+
+                    <section id="v2-p1" class="v2-implant-types__panel v2-implant-types__panel--active" role="tabpanel" aria-labelledby="v2-t1" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="1">
+                        <div class="v2-implant-types__photo">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/odnomoment.jpg" alt="Одномоментная имплантация" loading="lazy">
+                        </div>
+                        <div class="v2-implant-types__content">
+                            <div class="v2-implant-types__text-block">
+                                <h3 class="v2-implant-types__panel-title" itemprop="name">Одномоментная имплантация</h3>
+                                <p itemprop="description">Это самый быстрый способ восстановления зуба: удаление и установка импланта выполняются за один визит. В некоторых случаях врач сразу фиксирует временную коронку, чтобы вы могли улыбаться и общаться без ограничений. Метод подходит не всем, но когда условия позволяют — результат особенно удобен для пациента.</p>
+                            </div>
+                            <div class="v2-implant-types__items">
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p1_i1)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p1_i1">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Удаление зуба и установка импланта за один визит</p>
+                                </div>
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p1_i2)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p1_i2">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Возможна временная коронка в день операции</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="v2-p2" class="v2-implant-types__panel" role="tabpanel" aria-labelledby="v2-t2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="2">
+                        <div class="v2-implant-types__photo">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/classik.jpg" alt="Классическая имплантация" loading="lazy">
+                        </div>
+                        <div class="v2-implant-types__content">
+                            <div class="v2-implant-types__text-block">
+                                <h3 class="v2-implant-types__panel-title" itemprop="name">Классическая имплантация</h3>
+                                <p itemprop="description">Проверенный и максимально предсказуемый метод, при котором имплант устанавливается в несколько этапов. На приживление отводится 3–6 месяцев, благодаря чему результат стабилен и долгосрочен. Чаще всего этот вариант выбирают при сложных случаях, когда нужен максимально надёжный подход.</p>
+                            </div>
+                            <div class="v2-implant-types__items">
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p2_i1)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p2_i1">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Высокая предсказуемость и приживаемость</p>
+                                </div>
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p2_i2)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p2_i2">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Оптимальный выбор при атрофии кости или хронических заболеваниях</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="v2-p3" class="v2-implant-types__panel" role="tabpanel" aria-labelledby="v2-t3" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="3">
+                        <div class="v2-implant-types__photo">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/four.jpg" alt="All-on-4 имплантация" loading="lazy">
+                        </div>
+                        <div class="v2-implant-types__content">
+                            <div class="v2-implant-types__text-block">
+                                <h3 class="v2-implant-types__panel-title" itemprop="name">All-on-4</h3>
+                                <p itemprop="description">Современная методика восстановления целого зубного ряда на четырёх имплантах. Два из них устанавливаются под углом, что позволяет обойтись без костной пластики в большинстве случаев. Временный несъёмный протез фиксируется уже через несколько дней, возвращая улыбку и возможность нормально жевать.</p>
+                            </div>
+                            <div class="v2-implant-types__items">
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p3_i1)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p3_i1">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Восстановление зубного ряда всего на 4 имплантах</p>
+                                </div>
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p3_i2)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p3_i2">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Несъёмный протез фиксируется примерно за 3 дня</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="v2-p4" class="v2-implant-types__panel" role="tabpanel" aria-labelledby="v2-t4" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="4">
+                        <div class="v2-implant-types__photo">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/six.jpg" alt="All-on-6 имплантация" loading="lazy">
+                        </div>
+                        <div class="v2-implant-types__content">
+                            <div class="v2-implant-types__text-block">
+                                <h3 class="v2-implant-types__panel-title" itemprop="name">All-on-6</h3>
+                                <p itemprop="description">Усиленный вариант методики: шесть имплантов распределяют нагрузку равномернее, обеспечивая ещё большую надёжность. Такой подход используется при выраженных жевательных нагрузках и сложных клинических ситуациях. Методика считается «золотым стандартом» для пациентов, которым важно максимально долгосрочное решение.</p>
+                            </div>
+                            <div class="v2-implant-types__items">
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p4_i1)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p4_i1">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Шесть имплантов равномерно распределяют нагрузку</p>
+                                </div>
+                                <div class="v2-implant-types__item">
+                                    <div class="v2-implant-types__item-icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip_implant_p4_i2)">
+                                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip_implant_p4_i2">
+                                                    <rect width="24" height="24" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <p>Повышенная стабильность и длительный срок службы</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-implants" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row v2-implants__head">
+            <div class="v2-col-sm-12 v2-col-lg-8 v2-implants__title-col">
+                <h2 class="v2-implants__title">Выберите подходящий пакет без скрытых платежей:</h2>
+            </div>
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-implants__desc-col">
+                <div class="v2-implants__circles">
+                    <div class="v2-implants__circle">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-01.jpg" alt="Тип импланта 1" loading="lazy">
+                    </div>
+                    <div class="v2-implants__circle">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-02.jpg" alt="Тип импланта 2" loading="lazy">
+                    </div>
+                </div>
+                <p class="v2-implants__subtitle">Мы используем только проверенные импланты от ведущих производителей с гарантией качества и приживаемости.</p>
+            </div>
+        </div>
+
+        <div class="v2-row">
+            <div class="v2-col-12 v2-implants__slider-wrapper">
+                <div class="v2-implants__slider" data-slider="implants">
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-implants__col" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="position" content="1">
+                <article class="v2-implants__card">
+                    <div class="v2-implants__card-header">
+                        <div class="v2-implants__brand-info">
+                            <div class="v2-implants__tariff-name">Стандарт</div>
+                            <div class="v2-implants__brand-name" itemprop="name">Implantium</div>
+                            <div class="v2-implants__brand-origin">Южная Корея</div>
+                        </div>
+                        <div class="v2-implants__price-box">
+                            <div class="v2-implants__old-price">91 800 ₽</div>
+                            <div class="v2-implants__current-price" itemprop="price" content="76200">76 200 ₽</div>
+                            <meta itemprop="priceCurrency" content="RUB">
+                        </div>
+                    </div>
+
+                    <div class="v2-implants__card-details">
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">В стоимость включено:</h4>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>Имплант Implantium (Южная Корея)</li>
+                                <li>Циркониевая коронка</li>
+                                <li>Хирургический этап + анестезия</li>
+                                <li>Ортопедический этап (через 3-4 месяца)</li>
+                                <li>Бесплатные контрольные осмотры</li>
+                                <li>Персональный куратор</li>
+                            </ul>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">Оплата:</h4>
+                            <p class="v2-implants__details-text">1 этап (хирургия) ~ <strong>45 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">Гарантии:</h4>
+                            <p class="v2-implants__details-text">На имплант 5 лет<br>На работу доктора 1 год</p>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <p class="v2-implants__details-note">* КТ оплачивается отдельно</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="v2-btn v2-btn--primary v2-implants__card-button" onclick="openPopup()">Выбрать комфорт</button>
+                    <div class="v2-implants__savings-text">Экономия 15 600 ₽ при записи сегодня</div>
+                </article>
+            </div>
+
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-implants__col" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="position" content="2">
+                <article class="v2-implants__card">
+                    <div class="v2-implants__card-header">
+                        <div class="v2-implants__brand-info">
+                            <div class="v2-implants__tariff-name">Оптимальный</div>
+                            <div class="v2-implants__brand-name" itemprop="name">Impro</div>
+                            <div class="v2-implants__brand-origin">Германия</div>
+                        </div>
+                        <div class="v2-implants__price-box">
+                            <div class="v2-implants__old-price">105 200 ₽</div>
+                            <div class="v2-implants__current-price" itemprop="price" content="85200">85 200 ₽</div>
+                            <meta itemprop="priceCurrency" content="RUB">
+                        </div>
+                    </div>
+
+                    <div class="v2-implants__recommendation-badge">
+                        <span class="v2-implants__heart-icon" aria-hidden="true">❤</span>
+                        ЦЭСИ РЕКОМЕНДУЕТ
+                    </div>
+
+                    <div class="v2-implants__card-details">
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">В стоимость включено:</h4>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>Пожизненная гарантия на имплант</li>
+                                <li>Циркониевая коронка</li>
+                                <li>Хирургический этап: установка импланта + анестезия</li>
+                                <li>Ортопедический этап: коронка на импланте (через 3–4 месяца)+ сканирование</li>
+                                <li>Бесплатные контрольные осмотры</li>
+                                <li>Персональный куратор</li>
+                            </ul>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">Оплата:</h4>
+                            <p class="v2-implants__details-text">1 этап (хирургия) ~ <strong>54 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">Гарантии:</h4>
+                            <p class="v2-implants__details-text">На имплант пожизненная<br>На работу доктора 1 год</p>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <p class="v2-implants__details-note">* КТ оплачивается отдельно</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="v2-btn v2-btn--primary v2-implants__card-button" onclick="openPopup()">Выбрать оптимальный</button>
+                    <div class="v2-implants__savings-text">Экономия до 20 000 ₽ при записи сегодня</div>
+                </article>
+            </div>
+
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-implants__col" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="position" content="3">
+                <article class="v2-implants__card">
+                    <div class="v2-implants__card-header">
+                        <div class="v2-implants__brand-info">
+                            <div class="v2-implants__tariff-name">Премиум</div>
+                            <div class="v2-implants__brand-name" itemprop="name">Nobel Biocare</div>
+                            <div class="v2-implants__brand-origin">Швейцария</div>
+                        </div>
+                        <div class="v2-implants__price-box">
+                            <div class="v2-implants__old-price">117 000 ₽</div>
+                            <div class="v2-implants__current-price" itemprop="price" content="101200">101 200 ₽</div>
+                            <meta itemprop="priceCurrency" content="RUB">
+                        </div>
+                    </div>
+
+                    <div class="v2-implants__card-details">
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">В стоимость включено:</h4>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>Имплант Nobel Biocare — №1 в мире</li>
+                                <li>Коронка из диоксида циркония</li>
+                                <li>Хирургический этап: установка импланта + анестезия</li>
+                                <li>Ортопедический этап: коронка на импланте (через 3–4 месяца)+ сканирование</li>
+                                <li>Бесплатные контрольные осмотры</li>
+                                <li>Персональный куратор</li>
+                            </ul>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">Оплата:</h4>
+                            <p class="v2-implants__details-text">1 этап (хирургия) ~ <strong>70 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <h4 class="v2-implants__details-title">Гарантии:</h4>
+                            <p class="v2-implants__details-text">На имплант пожизненная<br>На работу доктора 1 год</p>
+                        </div>
+
+                        <div class="v2-implants__details-section">
+                            <p class="v2-implants__details-note">* КТ оплачивается отдельно</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="v2-btn v2-btn--primary v2-implants__card-button" onclick="openPopup()">Выбрать премиум</button>
+                    <div class="v2-implants__savings-text">Экономия до 16 000 ₽ при записи сегодня</div>
+                </article>
+            </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="v2-row v2-implants__pagination-row">
+            <div class="v2-col-12">
+                <div class="v2-implants__pagination" role="tablist" aria-label="Пагинация имплантов">
+                    <button type="button" class="v2-implants__dot" data-slider-dot aria-label="Слайд 1" aria-current="true"></button>
+                    <button type="button" class="v2-implants__dot" data-slider-dot aria-label="Слайд 2"></button>
+                    <button type="button" class="v2-implants__dot" data-slider-dot aria-label="Слайд 3"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="v2-row v2-implants__bonus">
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-implants__bonus-left">
+                <h3 class="v2-implants__bonus-title">Дополнительные бонусы для всех пакетов</h3>
+            </div>
+            <div class="v2-col-sm-12 v2-col-lg-8 v2-implants__bonus-right">
+                <div class="v2-implants__bonus-cards">
+                    <div class="v2-implants__bonus-card">
+                        <h4 class="v2-implants__bonus-card-title">Бесплатная консультация</h4>
+                    </div>
+                    <div class="v2-implants__bonus-card">
+                        <h4 class="v2-implants__bonus-card-title">Налоговый вычет</h4>
+                    </div>
+                    <div class="v2-implants__bonus-card">
+                        <h4 class="v2-implants__bonus-card-title">Полное сопровождение до результата</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="v2-footer" itemscope itemtype="https://schema.org/MedicalBusiness">
+    <div class="v2-container">
+        <div class="v2-row v2-footer__content">
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-footer__section">
+                <div class="v2-footer__logo">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="ЦЭСИ" class="v2-footer__logo-img" itemprop="logo">
+                </div>
+                <p class="v2-footer__name" itemprop="name">Центр Эстетической стоматологии и имплантации</p>
+            </div>
+
+            <div class="v2-col-sm-12 v2-col-lg-6 v2-footer__section v2-footer__contacts">
+                <h3 class="v2-footer__contacts-title">Контакты</h3>
+                <ul class="v2-footer__contacts-list" itemscope itemprop="address" itemtype="https://schema.org/PostalAddress">
+                    <li class="v2-footer__contacts-item" itemprop="streetAddress">г. Елизово, ул. Ленина 15-а</li>
+                    <li class="v2-footer__contacts-item">
+                        <a href="tel:+74152500129" class="v2-footer__contacts-link" itemprop="telephone">+7(4152) 50-01-29</a>
+                    </li>
+                    <li class="v2-footer__contacts-item">
+                        <meta itemprop="openingHours" content="Mo-Fr 08:00-20:00">
+                        Пн-Пт: 8:00 - 20:00
+                    </li>
+                    <li class="v2-footer__contacts-item">
+                        <meta itemprop="openingHours" content="Sa 08:00-14:00">
+                        Сб: 8:00 – 14:00
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="v2-row v2-footer__bottom">
+            <div class="v2-col-sm-12 v2-col-lg-8 v2-footer__legal">
+                <p class="v2-footer__legal-text">ООО «Дента» ИНН 4105000950 КПП 410501001 ОГРН 1024101222408</p>
+                <p class="v2-footer__legal-text">Имеются противопоказания. Необходима консультация специалиста</p>
+            </div>
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-footer__links">
+                <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener" class="v2-footer__link">Политика конфиденциальности</a>
+                <a href="#" onclick="showCookieSettings(); return false;" class="v2-footer__link">Настройки cookies</a>
+            </div>
+        </div>
+
+        <div class="v2-row v2-footer__recaptcha">
+            <div class="v2-col-sm-12 v2-col-lg-12">
+                <div class="v2-footer__recaptcha-notice">
+                    <p class="v2-footer__recaptcha-text">
+                        This site is protected by reCAPTCHA and the Google
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="v2-footer__recaptcha-link">Privacy Policy</a>
+                        and
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="v2-footer__recaptcha-link">Terms of Service</a>
+                        apply.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<?php wp_footer(); ?>
+
 <?php 
 // Временно отключено для разработки
-// get_footer(); 
+// include get_stylesheet_directory() . '/popup.php'; 
+// include 'cookie-banner.php'; 
 ?>
+
 </body>
 </html>
