@@ -72,3 +72,4 @@ document.addEventListener('DOMContentLoaded', function () {
     tablist.addEventListener('scroll', () => moveSlider(activeIndex), { passive: true });
 });
 
+

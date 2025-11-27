@@ -1756,146 +1756,163 @@
 </section>
 
 <!-- Блок с ценами -->
-<section class="prices-section">
-    <div class="grid-system">
-        <div class="prices-left-block grid-4">
-            <div class="prices-title-wrapper">
-                <h2>
-                    Нашли дешевле?
-                </h2>
-                <h3 class="prices-subtitle-main">
-                    Не спешите – разберитесь, за что вы платите
-                </h3>
-            </div>
-            
-            <div class="prices-description">
-                <div class="overlapping-circles">
-                    <div class="circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Лицо">
+<section class="v2-section v2-prices" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row">
+            <div class="v2-col-sm-12 v2-col-lg-4">
+                <div class="v2-prices__content">
+                    <div class="v2-prices__header">
+                        <h2>Нашли дешевле?</h2>
+                        <h3 class="v2-prices__subtitle">Не спешите – разберитесь, за что вы платите</h3>
                     </div>
-                    <div class="circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="Вопрос">
+                    
+                    <div class="v2-prices__description">
+                        <div class="v2-prices__circles">
+                            <div class="v2-prices__circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Лицо">
+                            </div>
+                            <div class="v2-prices__circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="Вопрос" aria-hidden="true">
+                            </div>
+                        </div>
+                        <p>Многие клиники занижают цену на старте и добавляют скрытые платежи позже. В ЦЭСИ стоимость лечения прозрачна с самого начала и не меняется по ходу работы.</p>
                     </div>
                 </div>
-                <p>
-                    Многие клиники занижают цену на старте и добавляют скрытые платежи позже. В ЦЭСИ стоимость лечения прозрачна с самого начала и не меняется по ходу работы.
-                </p>
-            </div>
-        </div>
-        
-        <div class="prices-image-block grid-4">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/price-bg.jpg" alt="Цены на имплантацию" class="prices-image">
-        </div>
-        
-        <div class="prices-cards-block grid-4">
-            <div class="price-card">
-                <svg width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_2340_161)">
-                        <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_2340_161">
-                            <rect width="20" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-                <h3>Качество важнее скидок</h3>
-                <p>Мы не используем дешёвые аналоги и «одноразовые» материалы. В работе только сертифицированные импланты и современное оборудование.</p>
             </div>
             
-            <div class="price-card">
-                <svg width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_2340_161)">
-                        <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_2340_161">
-                            <rect width="20" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-                <h3>Прозрачность с первой консультации</h3>
-                <p>Вы сразу получаете план лечения с точными цифрами. Стоимость фиксируется в договоре и не меняется в процессе.</p>
+            <div class="v2-col-sm-12 v2-col-lg-4">
+                <div class="v2-prices__image">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/price-bg.jpg" alt="Цены на имплантацию" loading="lazy">
+                </div>
             </div>
             
-            <div class="price-card">
-                <svg width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_2340_161)">
-                        <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_2340_161">
-                            <rect width="20" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-                <h3>Дополнительная выгода</h3>
-                <p>Часть суммы можно вернуть через налоговый вычет (13%). Оплата возможна поэтапно, без скрытых переплат.</p>
+            <div class="v2-col-sm-12 v2-col-lg-4">
+                <div class="v2-prices__cards">
+                    <article class="v2-prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="1">
+                        <svg class="v2-prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <g clip-path="url(#clip0_prices_1)">
+                                <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_prices_1">
+                                    <rect width="20" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <h3 itemprop="name">Качество важнее скидок</h3>
+                        <p>Мы не используем дешёвые аналоги и «одноразовые» материалы. В работе только сертифицированные импланты и современное оборудование.</p>
+                    </article>
+                    
+                    <article class="v2-prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="2">
+                        <svg class="v2-prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <g clip-path="url(#clip0_prices_2)">
+                                <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_prices_2">
+                                    <rect width="20" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <h3 itemprop="name">Прозрачность с первой консультации</h3>
+                        <p>Вы сразу получаете план лечения с точными цифрами. Стоимость фиксируется в договоре и не меняется в процессе.</p>
+                    </article>
+                    
+                    <article class="v2-prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="3">
+                        <svg class="v2-prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <g clip-path="url(#clip0_prices_3)">
+                                <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_prices_3">
+                                    <rect width="20" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <h3 itemprop="name">Дополнительная выгода</h3>
+                        <p>Часть суммы можно вернуть через налоговый вычет (13%). Оплата возможна поэтапно, без скрытых переплат.</p>
+                    </article>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Блок технологий -->
-<section class="technologies-section">
-    <div class="grid-system">
-        <div class="technologies-grid grid-12">
-            <div class="technologies-header">
-                <h2>Самые современные технологии для точного и быстрого результата на Европейском уровне</h2>
-            </div>
-            
-            <div class="tech-card tech-3d">
-                <h3>3D-моделирование</h3>
-                <div class="tech-benefits">
-                    <div class="tech-benefit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <span>Врач заранее создаёт точную цифровую модель вашей улыбки.</span>
-                    </div>
-                    <div class="tech-benefit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <span>Вы видите, каким будет результат ещё до начала лечения.</span>
-                    </div>
+<section class="v2-section v2-technologies" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row">
+            <div class="v2-col-sm-12 v2-col-lg-4">
+                <div class="v2-technologies__header">
+                    <h2>Самые современные технологии</h2>
+                    <p class="v2-technologies__subtitle">Для достижения точного и быстрого результата на Европейском уровне</p>
                 </div>
             </div>
             
-            <div class="tech-card tech-ai">
-                <h3>Компьютерная диагностика</h3>
-                <div class="tech-benefits">
-                    <div class="tech-benefit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <span>Высокоточный анализ снимка по каждому зубу, с помощью специальных программ.</span>
-                    </div>
-                    <div class="tech-benefit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <span>План лечения составляется максимально точно и без ошибок.</span>
-                    </div>
+            <div class="v2-col-sm-12 v2-col-lg-4">
+                <div class="v2-technologies__cards">
+                    <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="1">
+                        <h3 itemprop="name">3D-моделирование</h3>
+                        <div class="v2-technologies__benefits">
+                            <div class="v2-technologies__benefit">
+                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                </svg>
+                                <span>Врач заранее создаёт точную цифровую модель вашей улыбки.</span>
+                            </div>
+                            <div class="v2-technologies__benefit">
+                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                </svg>
+                                <span>Вы видите, каким будет результат ещё до начала лечения.</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="2">
+                        <h3 itemprop="name">Компьютерная диагностика</h3>
+                        <div class="v2-technologies__benefits">
+                            <div class="v2-technologies__benefit">
+                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                </svg>
+                                <span>Высокоточный анализ снимка по каждому зубу, с помощью специальных программ.</span>
+                            </div>
+                            <div class="v2-technologies__benefit">
+                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                </svg>
+                                <span>План лечения составляется максимально точно и без ошибок.</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
             
-            <div class="tech-card tech-lab">
-                <h3>Своя цифровая лаборатория</h3>
-                <div class="tech-benefits">
-                    <div class="tech-benefit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <span>Коронки и протезы изготавливаются прямо в клинике.</span>
+            <div class="v2-col-sm-12 v2-col-lg-4">
+                <article class="v2-technologies__card v2-technologies__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <meta itemprop="position" content="3">
+                    <h3 itemprop="name">Своя цифровая лаборатория</h3>
+                    <div class="v2-technologies__benefits">
+                        <div class="v2-technologies__benefit">
+                            <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                            </svg>
+                            <span>Коронки и протезы изготавливаются прямо в клинике.</span>
+                        </div>
+                        <div class="v2-technologies__benefit">
+                            <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                            </svg>
+                            <span>Уже через 1 день вы можете уйти с новым зубом.</span>
+                        </div>
                     </div>
-                    <div class="tech-benefit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <span>Уже через 1 день вы можете уйти с новым зубом.</span>
-                    </div>
-                </div>
+                </article>
             </div>
         </div>
     </div>
@@ -1904,52 +1921,74 @@
 
 
 <!-- Блок рисков лечения в Китае -->
-<section class="china-risks-section">
-    <div class="china-risks-layout">
-        <div class="header">
-                            <h2>Собирались лететь в Китай на протезирование?</h2>
-        </div>
-        
-        <div class="header-plus">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.5 17.5L0 10L2.5 7.5L7.5 12.5L17.5 2.5L20 5" fill="#FF0000"/>
-</svg>
-            <h3>Сомнительные китайские аналоги имплантов — двойная плата: деньги и здоровье.</h3>
-        </div>
-        
-        <div class="plus-card risk-1">
-            <div class="plus-icon">.01</div>
-            <h3>Языковой барьер</h3>
-            <p>Вы не объясните врачу, что чувствуете. Ошибка на этапе имплантации – это не возврат товара.</p>
-        </div>
-        
-        <div class="plus-card risk-2">
-            <div class="plus-icon">.02</div>
-            <h3>Выбор клиники вслепую</h3>
-            <p>По факту, вы доверяете здоровье и деньги неизвестной системе.</p>
-        </div>
-        
-        <div class="plus-card risk-3">
-            <div class="plus-icon">.03</div>
-            <h3>Скрытые доплаты</h3>
-            <p>Один счёт за операцию, другой – за «мелочи» на месте, а через неделю ещё за «коронки».</p>
-        </div>
-        
-        <div class="plus-card risk-4">
-            <div class="plus-icon">.04</div>
-            <h3>Гарантия?</h3>
-            <p>Только пока вы в стране. А если что – останетесь с проблемой один на один.</p>
-        </div>
-        
-        <div class="plus-card risk-5">
-            <div class="overlapping-circles">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
+<section class="v2-section v2-china-risks" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row">
+            <div class="v2-col-sm-12 v2-col-lg-8">
+                <div class="v2-china-risks__left">
+                    <div class="v2-china-risks__header">
+                        <h2>Собирались лететь в Китай на протезирование?</h2>
+                        <div class="v2-china-risks__subtitle">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M7.5 17.5L0 10L2.5 7.5L7.5 12.5L17.5 2.5L20 5" fill="#FF0000"/>
+                            </svg>
+                            <h3>Сомнительные китайские аналоги имплантов — двойная плата: деньги и здоровье.</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="v2-row">
+                        <div class="v2-col-sm-12 v2-col-lg-6">
+                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="1">
+                                <div class="v2-china-risks__number">.01</div>
+                                <h3 itemprop="name">Языковой барьер</h3>
+                                <p>Вы не объясните врачу, что чувствуете. Ошибка на этапе имплантации – это не возврат товара.</p>
+                            </article>
+                        </div>
+                        
+                        <div class="v2-col-sm-12 v2-col-lg-6">
+                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="2">
+                                <div class="v2-china-risks__number">.02</div>
+                                <h3 itemprop="name">Выбор клиники вслепую</h3>
+                                <p>По факту, вы доверяете здоровье и деньги неизвестной системе.</p>
+                            </article>
+                        </div>
+                        
+                        <div class="v2-col-sm-12 v2-col-lg-6">
+                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="3">
+                                <div class="v2-china-risks__number">.03</div>
+                                <h3 itemprop="name">Скрытые доплаты</h3>
+                                <p>Один счёт за операцию, другой – за «мелочи» на месте, а через неделю ещё за «коронки».</p>
+                            </article>
+                        </div>
+                        
+                        <div class="v2-col-sm-12 v2-col-lg-6">
+                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="4">
+                                <div class="v2-china-risks__number">.04</div>
+                                <h3 itemprop="name">Гарантия?</h3>
+                                <p>Только пока вы в стране. А если что – останетесь с проблемой один на один.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3>В ЦЭСИ – всё прозрачно и безопасно:</h3>
-            <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
-            <button class="btn-1" onclick="openPopup()">Записаться на консультацию</button>
+            
+            <div class="v2-col-sm-12 v2-col-lg-4">
+                <article class="v2-china-risks__card v2-china-risks__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <meta itemprop="position" content="5">
+                    <div class="v2-china-risks__circles">
+                        <div class="v2-china-risks__circle"></div>
+                        <div class="v2-china-risks__circle"></div>
+                        <div class="v2-china-risks__circle"></div>
+                    </div>
+                    <h3 itemprop="name">В ЦЭСИ – всё прозрачно и безопасно:</h3>
+                    <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
+                    <button class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Записаться на консультацию</button>
+                </article>
+            </div>
         </div>
     </div>
 </section>

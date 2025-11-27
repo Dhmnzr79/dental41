@@ -46,7 +46,7 @@
 .v2-site p {
     font-size: clamp(16px, 1.2vw, 18px);
     line-height: 1.6;
-    margin-block: 0 1em;
+    margin: 0;
 }
 
 .v2-site h1,
