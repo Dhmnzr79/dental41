@@ -476,13 +476,13 @@
 
 /* ===== БЛОК ИНДЕКСОВ ===== */
 .v2-site .v2-indices {
-    background: linear-gradient(90deg, #99eaf3 0%, #b7c3ff 100%);
+    padding-block: 0;
 }
 
 .v2-site .v2-indices__card {
-    background: rgba(255, 255, 255, 0.65);
-    border-radius: 15px;
-    padding: 20px 30px;
+    background: rgba(221, 221, 221, 0.65);
+    border-radius: 20px;
+    padding: 20px 15px;
     position: relative;
     transition: transform 0.3s ease;
     border-top: 1px solid rgba(255, 255, 255, 1);
@@ -493,32 +493,43 @@
     transform: translateY(-5px);
 }
 
-.v2-site .v2-indices__icon {
-    position: absolute;
-    top: -45px;
-    left: 30px;
-    width: 100px;
-    height: 100px;
-}
-
-.v2-site .v2-indices__icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
 .v2-site .v2-indices__content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
     gap: 15px;
 }
 
-.v2-site .v2-indices__number {
-    font-size: 1.5rem;
-    color: var(--brand-color);
-    font-family: var(--heading-font);
-    align-self: flex-end;
-    font-weight: 500;
+.v2-site .v2-indices__content p {
+    font-size: 16px;
+}
+
+.v2-site .v2-indices__icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.v2-site .v2-indices__icon-image {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 10px;
+}
+
+.v2-site .v2-indices__icon-bg {
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: 10px;
 }
 
 /* ===== БЛОК КОНСУЛЬТАЦИИ ===== */
@@ -573,6 +584,11 @@
 }
 
 .v2-site .v2-consultation__right {
+    background: #23bfcf;
+    padding: 20px;
+}
+
+.v2-site .v2-consultation__content {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -619,12 +635,7 @@
 }
 
 .v2-site .v2-consultation__form {
-    background: linear-gradient(
-        143.28deg,
-        #d6e5e8 9%,
-        #9be8f4 46.5%,
-        #cec1de 98.5%
-    );
+    background: #fff;
     padding: 40px 30px;
     border-radius: 15px;
     flex: 1;
@@ -658,6 +669,55 @@
 
 .v2-site .v2-consultation__form-link:hover {
     text-decoration: none;
+}
+
+.v2-site .v2-consultation__form .wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.v2-site .v2-consultation__form .wpcf7-form > p {
+    margin: 0;
+}
+
+.v2-site .v2-consultation__form .cf7-data-row > p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.v2-site .v2-consultation__form .cf7-data-row .wpcf7-form-control-wrap {
+    display: block;
+    width: 100%;
+}
+
+@media (min-width: 1280px) {
+    .v2-site .v2-consultation__form .cf7-data-row > p {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .v2-site .v2-consultation__form .cf7-data-row .wpcf7-form-control-wrap {
+        flex: 1;
+    }
+}
+
+.v2-site .v2-consultation__form input[type='text'],
+.v2-site .v2-consultation__form input[type='tel'],
+.v2-site .v2-consultation__form input[type='email'] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.v2-site .v2-consultation__form input[type='submit'],
+.v2-site .v2-consultation__form .wpcf7-submit {
+    width: 100%;
 }
 
 /* ===== БЛОК "НАШИ УСЛУГИ" ===== */
@@ -1192,9 +1252,6 @@
 }
 
 .v2-site .v2-footer__contacts-title {
-    margin: 0 0 16px 0;
-    font-size: 18px;
-    font-weight: 600;
     color: #c9c9c9;
 }
 
@@ -2716,17 +2773,6 @@
         padding: 15px 20px;
     }
 
-    .v2-site .v2-indices__number {
-        font-size: 1.2rem;
-    }
-
-    .v2-site .v2-indices__icon {
-        width: 80px;
-        height: 80px;
-        top: -35px;
-        left: 20px;
-    }
-
     /* Consultation */
     .v2-site .v2-consultation__promo {
         flex-direction: column;
@@ -3054,6 +3100,17 @@
     }
 
     /* Mobile Hero */
+    .v2-site .v2-hero-mobile .v2-container {
+        padding-inline: 0;
+        padding-block: 0;
+        width: 100%;
+        max-width: 100%;
+        margin-inline: 0;
+    }
+
+    .v2-site .v2-hero-mobile__wrapper {
+        padding: 8px;
+    }
 
     .v2-site .v2-hero-mobile__actions {
         gap: 12px;
@@ -3092,6 +3149,11 @@
     /* Implants */
     .v2-site .v2-implants__pagination-row {
         display: none;
+    }
+
+    /* Indices */
+    .v2-site .v2-indices {
+        padding-block: 0;
     }
 
     /* Hero visibility */

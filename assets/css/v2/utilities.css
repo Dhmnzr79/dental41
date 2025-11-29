@@ -17,8 +17,7 @@
     overflow: hidden;
 }
 
-/* Общие стили для overlapping circles (используются в consultation, services, reviews, doctor-selection, implants и prices) */
-.v2-site .v2-consultation__circles,
+/* Общие стили для overlapping circles (используются в services, reviews, doctor-selection, implants, prices и china-risks) */
 .v2-site .v2-services__circles,
 .v2-site .v2-reviews__circles,
 .v2-site .v2-doctor-selection__circles,
@@ -30,7 +29,6 @@
     position: relative;
 }
 
-.v2-site .v2-consultation__circle,
 .v2-site .v2-services__circle,
 .v2-site .v2-reviews__circle,
 .v2-site .v2-doctor-selection__circle,
@@ -43,7 +41,6 @@
     overflow: hidden;
 }
 
-.v2-site .v2-consultation__circle img,
 .v2-site .v2-services__circle img,
 .v2-site .v2-reviews__circle img,
 .v2-site .v2-doctor-selection__circle img,
@@ -54,7 +51,6 @@
     object-fit: cover;
 }
 
-.v2-site .v2-consultation__circle:first-child,
 .v2-site .v2-services__circle:first-child,
 .v2-site .v2-reviews__circle:first-child,
 .v2-site .v2-doctor-selection__circle:first-child,
@@ -63,7 +59,6 @@
     z-index: 1;
 }
 
-.v2-site .v2-consultation__circle:last-child,
 .v2-site .v2-services__circle:last-child,
 .v2-site .v2-reviews__circle:last-child,
 .v2-site .v2-doctor-selection__circle:last-child,

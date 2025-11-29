@@ -309,19 +309,23 @@
         <div class="v2-row">
             <div class="v2-col-sm-6 v2-col-lg-3 v2-indices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <meta itemprop="position" content="1">
-                <div class="v2-indices__icon">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rating-icon.png" alt="Рейтинг" loading="lazy">
-            </div>
+
                 <div class="v2-indices__content">
-                    <div class="v2-indices__number">01</div>
-                    <p itemprop="name">Применяем технологии нового поколения для точной диагностики, как в ведущих клиниках Москвы и Европы</p>
+                    <div class="v2-indices__icon">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <div class="v2-indices__icon-bg"></div>
+                    </div>
+                    <p itemprop="name">Точная диагностика на оборудовании нового поколения — уровень клиник Москвы и Европы</p>
             </div>
         </div>
 
             <div class="v2-col-sm-6 v2-col-lg-3 v2-indices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <meta itemprop="position" content="2">
                 <div class="v2-indices__content">
-                    <div class="v2-indices__number">02</div>
+                    <div class="v2-indices__icon">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <div class="v2-indices__icon-bg"></div>
+                    </div>
                     <p itemprop="name">Помогаем в сложных случаях, когда другие бессильны</p>
             </div>
         </div>
@@ -329,7 +333,10 @@
             <div class="v2-col-sm-6 v2-col-lg-3 v2-indices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <meta itemprop="position" content="3">
                 <div class="v2-indices__content">
-                    <div class="v2-indices__number">03</div>
+                    <div class="v2-indices__icon">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <div class="v2-indices__icon-bg"></div>
+                    </div>
                     <p itemprop="name">Изготавливаем протезы у себя - это быстрее, точнее и надёжнее.</p>
             </div>
         </div>
@@ -337,7 +344,10 @@
             <div class="v2-col-sm-6 v2-col-lg-3 v2-indices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <meta itemprop="position" content="4">
                 <div class="v2-indices__content">
-                    <div class="v2-indices__number">04</div>
+                    <div class="v2-indices__icon">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <div class="v2-indices__icon-bg"></div>
+                    </div>
                     <p itemprop="name">Входим в ТОП рейтинга Яндекса, ПроДокторов и Google</p>
                 </div>
             </div>
@@ -456,14 +466,6 @@
         <div class="v2-row">
             <div class="v2-col-sm-6 v2-col-lg-6 v2-consultation__left">
                 <div class="v2-consultation__promo">
-                    <div class="v2-consultation__circles">
-                        <div class="v2-consultation__circle">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Лицо" loading="lazy">
-                    </div>
-                        <div class="v2-consultation__circle">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-date.svg" alt="Дата" loading="lazy">
-                    </div>
-                </div>
                     <div class="v2-consultation__date">
                         <span class="v2-consultation__date-text">Акция до 30 ноября</span>
                 </div>
@@ -527,32 +529,34 @@
                 </div>
         
             <div class="v2-col-sm-6 v2-col-lg-6 v2-consultation__right">
-                <div class="v2-consultation__quote" itemscope itemtype="https://schema.org/Review">
-                    <div class="v2-consultation__quote-photo">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="v2-consultation__quote-img" loading="lazy">
-                </div>
-                    <div class="v2-consultation__quote-text">
-                        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                            <meta itemprop="name" content="Доктор">
-                        </div>
-                        <p class="v2-consultation__quote-content" itemprop="reviewBody">
-                    "Чем дольше ждёте — тем сложнее и дороже будет лечение"
-                </p>
-                </div>
-            </div>
-            
-                <div class="v2-consultation__form">
-                    <h3 class="v2-consultation__form-title">Оставьте заявку<br><span class="v2-consultation__form-subtitle">– и мы всё подробно объясним</span></h3>
-                    <p class="v2-consultation__form-description">Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.</p>
-                    
-                    <?php
-                    // Contact Form 7 форма
-                    echo do_shortcode('[contact-form-7 id="351" title="Контактная форма"]');
-                    ?>
-                    
-                    <p class="v2-consultation__form-privacy">
-                        * Нажимая кнопку, вы даете согласие на обработку <a href="https://dental41.ru/privacy.pdf" target="_blank" rel="noopener" class="v2-consultation__form-link">персональных данных</a>
+                <div class="v2-consultation__content">
+                    <div class="v2-consultation__quote" itemscope itemtype="https://schema.org/Review">
+                        <div class="v2-consultation__quote-photo">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="v2-consultation__quote-img" loading="lazy">
+                    </div>
+                        <div class="v2-consultation__quote-text">
+                            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <meta itemprop="name" content="Доктор">
+                            </div>
+                            <p class="v2-consultation__quote-content" itemprop="reviewBody">
+                        "Чем дольше ждёте — тем сложнее и дороже будет лечение"
                     </p>
+                    </div>
+                </div>
+                
+                    <div class="v2-consultation__form">
+                        <h3 class="v2-consultation__form-title">Оставьте заявку<br><span class="v2-consultation__form-subtitle">– и мы всё подробно объясним</span></h3>
+                        <p class="v2-consultation__form-description">Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.</p>
+                        
+                        <?php
+                        // Contact Form 7 форма
+                        echo do_shortcode('[contact-form-7 id="4b1ef9d" title="Заявка консультация"]');
+                        ?>
+                        
+                        <p class="v2-consultation__form-privacy">
+                            * Нажимая кнопку, вы даете согласие на обработку <a href="https://dental41.ru/privacy.pdf" target="_blank" rel="noopener" class="v2-consultation__form-link">персональных данных</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
