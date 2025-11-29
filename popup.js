@@ -14,12 +14,15 @@ function openPopup(popupId = 'popup-1') {
     if (isClosing) return;
 
     const popup = document.getElementById(popupId);
-    if (!popup) return;
+    if (!popup) {
+        console.error('Popup not found:', popupId);
+        return;
+    }
 
     currentPopup = popup;
 
     // Блокируем скролл
-    document.body.classList.add('popup-open');
+    document.body.classList.add('v2-popup-open');
 
     // Показываем попап
     popup.classList.add('show');
@@ -47,11 +50,15 @@ function closePopup() {
 
     setTimeout(() => {
         currentPopup.classList.remove('show', 'closing');
-        document.body.classList.remove('popup-open');
+        document.body.classList.remove('v2-popup-open');
         currentPopup = null;
         isClosing = false;
     }, 280);
 }
+
+// Экспортируем функции в window сразу после определения
+window.openPopup = openPopup;
+window.closePopup = closePopup;
 
 /**
  * Настройка обработчиков событий для попапа
@@ -59,22 +66,21 @@ function closePopup() {
  */
 function setupPopupEvents(popup) {
     // Закрытие по клику на overlay
-    popup.addEventListener('click', e => {
-        if (e.target === popup) {
+    const overlay = popup.querySelector('.v2-popup__overlay');
+    if (overlay) {
+        overlay.addEventListener('click', () => {
             closePopup();
-        }
-    });
+        });
+    }
 
     // Закрытие по Escape
     document.addEventListener('keydown', handleEscape);
 
     // Закрытие по клику на кнопку закрытия
-    const closeBtn = popup.querySelector('.popup-close');
+    const closeBtn = popup.querySelector('.v2-popup__close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closePopup);
     }
-
-    // Обработка формы удалена: отправка теперь через Contact Form 7
 
     // Обработка табов (для мобильной версии)
     setupTabs(popup);
@@ -162,8 +168,8 @@ function showError(message) {
  * @param {HTMLElement} popup - Элемент попапа
  */
 function setupTabs(popup) {
-    const tabs = popup.querySelectorAll('.popup-tab');
-    const panes = popup.querySelectorAll('.popup-pane');
+    const tabs = popup.querySelectorAll('.v2-popup__tab');
+    const panes = popup.querySelectorAll('.v2-popup__pane');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -173,12 +179,12 @@ function setupTabs(popup) {
             if (!targetPane) return;
 
             // Убираем активный класс со всех табов и панелей
-            tabs.forEach(t => t.classList.remove('is-active'));
-            panes.forEach(p => p.classList.remove('is-active'));
+            tabs.forEach(t => t.classList.remove('v2-popup__tab--active'));
+            panes.forEach(p => p.classList.remove('v2-popup__pane--active'));
 
             // Добавляем активный класс к выбранному табу и панели
-            tab.classList.add('is-active');
-            targetPane.classList.add('is-active');
+            tab.classList.add('v2-popup__tab--active');
+            targetPane.classList.add('v2-popup__pane--active');
         });
     });
 }
@@ -306,11 +312,89 @@ document.addEventListener('DOMContentLoaded', function () {
     tablist.addEventListener('scroll', () => moveSlider(activeIndex), { passive: true });
 });
 
+// Перевод сообщений валидации HTML5 на русский
+function setupValidationMessages() {
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+        // Переопределяем сообщения валидации для всех полей формы
+        const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+        
+        inputs.forEach(input => {
+            // Устанавливаем кастомное сообщение для required полей
+            input.addEventListener('invalid', function(e) {
+                if (!e.target.validity.valid) {
+                    if (e.target.validity.valueMissing) {
+                        e.target.setCustomValidity('Пожалуйста, заполните это поле');
+                    } else if (e.target.validity.typeMismatch) {
+                        if (e.target.type === 'email') {
+                            e.target.setCustomValidity('Пожалуйста, введите корректный email адрес');
+                        } else if (e.target.type === 'tel') {
+                            e.target.setCustomValidity('Пожалуйста, введите корректный номер телефона');
+                        } else {
+                            e.target.setCustomValidity('Пожалуйста, введите корректное значение');
+                        }
+                    } else if (e.target.validity.tooShort) {
+                        e.target.setCustomValidity('Значение слишком короткое');
+                    } else if (e.target.validity.tooLong) {
+                        e.target.setCustomValidity('Значение слишком длинное');
+                    } else if (e.target.validity.patternMismatch) {
+                        e.target.setCustomValidity('Пожалуйста, введите значение в правильном формате');
+                    } else {
+                        e.target.setCustomValidity('Пожалуйста, заполните это поле');
+                    }
+                }
+            });
+            
+            // Сбрасываем кастомное сообщение при вводе
+            input.addEventListener('input', function() {
+                if (this.validity.valid) {
+                    this.setCustomValidity('');
+                }
+            });
+            
+            // Устанавливаем title для тултипа
+            if (input.hasAttribute('required')) {
+                input.setAttribute('title', 'Пожалуйста, заполните это поле');
+            }
+        });
+    });
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     setupPhoneMask();
+    setupValidationMessages();
+    
+    // Также обрабатываем формы, добавленные динамически (например, через CF7)
+    setTimeout(() => {
+        setupValidationMessages();
+    }, 500);
+    
+    // Обработка форм CF7, которые могут загружаться асинхронно
+    if (typeof wpcf7 !== 'undefined') {
+        document.addEventListener('wpcf7mailsent', () => {
+            setTimeout(() => {
+                setupValidationMessages();
+            }, 100);
+        });
+    }
+    
+    // Перехватываем отправку формы для переопределения сообщений
+    document.addEventListener('invalid', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+            const input = e.target;
+            if (input.validity.valueMissing) {
+                input.setCustomValidity('Пожалуйста, заполните это поле');
+            } else if (input.validity.typeMismatch) {
+                if (input.type === 'email') {
+                    input.setCustomValidity('Пожалуйста, введите корректный email адрес');
+                } else if (input.type === 'tel') {
+                    input.setCustomValidity('Пожалуйста, введите корректный номер телефона');
+                }
+            } else {
+                input.setCustomValidity('Пожалуйста, заполните это поле');
+            }
+        }
+    }, true);
 });
-
-// Экспорт функций для использования в HTML
-window.openPopup = openPopup;
-window.closePopup = closePopup;

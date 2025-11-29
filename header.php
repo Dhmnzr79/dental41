@@ -3,7 +3,6 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://use.typekit.net/pwv2cos.css">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

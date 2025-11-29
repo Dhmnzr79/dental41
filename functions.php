@@ -35,16 +35,6 @@ function has_cookie_consent($type = 'all') {
     }
 }
 
-// Подключение Adobe Fonts
-function dental_clinic_enqueue_adobe_fonts() {
-    wp_enqueue_style(
-        'adobe-fonts',
-        'https://use.typekit.net/pog7tgf.css',
-        array(),
-        '1.0.0'
-    );
-}
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_adobe_fonts');
 
 // Подключение скрипта для анимаций при скролле
 function dental_clinic_enqueue_scroll_animations() {
@@ -263,8 +253,8 @@ function dental_clinic_enqueue_v2_styles() {
         wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), $ver);
         wp_enqueue_style('v2-base', $uri . 'base.css', array('local-fonts'), $ver);
         wp_enqueue_style('v2-layout', $uri . 'layout.css', array('v2-base'), $ver);
-        wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-layout'), $ver);
-        wp_enqueue_style('v2-utilities', $uri . 'utilities.css', array('v2-components'), $ver);
+                wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-layout'), $ver);
+                wp_enqueue_style('v2-utilities', $uri . 'utilities.css', array('v2-components'), $ver);
     }
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);

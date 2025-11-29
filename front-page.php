@@ -355,110 +355,7 @@
     </div>
 </section>
 
-<section class="v2-section v2-works" aria-labelledby="v2-works-title" itemscope itemtype="https://schema.org/ItemList">
-    <div class="v2-container">
-        <div class="v2-row v2-works__head">
-            <div class="v2-col-sm-12 v2-col-lg-8 v2-works__head-main">
-                <h2 id="v2-works-title" class="v2-works__title" itemprop="name">
-                    Посмотрите, как мы<br>
-                    возвращаем людям улыбку и<br>
-                    уверенность
-                </h2>
-            </div>
-            <div class="v2-col-sm-12 v2-col-lg-4 v2-works__head-aside">
-                <p class="v2-works__subtitle" itemprop="description">
-                    Настоящие истории наших пациентов. Эти результаты достигнуты у нас, в клинике ЦЭСИ.
-                </p>
-            </div>
-        </div>
 
-        <div class="v2-works__slider" data-slider="works" aria-roledescription="carousel" aria-label="Наши работы">
-            <div class="v2-row v2-works__list">
-                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
-                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="1">
-                        <div class="v2-works__media">
-                            <img
-                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after01.jpg"
-                                alt="Улыбка для свадьбы - результат"
-                                loading="lazy"
-                                itemprop="image"
-                            >
-                        </div>
-                        <div class="v2-works__content">
-                            <h3 class="v2-works__card-title" itemprop="name">Улыбка для свадьбы</h3>
-                            <p class="v2-works__card-text" itemprop="description">
-                                Виктория, 32 года, п. Палана. Перед свадьбой прилетела к нам, чтобы быть безупречной в важный день. В ЦЭСИ выполнили: костную пластику верхней челюсти; установку имплантов Impro (Германия); полное лечение своих зубов; протезирование коронками из диоксида циркония.
-                            </p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
-                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="2">
-                        <div class="v2-works__media">
-                            <img
-                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after02.jpg"
-                                alt="Перерождение улыбки - результат"
-                                loading="lazy"
-                                itemprop="image"
-                            >
-                        </div>
-                        <div class="v2-works__content">
-                            <h3 class="v2-works__card-title" itemprop="name">Перерождение улыбки</h3>
-                            <p class="v2-works__card-text" itemprop="description">
-                                Комплексное лечение: импланты, виниры и коронки. Работали Моисеев К.Н. и Ларин К.Е. Результат — естественная и надёжная улыбка.
-                            </p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
-                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="3">
-                        <div class="v2-works__media">
-                            <img
-                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after03.jpg"
-                                alt="Новая улыбка — новая уверенность - результат"
-                                loading="lazy"
-                                itemprop="image"
-                            >
-                        </div>
-                        <div class="v2-works__content">
-                            <h3 class="v2-works__card-title" itemprop="name">Новая улыбка — новая уверенность</h3>
-                            <p class="v2-works__card-text" itemprop="description">
-                                Зубы пролечены под микроскопом. Установлены импланты. Установлены коронки из циркония. Результат — восстановлены здоровье и эстетика, пациент снова улыбается без стеснения.
-                            </p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <div class="v2-row v2-works__pagination-row">
-                <div class="v2-col-sm-12 v2-col-lg-12">
-                    <div class="v2-works__pagination" aria-label="Пагинация слайдера по работам">
-                        <button class="v2-works__dot" type="button" aria-label="Слайд 1" aria-current="true" data-slider-dot="1"></button>
-                        <button class="v2-works__dot" type="button" aria-label="Слайд 2" data-slider-dot="2"></button>
-                        <button class="v2-works__dot" type="button" aria-label="Слайд 3" data-slider-dot="3"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="v2-row v2-works__cta-row">
-            <div class="v2-col-sm-12 v2-col-lg-12">
-                <button
-                    type="button"
-                    class="v2-btn v2-btn--primary v2-works__cta-button"
-                    onclick="openPopup()"
-                >
-                    Я хочу также
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Блок консультации -->
 <section class="v2-consultation v2-section">
@@ -477,55 +374,11 @@
                     по имплантации
             </h2>
             
-                <div class="v2-consultation__benefits">
-                    <div class="v2-consultation__benefit">
-                        <div class="v2-consultation__benefit-icon">
-                            <svg width="45" height="64" viewBox="0 0 45 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M22.9463 34.8935L20.8895 36.9504C20.6837 37.1568 20.4391 37.3204 20.1699 37.4319C19.9007 37.5434 19.612 37.6006 19.3206 37.6002C19.0292 37.6006 18.7406 37.5434 18.4714 37.4319C18.2022 37.3204 17.9577 37.1568 17.7519 36.9504L14.1991 33.3978C13.3484 32.5471 13.2855 31.161 14.1054 30.2807C14.9663 29.3565 16.4139 29.3373 17.2991 30.2225L19.0475 31.9709C19.0834 32.0068 19.126 32.0352 19.1728 32.0546C19.2197 32.0741 19.2699 32.0841 19.3207 32.0841C19.3714 32.0841 19.4216 32.0741 19.4685 32.0546C19.5154 32.0352 19.558 32.0068 19.5938 31.9709L27.7509 23.8139C28.6173 22.9474 30.0221 22.9474 30.8884 23.8139C31.7548 24.6803 31.7548 26.085 30.8884 26.9514L25.0393 32.8005" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M44.0501 34.2491V46.1026C44.0501 47.7027 42.7528 49 41.1527 49H3.89738C2.29725 49 1 47.7027 1 46.1026V42.0721" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M33.2705 46.1026H3.90221C2.29938 46.1026 1 44.8032 1 43.2004V7.21239C1 5.60956 2.29938 4.31018 3.90221 4.31018H41.1478C42.7507 4.31018 44.0501 5.60956 44.0501 7.21239V35.323C44.0501 36.0927 43.7443 36.831 43.2 37.3752L35.3227 45.2525C35.0532 45.522 34.7332 45.7358 34.3811 45.8817C34.029 46.0275 33.6516 46.1026 33.2705 46.1026Z" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M32.0811 46.1026C33.3943 46.1026 34.459 45.038 34.459 43.7246V38.8896C34.459 37.5763 35.5236 36.5116 36.8369 36.5116H41.6721C42.9854 36.5116 44.0499 35.447 44.0499 34.1337" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M8.72635 14.6616H1" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M44.0501 14.6616H11.6238" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9.20197 8.64264C8.38549 8.64264 7.72363 7.98078 7.72363 7.1643V2.47836C7.72363 1.66188 8.38549 1.00002 9.20197 1.00002H9.5345C10.351 1.00002 11.0128 1.66188 11.0128 2.47836V4.31018" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M35.5157 8.64264C34.6992 8.64264 34.0374 7.98078 34.0374 7.1643V2.47836C34.0374 1.66188 34.6992 1.00002 35.5157 1.00002H35.8482C36.6647 1.00002 37.3266 1.66188 37.3266 2.47836V4.31018" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                        <p class="v2-consultation__benefit-text">Составим для вас понятный план: 3 варианта по бюджету, этапы, сроки</p>
-                </div>
-                    
-                    <div class="v2-consultation__benefit">
-                        <div class="v2-consultation__benefit-icon">
-                            <svg width="51" height="64" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M6.76001 40.36L14.85 19.0643C15.0153 18.659 15.5874 18.6584 15.7535 19.0634L23.77 40.36M9.28302 35.0563H21.2876M30.2799 18.7601V40.36" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M23.0868 49H2.8529C1.82914 49 1 48.181 1 47.1697V11.9503C1 10.94 1.82914 10.12 2.8529 10.12H31.2455M40.3598 19.3191V47.1697C40.3598 48.181 39.5297 49 38.5069 49H31.9228" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M41.9059 1.91659L44.2597 6.22027L48.5634 8.57409C49.7854 9.24243 49.7854 10.9976 48.5634 11.666L44.2597 14.0198L41.9059 18.3235C41.2376 19.5455 39.4823 19.5455 38.814 18.3235L36.4602 14.0198L32.1565 11.666C30.9345 10.9976 30.9345 9.24243 32.1565 8.57409L36.4602 6.22027L38.814 1.91659C39.4824 0.69447 41.2376 0.69447 41.9059 1.91659Z" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                        <p class="v2-consultation__benefit-text">При необходимости проведём КТ с высокоточной диагностикой. Это позволит составить точный план и рекомендации по каждому зубу. КТ оплачивается отдельно.</p>
-                </div>
-                    
-                    <div class="v2-consultation__benefit">
-                        <div class="v2-consultation__benefit-icon">
-                            <svg width="50" height="64" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M38.9678 7.19247V15.3129" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M34.9075 11.2527H43.028" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24.2168 0.99999H17.2601C13.9846 0.99999 11.3291 3.65547 11.3291 6.93102V10.8798C11.3291 11.3664 11.6617 11.788 12.134 11.905C12.5318 12.0036 13.0059 12.1954 13.3819 12.5675C13.5492 12.7331 13.8335 12.6123 13.8335 12.3769V8.86753C13.8335 7.65047 14.6041 6.61349 15.6839 6.21757C15.9128 6.13357 16.1689 6.20065 16.33 6.38373C17.6063 7.83548 19.3351 8.98034 21.6137 8.98034H27.0553C27.2113 8.98034 27.3609 9.04231 27.4712 9.15261C27.5815 9.26292 27.6435 9.41252 27.6435 9.56852V12.3769C27.6435 12.6123 27.9278 12.7331 28.0951 12.5675C28.4712 12.1954 28.9452 12.0036 29.343 11.905C29.8153 11.788 30.1479 11.3664 30.1479 10.8798V6.93102C30.1479 3.65547 27.4925 0.99999 24.2168 0.99999Z" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12.7151 12.1104V17.792C12.7603 20.0556 14.3229 21.53 15.6804 22.876C16.9295 24.1145 18.3461 25.5772 20.7384 25.6059C23.1307 25.5772 24.5472 24.1145 25.7964 22.876C27.1539 21.53 28.7164 20.0556 28.7617 17.792V12.1104" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11.5972 11.5814C11.3691 11.6295 11.1547 11.7285 10.97 11.8709C10.5122 12.2248 10.3114 12.8198 10.4148 13.3891L10.8039 15.5315C11.0439 16.7932 12.2353 16.5944 12.7149 16.4595" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M28.7617 16.4594C29.2414 16.5943 30.4327 16.7932 30.6728 15.5314L31.0619 13.389C31.1652 12.8197 30.9644 12.2247 30.5067 11.8708C30.322 11.7284 30.1076 11.6295 29.8794 11.5813" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M1.57038 39.5601L1.00626 46.8041C0.914144 47.9882 1.85011 49 3.03789 49H38.4388C39.6265 49 40.5625 47.9882 40.4703 46.8041L39.5788 35.3546C39.4065 33.1407 37.9485 31.1498 35.8185 30.1772C32.8492 28.8213 29.7106 27.8721 26.4875 27.3554C23.5934 31.149 17.8832 31.149 14.989 27.3554C11.766 27.8722 8.62741 28.8213 5.65818 30.1772C3.52815 31.1498 2.07012 33.1407 1.89777 35.3546L1.79801 36.635" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16.7885 23.9341V26.4215C16.7884 26.5739 16.7471 26.7235 16.6688 26.8543C16.5906 26.9851 16.4784 27.0923 16.3442 27.1645C16.1322 27.1906 15.9205 27.2184 15.709 27.2481C15.6822 27.2519 15.2025 27.3219 14.9897 27.356" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M26.4872 27.356C26.2746 27.3219 25.7947 27.2519 25.7678 27.2481C25.5563 27.2186 25.3447 27.1904 25.1329 27.1646H25.1327C24.9985 27.0924 24.8864 26.9852 24.8081 26.8544C24.7299 26.7236 24.6886 26.574 24.6885 26.4216V23.9341" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9.8811 28.559L12.4542 30.405C12.8691 30.7026 12.8433 31.3278 12.4051 31.5901L11.4096 32.1864C11.271 32.2693 11.1649 32.397 11.1088 32.5485C11.0526 32.6999 11.0498 32.866 11.1009 33.0192L16.4231 49L14.9887 27.3554" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M31.5955 28.559L29.0224 30.405C28.6075 30.7026 28.6333 31.3278 29.0714 31.5901L30.067 32.1864C30.2056 32.2693 30.3117 32.397 30.3678 32.5485C30.424 32.6999 30.4267 32.866 30.3756 33.0192L25.0535 49L26.4879 27.3554" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M35.0764 42.5902H30.7864C30.6129 42.5902 30.4464 42.5212 30.3237 42.3985C30.201 42.2758 30.1321 42.1094 30.1321 41.9359V40.2843C30.1321 40.1108 30.201 39.9444 30.3237 39.8216C30.4464 39.6989 30.6128 39.63 30.7864 39.6299H35.0764C35.25 39.6299 35.4164 39.6989 35.5391 39.8216C35.6618 39.9443 35.7308 40.1108 35.7308 40.2843V41.9359C35.7308 42.1094 35.6618 42.2759 35.5391 42.3986C35.4164 42.5213 35.2499 42.5902 35.0764 42.5902Z" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M30.7129 20.6096H35.9341L35.4654 25.4847C35.4247 25.9078 35.9163 26.1684 36.2437 25.8973L42.6268 20.6096H45.0681C47.2622 20.6096 49.0406 18.8311 49.0406 16.6371V7.20718C49.0406 5.01317 47.2622 3.2346 45.0681 3.2346H31.738" stroke="#23BFCF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                        <p class="v2-consultation__benefit-text">Осмотр врачом с 20-ти летним стажем, который провел более 20 000 имплантации.</p>
-                </div>
-            </div>
+                <ul class="v2-consultation__benefits">
+                    <li>Составим для вас понятный план: 3 варианта по бюджету, этапы, сроки</li>
+                    <li>При необходимости проведём КТ с высокоточной диагностикой. Это позволит составить точный план и рекомендации по каждому зубу. КТ оплачивается отдельно.</li>
+                    <li>Осмотр врачом с 20-ти летним стажем, который провел более 20 000 имплантации.</li>
+                </ul>
                 </div>
         
             <div class="v2-col-sm-6 v2-col-lg-6 v2-consultation__right">
@@ -592,112 +445,158 @@
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="1">
                     <div class="v2-services__card-body">
-                        <div class="v2-services__circles">
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Лицо" loading="lazy">
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
+                                <div class="v2-services__card-icon">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-06.svg" alt="" loading="lazy" aria-hidden="true">
+                                </div>
+                                <h3 class="v2-services__card-title" itemprop="name">Бережная имплантация</h3>
+                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="76200"><meta itemprop="priceCurrency" content="RUB">От 76 200 тыс.</p>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
+                                <p class="v2-services__card-text" itemprop="description">Используем только проверенные имплантаты зубов от ведущих мировых производителей. Возможна установка за одно посещение. Пожизненная гарантия на модели имплантов Nobel (Швейцария) и Impro (Германия). Опытные имплантологи, прошедшие обучение за границей.</p>
+                            </div>
                         </div>
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-06.svg" alt="Иконка услуги" loading="lazy">
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на бережную имплантацию">Записаться</button>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--secondary" onclick="openPopup()" aria-label="Узнать подробнее о бережной имплантации">Подробнее</button>
+                            </div>
                         </div>
                     </div>
-                        <h3 class="v2-services__card-title" itemprop="name">Бережная имплантация</h3>
-                        <p class="v2-services__card-text" itemprop="description">Используем только проверенные имплантаты зубов от ведущих мировых производителей. Возможна установка за одно посещение. Пожизненная гарантия на модели имплантов Nobel (Швейцария) и Impro (Германия). Опытные имплантологи, прошедшие обучение за границей.</p>
-                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="76200"><meta itemprop="priceCurrency" content="RUB">От 76 200 тыс.</p>
                 </div>
-                    <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Узнать подробнее о бережной имплантации">Узнать подробнее</button>
-            </div>
 
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="2">
                     <div class="v2-services__card-body">
-                        <div class="v2-services__circles">
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Лицо" loading="lazy">
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
+                                <div class="v2-services__card-icon">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-05.svg" alt="" loading="lazy" aria-hidden="true">
+                                </div>
+                                <h3 class="v2-services__card-title" itemprop="name">Коронки</h3>
+                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="25000"><meta itemprop="priceCurrency" content="RUB">От 25 000 тыс.</p>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
+                                <p class="v2-services__card-text" itemprop="description">Коронки изготавливаются из импортных материалов в собственной лаборатории. Быстрое изготовление конструкции — в большинстве случаев всего за 1 день! Мы предлагаем все виды коронок с гарантией до 5 лет.</p>
+                            </div>
                         </div>
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-05.svg" alt="Вопрос" loading="lazy">
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на коронки">Записаться</button>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--secondary" onclick="openPopup()" aria-label="Узнать подробнее о коронках">Подробнее</button>
+                            </div>
                         </div>
                     </div>
-                        <h3 class="v2-services__card-title" itemprop="name">Коронки</h3>
-                        <p class="v2-services__card-text" itemprop="description">Коронки изготавливаются из импортных материалов в собственной лаборатории. Быстрое изготовление конструкции — в большинстве случаев всего за 1 день! Мы предлагаем все виды коронок с гарантией до 5 лет.</p>
-                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="25000"><meta itemprop="priceCurrency" content="RUB">От 25 000 тыс.</p>
                 </div>
-                    <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Узнать подробнее о коронках">Узнать подробнее</button>
-            </div>
         </div>
 
             <div class="v2-row">
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="3">
                     <div class="v2-services__card-body">
-                        <div class="v2-services__circles">
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-09.jpg" alt="Лицо" loading="lazy">
-                </div>
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="Вопрос" loading="lazy">
-            </div>
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
+                                <div class="v2-services__card-icon">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" loading="lazy" aria-hidden="true">
+                                </div>
+                                <h3 class="v2-services__card-title" itemprop="name">Виниры</h3>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
+                                <p class="v2-services__card-text" itemprop="description">Только у нас виниры, созданные по технологии ведущего мирового специалиста в области реставрации Назария Махайлюка. Полная реставрация всего за 1–2 визита, без дискомфорта.</p>
+                            </div>
                         </div>
-                        <h3 class="v2-services__card-title" itemprop="name">Виниры</h3>
-                        <p class="v2-services__card-text" itemprop="description">Только у нас виниры, созданные по технологии ведущего мирового специалиста в области реставрации Назария Махайлюка. Полная реставрация всего за 1–2 визита, без дискомфорта.</p>
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на виниры">Записаться</button>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--secondary" onclick="openPopup()" aria-label="Узнать подробнее о винирах">Подробнее</button>
+                            </div>
                         </div>
-                    <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Узнать подробнее о винирах">Узнать подробнее</button>
                     </div>
+                </div>
 
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="4">
                     <div class="v2-services__card-body">
-                        <div class="v2-services__circles">
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Лицо" loading="lazy">
-                </div>
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-04.svg" alt="Вопрос" loading="lazy">
-            </div>
-        </div>
-                        <h3 class="v2-services__card-title" itemprop="name">Все виды лечения</h3>
-                        <p class="v2-services__card-text" itemprop="description">Все виды лечения зубов без боли с гарантией результата. Мы используем самую современную анестезию, в том числе электронную. Применяем надёжные пломбировочные материалы.</p>
-                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="8500"><meta itemprop="priceCurrency" content="RUB">От 8 500 тыс.</p>
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
+                                <div class="v2-services__card-icon">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-04.svg" alt="" loading="lazy" aria-hidden="true">
+                                </div>
+                                <h3 class="v2-services__card-title" itemprop="name">Все виды лечения</h3>
+                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="8500"><meta itemprop="priceCurrency" content="RUB">От 8 500 тыс.</p>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
+                                <p class="v2-services__card-text" itemprop="description">Все виды лечения зубов без боли с гарантией результата. Мы используем самую современную анестезию, в том числе электронную. Применяем надёжные пломбировочные материалы.</p>
+                            </div>
                         </div>
-                    <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Узнать подробнее о всех видах лечения">Узнать подробнее</button>
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на все виды лечения">Записаться</button>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--secondary" onclick="openPopup()" aria-label="Узнать подробнее о всех видах лечения">Подробнее</button>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
             <div class="v2-row">
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="5">
                     <div class="v2-services__card-body">
-                        <div class="v2-services__circles">
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Лицо" loading="lazy">
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
+                                <div class="v2-services__card-icon">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-03.svg" alt="" loading="lazy" aria-hidden="true">
+                                </div>
+                                <h3 class="v2-services__card-title" itemprop="name">Отбеливание</h3>
+                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="18000"><meta itemprop="priceCurrency" content="RUB">От 18 000 тыс.</p>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
+                                <p class="v2-services__card-text" itemprop="description">Красивые белые зубы без вреда для эмали! Зубы светлее на 7–10 тонов всего за 1 посещение. Эффект сохраняется на 3–5 лет.</p>
+                            </div>
+                        </div>
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на отбеливание">Записаться</button>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--secondary" onclick="openPopup()" aria-label="Узнать подробнее об отбеливании">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-03.svg" alt="Вопрос" loading="lazy">
-            </div>
-                        </div>
-                        <h3 class="v2-services__card-title" itemprop="name">Отбеливание</h3>
-                        <p class="v2-services__card-text" itemprop="description">Красивые белые зубы без вреда для эмали! Зубы светлее на 7–10 тонов всего за 1 посещение. Эффект сохраняется на 3–5 лет.</p>
-                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="18000"><meta itemprop="priceCurrency" content="RUB">От 18 000 тыс.</p>
-                        </div>
-                    <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Узнать подробнее об отбеливании">Узнать подробнее</button>
-    </div>
 
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="6">
                     <div class="v2-services__card-body">
-                        <div class="v2-services__circles">
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-05.jpg" alt="Лицо" loading="lazy">
-                </div>
-                            <div class="v2-services__circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-02.svg" alt="Вопрос" loading="lazy">
-                </div>
-            </div>
-                        <h3 class="v2-services__card-title" itemprop="name">Миорелаксация жевательных мышц (TENS-терапия)</h3>
-                        <p class="v2-services__card-text" itemprop="description">Безболезненная процедура, которая расслабляет жевательные мышцы и восстанавливает правильное положение челюсти. Подходит при бруксизме, болях, щелчках и напряжении в лице. За 40 минут мягкие импульсы улучшают кровоток, снимают спазмы и восстанавливают симметрию лица.</p>
-                        <p class="v2-services__card-price"></p>
-                </div>
-                    <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Узнать подробнее о миорелаксации жевательных мышц">Узнать подробнее</button>
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
+                                <div class="v2-services__card-icon">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-02.svg" alt="" loading="lazy" aria-hidden="true">
+                                </div>
+                                <h3 class="v2-services__card-title" itemprop="name">Миорелаксация жевательных мышц (TENS-терапия)</h3>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
+                                <p class="v2-services__card-text" itemprop="description">Безболезненная процедура, которая расслабляет жевательные мышцы и восстанавливает правильное положение челюсти. Подходит при бруксизме, болях, щелчках и напряжении в лице. За 40 минут мягкие импульсы улучшают кровоток, снимают спазмы и восстанавливают симметрию лица.</p>
+                            </div>
+                        </div>
+                        <div class="v2-row">
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на миорелаксацию жевательных мышц">Записаться</button>
+                            </div>
+                            <div class="v2-col-sm-12 v2-col-lg-6">
+                                <button type="button" class="v2-btn v2-btn--secondary" onclick="openPopup()" aria-label="Узнать подробнее о миорелаксации жевательных мышц">Подробнее</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </div>
@@ -914,6 +813,111 @@
                 <p class="v2-guarantees__right-text">Год — это объективный срок, в течение которого можно оценить результат лечения.</p>
                 <p class="v2-guarantees__right-text">Далее многое зависит от самого пациента: здоровье, гигиена, хронические болезни и соблюдение рекомендаций.</p>
                 <p class="v2-guarantees__right-text">Бессрочная гарантия — это миф. Мы даём честную и обоснованную гарантию. И даже когда срок заканчивается, мы всегда остаёмся рядом, открыты к вашим вопросам и готовы помочь в любой ситуации.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-works" aria-labelledby="v2-works-title" itemscope itemtype="https://schema.org/ItemList">
+    <div class="v2-container">
+        <div class="v2-row v2-works__head">
+            <div class="v2-col-sm-12 v2-col-lg-8 v2-works__head-main">
+                <h2 id="v2-works-title" class="v2-works__title" itemprop="name">
+                    Посмотрите, как мы<br>
+                    возвращаем людям улыбку и<br>
+                    уверенность
+                </h2>
+            </div>
+            <div class="v2-col-sm-12 v2-col-lg-4 v2-works__head-aside">
+                <p class="v2-works__subtitle" itemprop="description">
+                    Настоящие истории наших пациентов. Эти результаты достигнуты у нас, в клинике ЦЭСИ.
+                </p>
+            </div>
+        </div>
+
+        <div class="v2-works__slider" data-slider="works" aria-roledescription="carousel" aria-label="Наши работы">
+            <div class="v2-row v2-works__list">
+                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
+                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="1">
+                        <div class="v2-works__media">
+                            <img
+                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after01.jpg"
+                                alt="Улыбка для свадьбы - результат"
+                                loading="lazy"
+                                itemprop="image"
+                            >
+                        </div>
+                        <div class="v2-works__content">
+                            <h3 class="v2-works__card-title" itemprop="name">Улыбка для свадьбы</h3>
+                            <p class="v2-works__card-text" itemprop="description">
+                                Виктория, 32 года, п. Палана. Перед свадьбой прилетела к нам, чтобы быть безупречной в важный день. В ЦЭСИ выполнили: костную пластику верхней челюсти; установку имплантов Impro (Германия); полное лечение своих зубов; протезирование коронками из диоксида циркония.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
+                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="2">
+                        <div class="v2-works__media">
+                            <img
+                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after02.jpg"
+                                alt="Перерождение улыбки - результат"
+                                loading="lazy"
+                                itemprop="image"
+                            >
+                        </div>
+                        <div class="v2-works__content">
+                            <h3 class="v2-works__card-title" itemprop="name">Перерождение улыбки</h3>
+                            <p class="v2-works__card-text" itemprop="description">
+                                Комплексное лечение: импланты, виниры и коронки. Работали Моисеев К.Н. и Ларин К.Е. Результат — естественная и надёжная улыбка.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="v2-col-sm-12 v2-col-lg-4 v2-works__col">
+                    <article class="v2-works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="3">
+                        <div class="v2-works__media">
+                            <img
+                                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after03.jpg"
+                                alt="Новая улыбка — новая уверенность - результат"
+                                loading="lazy"
+                                itemprop="image"
+                            >
+                        </div>
+                        <div class="v2-works__content">
+                            <h3 class="v2-works__card-title" itemprop="name">Новая улыбка — новая уверенность</h3>
+                            <p class="v2-works__card-text" itemprop="description">
+                                Зубы пролечены под микроскопом. Установлены импланты. Установлены коронки из циркония. Результат — восстановлены здоровье и эстетика, пациент снова улыбается без стеснения.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="v2-row v2-works__pagination-row">
+                <div class="v2-col-sm-12 v2-col-lg-12">
+                    <div class="v2-works__pagination" aria-label="Пагинация слайдера по работам">
+                        <button class="v2-works__dot" type="button" aria-label="Слайд 1" aria-current="true" data-slider-dot="1"></button>
+                        <button class="v2-works__dot" type="button" aria-label="Слайд 2" data-slider-dot="2"></button>
+                        <button class="v2-works__dot" type="button" aria-label="Слайд 3" data-slider-dot="3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="v2-row v2-works__cta-row">
+            <div class="v2-col-sm-12 v2-col-lg-12">
+                <button
+                    type="button"
+                    class="v2-btn v2-btn--primary v2-works__cta-button"
+                    onclick="openPopup()"
+                >
+                    Я хочу также
+                </button>
             </div>
         </div>
     </div>
@@ -2132,13 +2136,75 @@
     </div>
 </footer>
 
-<?php wp_footer(); ?>
-
 <?php 
-// Временно отключено для разработки
-// include get_stylesheet_directory() . '/popup.php'; 
+include get_stylesheet_directory() . '/popup.php'; 
 // include 'cookie-banner.php'; 
 ?>
+
+<?php wp_footer(); ?>
+
+<script>
+// Переопределение стандартных сообщений валидации HTML5 на русский
+(function() {
+    'use strict';
+    
+    function setupRussianValidation() {
+        const forms = document.querySelectorAll('form');
+        
+        forms.forEach(function(form) {
+            const inputs = form.querySelectorAll('input, textarea, select');
+            
+            inputs.forEach(function(input) {
+                // Устанавливаем title для русских сообщений
+                if (input.hasAttribute('required')) {
+                    input.setAttribute('title', 'Пожалуйста, заполните это поле');
+                }
+                
+                // Переопределяем сообщения при валидации
+                input.addEventListener('invalid', function(e) {
+                    const field = e.target;
+                    
+                    if (field.validity.valueMissing) {
+                        field.setCustomValidity('Пожалуйста, заполните это поле');
+                    } else if (field.validity.typeMismatch) {
+                        if (field.type === 'email') {
+                            field.setCustomValidity('Пожалуйста, введите корректный email адрес');
+                        } else if (field.type === 'tel') {
+                            field.setCustomValidity('Пожалуйста, введите корректный номер телефона');
+                        } else {
+                            field.setCustomValidity('Пожалуйста, введите корректное значение');
+                        }
+                    } else {
+                        field.setCustomValidity('Пожалуйста, заполните это поле');
+                    }
+                });
+                
+                // Сбрасываем сообщение при вводе
+                input.addEventListener('input', function() {
+                    if (this.validity.valid) {
+                        this.setCustomValidity('');
+                    }
+                });
+            });
+        });
+    }
+    
+    // Применяем при загрузке DOM
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupRussianValidation);
+    } else {
+        setupRussianValidation();
+    }
+    
+    // Также применяем для форм, загруженных через CF7
+    setTimeout(setupRussianValidation, 1000);
+    
+    // Перехватываем события загрузки форм CF7
+    if (typeof jQuery !== 'undefined') {
+        jQuery(document).on('wpcf7mailsent', setupRussianValidation);
+    }
+})();
+</script>
 
 </body>
 </html>
