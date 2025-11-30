@@ -253,8 +253,9 @@ function dental_clinic_enqueue_v2_styles() {
         wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), $ver);
         wp_enqueue_style('v2-base', $uri . 'base.css', array('local-fonts'), $ver);
         wp_enqueue_style('v2-layout', $uri . 'layout.css', array('v2-base'), $ver);
-                wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-layout'), $ver);
-                wp_enqueue_style('v2-utilities', $uri . 'utilities.css', array('v2-components'), $ver);
+        wp_enqueue_style('v2-ui', $uri . 'ui.css', array('v2-layout'), $ver);
+        wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-ui'), $ver);
+        wp_enqueue_style('v2-utilities', $uri . 'utilities.css', array('v2-components'), $ver);
     }
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);

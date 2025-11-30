@@ -358,7 +358,7 @@
 
 
 <!-- Блок консультации -->
-<section class="v2-consultation v2-section">
+<section class="v2-consultation v2-section" itemscope itemtype="https://schema.org/Service">
     <div class="v2-container">
         <div class="v2-row">
             <div class="v2-col-sm-6 v2-col-lg-6 v2-consultation__left">
@@ -368,17 +368,21 @@
                 </div>
             </div>
             
-                <h2 class="v2-consultation__title">
+                <h2 class="v2-consultation__title" itemprop="name">
                     <span class="v2-consultation__highlight">Бесплатная</span>
                     консультация<br>
                     по имплантации
             </h2>
             
-                <ul class="v2-consultation__benefits">
+                <ul class="v2-consultation__benefits" itemprop="description">
                     <li>Составим для вас понятный план: 3 варианта по бюджету, этапы, сроки</li>
                     <li>При необходимости проведём КТ с высокоточной диагностикой. Это позволит составить точный план и рекомендации по каждому зубу. КТ оплачивается отдельно.</li>
                     <li>Осмотр врачом с 20-ти летним стажем, который провел более 20 000 имплантации.</li>
                 </ul>
+                <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="0">
+                    <meta itemprop="priceCurrency" content="RUB">
+                </div>
                 </div>
         
             <div class="v2-col-sm-6 v2-col-lg-6 v2-consultation__right">
@@ -386,7 +390,7 @@
                     <div class="v2-consultation__quote" itemscope itemtype="https://schema.org/Review">
                         <div class="v2-consultation__quote-photo">
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="v2-consultation__quote-img" loading="lazy">
-                    </div>
+                        </div>
                         <div class="v2-consultation__quote-text">
                             <div itemprop="author" itemscope itemtype="https://schema.org/Person">
                                 <meta itemprop="name" content="Доктор">
