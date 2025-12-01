@@ -25,10 +25,39 @@
     flex-direction: column;
 }
 
+.v2-site .v2-works__media {
+    position: relative;
+}
+
 .v2-site .v2-works__media img {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.v2-site .v2-works__media::before,
+.v2-site .v2-works__media::after {
+    position: absolute;
+    top: 10px;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-radius: 999px;
+}
+
+.v2-site .v2-works__media::before {
+    content: 'ДО';
+    left: 10px;
+    background-color: #dc2626;
+}
+
+.v2-site .v2-works__media::after {
+    content: 'ПОСЛЕ';
+    right: 10px;
+    background-color: #16a34a;
 }
 
 .v2-site .v2-works__content {
@@ -244,21 +273,6 @@
     margin-bottom: 20px;
 }
 
-.v2-site .v2-consultation__form-privacy {
-    margin-top: 15px;
-    font-size: 14px;
-    margin-bottom: 0;
-}
-
-.v2-site .v2-consultation__form-link {
-    color: var(--text-color);
-    text-decoration: underline;
-}
-
-.v2-site .v2-consultation__form-link:hover {
-    text-decoration: none;
-}
-
 .v2-site .v2-consultation__form .wpcf7-form {
     display: flex;
     flex-direction: column;
@@ -298,19 +312,48 @@
 }
 
 /* ===== БЛОК "НАШИ УСЛУГИ" ===== */
+.v2-site .v2-services {
+    background-color: #e4f0f0;
+}
+
 .v2-site .v2-services__title-col {
     margin-bottom: 30px;
 }
 
 .v2-site .v2-services__description {
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
 }
 
-.v2-site .v2-services__icon {
+.v2-site .v2-services__description-avatars {
     flex-shrink: 0;
-    margin-top: 2px;
+}
+
+.v2-site .v2-services__description-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.v2-site .v2-services__rating {
+    display: flex;
+    align-items: center;
+}
+
+.v2-site .v2-services__rating-stars {
+    display: block;
+}
+
+.v2-site .v2-services__description-caption {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.v2-site .v2-services .v2-circle:not(:first-child) {
+    outline-color: #e4f0f0;
 }
 
 .v2-site .v2-services__cards {
@@ -332,7 +375,7 @@
 }
 
 .v2-site .v2-services__card-body {
-    background: #f2f2f2;
+    background: #ffffff;
     padding: 25px;
     border-radius: 20px;
     height: 100%;
@@ -359,8 +402,8 @@
 }
 
 .v2-site .v2-services__card-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 15px;
 }
 
@@ -386,7 +429,7 @@
 }
 
 .v2-site .v2-services__card-text {
-    margin: 0;
+    font-size: 16px;
 }
 
 .v2-site .v2-services__card-body .v2-btn {
@@ -396,6 +439,22 @@
 /* ===== БЛОК ПЛЮСОВ ===== */
 .v2-site .v2-plus__header {
     margin-bottom: 30px;
+}
+
+.v2-site .v2-plus__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.v2-site .v2-plus__title {
+    margin: 0;
+}
+
+.v2-site .v2-plus__title-line {
+    flex: 1;
+    height: 1px;
+    background-color: #000000;
 }
 
 .v2-site .v2-plus__header-plus {
@@ -445,10 +504,21 @@
 .v2-site .v2-plus__card--bg {
     border-radius: 20px;
     min-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.v2-site .v2-plus__card-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .v2-site .v2-plus__card--featured {
-    padding: 10px 20px 40px 20px;
     border-radius: 20px;
     text-align: center;
     display: flex;
@@ -463,16 +533,6 @@
         #84d0e4 50.21%,
         #cec1de 87.46%
     );
-}
-
-.v2-site .v2-plus__card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
 }
 
 .v2-site .v2-plus__card-content {
@@ -745,42 +805,6 @@
     background-color: var(--brand-color);
 }
 
-.v2-site .v2-reviews__nav {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-}
-
-.v2-site .v2-reviews__nav-btn {
-    width: 48px;
-    height: 48px;
-    border: 2px solid var(--brand-color);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--brand-color);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    transition: all 0.3s ease;
-}
-
-.v2-site .v2-reviews__nav-btn:hover {
-    background-color: var(--brand-color);
-    color: var(--white);
-}
-
-.v2-site .v2-reviews__nav-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.v2-site .v2-reviews__nav-btn svg {
-    width: 24px;
-    height: 24px;
-}
-
 /* ===== БЛОК РЕЙТИНГОВ ===== */
 .v2-site .v2-ratings__list {
     row-gap: 24px;
@@ -1050,47 +1074,6 @@
 
 .v2-site .v2-doctors__preview {
     margin-top: auto;
-}
-
-.v2-site .v2-doctors__nav {
-    position: absolute;
-    bottom: 20px;
-    right: 30px;
-    display: flex;
-    gap: 10px;
-    pointer-events: none;
-    z-index: 100;
-}
-
-.v2-site .v2-doctors__nav-btn {
-    pointer-events: all;
-    width: 48px;
-    height: 48px;
-    border: 2px solid var(--brand-color);
-    border-radius: 50%;
-    background: var(--white);
-    color: var(--brand-color);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    transition: all 0.3s ease;
-}
-
-.v2-site .v2-doctors__nav-btn:hover {
-    background-color: var(--brand-color);
-    color: var(--white);
-}
-
-.v2-site .v2-doctors__nav-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.v2-site .v2-doctors__nav-btn svg {
-    width: 24px;
-    height: 24px;
 }
 
 .v2-site .v2-doctors__pagination {
@@ -2187,11 +2170,6 @@
     }
 
     /* Services */
-    .v2-site .v2-services__description {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     .v2-site .v2-services__cards .v2-row {
         margin-bottom: 20px;
     }

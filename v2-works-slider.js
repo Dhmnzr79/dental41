@@ -140,6 +140,69 @@ document.addEventListener('DOMContentLoaded', function () {
             col.classList.remove('v2-works__col--hidden');
         });
     }
+
+    // Лайтбокс для изображений работ
+    var mediaImages = slider.querySelectorAll('.v2-works__media img');
+    var overlay = null;
+
+    function openLightbox(src, alt) {
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'v2-works-lightbox';
+            overlay.innerHTML = '\
+<div class=\"v2-works-lightbox__backdrop\"></div>\
+<div class=\"v2-works-lightbox__inner\">\
+  <button class=\"v2-works-lightbox__close\" aria-label=\"Закрыть просмотр\">×</button>\
+  <img class=\"v2-works-lightbox__image\" alt=\"\" loading=\"eager\">\
+</div>';
+            document.body.appendChild(overlay);
+
+            overlay.querySelector('.v2-works-lightbox__backdrop').addEventListener('click', closeLightbox);
+            overlay.querySelector('.v2-works-lightbox__close').addEventListener('click', closeLightbox);
+            
+            // Закрытие по Escape
+            document.addEventListener('keydown', function handleEscape(e) {
+                if (e.key === 'Escape' && overlay && overlay.classList.contains('v2-works-lightbox--visible')) {
+                    closeLightbox();
+                }
+            });
+        }
+
+        var img = overlay.querySelector('.v2-works-lightbox__image');
+        var inner = overlay.querySelector('.v2-works-lightbox__inner');
+        
+        // Показываем лайтбокс сразу
+        overlay.classList.add('v2-works-lightbox--visible');
+        document.body.classList.add('v2-popup-open');
+        
+        // Показываем индикатор загрузки
+        img.style.opacity = '0';
+        
+        // Загружаем изображение
+        var newImg = new Image();
+        newImg.onload = function() {
+            img.src = src;
+            img.alt = alt || '';
+            img.style.opacity = '1';
+        };
+        newImg.onerror = function() {
+            img.style.opacity = '1';
+        };
+        newImg.src = src;
+    }
+
+    function closeLightbox() {
+        if (!overlay) return;
+        overlay.classList.remove('v2-works-lightbox--visible');
+        document.body.classList.remove('v2-popup-open');
+    }
+
+    mediaImages.forEach(function (img) {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function () {
+            openLightbox(img.src, img.alt);
+        });
+    });
 });
 
 

@@ -143,3 +143,23 @@
         line-height: 1.3;
     }
 }
+
+/* ===== UTILITIES ===== */
+.v2-site .v2-text-center {
+    text-align: center;
+}
+
+.v2-site .v2-hidden {
+    display: none;
+}
+
+.v2-site .v2-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}

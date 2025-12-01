@@ -361,14 +361,23 @@ function setupValidationMessages() {
     });
 }
 
+function applyPrimaryButtonStyles() {
+    const submits = document.querySelectorAll('.v2-site .wpcf7-submit');
+    submits.forEach(btn => {
+        btn.classList.add('v2-btn', 'v2-btn--primary');
+    });
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     setupPhoneMask();
     setupValidationMessages();
+    applyPrimaryButtonStyles();
     
     // Также обрабатываем формы, добавленные динамически (например, через CF7)
     setTimeout(() => {
         setupValidationMessages();
+        applyPrimaryButtonStyles();
     }, 500);
     
     // Обработка форм CF7, которые могут загружаться асинхронно
@@ -376,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('wpcf7mailsent', () => {
             setTimeout(() => {
                 setupValidationMessages();
+                applyPrimaryButtonStyles();
             }, 100);
         });
     }

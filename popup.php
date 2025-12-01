@@ -31,9 +31,7 @@
                 Написать в WhatsApp
             </a>
 
-            <p class="v2-popup__policy">
-                * Нажимая кнопку, вы даете согласие на обработку <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener">персональных данных</a>
-            </p>
+            <?php dental_clinic_v2_privacy_notice(); ?>
         </div>
     </div>
 </div>
@@ -124,11 +122,157 @@
                         Написать в WhatsApp
                     </a>
 
-                    <p class="v2-popup__policy">
-                        * Нажимая кнопку, вы даете согласие на обработку <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener">персональных данных</a>
-                    </p>
+                    <?php dental_clinic_v2_privacy_notice(); ?>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Попапы услуг: подробное описание каждой услуги + короткая заявка -->
+
+<div id="popup-service-1" class="v2-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="popup-service-1-title">
+    <div class="v2-popup__overlay"></div>
+    <div class="v2-popup__content" role="document">
+        <button class="v2-popup__close" aria-label="Закрыть" onclick="closePopup()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <h2 class="v2-popup__title" id="popup-service-1-title">Бережная имплантация</h2>
+        <p class="v2-popup__subtitle">
+            Бережная имплантация подходит тем, кто хочет восстановить зубы с максимальным комфортом, без стресса и лишних посещений.
+            Мы заранее планируем каждый этап лечения по КТ‑диагностике, используем современные системы имплантов и анестезии,
+            чтобы операция проходила быстро, предсказуемо и с минимальной травматичностью для тканей.
+        </p>
+
+        <div class="v2-popup__form">
+            <?php echo do_shortcode('[contact-form-7 id="2b8f7ea" title="Заявка короткая"]'); ?>
+
+            <?php dental_clinic_v2_privacy_notice(); ?>
+        </div>
+    </div>
+</div>
+
+<div id="popup-service-2" class="v2-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="popup-service-2-title">
+    <div class="v2-popup__overlay"></div>
+    <div class="v2-popup__content" role="document">
+        <button class="v2-popup__close" aria-label="Закрыть" onclick="closePopup()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <h2 class="v2-popup__title" id="popup-service-2-title">Коронки</h2>
+        <p class="v2-popup__subtitle">
+            Коронки помогают восстановить форму, цвет и функцию сильно разрушенных зубов.
+            В собственной лаборатории изготавливаем конструкции под ваш прикус и улыбку,
+            используя импортные материалы с проверенной прочностью и долговечностью.
+            Чаще всего готовую коронку можно установить уже в течение одного дня после подготовки зуба.
+        </p>
+
+        <div class="v2-popup__form">
+            <?php echo do_shortcode('[contact-form-7 id="2b8f7ea" title="Заявка короткая"]'); ?>
+
+            <?php dental_clinic_v2_privacy_notice(); ?>
+        </div>
+    </div>
+</div>
+
+<div id="popup-service-3" class="v2-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="popup-service-3-title">
+    <div class="v2-popup__overlay"></div>
+    <div class="v2-popup__content" role="document">
+        <button class="v2-popup__close" aria-label="Закрыть" onclick="closePopup()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <h2 class="v2-popup__title" id="popup-service-3-title">Виниры</h2>
+        <p class="v2-popup__subtitle">
+            Виниры позволяют создать гармоничную, «кинематографичную» улыбку без грубого обтачивания живых зубов.
+            Мы работаем по технологиям ведущих мировых экспертов, тщательно согласуем форму и оттенок,
+            чтобы реставрации выглядели естественно и аккуратно в жизни, а не только на фотографиях.
+        </p>
+
+        <div class="v2-popup__form">
+            <?php echo do_shortcode('[contact-form-7 id="2b8f7ea" title="Заявка короткая"]'); ?>
+
+            <?php dental_clinic_v2_privacy_notice(); ?>
+        </div>
+    </div>
+</div>
+
+<div id="popup-service-4" class="v2-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="popup-service-4-title">
+    <div class="v2-popup__overlay"></div>
+    <div class="v2-popup__content" role="document">
+        <button class="v2-popup__close" aria-label="Закрыть" onclick="closePopup()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <h2 class="v2-popup__title" id="popup-service-4-title">Все виды лечения</h2>
+        <p class="v2-popup__subtitle">
+            В одном месте вы можете пройти полный путь лечения: от диагностики и терапии до сложной хирургии и ортопедии.
+            Мы используем современную анестезию, подбираем схемы лечения под ваш график и бюджет
+            и обязательно объясняем каждый шаг заранее, чтобы не было сюрпризов по времени и стоимости.
+        </p>
+
+        <div class="v2-popup__form">
+            <?php echo do_shortcode('[contact-form-7 id="2b8f7ea" title="Заявка короткая"]'); ?>
+
+            <?php dental_clinic_v2_privacy_notice(); ?>
+        </div>
+    </div>
+</div>
+
+<div id="popup-service-5" class="v2-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="popup-service-5-title">
+    <div class="v2-popup__overlay"></div>
+    <div class="v2-popup__content" role="document">
+        <button class="v2-popup__close" aria-label="Закрыть" onclick="closePopup()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <h2 class="v2-popup__title" id="popup-service-5-title">Отбеливание</h2>
+        <p class="v2-popup__subtitle">
+            Профессиональное отбеливание в ЦЭСИ позволяет осветлить зубы на несколько тонов без вреда для эмали.
+            Мы подбираем систему и режим процедуры с учётом исходного оттенка, чувствительности зубов и ваших ожиданий,
+            а также даём понятные рекомендации по поддержанию результата в течение нескольких лет.
+        </p>
+
+        <div class="v2-popup__form">
+            <?php echo do_shortcode('[contact-form-7 id="2b8f7ea" title="Заявка короткая"]'); ?>
+
+            <?php dental_clinic_v2_privacy_notice(); ?>
+        </div>
+    </div>
+</div>
+
+<div id="popup-service-6" class="v2-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="popup-service-6-title">
+    <div class="v2-popup__overlay"></div>
+    <div class="v2-popup__content" role="document">
+        <button class="v2-popup__close" aria-label="Закрыть" onclick="closePopup()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <h2 class="v2-popup__title" id="popup-service-6-title">Миорелаксация жевательных мышц</h2>
+        <p class="v2-popup__subtitle">
+            Миорелаксация жевательных мышц с помощью TENS‑терапии помогает снять хроническое напряжение,
+            головные боли и дискомфорт в области челюстей. Мягкие импульсы расслабляют мышцы,
+            улучшают кровоток и восстанавливают более физиологичное положение нижней челюсти,
+            что особенно важно при бруксизме и перегрузке суставов.
+        </p>
+
+        <div class="v2-popup__form">
+            <?php echo do_shortcode('[contact-form-7 id="2b8f7ea" title="Заявка короткая"]'); ?>
+
+            <?php dental_clinic_v2_privacy_notice(); ?>
         </div>
     </div>
 </div>

@@ -149,6 +149,31 @@ function dental_clinic_enqueue_v2_implants_slider() {
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implants_slider');
 
+function dental_clinic_enqueue_v2_plus_video() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-v2-plus-video',
+            get_stylesheet_directory_uri() . '/v2-plus-video.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_plus_video');
+
+/**
+ * Единый блок согласия на обработку персональных данных для всех форм v2
+ */
+function dental_clinic_v2_privacy_notice() {
+    ?>
+    <p class="v2-form-consent">
+        * Нажимая кнопку, вы даете согласие на обработку
+        <a href="<?php echo esc_url( home_url('/privacy.pdf') ); ?>" target="_blank" rel="noopener">персональных данных</a>
+    </p>
+    <?php
+}
+
 function dental_clinic_v2_fallback_menu() {
     echo '<ul class="v2-header__menu-list">';
     echo '<li><a href="' . home_url() . '">Главная</a></li>';
@@ -255,7 +280,6 @@ function dental_clinic_enqueue_v2_styles() {
         wp_enqueue_style('v2-layout', $uri . 'layout.css', array('v2-base'), $ver);
         wp_enqueue_style('v2-ui', $uri . 'ui.css', array('v2-layout'), $ver);
         wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-ui'), $ver);
-        wp_enqueue_style('v2-utilities', $uri . 'utilities.css', array('v2-components'), $ver);
     }
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);
