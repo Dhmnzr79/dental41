@@ -168,13 +168,25 @@
 
 .v2-site .v2-consultation__promo {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 15px;
     margin-bottom: 30px;
 }
 
-.v2-site .v2-consultation__date {
+.v2-site .v2-consultation__calendar-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.v2-site .v2-consultation__promo-text {
+    margin: 0;
     font-weight: 600;
+}
+
+.v2-site .v2-consultation__promo-date {
+    color: var(--brand-color);
 }
 
 .v2-site .v2-consultation__highlight {
@@ -299,10 +311,20 @@
 .v2-site .v2-consultation__form input[type='tel'],
 .v2-site .v2-consultation__form input[type='email'] {
     width: 100%;
+    height: 56px;
     padding: 12px 16px;
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 16px;
+    box-sizing: border-box;
+}
+
+.v2-site .v2-consultation__form .v2-form-consent__checkbox {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
     box-sizing: border-box;
 }
 
@@ -520,13 +542,14 @@
 
 .v2-site .v2-plus__card--featured {
     border-radius: 20px;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: relative;
     overflow: hidden;
     min-height: 550px;
+    padding: 25px;
     background: linear-gradient(
         123.98deg,
         #3ad5e3 11.49%,
@@ -538,6 +561,15 @@
 .v2-site .v2-plus__card-content {
     position: relative;
     z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.v2-site .v2-plus__card-arrow {
+    width: auto;
+    height: 30px;
+    flex-shrink: 0;
 }
 
 .v2-site .v2-plus__card--featured-title {

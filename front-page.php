@@ -311,10 +311,10 @@
                 <meta itemprop="position" content="1">
 
                 <div class="v2-indices__content">
-                    <div class="v2-indices__icon">
+                <div class="v2-indices__icon">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
                         <div class="v2-indices__icon-bg"></div>
-                    </div>
+            </div>
                     <p itemprop="name">Точная диагностика на оборудовании нового поколения — уровень клиник Москвы и Европы</p>
             </div>
         </div>
@@ -363,10 +363,11 @@
         <div class="v2-row">
             <div class="v2-col-sm-6 v2-col-lg-6 v2-consultation__left">
                 <div class="v2-consultation__promo">
-                    <div class="v2-consultation__date">
-                        <span class="v2-consultation__date-text">Акция до 30 ноября</span>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/calendar-icon.svg" alt="" class="v2-consultation__calendar-icon" aria-hidden="true">
+                    <p class="v2-consultation__promo-text">
+                        Акция <span class="v2-consultation__promo-date">до 30 ноября</span>
+                    </p>
                 </div>
-            </div>
             
                 <h2 class="v2-consultation__title" itemprop="name">
                     <span class="v2-consultation__highlight">Бесплатная</span>
@@ -382,34 +383,34 @@
                 <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                     <meta itemprop="price" content="0">
                     <meta itemprop="priceCurrency" content="RUB">
-                </div>
+            </div>
                 </div>
         
             <div class="v2-col-sm-6 v2-col-lg-6 v2-consultation__right">
                 <div class="v2-consultation__content">
-                    <div class="v2-consultation__quote" itemscope itemtype="https://schema.org/Review">
-                        <div class="v2-consultation__quote-photo">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="v2-consultation__quote-img" loading="lazy">
-                        </div>
-                        <div class="v2-consultation__quote-text">
-                            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <meta itemprop="name" content="Доктор">
-                            </div>
-                            <p class="v2-consultation__quote-content" itemprop="reviewBody">
-                        "Чем дольше ждёте — тем сложнее и дороже будет лечение"
-                    </p>
-                    </div>
+                <div class="v2-consultation__quote" itemscope itemtype="https://schema.org/Review">
+                    <div class="v2-consultation__quote-photo">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="v2-consultation__quote-img" loading="lazy">
                 </div>
-                
-                    <div class="v2-consultation__form">
-                        <h3 class="v2-consultation__form-title">Оставьте заявку<br><span class="v2-consultation__form-subtitle">– и мы всё подробно объясним</span></h3>
-                        <p class="v2-consultation__form-description">Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.</p>
-                        
-                        <?php
-                        // Contact Form 7 форма
+                    <div class="v2-consultation__quote-text">
+                        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <meta itemprop="name" content="Доктор">
+                        </div>
+                        <p class="v2-consultation__quote-content" itemprop="reviewBody">
+                    "Чем дольше ждёте — тем сложнее и дороже будет лечение"
+                </p>
+                </div>
+            </div>
+            
+                <div class="v2-consultation__form">
+                    <h3 class="v2-consultation__form-title">Оставьте заявку<br><span class="v2-consultation__form-subtitle">– и мы всё подробно объясним</span></h3>
+                    <p class="v2-consultation__form-description">Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.</p>
+                    
+                    <?php
+                    // Contact Form 7 форма
                         echo do_shortcode('[contact-form-7 id="4b1ef9d" title="Заявка консультация"]');
-                        ?>
-                        
+                    ?>
+                    
                         <?php dental_clinic_v2_privacy_notice(); ?>
                     </div>
                 </div>
@@ -448,13 +449,13 @@
                                 <path d="M48.8061 13.7L44.6561 16.2C44.4727 16.3167 44.2811 16.3667 44.0811 16.35C43.8811 16.3333 43.7061 16.2667 43.5561 16.15C43.4061 16.0333 43.2894 15.8877 43.2061 15.713C43.1227 15.5383 43.1061 15.3423 43.1561 15.125L44.2561 10.4L40.5811 7.225C40.4144 7.075 40.3104 6.904 40.2691 6.712C40.2277 6.52 40.2401 6.33267 40.3061 6.15C40.3721 5.96733 40.4721 5.81733 40.6061 5.7C40.7401 5.58267 40.9234 5.50767 41.1561 5.475L46.0061 5.05L47.8811 0.6C47.9644 0.4 48.0937 0.25 48.2691 0.15C48.4444 0.0499999 48.6234 0 48.8061 0C48.9887 0 49.1677 0.0499999 49.3431 0.15C49.5184 0.25 49.6477 0.4 49.7311 0.6L51.6061 5.05L56.4561 5.475C56.6894 5.50833 56.8727 5.58333 57.0061 5.7C57.1394 5.81667 57.2394 5.96667 57.3061 6.15C57.3727 6.33333 57.3854 6.521 57.3441 6.713C57.3027 6.905 57.1984 7.07567 57.0311 7.225L53.3561 10.4L54.4561 15.125C54.5061 15.3417 54.4894 15.5377 54.4061 15.713C54.3227 15.8883 54.2061 16.034 54.0561 16.15C53.9061 16.266 53.7311 16.3327 53.5311 16.35C53.3311 16.3673 53.1394 16.3173 52.9561 16.2L48.8061 13.7Z" fill="#FF6A09"/>
                                 <path d="M68.9287 13.7L64.7787 16.2C64.5953 16.3167 64.4037 16.3667 64.2037 16.35C64.0037 16.3333 63.8287 16.2667 63.6787 16.15C63.5287 16.0333 63.412 15.8877 63.3287 15.713C63.2453 15.5383 63.2287 15.3423 63.2787 15.125L64.3787 10.4L60.7037 7.225C60.537 7.075 60.433 6.904 60.3917 6.712C60.3503 6.52 60.3627 6.33267 60.4287 6.15C60.4947 5.96733 60.5947 5.81733 60.7287 5.7C60.8627 5.58267 61.046 5.50767 61.2787 5.475L66.1287 5.05L68.0037 0.6C68.087 0.4 68.2163 0.25 68.3917 0.15C68.567 0.0499999 68.746 0 68.9287 0C69.1113 0 69.2903 0.0499999 69.4657 0.15C69.641 0.25 69.7703 0.4 69.8537 0.6L71.7287 5.05L76.5787 5.475C76.812 5.50833 76.9953 5.58333 77.1287 5.7C77.262 5.81667 77.362 5.96667 77.4287 6.15C77.4953 6.33333 77.508 6.521 77.4667 6.713C77.4253 6.905 77.321 7.07567 77.1537 7.225L73.4787 10.4L74.5787 15.125C74.6287 15.3417 74.612 15.5377 74.5287 15.713C74.4453 15.8883 74.3287 16.034 74.1787 16.15C74.0287 16.266 73.8537 16.3327 73.6537 16.35C73.4537 16.3673 73.262 16.3173 73.0787 16.2L68.9287 13.7Z" fill="#FF6A09"/>
                                 <path d="M89.0513 13.7L84.9013 16.2C84.718 16.3167 84.5263 16.3667 84.3263 16.35C84.1263 16.3333 83.9513 16.2667 83.8013 16.15C83.6513 16.0333 83.5346 15.8877 83.4513 15.713C83.368 15.5383 83.3513 15.3423 83.4013 15.125L84.5013 10.4L80.8263 7.225C80.6596 7.075 80.5556 6.904 80.5143 6.712C80.473 6.52 80.4853 6.33267 80.5513 6.15C80.6173 5.96733 80.7173 5.81733 80.8513 5.7C80.9853 5.58267 81.1686 5.50767 81.4013 5.475L86.2513 5.05L88.1263 0.6C88.2096 0.4 88.339 0.25 88.5143 0.15C88.6896 0.0499999 88.8686 0 89.0513 0C89.234 0 89.413 0.0499999 89.5883 0.15C89.7636 0.25 89.893 0.4 89.9763 0.6L91.8513 5.05L96.7013 5.475C96.9346 5.50833 97.118 5.58333 97.2513 5.7C97.3846 5.81667 97.4846 5.96667 97.5513 6.15C97.618 6.33333 97.6306 6.521 97.5893 6.713C97.548 6.905 97.4436 7.07567 97.2763 7.225L93.6013 10.4L94.7013 15.125C94.7513 15.3417 94.7346 15.5377 94.6513 15.713C94.568 15.8883 94.4513 16.034 94.3013 16.15C94.1513 16.266 93.9763 16.3327 93.7763 16.35C93.5763 16.3673 93.3846 16.3173 93.2013 16.2L89.0513 13.7Z" fill="#FF6A09"/>
-                            </svg>
+                    </svg>
                         </div>
                         <p class="v2-services__description-caption">
                             Более 20 000 улыбок мы подарили нашим клиентам за 26 лет работы
                         </p>
                     </div>
-                </div>
+            </div>
         </div>
     </div>
 
@@ -467,10 +468,10 @@
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
                                 <div class="v2-services__card-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-06.svg" alt="" loading="lazy" aria-hidden="true">
-                                </div>
-                                <h3 class="v2-services__card-title" itemprop="name">Бережная имплантация</h3>
-                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="76200"><meta itemprop="priceCurrency" content="RUB">От 76 200 тыс.</p>
-                            </div>
+                    </div>
+                        <h3 class="v2-services__card-title" itemprop="name">Бережная имплантация</h3>
+                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="76200"><meta itemprop="priceCurrency" content="RUB">От 76 200 тыс.</p>
+                </div>
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
                                 <p class="v2-services__card-text" itemprop="description">Используем только проверенные имплантаты зубов от ведущих мировых производителей. Возможна установка за одно посещение. Пожизненная гарантия на модели имплантов Nobel (Швейцария) и Impro (Германия). Опытные имплантологи, прошедшие обучение за границей.</p>
                             </div>
@@ -484,7 +485,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
 
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="2">
@@ -493,10 +494,10 @@
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
                                 <div class="v2-services__card-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-05.svg" alt="" loading="lazy" aria-hidden="true">
-                                </div>
-                                <h3 class="v2-services__card-title" itemprop="name">Коронки</h3>
-                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="25000"><meta itemprop="priceCurrency" content="RUB">От 25 000 тыс.</p>
-                            </div>
+                    </div>
+                        <h3 class="v2-services__card-title" itemprop="name">Коронки</h3>
+                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="25000"><meta itemprop="priceCurrency" content="RUB">От 25 000 тыс.</p>
+                </div>
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
                                 <p class="v2-services__card-text" itemprop="description">Коронки изготавливаются из импортных материалов в собственной лаборатории. Быстрое изготовление конструкции — в большинстве случаев всего за 1 день! Мы предлагаем все виды коронок с гарантией до 5 лет.</p>
                             </div>
@@ -510,7 +511,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
         </div>
 
             <div class="v2-row">
@@ -521,12 +522,12 @@
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
                                 <div class="v2-services__card-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" loading="lazy" aria-hidden="true">
-                                </div>
-                                <h3 class="v2-services__card-title" itemprop="name">Виниры</h3>
+                        </div>
+                        <h3 class="v2-services__card-title" itemprop="name">Виниры</h3>
                             </div>
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
-                                <p class="v2-services__card-text" itemprop="description">Только у нас виниры, созданные по технологии ведущего мирового специалиста в области реставрации Назария Махайлюка. Полная реставрация всего за 1–2 визита, без дискомфорта.</p>
-                            </div>
+                        <p class="v2-services__card-text" itemprop="description">Только у нас виниры, созданные по технологии ведущего мирового специалиста в области реставрации Назария Махайлюка. Полная реставрация всего за 1–2 визита, без дискомфорта.</p>
+                        </div>
                         </div>
                         <div class="v2-row">
                             <div class="v2-col-sm-12 v2-col-lg-6">
@@ -537,7 +538,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
 
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="4">
@@ -546,10 +547,10 @@
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
                                 <div class="v2-services__card-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-04.svg" alt="" loading="lazy" aria-hidden="true">
-                                </div>
-                                <h3 class="v2-services__card-title" itemprop="name">Все виды лечения</h3>
-                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="8500"><meta itemprop="priceCurrency" content="RUB">От 8 500 тыс.</p>
-                            </div>
+        </div>
+                        <h3 class="v2-services__card-title" itemprop="name">Все виды лечения</h3>
+                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="8500"><meta itemprop="priceCurrency" content="RUB">От 8 500 тыс.</p>
+                        </div>
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
                                 <p class="v2-services__card-text" itemprop="description">Все виды лечения зубов без боли с гарантией результата. Мы используем самую современную анестезию, в том числе электронную. Применяем надёжные пломбировочные материалы.</p>
                             </div>
@@ -563,8 +564,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
             <div class="v2-row">
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
@@ -574,10 +575,10 @@
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
                                 <div class="v2-services__card-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-03.svg" alt="" loading="lazy" aria-hidden="true">
-                                </div>
-                                <h3 class="v2-services__card-title" itemprop="name">Отбеливание</h3>
-                                <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="18000"><meta itemprop="priceCurrency" content="RUB">От 18 000 тыс.</p>
-                            </div>
+                        </div>
+                        <h3 class="v2-services__card-title" itemprop="name">Отбеливание</h3>
+                        <p class="v2-services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="18000"><meta itemprop="priceCurrency" content="RUB">От 18 000 тыс.</p>
+                        </div>
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
                                 <p class="v2-services__card-text" itemprop="description">Красивые белые зубы без вреда для эмали! Зубы светлее на 7–10 тонов всего за 1 посещение. Эффект сохраняется на 3–5 лет.</p>
                             </div>
@@ -591,7 +592,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+    </div>
 
                 <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
                     <meta itemprop="position" content="6">
@@ -600,13 +601,13 @@
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-header">
                                 <div class="v2-services__card-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-02.svg" alt="" loading="lazy" aria-hidden="true">
-                                </div>
-                                <h3 class="v2-services__card-title" itemprop="name">Миорелаксация жевательных мышц (TENS-терапия)</h3>
+            </div>
+                        <h3 class="v2-services__card-title" itemprop="name">Миорелаксация жевательных мышц (TENS-терапия)</h3>
                             </div>
                             <div class="v2-col-sm-12 v2-col-lg-6 v2-services__card-description">
-                                <p class="v2-services__card-text" itemprop="description">Безболезненная процедура, которая расслабляет жевательные мышцы и восстанавливает правильное положение челюсти. Подходит при бруксизме, болях, щелчках и напряжении в лице. За 40 минут мягкие импульсы улучшают кровоток, снимают спазмы и восстанавливают симметрию лица.</p>
-                            </div>
-                        </div>
+                        <p class="v2-services__card-text" itemprop="description">Безболезненная процедура, которая расслабляет жевательные мышцы и восстанавливает правильное положение челюсти. Подходит при бруксизме, болях, щелчках и напряжении в лице. За 40 минут мягкие импульсы улучшают кровоток, снимают спазмы и восстанавливают симметрию лица.</p>
+                </div>
+                    </div>
                         <div class="v2-row">
                             <div class="v2-col-sm-12 v2-col-lg-6">
                                 <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на миорелаксацию жевательных мышц">Записаться</button>
@@ -627,7 +628,7 @@
         <div class="v2-row">
             <div class="v2-col-sm-12 v2-col-lg-8 v2-plus__header">
                 <div class="v2-plus__title-wrapper">
-                    <h2 class="v2-plus__title">Премиум-лечение<br>по адекватной цене</h2>
+                <h2 class="v2-plus__title">Премиум-лечение<br>по адекватной цене</h2>
                     <div class="v2-plus__title-line"></div>
                 </div>
         </div>
@@ -690,7 +691,7 @@
                         >
                             <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/plus-bg.mp4" type="video/mp4">
                         </video>
-                    </div>
+        </div>
         
                     <div class="v2-col-sm-12 v2-col-lg-6 v2-plus__card">
                         <div class="v2-plus__icon">
@@ -711,10 +712,11 @@
             <div class="v2-col-sm-12 v2-col-lg-4 v2-plus__right">
                 <div class="v2-plus__card v2-plus__card--featured">
                     <div class="v2-plus__card-content">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/arrow-2.svg" alt="" class="v2-plus__card-arrow" aria-hidden="true">
                         <h3 class="v2-plus__card-title v2-plus__card--featured-title">Имплантация за 1 день</h3>
                         <p class="v2-plus__card-text v2-plus__card--featured-text">Без боли, с временной коронкой сразу. Благодаря нашей цифровой лаборатории вы уходите домой уже с зубом.</p>
+                    </div>
                         <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Хочу зубы за один день">Хочу зубы за один день</button>
-        </div>
                 </div>
             </div>
         </div>
@@ -1238,7 +1240,7 @@
 
         <div class="v2-row v2-doctors__slider-row">
             <div class="v2-col-sm-12 v2-col-lg-12">
-                    <div class="v2-doctors__slider" data-slider="doctors" aria-roledescription="carousel" aria-label="Наши врачи">
+                <div class="v2-doctors__slider" data-slider="doctors" aria-roledescription="carousel" aria-label="Наши врачи">
                     <div class="v2-doctors__slider-track">
                         <?php
                         $doctors = new WP_Query(array(

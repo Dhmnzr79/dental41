@@ -364,7 +364,7 @@ function setupValidationMessages() {
 function applyPrimaryButtonStyles() {
     const submits = document.querySelectorAll('.v2-site .wpcf7-submit');
     submits.forEach(btn => {
-        btn.classList.add('v2-btn', 'v2-btn--primary');
+        btn.classList.add('v2-form-btn');
     });
 }
 

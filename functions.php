@@ -167,10 +167,13 @@ add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_plus_video');
  */
 function dental_clinic_v2_privacy_notice() {
     ?>
-    <p class="v2-form-consent">
-        * Нажимая кнопку, вы даете согласие на обработку
-        <a href="<?php echo esc_url( home_url('/privacy.pdf') ); ?>" target="_blank" rel="noopener">персональных данных</a>
-    </p>
+    <label class="v2-form-consent">
+        <input type="checkbox" class="v2-form-consent__checkbox" checked required>
+        <span class="v2-form-consent__text">
+            Нажимая кнопку, вы даете согласие на обработку
+            <span><a href="<?php echo esc_url( home_url('/privacy.pdf') ); ?>" target="_blank" rel="noopener">персональных данных</a></span>
+        </span>
+    </label>
     <?php
 }
 
