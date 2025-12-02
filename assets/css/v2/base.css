@@ -39,8 +39,19 @@
     --text: #111827;
 }
 
-.v2-site html {
+html {
     box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+body.v2-site {
+    margin: 0;
+    font-family: var(--body-font);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #ffffff;
 }
 
 .v2-site *,
@@ -49,17 +60,7 @@
     box-sizing: inherit;
 }
 
-.v2-site body {
-    margin: 0;
-    font-family: var(--body-font);
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--text-color);
-    background: var(--bg);
-}
-
-.v2-site body.v2-popup-open {
+body.v2-site.v2-popup-open {
     overflow: hidden;
 }
 
@@ -135,7 +136,7 @@
 
 /* max-width: 767px (мобилки) */
 @media (max-width: 767px) {
-    .v2-site body {
+    body.v2-site {
         padding-top: 64px;
         font-size: 16px;
         line-height: 1.5;
