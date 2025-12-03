@@ -37,6 +37,8 @@
     --border: #e8ebef;
     --bg: #ffffff;
     --text: #111827;
+    --bg-light: #D7EDEF;
+    --bg-dark: #4899CC;
 }
 
 html {

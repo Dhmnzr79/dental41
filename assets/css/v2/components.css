@@ -2,6 +2,10 @@
 /* Блоки добавляются по одному */
 
 /* ===== БЛОК НАШИХ РАБОТ ===== */
+.v2-site .v2-works {
+    background: var(--bg-dark);
+}
+
 .v2-site .v2-works__head {
     row-gap: 24px;
     margin-bottom: 32px;
@@ -100,19 +104,26 @@
     margin-top: 32px;
 }
 
+.v2-site .v2-works .v2-circle:not(:first-child) {
+    outline-color: var(--bg-dark);
+}
+
+.v2-site .v2-works h2 {
+    color: var(--white);
+}
+
 /* ===== БЛОК ИНДЕКСОВ ===== */
 .v2-site .v2-indices {
     padding-block: 0;
 }
 
 .v2-site .v2-indices__card {
-    background: rgba(221, 221, 221, 0.65);
+    background: #dff0f2;
     border-radius: 20px;
     padding: 20px 15px;
     position: relative;
     transition: transform 0.3s ease;
-    border-top: 1px solid rgba(255, 255, 255, 1);
-    border-left: 1px solid rgba(255, 255, 255, 1);
+    /* border-top: 1px solid rgba(255, 255, 255, 1); */ /* border-left: 1px solid rgba(255, 255, 255, 1); */
 }
 
 .v2-site .v2-indices__card:hover {
@@ -143,6 +154,10 @@
     border-radius: 10px;
 }
 
+.v2-site .v2-indices__content p {
+    font-size: 16px;
+}
+
 .v2-site .v2-indices__icon-bg {
     width: 48px;
     height: 48px;
@@ -164,7 +179,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .v2-site .v2-consultation__calendar-icon {
@@ -174,8 +189,8 @@
 }
 
 .v2-site .v2-consultation__promo-text {
-    margin: 0;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .v2-site .v2-consultation__promo-date {
@@ -187,7 +202,7 @@
 }
 
 .v2-site .v2-consultation__benefits {
-    margin-bottom: 30px;
+    margin-top: 40px;
     list-style: none;
     padding: 0;
     margin-left: 0;
@@ -197,23 +212,38 @@
     padding-left: 50px;
 }
 
-.v2-site .v2-consultation__benefits li {
-    margin-bottom: 15px;
+.v2-site .v2-consultation__benefits li:first-child {
+    margin: 0;
+    padding-bottom: 20px;
 }
 
-.v2-site .v2-consultation__benefits li:last-child {
-    margin-bottom: 0;
+.v2-site .v2-consultation__benefits li:nth-child(2) {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.v2-site .v2-consultation__benefits li:nth-child(3) {
+    margin: 0;
+    padding-top: 20px;
 }
 
 .v2-site .v2-consultation__right {
-    background: #23bfcf;
     padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(
+        143.28deg,
+        #d6e5e8 8.91%,
+        #9be8f4 46.48%,
+        #cec1de 98.73%
+    );
 }
 
 .v2-site .v2-consultation__content {
     display: flex;
     flex-direction: column;
-    gap: 30px;
 }
 
 .v2-site .v2-consultation__quote {
@@ -281,7 +311,8 @@
 .v2-site .v2-consultation__form .wpcf7-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
+    padding: 20px 0;
 }
 
 .v2-site .v2-consultation__form .wpcf7-form > p {
@@ -328,7 +359,7 @@
 
 /* ===== БЛОК "НАШИ УСЛУГИ" ===== */
 .v2-site .v2-services {
-    background-color: #e4f0f0;
+    background-color: var(--bg-dark);
 }
 
 .v2-site .v2-services__title-col {
@@ -368,7 +399,11 @@
 }
 
 .v2-site .v2-services .v2-circle:not(:first-child) {
-    outline-color: #e4f0f0;
+    outline-color: var(--bg-dark);
+}
+
+.v2-site .v2-services h2 {
+    color: var(--white);
 }
 
 .v2-site .v2-services__cards {
@@ -543,12 +578,7 @@
     overflow: hidden;
     min-height: 550px;
     padding: 25px;
-    background: linear-gradient(
-        123.98deg,
-        #3ad5e3 11.49%,
-        #84d0e4 50.21%,
-        #cec1de 87.46%
-    );
+    background: var(--bg-light);
 }
 
 .v2-site .v2-plus__card-content {
@@ -566,11 +596,9 @@
 }
 
 .v2-site .v2-plus__card--featured-title {
-    color: var(--white);
-}
-
-.v2-site .v2-plus__card--featured-text {
-    color: var(--white);
+    color: var(--brand-color);
+    font-size: 36px;
+    line-height: 1.1;
 }
 
 /* ===== БЛОК ДОВЕРИЯ ===== */
@@ -605,21 +633,21 @@
 }
 
 .v2-site .v2-trust__card:nth-child(1) .v2-trust__icon-main {
-    background-image: url('../../../images/tech-icon-01.png');
+    background-image: url('../../images/tech-icon-01.png');
 }
 
 .v2-site .v2-trust__card:nth-child(2) .v2-trust__icon-main {
-    background-image: url('../../../images/tech-icon-02.jpg');
+    background-image: url('../../images/tech-icon-02.jpg');
 }
 
 .v2-site .v2-trust__card:nth-child(3) .v2-trust__icon-main {
-    background-image: url('../../../images/tech-icon-03.jpg');
+    background-image: url('../../images/tech-icon-03.jpg');
 }
 
 .v2-site .v2-trust__icon-arrow {
     width: 50px;
     height: 50px;
-    background-image: url('../../../svg/tech-arrow.svg');
+    background-image: url('../../svg/tech-arrow.svg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -634,31 +662,49 @@
     margin-bottom: 40px;
 }
 
+.v2-site .v2-guarantees__title {
+    font-size: 36px;
+}
+
 .v2-site .v2-guarantees__subtitle {
     margin-top: 15px;
     margin-bottom: 0;
 }
 
-.v2-site .v2-guarantees__left .v2-row {
-    margin-bottom: 30px;
+.v2-site .v2-guarantees__left {
+    padding: 30px;
+    background: var(--bg-light);
+    border-radius: 20px;
 }
 
-.v2-site .v2-guarantees__left .v2-row:last-of-type {
-    margin-bottom: 0;
+.v2-site .v2-guarantees__items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .v2-site .v2-guarantees__item {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
 }
 
 .v2-site .v2-guarantees__icon {
-    width: 24px;
-    height: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
     margin-right: 15px;
     flex-shrink: 0;
-    margin-top: 3px;
+    object-fit: cover;
+}
+
+.v2-site .v2-guarantees__text {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin: 0;
 }
 
 .v2-site .v2-guarantees__additional {
@@ -678,16 +724,36 @@
 .v2-site .v2-guarantees__additional-item {
     flex: 1;
     min-width: 200px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.v2-site .v2-guarantees__additional-icon {
+    flex-shrink: 0;
+}
+
+.v2-site .v2-guarantees__additional-icon svg {
+    display: block;
+    width: 24px;
+    height: 24px;
 }
 
 .v2-site .v2-guarantees__additional-text {
-    margin: 0;
+    font-size: 16px;
 }
 
 .v2-site .v2-guarantees__right {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: flex-start;
+}
+
+.v2-site .v2-guarantees__right-icon {
+    width: auto;
+    height: 64px;
+    flex-shrink: 0;
 }
 
 .v2-site .v2-guarantees__right-title {
@@ -696,6 +762,10 @@
 
 .v2-site .v2-guarantees__right-text {
     margin: 0;
+}
+
+.v2-site .v2-guarantees__right .v2-btn {
+    margin-top: auto;
 }
 
 /* ===== БЛОК ОТЗЫВОВ ===== */
@@ -1155,6 +1225,10 @@
 }
 
 /* ===== БЛОК ИМПЛАНТОВ ===== */
+.v2-site .v2-implants {
+    background: var(--bg-dark);
+}
+
 .v2-site .v2-implants__head {
     row-gap: 24px;
     margin-bottom: 32px;
@@ -1387,6 +1461,14 @@
     margin: 0;
     font-weight: 600;
     font-size: 16px;
+}
+
+.v2-site .v2-implants .v2-circle:not(:first-child) {
+    outline-color: var(--bg-dark);
+}
+
+.v2-site .v2-implants h2 {
+    color: var(--white);
 }
 
 /* ===== БЛОК ВИДОВ ИМПЛАНТАЦИИ ===== */
@@ -2357,8 +2439,8 @@
     }
 
     /* Guarantees */
-    .v2-site .v2-guarantees__item {
-        margin-bottom: 15px;
+    .v2-site .v2-guarantees__items-grid {
+        grid-template-columns: 1fr;
     }
 
     .v2-site .v2-guarantees__additional-items {

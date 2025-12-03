@@ -532,7 +532,7 @@
 }
 
 .v2-site .v2-circle:not(:first-child) {
-    margin-left: -15px;
+    margin-left: -10px;
     z-index: 2;
     outline: 4px solid var(--white);
     outline-offset: 0;

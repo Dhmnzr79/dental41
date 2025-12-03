@@ -144,44 +144,44 @@
                     <div class="v2-hero-mobile__benefit">
                         <svg class="v2-hero-mobile__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_hero_mobile_1)">
-                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                            </g>
-                            <defs>
+                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                </g>
+                <defs>
                                 <clipPath id="clip0_hero_mobile_1">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <span>Без боли — идете домой с красивыми зубами</span>
-                    </div>
-                    
+                        <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            <span>Без боли — идете домой с красивыми зубами</span>
+        </div>
+            
                     <div class="v2-hero-mobile__benefit">
                         <svg class="v2-hero-mobile__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_hero_mobile_2)">
-                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                            </g>
-                            <defs>
+                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                </g>
+                <defs>
                                 <clipPath id="clip0_hero_mobile_2">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <span>Без переплат — прозрачные цены</span>
-                    </div>
-                    
+                        <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            <span>Без переплат — прозрачные цены</span>
+        </div>
+            
                     <div class="v2-hero-mobile__benefit">
                         <svg class="v2-hero-mobile__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_hero_mobile_3)">
-                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                            </g>
-                            <defs>
+                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                        </g>
+                        <defs>
                                 <clipPath id="clip0_hero_mobile_3">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <span>99,8% приживаемость + пожизненная гарантия на импланты</span>
-                    </div>
+                                <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span>99,8% приживаемость + пожизненная гарантия на импланты</span>
+                </div>
                     
                     <div class="v2-hero-mobile__conclusion">Ешьте любимую еду. Выглядите на 10 лет моложе.</div>
                 </div>
@@ -225,12 +225,12 @@
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/arrow-2.svg" alt="" class="v2-hero__icon" aria-hidden="true">
                             <span>99,8% приживаемость + пожизненная гарантия на импланты</span>
                         </div>
-                    </div>
+                </div>
                     
                     <div class="v2-hero__conclusion">
-                        Ешьте любимую еду. Выглядите на 10 лет моложе.
-                    </div>
+                    Ешьте любимую еду. Выглядите на 10 лет моложе.
                 </div>
+            </div>
             
                 <div class="v2-hero__actions">
                     <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Вернуть улыбку</button>
@@ -280,7 +280,7 @@
 
                 <div class="v2-indices__content">
                 <div class="v2-indices__icon">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
                         <div class="v2-indices__icon-bg"></div>
             </div>
                     <p itemprop="name">Точная диагностика на оборудовании нового поколения — уровень клиник Москвы и Европы</p>
@@ -291,7 +291,7 @@
                 <meta itemprop="position" content="2">
                 <div class="v2-indices__content">
                     <div class="v2-indices__icon">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-02.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
                         <div class="v2-indices__icon-bg"></div>
                     </div>
                     <p itemprop="name">Помогаем в сложных случаях, когда другие бессильны</p>
@@ -302,7 +302,7 @@
                 <meta itemprop="position" content="3">
                 <div class="v2-indices__content">
                     <div class="v2-indices__icon">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-03.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
                         <div class="v2-indices__icon-bg"></div>
                     </div>
                     <p itemprop="name">Изготавливаем протезы у себя - это быстрее, точнее и надёжнее.</p>
@@ -313,7 +313,7 @@
                 <meta itemprop="position" content="4">
                 <div class="v2-indices__content">
                     <div class="v2-indices__icon">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index_icon_01.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-04.svg" alt="" class="v2-indices__icon-image" aria-hidden="true">
                         <div class="v2-indices__icon-bg"></div>
                     </div>
                     <p itemprop="name">Входим в ТОП рейтинга Яндекса, ПроДокторов и Google</p>
@@ -335,7 +335,7 @@
                     <p class="v2-consultation__promo-text">
                         Акция <span class="v2-consultation__promo-date">до 30 ноября</span>
                     </p>
-                </div>
+            </div>
             
                 <h2 class="v2-consultation__title" itemprop="name">
                     <span class="v2-consultation__highlight">Бесплатная</span>
@@ -371,7 +371,7 @@
             </div>
             
                 <div class="v2-consultation__form">
-                    <h3 class="v2-consultation__form-title">Оставьте заявку<br><span class="v2-consultation__form-subtitle">– и мы всё подробно объясним</span></h3>
+                    <h3 class="v2-consultation__form-title">Оставьте заявку</h3>
                     <p class="v2-consultation__form-description">Мы перезвоним вам в ближайшее время, разберём вашу ситуацию, подскажем подходящие варианты имплантации и запишем на консультацию, если захотите.</p>
                     
                     <?php
@@ -681,7 +681,7 @@
                 <div class="v2-plus__card v2-plus__card--featured">
                     <div class="v2-plus__card-content">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/arrow-2.svg" alt="" class="v2-plus__card-arrow" aria-hidden="true">
-                        <h3 class="v2-plus__card-title v2-plus__card--featured-title">Имплантация за 1 день</h3>
+                        <h3 class="v2-plus__card-title v2-plus__card--featured-title">Имплантация<br>за 1 день</h3>
                         <p class="v2-plus__card-text v2-plus__card--featured-text">Без боли, с временной коронкой сразу. Благодаря нашей цифровой лаборатории вы уходите домой уже с зубом.</p>
                     </div>
                         <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Хочу зубы за один день">Хочу зубы за один день</button>
@@ -747,39 +747,29 @@
                     <p class="v2-guarantees__subtitle">Все гарантии прописаны в договоре — вы защищены документально.</p>
             </div>
             
-                <div class="v2-row">
-                    <div class="v2-col-sm-12 v2-col-lg-6 v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <div class="v2-guarantees__items-grid">
+                    <div class="v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="1">
-                        <svg class="v2-guarantees__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <p class="v2-guarantees__text" itemprop="name"><strong>Работа врача</strong> — гарантия 1 год</p>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/tech-icon-01.png" alt="" class="v2-guarantees__icon" aria-hidden="true" loading="lazy">
+                        <p class="v2-guarantees__text" itemprop="name"><strong>Работа врача</strong><span>— гарантия 1 год</span></p>
                     </div>
 
-                    <div class="v2-col-sm-12 v2-col-lg-6 v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <div class="v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="2">
-                        <svg class="v2-guarantees__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <p class="v2-guarantees__text" itemprop="name"><strong>Импланты Implantium (Корея)</strong> — 5 лет гарантии</p>
-                    </div>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/tech-icon-02.jpg" alt="" class="v2-guarantees__icon" aria-hidden="true" loading="lazy">
+                        <p class="v2-guarantees__text" itemprop="name"><strong>Импланты Implantium (Корея)</strong><span>— 5 лет гарантии</span></p>
                 </div>
 
-                <div class="v2-row">
-                    <div class="v2-col-sm-12 v2-col-lg-6 v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <div class="v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="3">
-                        <svg class="v2-guarantees__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <p class="v2-guarantees__text" itemprop="name"><strong>Импланты Nobel (Швейцария)</strong> — пожизненная гарантия</p>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/tech-icon-03.jpg" alt="" class="v2-guarantees__icon" aria-hidden="true" loading="lazy">
+                        <p class="v2-guarantees__text" itemprop="name"><strong>Импланты Nobel (Швейцария)</strong><span>— пожизненная гарантия</span></p>
                     </div>
 
-                    <div class="v2-col-sm-12 v2-col-lg-6 v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <div class="v2-guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="4">
-                        <svg class="v2-guarantees__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                        </svg>
-                        <p class="v2-guarantees__text" itemprop="name"><strong>Импланты Impro (Германия)</strong> — пожизненная гарантия</p>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="" class="v2-guarantees__icon" aria-hidden="true" loading="lazy">
+                        <p class="v2-guarantees__text" itemprop="name"><strong>Импланты Impro (Германия)</strong><span>— пожизненная гарантия</span></p>
                     </div>
                 </div>
 
@@ -787,12 +777,48 @@
                     <h4 class="v2-guarantees__additional-title">Дополнительно</h4>
                     <div class="v2-guarantees__additional-items">
                         <div class="v2-guarantees__additional-item">
+                            <div class="v2-guarantees__additional-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip_guarantees_a1)">
+                                        <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip_guarantees_a1">
+                                            <rect width="24" height="24" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
                             <p class="v2-guarantees__additional-text">Только сертифицированные импланты.</p>
         </div>
                         <div class="v2-guarantees__additional-item">
+                            <div class="v2-guarantees__additional-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip_guarantees_a2)">
+                                        <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip_guarantees_a2">
+                                            <rect width="24" height="24" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
                             <p class="v2-guarantees__additional-text">Честная цена с первой консультации.</p>
         </div>
                         <div class="v2-guarantees__additional-item">
+                            <div class="v2-guarantees__additional-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip_guarantees_a3)">
+                                        <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip_guarantees_a3">
+                                            <rect width="24" height="24" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
                             <p class="v2-guarantees__additional-text">Налоговый вычет</p>
         </div>
         </div>
@@ -800,10 +826,12 @@
         </div>
         
             <div class="v2-col-sm-12 v2-col-lg-4 v2-guarantees__right">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/question.svg" alt="" class="v2-guarantees__right-icon" aria-hidden="true" loading="lazy">
                 <h3 class="v2-guarantees__right-title">Почему гарантия на работу врача — 1 год?</h3>
                 <p class="v2-guarantees__right-text">Год — это объективный срок, в течение которого можно оценить результат лечения.</p>
                 <p class="v2-guarantees__right-text">Далее многое зависит от самого пациента: здоровье, гигиена, хронические болезни и соблюдение рекомендаций.</p>
                 <p class="v2-guarantees__right-text">Бессрочная гарантия — это миф. Мы даём честную и обоснованную гарантию. И даже когда срок заканчивается, мы всегда остаёмся рядом, открыты к вашим вопросам и готовы помочь в любой ситуации.</p>
+                <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Записаться на консультацию</button>
             </div>
         </div>
     </div>
@@ -814,12 +842,23 @@
         <div class="v2-row v2-works__head">
             <div class="v2-col-sm-12 v2-col-lg-8 v2-works__head-main">
                 <h2 id="v2-works-title" class="v2-works__title" itemprop="name">
-                    Посмотрите, как мы<br>
-                    возвращаем людям улыбку и<br>
-                    уверенность
+                    Посмотрите, как мы
+                    возвращаем людям улыбку и
+                уверенность
                 </h2>
             </div>
             <div class="v2-col-sm-12 v2-col-lg-4 v2-works__head-aside">
+                    <div class="v2-services__circles v2-circle-group">
+                        <div class="v2-services__circle v2-circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy">
+                            </div>
+                        <div class="v2-services__circle v2-circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Довольная пациентка" loading="lazy">
+                            </div>
+                        <div class="v2-services__circle v2-circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-10.jpg" alt="Довольный пациент" loading="lazy">
+                            </div>
+                        </div>
                 <p class="v2-works__subtitle" itemprop="description">
                     Настоящие истории наших пациентов. Эти результаты достигнуты у нас, в клинике ЦЭСИ.
                 </p>
