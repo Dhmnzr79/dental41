@@ -1690,12 +1690,18 @@
 
                         <div class="v2-implants__details-section">
                             <h4 class="v2-implants__details-title">Оплата:</h4>
-                            <p class="v2-implants__details-text">1 этап (хирургия) ~ <strong>45 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>1 этап (хирургия) ~ <strong>45 200 ₽</strong></li>
+                                <li>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></li>
+                            </ul>
                         </div>
 
                         <div class="v2-implants__details-section">
                             <h4 class="v2-implants__details-title">Гарантии:</h4>
-                            <p class="v2-implants__details-text">На имплант 5 лет<br>На работу доктора 1 год</p>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>На имплант 5 лет</li>
+                                <li>На работу доктора 1 год</li>
+                            </ul>
                         </div>
 
                         <div class="v2-implants__details-section">
@@ -1744,12 +1750,18 @@
 
                         <div class="v2-implants__details-section">
                             <h4 class="v2-implants__details-title">Оплата:</h4>
-                            <p class="v2-implants__details-text">1 этап (хирургия) ~ <strong>54 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>1 этап (хирургия) ~ <strong>54 200 ₽</strong></li>
+                                <li>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></li>
+                            </ul>
                         </div>
 
                         <div class="v2-implants__details-section">
                             <h4 class="v2-implants__details-title">Гарантии:</h4>
-                            <p class="v2-implants__details-text">На имплант пожизненная<br>На работу доктора 1 год</p>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>На имплант пожизненная</li>
+                                <li>На работу доктора 1 год</li>
+                            </ul>
                         </div>
 
                         <div class="v2-implants__details-section">
@@ -1793,12 +1805,18 @@
 
                         <div class="v2-implants__details-section">
                             <h4 class="v2-implants__details-title">Оплата:</h4>
-                            <p class="v2-implants__details-text">1 этап (хирургия) ~ <strong>70 200 ₽</strong><br>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></p>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>1 этап (хирургия) ~ <strong>70 200 ₽</strong></li>
+                                <li>2 этап (ортопедия) ~ <strong>31 000 ₽</strong></li>
+                            </ul>
                         </div>
 
                         <div class="v2-implants__details-section">
                             <h4 class="v2-implants__details-title">Гарантии:</h4>
-                            <p class="v2-implants__details-text">На имплант пожизненная<br>На работу доктора 1 год</p>
+                            <ul class="v2-implants__details-list" role="list">
+                                <li>На имплант пожизненная</li>
+                                <li>На работу доктора 1 год</li>
+                            </ul>
                         </div>
 
                         <div class="v2-implants__details-section">

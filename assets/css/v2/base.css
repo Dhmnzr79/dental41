@@ -50,7 +50,7 @@ body.v2-site {
     margin: 0;
     font-family: var(--body-font);
     font-weight: 400;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--text-color);
     background-color: #ffffff;
@@ -67,7 +67,7 @@ body.v2-site.v2-popup-open {
 }
 
 .v2-site p {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.6;
     margin: 0;
 }

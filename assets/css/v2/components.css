@@ -1,9 +1,9 @@
-* Компоненты v2 */
+/* Компоненты v2 */
 /* Блоки добавляются по одному */
 
 /* ===== БЛОК НАШИХ РАБОТ ===== */
 .v2-site .v2-works {
-    background: var(--bg-dark);
+    background-color: var(--bg-dark);
 }
 
 .v2-site .v2-works__head {
@@ -283,7 +283,9 @@
 }
 
 .v2-site .v2-consultation__quote-content {
-    font-weight: 600;
+    /* font-weight: 600; */
+    padding-bottom: 20px;
+    font-weight: 400
 }
 
 .v2-site .v2-consultation__form {
@@ -488,7 +490,7 @@
 
 /* ===== БЛОК ПЛЮСОВ ===== */
 .v2-site .v2-plus__header {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .v2-site .v2-plus__title-wrapper {
@@ -574,9 +576,9 @@
     justify-content: space-between;
     position: relative;
     overflow: hidden;
-    min-height: 550px;
     padding: 25px;
     background: var(--bg-light);
+    height: 100%;
 }
 
 .v2-site .v2-plus__card-content {
@@ -649,6 +651,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    margin-left: -25px;
 }
 
 .v2-site .v2-trust__card-title {
@@ -1130,7 +1133,7 @@
 
 .v2-site .v2-doctors__card-info {
     position: relative;
-    padding-right: 35%;
+    padding-right: 45%;
 }
 
 .v2-site .v2-doctors__name {
@@ -1245,6 +1248,10 @@
     gap: 24px;
 }
 
+.v2-site .v2-implants__subtitle {
+    color: var(--white);
+}
+
 .v2-site .v2-implants__slider-wrapper {
     margin-bottom: 24px;
     overflow: hidden;
@@ -1286,6 +1293,11 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.v2-site .v2-implants__col:nth-child(2) .v2-implants__card-header {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
 .v2-site .v2-implants__brand-info {
     display: flex;
     flex-direction: column;
@@ -1325,24 +1337,24 @@
 
 .v2-site .v2-implants__current-price {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--brand-color);
+    font-family: var(--heading-font);
 }
 
 .v2-site .v2-implants__recommendation-badge {
-    position: absolute;
-    top: 24px;
-    right: 24px;
     background-color: var(--brand-color);
     color: #fff;
     padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 12px;
+    border-radius: 5px;
+    font-size: 14px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     z-index: 1;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 .v2-site .v2-implants__heart-icon {
@@ -1375,7 +1387,8 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+    font-size: 15px;
 }
 
 .v2-site .v2-implants__details-list li {
@@ -1410,8 +1423,8 @@
 
 .v2-site .v2-implants__savings-text {
     text-align: center;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    color: rgb(255 0 0 / 60%);
 }
 
 .v2-site .v2-implants__pagination-row {
@@ -1437,12 +1450,6 @@
 
 .v2-site .v2-implants__dot[aria-current='true'] {
     background-color: var(--brand-color);
-}
-
-.v2-site .v2-implants__bonus {
-    row-gap: 24px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .v2-site .v2-implants__bonus-title {
@@ -1477,12 +1484,19 @@
 }
 
 /* ===== БЛОК ВИДОВ ИМПЛАНТАЦИИ ===== */
+.v2-site .v2-implant-types {
+    background: var(--bg-light);
+}
+
 .v2-site .v2-implant-types__title-col {
     margin-bottom: 16px;
 }
 
 .v2-site .v2-implant-types__tabs-container {
-    margin-top: 32px;
+    margin-top: 30px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
 }
 
 .v2-site .v2-implant-types__tabs {
@@ -2153,11 +2167,11 @@
     align-items: center;
     gap: 15px;
     padding: 16px;
-    border: 2px solid;
+    border: none;
     border-radius: 10px;
-    background: transparent;
-    color: var(--brand-color, #23bfcf);
-    font-size: 16px;
+    background: #1ab839;
+    color: #ffffff;
+    font-size: 17px;
     font-weight: 500;
     cursor: pointer;
     text-decoration: none;
@@ -2184,9 +2198,10 @@
 
 .v2-site .v2-hero__right {
     position: relative;
-    background: #ffcccc;
+    background-color: var(--bg-light);
     overflow: visible;
     padding: 25px;
+    border-radius: 20px;
 }
 
 .v2-site .v2-hero__photo {
@@ -2222,19 +2237,35 @@
 .v2-site .v2-hero__stat {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0px;
+}
+
+.v2-site .v2-hero__stat p {
+    text-align: right;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 .v2-site .v2-hero__stat-number {
     font-family: var(--heading-font, 'NTSomic', sans-serif);
-    font-size: 32px;
+    font-size: 54px;
     font-weight: 600;
     line-height: 1.2;
     color: var(--heading-color);
+    text-align: right;
 }
 
 .v2-site .v2-hero__testimonial {
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.v2-site .v2-hero__testimonial p {
+    text-align: right;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
 .v2-site .v2-hero__testimonial-link {
