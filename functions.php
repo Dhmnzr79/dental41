@@ -98,8 +98,8 @@ function dental_clinic_enqueue_v2_reviews_slider() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_reviews_slider');
 
 function dental_clinic_enqueue_v2_header_menu() {
-    // Загружаем скрипт на главной странице и страницах блога
-    if (is_front_page() || is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
+    // Загружаем скрипт на главной странице, страницах блога и врачей
+    if (is_front_page() || is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post') || is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
         wp_enqueue_script(
             'dental-clinic-v2-header-menu',
             get_stylesheet_directory_uri() . '/v2-header-menu.js',
@@ -273,6 +273,10 @@ function dental_clinic_add_v2_body_class($classes) {
     if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
         $classes[] = 'v2-site';
     }
+    // Добавляем класс для страниц врачей
+    if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
+        $classes[] = 'v2-site';
+    }
     return $classes;
 }
 add_filter('body_class', 'dental_clinic_add_v2_body_class');
@@ -290,6 +294,11 @@ function dental_clinic_enqueue_v2_styles() {
         $is_v2_page = true;
     }
     
+    // Страницы врачей: архив и отдельный врач
+    if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
+        $is_v2_page = true;
+    }
+    
     if ($is_v2_page) {
         $ver = wp_get_theme()->get('Version');
         $uri = get_stylesheet_directory_uri() . '/assets/css/v2/';
@@ -303,6 +312,11 @@ function dental_clinic_enqueue_v2_styles() {
         // Подключаем стили блога для страниц блога
         if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
             wp_enqueue_style('v2-pages-blog', $uri . 'pages/blog.css', array('v2-components'), $ver);
+        }
+        
+        // Подключаем стили врачей для страниц врачей
+        if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
+            wp_enqueue_style('v2-pages-doctors', $uri . 'pages/doctors.css', array('v2-components'), $ver);
         }
     }
 }
@@ -528,6 +542,14 @@ function dental_clinic_force_add_review_meta_boxes() {
 add_action('add_meta_boxes_review', 'dental_clinic_force_add_review_meta_boxes');
 add_action('add_meta_boxes', 'dental_clinic_add_meta_boxes');
 
+// Подключаем медиабиблиотеку WordPress для загрузки сертификатов
+function dental_clinic_enqueue_media_uploader() {
+    if (get_post_type() === 'doctor') {
+        wp_enqueue_media();
+    }
+}
+add_action('admin_enqueue_scripts', 'dental_clinic_enqueue_media_uploader');
+
 function dental_clinic_doctor_meta_box_callback($post) {
     wp_nonce_field('dental_clinic_save_doctor_meta', 'dental_clinic_doctor_meta_nonce');
     
@@ -540,6 +562,14 @@ function dental_clinic_doctor_meta_box_callback($post) {
     $full_description = get_post_meta($post->ID, '_doctor_full_description', true);
     $certificates = get_post_meta($post->ID, '_doctor_certificates', true);
     $show_in_slider = get_post_meta($post->ID, '_doctor_show_in_slider', true);
+    
+    // Получаем 3 индекса
+    $index1 = get_post_meta($post->ID, '_doctor_index1', true);
+    $index2 = get_post_meta($post->ID, '_doctor_index2', true);
+    $index3 = get_post_meta($post->ID, '_doctor_index3', true);
+    
+    // Получаем цитату
+    $quote = get_post_meta($post->ID, '_doctor_quote', true);
     
     echo '<table class="form-table">';
     
@@ -564,13 +594,123 @@ function dental_clinic_doctor_meta_box_callback($post) {
     echo '<tr><th><label for="doctor_full_description">Полное описание:</label></th>';
     echo '<td><textarea id="doctor_full_description" name="doctor_full_description" rows="8" class="large-text" placeholder="Подробное описание врача, опыт, специализация">' . esc_textarea($full_description) . '</textarea></td></tr>';
     
-    echo '<tr><th><label for="doctor_certificates">Галерея сертификатов:</label></th>';
-    echo '<td><textarea id="doctor_certificates" name="doctor_certificates" rows="5" class="large-text" placeholder="Вставьте HTML код галереи сертификатов">' . esc_textarea($certificates) . '</textarea></td></tr>';
+    // 3 индекса
+    echo '<tr><th colspan="2"><h3 style="margin: 20px 0 10px 0;">3 Индекса</h3></th></tr>';
+    
+    echo '<tr><th><label for="doctor_index1">Индекс 1:</label></th>';
+    echo '<td><input type="text" id="doctor_index1" name="doctor_index1" value="' . esc_attr($index1) . '" class="regular-text" placeholder="например: 15 лет опыта" /></td></tr>';
+    
+    echo '<tr><th><label for="doctor_index2">Индекс 2:</label></th>';
+    echo '<td><input type="text" id="doctor_index2" name="doctor_index2" value="' . esc_attr($index2) . '" class="regular-text" placeholder="например: 5000+ пациентов" /></td></tr>';
+    
+    echo '<tr><th><label for="doctor_index3">Индекс 3:</label></th>';
+    echo '<td><input type="text" id="doctor_index3" name="doctor_index3" value="' . esc_attr($index3) . '" class="regular-text" placeholder="например: 10000+ процедур" /></td></tr>';
+    
+    // Цитата
+    echo '<tr><th><label for="doctor_quote">Цитата врача:</label></th>';
+    echo '<td><textarea id="doctor_quote" name="doctor_quote" rows="3" class="large-text" placeholder="Краткая цитата врача">' . esc_textarea($quote) . '</textarea></td></tr>';
+    
+    // Получаем сертификаты (массив ID изображений)
+    $certificate_ids = get_post_meta($post->ID, '_doctor_certificates', true);
+    if (!is_array($certificate_ids)) {
+        $certificate_ids = array();
+    }
+    
+    echo '<tr><th><label>Галерея сертификатов:</label></th>';
+    echo '<td>';
+    echo '<input type="hidden" id="doctor_certificates" name="doctor_certificates" value="' . esc_attr(implode(',', $certificate_ids)) . '">';
+    echo '<div id="certificates-gallery" style="margin-bottom: 15px;">';
+    if (!empty($certificate_ids)) {
+        foreach ($certificate_ids as $cert_id) {
+            $image_url = wp_get_attachment_image_url($cert_id, 'thumbnail');
+            if ($image_url) {
+                echo '<div class="certificate-item" data-id="' . esc_attr($cert_id) . '" style="display: inline-block; margin: 5px; position: relative;">';
+                echo '<img src="' . esc_url($image_url) . '" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ddd; border-radius: 4px;">';
+                echo '<button type="button" class="remove-certificate" style="position: absolute; top: -5px; right: -5px; background: #dc3232; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; cursor: pointer; font-size: 14px; line-height: 1;">×</button>';
+                echo '</div>';
+            }
+        }
+    }
+    echo '</div>';
+    echo '<button type="button" id="upload-certificates" class="button">Добавить сертификаты</button>';
+    echo '</td></tr>';
     
     echo '<tr><th><label for="doctor_show_in_slider">Отображать в слайдере:</label></th>';
     echo '<td><input type="checkbox" id="doctor_show_in_slider" name="doctor_show_in_slider" value="1" ' . checked($show_in_slider, '1', false) . ' /> <span>Показывать этого врача в слайдере на главной странице</span></td></tr>';
     
     echo '</table>';
+    ?>
+    <script>
+    jQuery(document).ready(function($) {
+        var certificatesFrame;
+        var certificatesIds = [];
+        
+        // Загружаем существующие ID
+        var hiddenField = $('#doctor_certificates');
+        if (hiddenField.val()) {
+            certificatesIds = hiddenField.val().split(',').filter(function(id) {
+                return id.length > 0;
+            });
+        }
+        
+        // Кнопка загрузки изображений
+        $('#upload-certificates').on('click', function(e) {
+            e.preventDefault();
+            
+            if (certificatesFrame) {
+                certificatesFrame.open();
+                return;
+            }
+            
+            certificatesFrame = wp.media({
+                title: 'Выберите сертификаты',
+                button: {
+                    text: 'Добавить сертификаты'
+                },
+                multiple: true,
+                library: {
+                    type: 'image'
+                }
+            });
+            
+            certificatesFrame.on('select', function() {
+                var selection = certificatesFrame.state().get('selection');
+                var gallery = $('#certificates-gallery');
+                
+                selection.map(function(attachment) {
+                    attachment = attachment.toJSON();
+                    if ($.inArray(attachment.id.toString(), certificatesIds) === -1) {
+                        certificatesIds.push(attachment.id.toString());
+                        
+                        var item = $('<div class="certificate-item" data-id="' + attachment.id + '" style="display: inline-block; margin: 5px; position: relative;">' +
+                            '<img src="' + attachment.sizes.thumbnail.url + '" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ddd; border-radius: 4px;">' +
+                            '<button type="button" class="remove-certificate" style="position: absolute; top: -5px; right: -5px; background: #dc3232; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; cursor: pointer; font-size: 14px; line-height: 1;">×</button>' +
+                            '</div>');
+                        gallery.append(item);
+                    }
+                });
+                
+                hiddenField.val(certificatesIds.join(','));
+            });
+            
+            certificatesFrame.open();
+        });
+        
+        // Удаление сертификата
+        $(document).on('click', '.remove-certificate', function() {
+            var item = $(this).closest('.certificate-item');
+            var id = item.data('id').toString();
+            
+            certificatesIds = certificatesIds.filter(function(certId) {
+                return certId !== id;
+            });
+            
+            hiddenField.val(certificatesIds.join(','));
+            item.remove();
+        });
+    });
+    </script>
+    <?php
 }
 
 function dental_clinic_save_doctor_meta($post_id) {
@@ -586,17 +726,41 @@ function dental_clinic_save_doctor_meta($post_id) {
         return;
     }
     
-    $fields = ['full_name', 'position', 'experience', 'education', 'video_url', 'short_preview', 'full_description', 'certificates', 'show_in_slider'];
+    // Специальная обработка сертификатов (массив ID изображений)
+    if (isset($_POST['doctor_certificates'])) {
+        $certificates_value = sanitize_text_field($_POST['doctor_certificates']);
+        if (!empty($certificates_value)) {
+            $certificate_ids = array_map('intval', explode(',', $certificates_value));
+            $certificate_ids = array_filter($certificate_ids);
+            update_post_meta($post_id, '_doctor_certificates', array_values($certificate_ids));
+        } else {
+            delete_post_meta($post_id, '_doctor_certificates');
+        }
+    }
     
-    foreach ($fields as $field) {
+    // Поля, которые разрешают HTML
+    $html_fields = ['full_description', 'education', 'quote'];
+    
+    // Обработка текстовых полей
+    $text_fields = ['full_name', 'position', 'experience', 'education', 'video_url', 'short_preview', 'full_description', 'quote', 'index1', 'index2', 'index3'];
+    
+    foreach ($text_fields as $field) {
         if (isset($_POST['doctor_' . $field])) {
-            if ($field === 'certificates') {
-                // Разрешаем HTML для сертификатов
-                update_post_meta($post_id, '_doctor_' . $field, wp_kses_post($_POST['doctor_' . $field]));
+            $value = $_POST['doctor_' . $field];
+            if (in_array($field, $html_fields)) {
+                // Разрешаем HTML для определенных полей
+                update_post_meta($post_id, '_doctor_' . $field, wp_kses_post($value));
             } else {
-                update_post_meta($post_id, '_doctor_' . $field, sanitize_text_field($_POST['doctor_' . $field]));
+                update_post_meta($post_id, '_doctor_' . $field, sanitize_text_field($value));
             }
         }
+    }
+    
+    // Обработка чекбокса show_in_slider
+    if (isset($_POST['doctor_show_in_slider'])) {
+        update_post_meta($post_id, '_doctor_show_in_slider', '1');
+    } else {
+        delete_post_meta($post_id, '_doctor_show_in_slider');
     }
 }
 add_action('save_post', 'dental_clinic_save_doctor_meta');
