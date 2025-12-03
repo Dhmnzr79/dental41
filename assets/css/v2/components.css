@@ -524,12 +524,10 @@
     margin: 0;
 }
 
-.v2-site .v2-plus__left-row {
-    margin-bottom: 30px;
-}
-
-.v2-site .v2-plus__left-row:last-child {
-    margin-bottom: 0;
+.v2-site .v2-plus__cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
 .v2-site .v2-plus__card {
@@ -769,6 +767,12 @@
 }
 
 /* ===== БЛОК ОТЗЫВОВ ===== */
+.v2-site .v2-reviews__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 
 .v2-site .v2-reviews__stats {
     display: flex;
@@ -781,12 +785,15 @@
     font-weight: 600;
 }
 
+.v2-site .v2-reviews__right {
+    position: relative;
+}
+
 .v2-site .v2-reviews__slider-wrapper {
     position: relative;
 }
 
 .v2-site .v2-reviews__slider {
-    margin-bottom: 20px;
     overflow: hidden;
     width: 100%;
     position: relative;
@@ -801,7 +808,7 @@
 .v2-site .v2-reviews__card {
     flex-shrink: 0;
     box-sizing: border-box;
-    background-color: #f5f5f7;
+    background-color: var(--bg-light);
     border-radius: 16px;
     padding: 24px;
     display: flex;
@@ -811,9 +818,8 @@
 
 .v2-site .v2-reviews__header {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
+    align-items: flex-end;
+    justify-content: flex-start;
 }
 
 .v2-site .v2-reviews__photo {
@@ -867,8 +873,8 @@
     flex: 1;
 }
 
-.v2-site .v2-reviews__text {
-    margin: 0;
+.v2-site .v2-reviews__text p {
+    font-size: 16px;
 }
 
 .v2-site .v2-reviews__author {
@@ -884,6 +890,13 @@
     justify-content: center;
     gap: 8px;
     margin-bottom: 20px;
+}
+
+.v2-site .v2-reviews__nav {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+    z-index: 10;
 }
 
 .v2-site .v2-reviews__dot {
@@ -1019,12 +1032,8 @@
 
 .v2-site .v2-doctors__feature-card {
     display: flex;
-    align-items: flex-start;
     gap: 15px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    flex-direction: column;
 }
 
 .v2-site .v2-doctors__feature-card:hover {
@@ -1060,7 +1069,6 @@
     gap: 30px;
     box-sizing: border-box;
     align-items: flex-start;
-    height: 500px;
 }
 
 .v2-site .v2-doctors__card {
@@ -1068,19 +1076,12 @@
     box-sizing: border-box;
     padding: 30px;
     border-radius: 20px;
-    height: 420px;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #dff7f4 40%, #8fe0db 100%);
-    transition: all 0.5s ease;
-    transform: translateY(0);
     display: flex;
     flex-direction: column;
-}
-
-.v2-site .v2-doctors__card.v2-doctors__card--active {
-    height: 500px;
-    transform: translateY(0);
+    min-height: 450px;
 }
 
 .v2-site .v2-doctors__card:nth-child(2n) {
@@ -1104,12 +1105,10 @@
 }
 
 .v2-site .v2-doctors__photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    flex-shrink: 0;
+    position: absolute;
+    width: 70%;
+    bottom: -30px;
+    right: -40px;
 }
 
 .v2-site .v2-doctors__photo img {
@@ -1131,24 +1130,20 @@
 
 .v2-site .v2-doctors__card-info {
     position: relative;
-    margin-bottom: 20px;
+    padding-right: 35%;
 }
 
 .v2-site .v2-doctors__name {
-    margin: 0 0 8px 0;
-    font-size: 22px;
-    font-weight: 600;
+    margin: 0 0 5px 0;
+    font-size: 20px;
     line-height: 1.3;
 }
 
 .v2-site .v2-doctors__position {
-    margin-bottom: 8px;
+    font-size: 15px;
 }
 
 .v2-site .v2-doctors__video-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 60px;
     height: 60px;
     border: none;
@@ -1156,6 +1151,8 @@
     padding: 0;
     cursor: pointer;
     transition: transform 0.2s ease;
+    position: absolute;
+    top: 160px;
 }
 
 .v2-site .v2-doctors__video-btn:hover {
@@ -1169,6 +1166,14 @@
 
 .v2-site .v2-doctors__preview {
     margin-top: auto;
+    background: #fff;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.v2-site .v2-doctors__preview p {
+    font-size: 16px
 }
 
 .v2-site .v2-doctors__pagination {
@@ -2225,17 +2230,8 @@
     }
 
     /* Doctors */
-    .v2-site .v2-doctors__slider-track {
-        height: 480px;
-    }
-
     .v2-site .v2-doctors__card {
         flex: 0 0 calc((100% - 30px) / 2);
-        height: 380px;
-    }
-
-    .v2-site .v2-doctors__card.v2-doctors__card--active {
-        height: 480px;
     }
 
     /* Doctor Selection */
@@ -2414,8 +2410,8 @@
         padding-bottom: 30px;
     }
 
-    .v2-site .v2-plus__left-row {
-        margin-bottom: 20px;
+    .v2-site .v2-plus__cards-grid {
+        grid-template-columns: 1fr;
     }
 
     .v2-site .v2-plus__card--featured {
@@ -2518,18 +2514,9 @@
         gap: 12px;
     }
 
-    .v2-site .v2-doctors__slider-track {
-        height: 450px;
-    }
-
     .v2-site .v2-doctors__card {
         flex: 0 0 100%;
-        height: 350px;
         padding: 20px;
-    }
-
-    .v2-site .v2-doctors__card.v2-doctors__card--active {
-        height: 450px;
     }
 
     .v2-site .v2-doctors__photo {
@@ -2676,6 +2663,16 @@
 @media (min-width: 1280px) {
     /* Works */
     .v2-site .v2-works__pagination-row {
+        display: none;
+    }
+
+    /* Reviews */
+    .v2-site .v2-reviews__pagination {
+        display: none;
+    }
+
+    /* Doctors */
+    .v2-site .v2-doctors__pagination {
         display: none;
     }
 

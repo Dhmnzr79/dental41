@@ -43,17 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function updateActiveCard() {
-        cards.forEach(function (card) {
-            card.classList.remove('v2-doctors__card--active');
-        });
-
-        var centerIndex = currentIndex + Math.floor(slidesToShow / 2);
-        if (cards[centerIndex]) {
-            cards[centerIndex].classList.add('v2-doctors__card--active');
-        }
-    }
-
     function updateSlides(index) {
         currentIndex = index;
 
@@ -65,8 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var translateX = -(currentIndex * (cardWidth + 30));
             track.style.transform = 'translateX(' + translateX + 'px)';
         }
-
-        updateActiveCard();
 
         var dots = pagination ? pagination.querySelectorAll('.v2-doctors__dot') : [];
         dots.forEach(function (dot, i) {
