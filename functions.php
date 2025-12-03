@@ -98,7 +98,8 @@ function dental_clinic_enqueue_v2_reviews_slider() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_reviews_slider');
 
 function dental_clinic_enqueue_v2_header_menu() {
-    if (is_front_page()) {
+    // Загружаем скрипт на главной странице и страницах блога
+    if (is_front_page() || is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
         wp_enqueue_script(
             'dental-clinic-v2-header-menu',
             get_stylesheet_directory_uri() . '/v2-header-menu.js',
@@ -263,18 +264,33 @@ class Dental_Clinic_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 
-// Добавляем класс v2-site на body для front-page.php (v2 версия)
+// Добавляем класс v2-site на body для front-page.php и страниц блога (v2 версия)
 function dental_clinic_add_v2_body_class($classes) {
     if (is_front_page() && file_exists(get_stylesheet_directory() . '/front-page.php')) {
+        $classes[] = 'v2-site';
+    }
+    // Добавляем класс для страниц блога
+    if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
         $classes[] = 'v2-site';
     }
     return $classes;
 }
 add_filter('body_class', 'dental_clinic_add_v2_body_class');
 
-// Подключение стилей v2 для front-page
+// Подключение стилей v2 для front-page и страниц блога
 function dental_clinic_enqueue_v2_styles() {
+    $is_v2_page = false;
+    
     if (is_front_page()) {
+        $is_v2_page = true;
+    }
+    
+    // Страницы блога: список статей и отдельная статья
+    if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
+        $is_v2_page = true;
+    }
+    
+    if ($is_v2_page) {
         $ver = wp_get_theme()->get('Version');
         $uri = get_stylesheet_directory_uri() . '/assets/css/v2/';
         
@@ -283,6 +299,11 @@ function dental_clinic_enqueue_v2_styles() {
         wp_enqueue_style('v2-layout', $uri . 'layout.css', array('v2-base'), $ver);
         wp_enqueue_style('v2-ui', $uri . 'ui.css', array('v2-layout'), $ver);
         wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-ui'), $ver);
+        
+        // Подключаем стили блога для страниц блога
+        if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
+            wp_enqueue_style('v2-pages-blog', $uri . 'pages/blog.css', array('v2-components'), $ver);
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);
@@ -1879,5 +1900,102 @@ function save_featured_article_meta($post_id) {
     }
 }
 add_action('save_post', 'save_featured_article_meta');
+
+/**
+ * Добавляем мета-бокс для похожих статей
+ */
+function add_related_posts_meta_box() {
+    add_meta_box(
+        'related_posts',
+        'Похожие статьи',
+        'render_related_posts_meta_box',
+        'post',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_related_posts_meta_box');
+
+/**
+ * Рендерим мета-бокс для похожих статей
+ */
+function render_related_posts_meta_box($post) {
+    wp_nonce_field('related_posts_meta_box', 'related_posts_meta_box_nonce');
+    
+    $related_posts = get_post_meta($post->ID, '_related_posts', true);
+    if (!is_array($related_posts)) {
+        $related_posts = array();
+    }
+    
+    // Получаем все опубликованные статьи
+    $all_posts = get_posts(array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'numberposts' => -1,
+        'exclude' => array($post->ID),
+        'orderby' => 'title',
+        'order' => 'ASC'
+    ));
+    
+    ?>
+    <p>
+        <label for="related_post_1">Похожая статья 1:</label><br>
+        <select name="related_posts[]" id="related_post_1" style="width: 100%;">
+            <option value="">— Не выбрано —</option>
+            <?php foreach ($all_posts as $item) : ?>
+                <option value="<?php echo $item->ID; ?>" <?php selected(isset($related_posts[0]) ? $related_posts[0] : '', $item->ID); ?>>
+                    <?php echo esc_html($item->post_title); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </p>
+    
+    <p>
+        <label for="related_post_2">Похожая статья 2:</label><br>
+        <select name="related_posts[]" id="related_post_2" style="width: 100%;">
+            <option value="">— Не выбрано —</option>
+            <?php foreach ($all_posts as $item) : ?>
+                <option value="<?php echo $item->ID; ?>" <?php selected(isset($related_posts[1]) ? $related_posts[1] : '', $item->ID); ?>>
+                    <?php echo esc_html($item->post_title); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </p>
+    
+    <p style="color: #666; font-size: 12px;">
+        Выберите до 2 похожих статей, которые будут отображаться внизу этой статьи.
+    </p>
+    <?php
+}
+
+/**
+ * Сохраняем похожие статьи
+ */
+function save_related_posts_meta($post_id) {
+    // Проверяем, что это пост
+    if (get_post_type($post_id) !== 'post') {
+        return;
+    }
+    
+    // Проверяем nonce
+    if (!isset($_POST['related_posts_meta_box_nonce']) || 
+        !wp_verify_nonce($_POST['related_posts_meta_box_nonce'], 'related_posts_meta_box')) {
+        return;
+    }
+    
+    // Проверяем права
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    // Сохраняем похожие статьи
+    if (isset($_POST['related_posts']) && is_array($_POST['related_posts'])) {
+        $related_posts = array_filter(array_map('intval', $_POST['related_posts']));
+        update_post_meta($post_id, '_related_posts', $related_posts);
+    } else {
+        delete_post_meta($post_id, '_related_posts');
+    }
+}
+add_action('save_post', 'save_related_posts_meta');
 
 ?>
