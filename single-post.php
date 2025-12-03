@@ -44,7 +44,7 @@
                 
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="v2-single-post__image">
-                        <?php the_post_thumbnail('large', array('class' => 'v2-single-post__img', 'itemprop' => 'image', 'loading' => 'lazy')); ?>
+                        <?php the_post_thumbnail('large', array('class' => 'v2-single-post__img', 'itemprop' => 'image', 'loading' => 'lazy', 'alt' => get_the_title())); ?>
                     </div>
                 <?php endif; ?>
                 
@@ -80,18 +80,18 @@
                                 <h2 class="v2-single-post__related-title">Похожие статьи</h2>
                                 <div class="v2-single-post__related-grid">
                                     <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
-                                        <article class="v2-single-post__related-item">
-                                            <a href="<?php the_permalink(); ?>" class="v2-single-post__related-link">
+                                        <article class="v2-single-post__related-item" itemscope itemtype="https://schema.org/BlogPosting">
+                                            <a href="<?php the_permalink(); ?>" class="v2-single-post__related-link" itemprop="url">
                                                 <?php if (has_post_thumbnail()) : ?>
                                                     <div class="v2-single-post__related-image">
-                                                        <?php the_post_thumbnail('medium', array('class' => 'v2-single-post__related-img', 'loading' => 'lazy')); ?>
+                                                        <?php the_post_thumbnail('medium', array('class' => 'v2-single-post__related-img', 'itemprop' => 'image', 'loading' => 'lazy', 'alt' => get_the_title())); ?>
                                                     </div>
                                                 <?php else : ?>
                                                     <div class="v2-single-post__related-image">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog-placeholder.jpg" alt="<?php the_title_attribute(); ?>" class="v2-single-post__related-img" loading="lazy">
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog-placeholder.jpg" alt="<?php the_title_attribute(); ?>" class="v2-single-post__related-img" itemprop="image" loading="lazy">
                                                     </div>
                                                 <?php endif; ?>
-                                                <h3 class="v2-single-post__related-item-title"><?php the_title(); ?></h3>
+                                                <h3 class="v2-single-post__related-item-title" itemprop="headline"><?php the_title(); ?></h3>
                                             </a>
                                         </article>
                                     <?php endwhile; ?>

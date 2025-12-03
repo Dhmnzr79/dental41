@@ -8,14 +8,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.v2-site .v2-doctor-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .v2-site .v2-doctor-card__photo {
@@ -67,6 +59,12 @@
     font-size: 120px;
 }
 
+.v2-site .v2-doctor-card__photo-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
 .v2-site .v2-doctor-card__video-btn {
     position: absolute;
     bottom: 20px;
@@ -75,16 +73,11 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    transition: transform 0.3s ease;
     z-index: 2;
 }
 
-.v2-site .v2-doctor-card__video-btn:hover {
-    transform: scale(1.1);
-}
-
 .v2-site .v2-doctor-card__info {
-    padding: 25px;
+    padding: 25px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -92,7 +85,7 @@
 }
 
 .v2-site .v2-doctor-card__name {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.3;
     margin: 0 0 10px 0;
     color: var(--heading-color);
@@ -101,17 +94,12 @@
 .v2-site .v2-doctor-card__name a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.v2-site .v2-doctor-card__name a:hover {
-    color: var(--brand-color);
 }
 
 .v2-site .v2-doctor-card__position {
-    font-size: 18px;
-    color: var(--brand-color);
-    font-weight: 600;
+    font-size: 16px;
+    color: #747474;
+    font-weight: 400;
     margin-bottom: 10px;
 }
 
@@ -121,43 +109,32 @@
     margin-bottom: 15px;
 }
 
-.v2-site .v2-doctor-card__preview {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-color);
-    margin: 0 0 20px 0;
-}
-
 .v2-site .v2-doctor-card__actions {
     margin-top: auto;
 }
 
 .v2-site .v2-doctor-card__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: var(--brand-color);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
+    color: var(--accent);
     font-size: 16px;
     font-weight: 600;
-    transition: opacity 0.2s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
 }
 
-.v2-site .v2-doctor-card__btn:hover {
-    opacity: 0.9;
+.v2-site .v2-doctor-card__btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
 }
 
-.v2-site .v2-doctor-card__btn-arrow {
-    width: 16px;
-    height: 12px;
-    transition: transform 0.2s ease;
-}
-
-.v2-site .v2-doctor-card__btn:hover .v2-doctor-card__btn-arrow {
-    transform: translateX(4px);
+.v2-site .v2-doctor-card__btn:hover::before {
+    width: 100%;
 }
 
 /* ===== СТРАНИЦА ВСЕХ ВРАЧЕЙ ===== */
@@ -167,7 +144,6 @@
 
 .v2-site .v2-doctors-archive__header {
     margin-bottom: 60px;
-    text-align: center;
 }
 
 .v2-site .v2-doctors-archive__header h1 {
@@ -175,12 +151,6 @@
     font-size: 44px;
     line-height: 1.2;
     color: var(--heading-color);
-}
-
-.v2-site .v2-doctors-archive__header p {
-    font-size: 18px;
-    color: var(--text-color);
-    margin: 0;
 }
 
 .v2-site .v2-doctors-archive__grid {
@@ -195,14 +165,7 @@
     padding: 40px 0 60px;
 }
 
-.v2-site .v2-doctor-single__layout {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-}
-
 .v2-site .v2-doctor-single__left {
-    flex: 0 0 400px;
     position: sticky;
     top: 20px;
 }
@@ -370,7 +333,9 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .v2-site .v2-doctor-single__certificate-item:hover {
@@ -536,28 +501,15 @@
     }
 
     .v2-site .v2-doctor-card__info {
-        padding: 20px;
+        padding: 20px 0;
     }
 
     .v2-site .v2-doctor-card__name {
         font-size: 20px;
     }
 
-    .v2-site .v2-doctor-card__position {
-        font-size: 16px;
-    }
-
-    .v2-site .v2-doctor-card__preview {
-        font-size: 14px;
-    }
-
     .v2-site .v2-doctor-single {
         padding: 20px 0 40px;
-    }
-
-    .v2-site .v2-doctor-single__layout {
-        flex-direction: column;
-        gap: 40px;
     }
 
     .v2-site .v2-doctor-single__left {
@@ -568,7 +520,6 @@
     .v2-site .v2-doctor-single__photo {
         height: 300px;
     }
-
 
     .v2-site .v2-doctor-single__details h2 {
         font-size: 28px;
@@ -619,32 +570,23 @@
     }
 
     .v2-site .v2-doctor-card__info {
-        padding: 22px;
-    }
-
-    .v2-site .v2-doctor-card__name {
-        font-size: 22px;
+        padding: 22px 0;
     }
 
     .v2-site .v2-doctors-archive__header h1 {
         font-size: 36px;
     }
 
-    .v2-site .v2-doctor-single__layout {
-        gap: 40px;
-    }
-
     .v2-site .v2-doctor-single__photo {
         height: 350px;
     }
-
 
     .v2-site .v2-doctor-single__details h2 {
         font-size: 30px;
     }
 
     .v2-site .v2-doctor-single__indices-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 
@@ -669,4 +611,3 @@
         padding: 60px 0 80px;
     }
 }
-

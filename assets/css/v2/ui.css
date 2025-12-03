@@ -634,11 +634,12 @@
 }
 
 .v2-site .v2-footer__name {
-    margin: 0;
+    font-size: 15px;
 }
 
 .v2-site .v2-footer__contacts-title {
     color: #c9c9c9;
+    text-align: right;
 }
 
 .v2-site .v2-footer__contacts-list {
@@ -648,6 +649,8 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    text-align: right;
+    font-size: 15px;
 }
 
 .v2-site .v2-footer__contacts-item {
@@ -1190,9 +1193,18 @@
     transition: border-color 0.3s ease;
 }
 
-.v2-site .v2-sidebar-form__form .wpcf7-form-control-wrap input[type='text']:focus,
-.v2-site .v2-sidebar-form__form .wpcf7-form-control-wrap input[type='tel']:focus,
-.v2-site .v2-sidebar-form__form .wpcf7-form-control-wrap input[type='email']:focus {
+.v2-site
+    .v2-sidebar-form__form
+    .wpcf7-form-control-wrap
+    input[type='text']:focus,
+.v2-site
+    .v2-sidebar-form__form
+    .wpcf7-form-control-wrap
+    input[type='tel']:focus,
+.v2-site
+    .v2-sidebar-form__form
+    .wpcf7-form-control-wrap
+    input[type='email']:focus {
     outline: none;
     border-color: var(--brand-color);
     box-shadow: 0 0 0 3px rgba(35, 191, 207, 0.1);
@@ -1218,7 +1230,6 @@
     border-color: var(--brand-color);
     box-shadow: 0 0 0 3px rgba(35, 191, 207, 0.1);
 }
-
 
 /* ===== MEDIA QUERIES ===== */
 /* Все медиазапросы сгруппированы по брейкпоинтам в конце файла */
@@ -1265,6 +1276,19 @@ body.v2-menu-open {
         margin-bottom: 32px;
     }
 
+    .v2-site .v2-footer__logo-img {
+        max-width: 120px;
+    }
+
+    .v2-site .v2-footer__contacts-title {
+        text-align: right;
+    }
+
+    .v2-site .v2-footer__contacts-list {
+        text-align: left;
+        font-size: 14px;
+    }
+
     .v2-site .v2-footer__bottom {
         align-items: flex-start;
     }
@@ -1304,5 +1328,12 @@ body.v2-menu-open {
 
     .v2-site .v2-header__content {
         display: block;
+    }
+
+    /* Footer */
+    .v2-site .v2-footer__links {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 20px;
     }
 }

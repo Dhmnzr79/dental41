@@ -368,7 +368,7 @@
 
 .v2-site .v2-services__description {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: flex-start;
     gap: 20px;
 }
@@ -1106,9 +1106,9 @@
 
 .v2-site .v2-doctors__photo {
     position: absolute;
-    width: 70%;
-    bottom: -30px;
-    right: -40px;
+    width: 75%;
+    top: 30px;
+    right: -50px;
 }
 
 .v2-site .v2-doctors__photo img {
@@ -1623,6 +1623,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
     gap: 30px;
 }
 
@@ -1692,6 +1694,12 @@
     margin: 0;
 }
 
+.v2-site .v2-technologies__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
 .v2-site .v2-technologies__cards {
     display: flex;
     flex-direction: column;
@@ -1707,15 +1715,68 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    background: #fff;
+    background: #f0f4f4;
     padding: 30px;
     border-radius: 20px;
     flex: 1 1 auto;
 }
 
+.v2-site .v2-technologies__card:has(.v2-technologies__card-header) {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.v2-site .v2-technologies__card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.v2-site .v2-technologies__card-header .v2-technologies__subtitle {
+    font-size: 18px;
+}
+
 .v2-site .v2-technologies__card--featured {
     flex: 1 1 100%;
     justify-content: flex-end;
+    background-image: url('../../images/laboratory-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.v2-site .v2-technologies__card--featured h3 {
+    font-size: 36px;
+}
+
+.v2-site .v2-technologies__card--featured .v2-technologies__card-text p {
+    font-size: 18px;
+}
+
+.v2-site .v2-technologies__card-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.v2-site .v2-technologies__card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.v2-site .v2-technologies__card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.v2-site .v2-technologies__card-text p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 .v2-site .v2-technologies__benefits {
@@ -1772,7 +1833,7 @@
 .v2-site .v2-china-risks__card {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .v2-site .v2-china-risks__number {
@@ -1792,6 +1853,7 @@
     text-align: center;
     align-items: center;
     justify-content: flex-end;
+    border-radius: 20px;
 }
 
 .v2-site .v2-china-risks__card--featured .v2-china-risks__number {
@@ -1814,30 +1876,47 @@
     display: flex;
 }
 
-.v2-site .v2-china-risks__circles {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+.v2-site .v2-china-risks__faces-container {
     position: relative;
+    width: 100%;
+    height: 120px;
+    margin-bottom: 20px;
 }
 
-.v2-site .v2-china-risks__circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    border: 3px solid rgba(255, 255, 255, 0.5);
-    margin-left: -15px;
+.v2-site .v2-china-risks__face {
+    position: absolute;
+    border-radius: 10px;
+    object-fit: cover;
+    width: clamp(60px, 8vw, 100px);
+    height: clamp(60px, 8vw, 100px);
 }
 
-.v2-site .v2-china-risks__circle:first-child {
-    margin-left: 0;
+.v2-site .v2-china-risks__face--1 {
+    top: -70px;
+    left: -3%;
+    width: clamp(60px, 7vw, 90px);
+    height: clamp(60px, 7vw, 90px);
 }
 
-.v2-site .v2-china-risks__card--featured .v2-btn {
-    margin-top: 25px;
-    background: #fff;
-    color: #23bfcf;
+.v2-site .v2-china-risks__face--2 {
+    top: -90%;
+    right: 30%;
+    width: clamp(70px, 9vw, 100px);
+    height: clamp(70px, 9vw, 100px);
+}
+
+.v2-site .v2-china-risks__face--3 {
+    bottom: 5%;
+    left: 25%;
+    width: clamp(65px, 8vw, 75px);
+    height: clamp(65px, 8vw, 75px);
+}
+
+.v2-site .v2-china-risks__face--4 {
+    bottom: 35%;
+    right: 10%;
+    width: clamp(75px, 10vw, 100px);
+    height: clamp(75px, 10vw, 100px);
 }
 
 .v2-site .v2-china-risks__card--featured .v2-btn:hover {
@@ -1848,6 +1927,7 @@
 .v2-site .v2-contacts__info {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 30px;
 }
 
@@ -2317,6 +2397,11 @@
     }
 
     /* Technologies */
+    /* Technologies */
+    .v2-site .v2-technologies__grid {
+        gap: 25px;
+    }
+
     .v2-site .v2-technologies__cards {
         gap: 25px;
     }
@@ -2403,6 +2488,11 @@
 
     .v2-site .v2-services__card-body .v2-row {
         margin-bottom: 15px;
+    }
+
+    .v2-site .v2-services__description {
+        flex-direction: column;
+        gap: 15px;
     }
 
     /* Plus */
@@ -2602,6 +2692,12 @@
     }
 
     /* Technologies */
+    /* Technologies */
+    .v2-site .v2-technologies__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .v2-site .v2-technologies__cards {
         gap: 20px;
     }
@@ -2622,6 +2718,10 @@
 
     .v2-site .v2-china-risks__card--featured {
         padding: 30px;
+    }
+
+    .v2-site .v2-china-risks__faces-container {
+        height: 100px;
     }
 
     /* Contacts */
@@ -2708,5 +2808,10 @@
 
     .v2-site .v2-consultation__form .cf7-data-row .wpcf7-form-control-wrap {
         flex: 1;
+    }
+
+    /* China Risks */
+    .v2-site .v2-china-risks__left .v2-row {
+        gap: 40px;
     }
 }

@@ -1935,50 +1935,49 @@
 <section class="v2-section v2-technologies" itemscope itemtype="https://schema.org/ItemList">
     <div class="v2-container">
         <div class="v2-row">
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <div class="v2-technologies__header">
-                    <h2>Самые современные технологии</h2>
-                    <p class="v2-technologies__subtitle">Для достижения точного и быстрого результата на Европейском уровне</p>
-                </div>
-            </div>
-            
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <div class="v2-technologies__cards">
+            <div class="v2-col-sm-12 v2-col-lg-8">
+                <div class="v2-technologies__grid">
                     <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="1">
-                        <h3 itemprop="name">3D-моделирование</h3>
-                        <div class="v2-technologies__benefits">
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                </svg>
-                                <span>Врач заранее создаёт точную цифровую модель вашей улыбки.</span>
-                            </div>
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                </svg>
-                                <span>Вы видите, каким будет результат ещё до начала лечения.</span>
-                            </div>
+                        <div class="v2-technologies__card-header">
+                            <h2>Самые современные технологии</h2>
+                            <p class="v2-technologies__subtitle">Для достижения точного и быстрого результата на Европейском уровне</p>
                         </div>
                     </article>
                     
                     <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="2">
+                        <div class="v2-technologies__card-icon">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
+                        </div>
+                        <h3 itemprop="name">3D-моделирование</h3>
+                        <div class="v2-technologies__card-text">
+                            <p>Врач заранее создаёт точную цифровую модель вашей улыбки.</p>
+                            <p>Вы видите, каким будет результат ещё до начала лечения.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="3">
+                        <div class="v2-technologies__card-icon">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
+                        </div>
                         <h3 itemprop="name">Компьютерная диагностика</h3>
-                        <div class="v2-technologies__benefits">
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                </svg>
-                                <span>Высокоточный анализ снимка по каждому зубу, с помощью специальных программ.</span>
-                            </div>
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                </svg>
-                                <span>План лечения составляется максимально точно и без ошибок.</span>
-                            </div>
+                        <div class="v2-technologies__card-text">
+                            <p>Высокоточный анализ снимка по каждому зубу, с помощью специальных программ.</p>
+                            <p>План лечения составляется максимально точно и без ошибок.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="4">
+                        <div class="v2-technologies__card-icon">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
+                        </div>
+                        <h3 itemprop="name">Название технологии</h3>
+                        <div class="v2-technologies__card-text">
+                            <p>Описание первой особенности технологии.</p>
+                            <p>Описание второй особенности технологии.</p>
                         </div>
                     </article>
                 </div>
@@ -1988,19 +1987,9 @@
                 <article class="v2-technologies__card v2-technologies__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <meta itemprop="position" content="3">
                     <h3 itemprop="name">Своя цифровая лаборатория</h3>
-                    <div class="v2-technologies__benefits">
-                        <div class="v2-technologies__benefit">
-                            <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                            </svg>
-                            <span>Коронки и протезы изготавливаются прямо в клинике.</span>
-                        </div>
-                        <div class="v2-technologies__benefit">
-                            <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                            </svg>
-                            <span>Уже через 1 день вы можете уйти с новым зубом.</span>
-                        </div>
+                    <div class="v2-technologies__card-text">
+                        <p>Коронки и протезы изготавливаются прямо в клинике.</p>
+                        <p>Уже через 1 день вы можете уйти с новым зубом.</p>
                     </div>
                 </article>
             </div>
@@ -2064,10 +2053,11 @@
             <div class="v2-col-sm-12 v2-col-lg-4">
                 <article class="v2-china-risks__card v2-china-risks__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <meta itemprop="position" content="5">
-                    <div class="v2-china-risks__circles v2-circle-group">
-                        <div class="v2-china-risks__circle v2-circle"></div>
-                        <div class="v2-china-risks__circle v2-circle"></div>
-                        <div class="v2-china-risks__circle v2-circle"></div>
+                    <div class="v2-china-risks__faces-container">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" class="v2-china-risks__face v2-china-risks__face--1" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" class="v2-china-risks__face v2-china-risks__face--2" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Довольный пациент" class="v2-china-risks__face v2-china-risks__face--3" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Довольная пациентка" class="v2-china-risks__face v2-china-risks__face--4" loading="lazy">
                     </div>
                     <h3 itemprop="name">В ЦЭСИ – всё прозрачно и безопасно:</h3>
                     <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
@@ -2111,7 +2101,7 @@
                     
                     <p class="v2-contacts__description">Мы расположены в современном бизнес-центре с охраняемой парковкой. В клинике действует IP телефония, не одно обращение не останется без внимания.</p>
                     
-                    <button class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Заказать обратный звонок">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</button>
+                    <button class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Заказать обратный звонок">Заказать обратный звонок</button>
                 </div>
             </div>
             

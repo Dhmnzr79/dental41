@@ -57,9 +57,9 @@ get_header('v2'); ?>
 <article class="v2-doctor-single" itemscope itemtype="https://schema.org/Person">
     <meta itemprop="url" content="<?php echo esc_url(get_permalink()); ?>">
     <div class="v2-container">
-        <div class="v2-doctor-single__layout">
+        <div class="v2-row">
             <!-- Левая колонка - фото и основная информация -->
-            <div class="v2-col-12 v2-col-lg-4 v2-doctor-single__left">
+            <div class="v2-col-12 v2-col-sm-6 v2-col-lg-4 v2-doctor-single__left">
                 <div class="v2-doctor-single__photo">
                     <?php if (has_post_thumbnail()) : ?>
                         <?php the_post_thumbnail('large', array('class' => 'v2-doctor-single__img', 'itemprop' => 'image', 'loading' => 'lazy', 'alt' => esc_attr($doctor_fio))); ?>
@@ -100,7 +100,7 @@ get_header('v2'); ?>
             </div>
             
             <!-- Правая колонка - подробная информация -->
-            <div class="v2-col-12 v2-col-lg-8 v2-doctor-single__content">
+            <div class="v2-col-12 v2-col-sm-6 v2-col-lg-8 v2-doctor-single__content">
                 <div class="v2-doctor-single__details">
                     <!-- 3 Индекса -->
                     <?php if ($doctor_index1 || $doctor_index2 || $doctor_index3) : ?>
