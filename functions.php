@@ -277,6 +277,14 @@ function dental_clinic_add_v2_body_class($classes) {
     if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
         $classes[] = 'v2-site';
     }
+    // Страница "История моей улыбки"
+    if (is_page_template('page-istoriya-moei-ulybki.php') || (is_page() && get_post_field('post_name') == 'istoriya-moei-ulybki')) {
+        $classes[] = 'v2-site';
+    }
+    // Страницы клиники (Реквизиты, Лицензии, Информация)
+    if (is_page_template('page-clinic-info.php') || (is_page() && in_array(get_post_field('post_name'), array('rekvizity', 'litsenzii', 'o-organizatsii')))) {
+        $classes[] = 'v2-site';
+    }
     return $classes;
 }
 add_filter('body_class', 'dental_clinic_add_v2_body_class');
@@ -299,6 +307,16 @@ function dental_clinic_enqueue_v2_styles() {
         $is_v2_page = true;
     }
     
+    // Страница "История моей улыбки"
+    if (is_page_template('page-istoriya-moei-ulybki.php') || (is_page() && get_post_field('post_name') == 'istoriya-moei-ulybki')) {
+        $is_v2_page = true;
+    }
+    
+    // Страницы клиники (Реквизиты, Лицензии, Информация)
+    if (is_page_template('page-clinic-info.php') || (is_page() && in_array(get_post_field('post_name'), array('rekvizity', 'litsenzii', 'o-organizatsii')))) {
+        $is_v2_page = true;
+    }
+    
     if ($is_v2_page) {
         $ver = wp_get_theme()->get('Version');
         $uri = get_stylesheet_directory_uri() . '/assets/css/v2/';
@@ -318,6 +336,17 @@ function dental_clinic_enqueue_v2_styles() {
         if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
             wp_enqueue_style('v2-pages-doctors', $uri . 'pages/doctors.css', array('v2-components'), $ver);
         }
+        
+        // Подключаем общие стили для страниц
+        if (is_page_template('page-istoriya-moei-ulybki.php') || (is_page() && get_post_field('post_name') == 'istoriya-moei-ulybki')) {
+            wp_enqueue_style('v2-pages', $uri . 'pages/pages.css', array('v2-components'), $ver);
+        }
+        
+        // Подключаем общие стили для страниц клиники
+        if (is_page_template('page-clinic-info.php') || (is_page() && in_array(get_post_field('post_name'), array('rekvizity', 'litsenzii', 'o-organizatsii')))) {
+            wp_enqueue_style('v2-pages', $uri . 'pages/pages.css', array('v2-components'), $ver);
+        }
+        
     }
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);
