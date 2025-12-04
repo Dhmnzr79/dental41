@@ -2,7 +2,7 @@
 /*
 Template Name: Политика конфиденциальности
 */
-get_header(); ?>
+get_header('v2'); ?>
 
 <div class="page-content">
     <div class="container">
@@ -125,4 +125,4 @@ get_header(); ?>
 }
 </style>
 
-<?php get_footer(); ?>
+<?php get_footer('v2'); ?>

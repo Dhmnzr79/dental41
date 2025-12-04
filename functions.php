@@ -37,39 +37,10 @@ function has_cookie_consent($type = 'all') {
 
 
 // Подключение скрипта для анимаций при скролле
-function dental_clinic_enqueue_scroll_animations() {
-    wp_enqueue_script(
-        'dental-clinic-scroll-animations',
-        get_stylesheet_directory_uri() . '/scroll-animations.js',
-        array(),
-        '1.0.0',
-        true
-    );
-}
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_scroll_animations');
-
-// Подключение скрипта для маски телефона
-function dental_clinic_enqueue_phone_mask() {
-    wp_enqueue_script(
-        'dental-clinic-phone-mask',
-        get_stylesheet_directory_uri() . '/phone-mask.js',
-        array('jquery'),
-        '1.0.0',
-        true
-    );
-}
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_phone_mask');
-
-function dental_clinic_enqueue_popup() {
-    wp_enqueue_script(
-        'dental-clinic-popup',
-        get_stylesheet_directory_uri() . '/popup.js',
-        array(),
-        '1.0.0',
-        true
-    );
-}
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_popup');
+// Старые скрипты перемещены в garbage/
+// function dental_clinic_enqueue_scroll_animations() - удален
+// function dental_clinic_enqueue_phone_mask() - удален
+// function dental_clinic_enqueue_popup() - удален
 
 function dental_clinic_enqueue_v2_works_slider() {
     if (is_front_page()) {
@@ -264,16 +235,17 @@ class Dental_Clinic_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 
-// Добавляем класс v2-site на body для front-page.php и страниц блога (v2 версия)
+// Добавляем класс v2-site на body для всех страниц, использующих v2 (header-v2.php и footer-v2.php)
 function dental_clinic_add_v2_body_class($classes) {
+    // Главная страница
     if (is_front_page() && file_exists(get_stylesheet_directory() . '/front-page.php')) {
         $classes[] = 'v2-site';
     }
-    // Добавляем класс для страниц блога
+    // Страницы блога
     if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
         $classes[] = 'v2-site';
     }
-    // Добавляем класс для страниц врачей
+    // Страницы врачей
     if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
         $classes[] = 'v2-site';
     }
@@ -285,11 +257,16 @@ function dental_clinic_add_v2_body_class($classes) {
     if (is_page_template('page-clinic-info.php') || (is_page() && in_array(get_post_field('post_name'), array('rekvizity', 'litsenzii', 'o-organizatsii')))) {
         $classes[] = 'v2-site';
     }
+    // Стандартные шаблоны WordPress (index.php, single.php, page.php, archive.php)
+    // Теперь все используют header-v2.php и footer-v2.php
+    if (is_single() || is_page() || is_archive() || is_home()) {
+        $classes[] = 'v2-site';
+    }
     return $classes;
 }
 add_filter('body_class', 'dental_clinic_add_v2_body_class');
 
-// Подключение стилей v2 для front-page и страниц блога
+// Подключение стилей v2 для всех страниц, использующих header-v2.php и footer-v2.php
 function dental_clinic_enqueue_v2_styles() {
     $is_v2_page = false;
     
@@ -314,6 +291,12 @@ function dental_clinic_enqueue_v2_styles() {
     
     // Страницы клиники (Реквизиты, Лицензии, Информация)
     if (is_page_template('page-clinic-info.php') || (is_page() && in_array(get_post_field('post_name'), array('rekvizity', 'litsenzii', 'o-organizatsii')))) {
+        $is_v2_page = true;
+    }
+    
+    // Стандартные шаблоны WordPress (index.php, single.php, page.php, archive.php)
+    // Теперь все используют header-v2.php и footer-v2.php
+    if (is_single() || is_page() || is_archive() || is_home() || is_search()) {
         $is_v2_page = true;
     }
     
@@ -352,12 +335,8 @@ function dental_clinic_enqueue_v2_styles() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);
 
 function dental_clinic_enqueue_styles() {
-    // Для front-page не загружаем старые стили
-    if (!is_front_page()) {
-        wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), wp_get_theme()->get('Version'));
-        wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-        wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style', 'local-fonts'), wp_get_theme()->get('Version'));
-    }
+    // Старые стили больше не загружаются, так как все страницы переведены на v2
+    // Оставляем эту функцию пустой для совместимости
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles', 10);
 
@@ -1848,16 +1827,7 @@ add_action('admin_head', 'duplicate_post_admin_styles');
  * Удалено: самописная логика CTA-формы. Используем Contact Form 7.
  */
 
-// Подключение overrides.css для переопределения стилей
-add_action('wp_enqueue_scripts', function () {
-    // Наши оверрайды - ЗАВИСЯТ от child-style, грузятся ПОТОМ
-    wp_enqueue_style(
-        'custom-overrides',
-        get_stylesheet_directory_uri() . '/overrides.css',
-        ['child-style'],
-        '1.0'
-    );
-}, 20); // приоритет повыше, чтобы точно было последним
+// overrides.css перемещен в garbage/
 
 /**
  * Функции для блога

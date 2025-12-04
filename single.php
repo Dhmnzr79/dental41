@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('v2'); ?>
 
 <!-- Хлебные крошки -->
 <div class="breadcrumbs">
@@ -78,4 +78,4 @@
     </div>
 </article>
 
-<?php get_footer(); ?>
+<?php get_footer('v2'); ?>
