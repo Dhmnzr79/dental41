@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var slider = document.querySelector('[data-slider="implants"]');
     if (!slider) return;
     
-    var sliderWrapper = slider.closest('.v2-implants__slider-wrapper');
+    var sliderWrapper = slider.closest('.implants__slider-wrapper');
     if (!sliderWrapper) return;
 
-    var cols = Array.prototype.slice.call(slider.querySelectorAll('.v2-implants__col'));
+    var cols = Array.prototype.slice.call(slider.querySelectorAll('.implants__col'));
     if (!cols.length) return;
 
     // Ищем точки пагинации в документе, так как они находятся вне слайдера
-    var paginationContainer = document.querySelector('.v2-implants__pagination');
+    var paginationContainer = document.querySelector('.implants__pagination');
     var dots = paginationContainer ? Array.prototype.slice.call(paginationContainer.querySelectorAll('[data-slider-dot]')) : [];
 
     var currentIndex = 0;
@@ -87,14 +87,14 @@ document.addEventListener('DOMContentLoaded', function () {
             
             // Все карточки видимы для плавного скролла
             cols.forEach(function (col) {
-                col.classList.remove('v2-implants__col--hidden');
+                col.classList.remove('implants__col--hidden');
             });
         } else {
             // На десктопе показываем все карточки без transform
             slider.style.transform = 'translateX(0)';
             slider.style.transition = 'none';
             cols.forEach(function (col) {
-                col.classList.remove('v2-implants__col--hidden');
+                col.classList.remove('implants__col--hidden');
             });
         }
 
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isSliderMode()) {
             // На десктопе показываем все карточки
             cols.forEach(function (col) {
-                col.classList.remove('v2-implants__col--hidden');
+                col.classList.remove('implants__col--hidden');
             });
         } else {
             // В режиме слайдера обновляем отображение
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.style.transform = 'translateX(0)';
         slider.style.transition = 'none';
         cols.forEach(function (col) {
-            col.classList.remove('v2-implants__col--hidden');
+            col.classList.remove('implants__col--hidden');
         });
     }
 });

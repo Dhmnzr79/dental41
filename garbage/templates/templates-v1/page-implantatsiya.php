@@ -1756,22 +1756,22 @@
 </section>
 
 <!-- Блок с ценами -->
-<section class="v2-section v2-prices" itemscope itemtype="https://schema.org/ItemList">
-    <div class="v2-container">
-        <div class="v2-row">
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <div class="v2-prices__content">
-                    <div class="v2-prices__header">
+<section class="section prices" itemscope itemtype="https://schema.org/ItemList">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-4">
+                <div class="prices__content">
+                    <div class="prices__header">
                         <h2>Нашли дешевле?</h2>
-                        <h3 class="v2-prices__subtitle">Не спешите – разберитесь, за что вы платите</h3>
+                        <h3 class="prices__subtitle">Не спешите – разберитесь, за что вы платите</h3>
             </div>
             
-                    <div class="v2-prices__description">
-                        <div class="v2-prices__circles">
-                            <div class="v2-prices__circle">
+                    <div class="prices__description">
+                        <div class="prices__circles">
+                            <div class="prices__circle">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Лицо">
                     </div>
-                            <div class="v2-prices__circle">
+                            <div class="prices__circle">
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="Вопрос" aria-hidden="true">
                     </div>
                 </div>
@@ -1780,17 +1780,17 @@
             </div>
         </div>
         
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <div class="v2-prices__image">
+            <div class="col-sm-12 col-lg-4">
+                <div class="prices__image">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/price-bg.jpg" alt="Цены на имплантацию" loading="lazy">
                 </div>
         </div>
         
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <div class="v2-prices__cards">
-                    <article class="v2-prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <div class="col-sm-12 col-lg-4">
+                <div class="prices__cards">
+                    <article class="prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="1">
-                        <svg class="v2-prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <svg class="prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_prices_1)">
                         <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
                     </g>
@@ -1804,9 +1804,9 @@
                 <p>Мы не используем дешёвые аналоги и «одноразовые» материалы. В работе только сертифицированные импланты и современное оборудование.</p>
                     </article>
             
-                    <article class="v2-prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <article class="prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="2">
-                        <svg class="v2-prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <svg class="prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_prices_2)">
                         <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
                     </g>
@@ -1820,9 +1820,9 @@
                 <p>Вы сразу получаете план лечения с точными цифрами. Стоимость фиксируется в договоре и не меняется в процессе.</p>
                     </article>
             
-                    <article class="v2-prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <article class="prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="3">
-                        <svg class="v2-prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <svg class="prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_prices_3)">
                         <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
                     </g>
@@ -1842,30 +1842,30 @@
 </section>
 
 <!-- Блок технологий -->
-<section class="v2-section v2-technologies" itemscope itemtype="https://schema.org/ItemList">
-    <div class="v2-container">
-        <div class="v2-row">
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <div class="v2-technologies__header">
+<section class="section technologies" itemscope itemtype="https://schema.org/ItemList">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-4">
+                <div class="technologies__header">
                     <h2>Самые современные технологии</h2>
-                    <p class="v2-technologies__subtitle">Для достижения точного и быстрого результата на Европейском уровне</p>
+                    <p class="technologies__subtitle">Для достижения точного и быстрого результата на Европейском уровне</p>
                 </div>
             </div>
             
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <div class="v2-technologies__cards">
-                    <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <div class="col-sm-12 col-lg-4">
+                <div class="technologies__cards">
+                    <article class="technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="1">
                         <h3 itemprop="name">3D-моделирование</h3>
-                        <div class="v2-technologies__benefits">
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <div class="technologies__benefits">
+                            <div class="technologies__benefit">
+                                <svg class="technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                         </svg>
                         <span>Врач заранее создаёт точную цифровую модель вашей улыбки.</span>
                     </div>
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <div class="technologies__benefit">
+                                <svg class="technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                         </svg>
                         <span>Вы видите, каким будет результат ещё до начала лечения.</span>
@@ -1873,18 +1873,18 @@
                 </div>
                     </article>
             
-                    <article class="v2-technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <article class="technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="2">
                         <h3 itemprop="name">Компьютерная диагностика</h3>
-                        <div class="v2-technologies__benefits">
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <div class="technologies__benefits">
+                            <div class="technologies__benefit">
+                                <svg class="technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                         </svg>
                         <span>Высокоточный анализ снимка по каждому зубу, с помощью специальных программ.</span>
                     </div>
-                            <div class="v2-technologies__benefit">
-                                <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <div class="technologies__benefit">
+                                <svg class="technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                         </svg>
                         <span>План лечения составляется максимально точно и без ошибок.</span>
@@ -1894,19 +1894,19 @@
                 </div>
             </div>
             
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <article class="v2-technologies__card v2-technologies__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <div class="col-sm-12 col-lg-4">
+                <article class="technologies__card technologies__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <meta itemprop="position" content="3">
                     <h3 itemprop="name">Своя цифровая лаборатория</h3>
-                    <div class="v2-technologies__benefits">
-                        <div class="v2-technologies__benefit">
-                            <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <div class="technologies__benefits">
+                        <div class="technologies__benefit">
+                            <svg class="technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                         </svg>
                         <span>Коронки и протезы изготавливаются прямо в клинике.</span>
                     </div>
-                        <div class="v2-technologies__benefit">
-                            <svg class="v2-technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <div class="technologies__benefit">
+                            <svg class="technologies__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
                         </svg>
                         <span>Уже через 1 день вы можете уйти с новым зубом.</span>
@@ -1921,14 +1921,14 @@
 
 
 <!-- Блок рисков лечения в Китае -->
-<section class="v2-section v2-china-risks" itemscope itemtype="https://schema.org/ItemList">
-    <div class="v2-container">
-        <div class="v2-row">
-            <div class="v2-col-sm-12 v2-col-lg-8">
-                <div class="v2-china-risks__left">
-                    <div class="v2-china-risks__header">
+<section class="section china-risks" itemscope itemtype="https://schema.org/ItemList">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-8">
+                <div class="china-risks__left">
+                    <div class="china-risks__header">
                             <h2>Собирались лететь в Китай на протезирование?</h2>
-                        <div class="v2-china-risks__subtitle">
+                        <div class="china-risks__subtitle">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <path d="M7.5 17.5L0 10L2.5 7.5L7.5 12.5L17.5 2.5L20 5" fill="#FF0000"/>
 </svg>
@@ -1936,38 +1936,38 @@
                         </div>
         </div>
         
-                    <div class="v2-row">
-                        <div class="v2-col-sm-12 v2-col-lg-6">
-                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6">
+                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                                 <meta itemprop="position" content="1">
-                                <div class="v2-china-risks__number">.01</div>
+                                <div class="china-risks__number">.01</div>
                                 <h3 itemprop="name">Языковой барьер</h3>
             <p>Вы не объясните врачу, что чувствуете. Ошибка на этапе имплантации – это не возврат товара.</p>
                             </article>
         </div>
         
-                        <div class="v2-col-sm-12 v2-col-lg-6">
-                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <div class="col-sm-12 col-lg-6">
+                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                                 <meta itemprop="position" content="2">
-                                <div class="v2-china-risks__number">.02</div>
+                                <div class="china-risks__number">.02</div>
                                 <h3 itemprop="name">Выбор клиники вслепую</h3>
             <p>По факту, вы доверяете здоровье и деньги неизвестной системе.</p>
                             </article>
         </div>
         
-                        <div class="v2-col-sm-12 v2-col-lg-6">
-                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <div class="col-sm-12 col-lg-6">
+                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                                 <meta itemprop="position" content="3">
-                                <div class="v2-china-risks__number">.03</div>
+                                <div class="china-risks__number">.03</div>
                                 <h3 itemprop="name">Скрытые доплаты</h3>
             <p>Один счёт за операцию, другой – за «мелочи» на месте, а через неделю ещё за «коронки».</p>
                             </article>
         </div>
         
-                        <div class="v2-col-sm-12 v2-col-lg-6">
-                            <article class="v2-china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <div class="col-sm-12 col-lg-6">
+                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                                 <meta itemprop="position" content="4">
-                                <div class="v2-china-risks__number">.04</div>
+                                <div class="china-risks__number">.04</div>
                                 <h3 itemprop="name">Гарантия?</h3>
             <p>Только пока вы в стране. А если что – останетесь с проблемой один на один.</p>
                             </article>
@@ -1976,17 +1976,17 @@
                 </div>
         </div>
         
-            <div class="v2-col-sm-12 v2-col-lg-4">
-                <article class="v2-china-risks__card v2-china-risks__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <div class="col-sm-12 col-lg-4">
+                <article class="china-risks__card china-risks__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <meta itemprop="position" content="5">
-                    <div class="v2-china-risks__circles">
-                        <div class="v2-china-risks__circle"></div>
-                        <div class="v2-china-risks__circle"></div>
-                        <div class="v2-china-risks__circle"></div>
+                    <div class="china-risks__circles">
+                        <div class="china-risks__circle"></div>
+                        <div class="china-risks__circle"></div>
+                        <div class="china-risks__circle"></div>
             </div>
                     <h3 itemprop="name">В ЦЭСИ – всё прозрачно и безопасно:</h3>
             <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
-                    <button class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Записаться на консультацию</button>
+                    <button class="btn btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Записаться на консультацию</button>
                 </article>
             </div>
         </div>

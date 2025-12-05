@@ -1,25 +1,25 @@
-<footer class="v2-footer" itemscope itemtype="https://schema.org/MedicalBusiness">
-    <div class="v2-container">
-        <div class="v2-row v2-footer__content">
-            <div class="v2-col-sm-12 v2-col-lg-6 v2-footer__section">
-                <div class="v2-footer__logo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="ЦЭСИ" class="v2-footer__logo-img" itemprop="logo">
+<footer class="footer" itemscope itemtype="https://schema.org/MedicalBusiness">
+    <div class="container">
+        <div class="row footer__content">
+            <div class="col-sm-12 col-lg-6 footer__section">
+                <div class="footer__logo">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="ЦЭСИ" class="footer__logo-img" itemprop="logo">
                 </div>
-                <p class="v2-footer__name" itemprop="name">Центр Эстетической стоматологии и имплантации</p>
+                <p class="footer__name" itemprop="name">Центр Эстетической стоматологии и имплантации</p>
             </div>
 
-            <div class="v2-col-sm-12 v2-col-lg-6 v2-footer__section v2-footer__contacts">
-                <h3 class="v2-footer__contacts-title">Контакты</h3>
-                <ul class="v2-footer__contacts-list" itemscope itemprop="address" itemtype="https://schema.org/PostalAddress">
-                    <li class="v2-footer__contacts-item" itemprop="streetAddress">г. Елизово, ул. Ленина 15-а</li>
-                    <li class="v2-footer__contacts-item">
-                        <a href="tel:+74152500129" class="v2-footer__contacts-link" itemprop="telephone">+7(4152) 50-01-29</a>
+            <div class="col-sm-12 col-lg-6 footer__section footer__contacts">
+                <h3 class="footer__contacts-title">Контакты</h3>
+                <ul class="footer__contacts-list" itemscope itemprop="address" itemtype="https://schema.org/PostalAddress">
+                    <li class="footer__contacts-item" itemprop="streetAddress">г. Елизово, ул. Ленина 15-а</li>
+                    <li class="footer__contacts-item">
+                        <a href="tel:+74152500129" class="footer__contacts-link" itemprop="telephone">+7(4152) 50-01-29</a>
                     </li>
-                    <li class="v2-footer__contacts-item">
+                    <li class="footer__contacts-item">
                         <meta itemprop="openingHours" content="Mo-Fr 08:00-20:00">
                         Пн-Пт: 8:00 - 20:00
                     </li>
-                    <li class="v2-footer__contacts-item">
+                    <li class="footer__contacts-item">
                         <meta itemprop="openingHours" content="Sa 08:00-14:00">
                         Сб: 8:00 – 14:00
                     </li>
@@ -27,25 +27,25 @@
             </div>
         </div>
 
-        <div class="v2-row v2-footer__bottom">
-            <div class="v2-col-sm-12 v2-col-lg-8 v2-footer__legal">
-                <p class="v2-footer__legal-text">ООО «Дента» ИНН 4105000950 КПП 410501001 ОГРН 1024101222408</p>
-                <p class="v2-footer__legal-text">Имеются противопоказания. Необходима консультация специалиста</p>
+        <div class="row footer__bottom">
+            <div class="col-sm-12 col-lg-8 footer__legal">
+                <p class="footer__legal-text">ООО «Дента» ИНН 4105000950 КПП 410501001 ОГРН 1024101222408</p>
+                <p class="footer__legal-text">Имеются противопоказания. Необходима консультация специалиста</p>
             </div>
-            <div class="v2-col-sm-12 v2-col-lg-4 v2-footer__links">
-                <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener" class="v2-footer__link">Политика конфиденциальности</a>
-                <a href="#" onclick="showCookieSettings(); return false;" class="v2-footer__link">Настройки cookies</a>
+            <div class="col-sm-12 col-lg-4 footer__links">
+                <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener" class="footer__link">Политика конфиденциальности</a>
+                <a href="#" onclick="showCookieSettings(); return false;" class="footer__link">Настройки cookies</a>
             </div>
         </div>
 
-        <div class="v2-row v2-footer__recaptcha">
-            <div class="v2-col-sm-12 v2-col-lg-12">
-                <div class="v2-footer__recaptcha-notice">
-                    <p class="v2-footer__recaptcha-text">
+        <div class="row footer__recaptcha">
+            <div class="col-sm-12 col-lg-12">
+                <div class="footer__recaptcha-notice">
+                    <p class="footer__recaptcha-text">
                         This site is protected by reCAPTCHA and the Google
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="v2-footer__recaptcha-link">Privacy Policy</a>
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="footer__recaptcha-link">Privacy Policy</a>
                         and
-                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="v2-footer__recaptcha-link">Terms of Service</a>
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="footer__recaptcha-link">Terms of Service</a>
                         apply.
                     </p>
                 </div>

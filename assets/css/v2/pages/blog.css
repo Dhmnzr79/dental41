@@ -1,7 +1,7 @@
 /* Стили страниц блога v2 */
 
 /* ===== КАРТОЧКА СТАТЬИ ===== */
-.v2-site .v2-blog-card {
+.blog-card {
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
@@ -13,19 +13,19 @@
         box-shadow 0.3s ease;
 }
 
-.v2-site .v2-blog-card:hover {
+.blog-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.v2-site .v2-blog-card__image {
+.blog-card__image {
     width: 100%;
     height: 200px;
     overflow: hidden;
     border-radius: 15px 15px 0 0;
 }
 
-.v2-site .v2-blog-card__img {
+.blog-card__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -33,11 +33,11 @@
     display: block;
 }
 
-.v2-site .v2-blog-card:hover .v2-blog-card__img {
+.blog-card:hover .blog-card__img {
     transform: scale(1.05);
 }
 
-.v2-site .v2-blog-card__content {
+.blog-card__content {
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -45,34 +45,34 @@
     flex-grow: 1;
 }
 
-.v2-site .v2-blog-card__text {
+.blog-card__text {
     margin-bottom: 20px;
 }
 
-.v2-site .v2-blog-card__title {
+.blog-card__title {
     font-size: 22px;
     line-height: 1.3;
     margin: 0 0 15px 0;
 }
 
-.v2-site .v2-blog-card__title a {
+.blog-card__title a {
     color: var(--heading-color);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.v2-site .v2-blog-card__title a:hover {
+.blog-card__title a:hover {
     color: var(--brand-color);
 }
 
-.v2-site .v2-blog-card__excerpt {
+.blog-card__excerpt {
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-color);
     margin: 0;
 }
 
-.v2-site .v2-blog-card__btn {
+.blog-card__btn {
     display: inline-block;
     padding: 12px 24px;
     background: var(--brand-color);
@@ -85,34 +85,34 @@
     align-self: flex-start;
 }
 
-.v2-site .v2-blog-card__btn:hover {
+.blog-card__btn:hover {
     opacity: 0.9;
 }
 
 /* ===== СТРАНИЦА БЛОГА (список статей) ===== */
-.v2-site .v2-blog {
+.blog {
     padding: 40px 0 60px;
 }
 
-.v2-site .v2-blog__header {
+.blog__header {
     margin-bottom: 60px;
     text-align: center;
 }
 
-.v2-site .v2-blog__header h1 {
+.blog__header h1 {
     margin: 0 0 15px 0;
     font-size: 44px;
     line-height: 1.2;
     color: var(--heading-color);
 }
 
-.v2-site .v2-blog__header p {
+.blog__header p {
     font-size: 18px;
     color: var(--text-color);
     margin: 0;
 }
 
-.v2-site .v2-blog__grid {
+.blog__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -120,142 +120,142 @@
 }
 
 /* ===== ОТДЕЛЬНАЯ СТАТЬЯ ===== */
-.v2-site .v2-single-post {
+.single-post {
     padding: 40px 0 60px;
 }
 
-.v2-site .v2-single-post__layout {
+.single-post__layout {
     display: flex;
     gap: 60px;
     align-items: flex-start;
 }
 
-.v2-site .v2-single-post__content {
+.single-post__content {
     flex: 1;
     max-width: calc(100% - 400px);
     margin-bottom: 40px;
 }
 
-.v2-site .v2-single-post__header {
+.single-post__header {
     margin-bottom: 30px;
 }
 
-.v2-site .v2-single-post__header h1 {
+.single-post__header h1 {
     margin: 0;
     font-size: 44px;
     line-height: 1.2;
     color: var(--heading-color);
 }
 
-.v2-site .v2-single-post__image {
+.single-post__image {
     margin-bottom: 30px;
     border-radius: 16px;
     overflow: hidden;
 }
 
-.v2-site .v2-single-post__img {
+.single-post__img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-.v2-site .v2-single-post__disclaimer {
+.single-post__disclaimer {
     background: var(--bg-light);
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 20px;
 }
 
-.v2-site .v2-single-post__disclaimer p {
+.single-post__disclaimer p {
     margin: 0;
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-color);
 }
 
-.v2-site .v2-single-post__disclaimer strong {
+.single-post__disclaimer strong {
     color: var(--heading-color);
 }
 
-.v2-site .v2-single-post__brand-stripe {
+.single-post__brand-stripe {
     height: 4px;
     background: var(--brand-color);
     border-radius: 2px;
     margin-bottom: 30px;
 }
 
-.v2-site .v2-single-post__text {
+.single-post__text {
     line-height: 1.8;
     font-size: 18px;
     margin-bottom: 40px;
     color: var(--text-color);
 }
 
-.v2-site .v2-single-post__text h2 {
+.single-post__text h2 {
     font-size: 32px;
     margin: 40px 0 20px;
     color: var(--heading-color);
     line-height: 1.2;
 }
 
-.v2-site .v2-single-post__text h3 {
+.single-post__text h3 {
     font-size: 24px;
     margin: 30px 0 15px;
     color: var(--heading-color);
     line-height: 1.3;
 }
 
-.v2-site .v2-single-post__text p {
+.single-post__text p {
     margin-bottom: 20px;
 }
 
-.v2-site .v2-single-post__text ul,
-.v2-site .v2-single-post__text ol {
+.single-post__text ul,
+.single-post__text ol {
     margin-bottom: 20px;
     padding-left: 30px;
 }
 
-.v2-site .v2-single-post__text li {
+.single-post__text li {
     margin-bottom: 10px;
 }
 
-.v2-site .v2-single-post__text img {
+.single-post__text img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
     margin: 20px 0;
 }
 
-.v2-site .v2-single-post__text a {
+.single-post__text a {
     color: var(--brand-color);
     text-decoration: underline;
 }
 
-.v2-site .v2-single-post__text a:hover {
+.single-post__text a:hover {
     opacity: 0.8;
 }
 
 /* Похожие статьи */
-.v2-site .v2-single-post__related {
+.single-post__related {
     margin-top: 60px;
     padding-top: 40px;
     border-top: 1px solid #e0e0e0;
 }
 
-.v2-site .v2-single-post__related-title {
+.single-post__related-title {
     margin: 0 0 30px 0;
     font-size: 32px;
     line-height: 1.2;
     color: var(--heading-color);
 }
 
-.v2-site .v2-single-post__related-grid {
+.single-post__related-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
-.v2-site .v2-single-post__related-item {
+.single-post__related-item {
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
@@ -264,25 +264,25 @@
         box-shadow 0.3s ease;
 }
 
-.v2-site .v2-single-post__related-item:hover {
+.single-post__related-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.v2-site .v2-single-post__related-link {
+.single-post__related-link {
     display: block;
     text-decoration: none;
     color: inherit;
 }
 
-.v2-site .v2-single-post__related-image {
+.single-post__related-image {
     width: 100%;
     height: 200px;
     overflow: hidden;
     border-radius: 16px 16px 0 0;
 }
 
-.v2-site .v2-single-post__related-img {
+.single-post__related-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -290,11 +290,11 @@
     transition: transform 0.3s ease;
 }
 
-.v2-site .v2-single-post__related-item:hover .v2-single-post__related-img {
+.single-post__related-item:hover .single-post__related-img {
     transform: scale(1.05);
 }
 
-.v2-site .v2-single-post__related-item-title {
+.single-post__related-item-title {
     margin: 0;
     padding: 20px;
     font-size: 20px;
@@ -303,19 +303,19 @@
     transition: color 0.2s ease;
 }
 
-.v2-site
-    .v2-single-post__related-link:hover
-    .v2-single-post__related-item-title {
+.site
+    .single-post__related-link:hover
+    .single-post__related-item-title {
     color: var(--brand-color);
 }
 
-.v2-site .v2-single-post__footer {
+.single-post__footer {
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid #e0e0e0;
 }
 
-.v2-site .v2-single-post__back-link {
+.single-post__back-link {
     display: inline-block;
     color: var(--brand-color);
     text-decoration: none;
@@ -324,12 +324,12 @@
     transition: color 0.2s ease;
 }
 
-.v2-site .v2-single-post__back-link:hover {
+.single-post__back-link:hover {
     opacity: 0.8;
 }
 
 /* Сайдбар статьи */
-.v2-site .v2-single-post__sidebar {
+.single-post__sidebar {
     position: sticky;
     top: 20px;
 }
@@ -340,105 +340,105 @@
 /* max-width: 767px (мобилки) */
 @media (max-width: 767px) {
     /* Blog grid */
-    .v2-site .v2-blog__grid {
+    .blog__grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
     /* Blog card */
-    .v2-site .v2-blog-card__image {
+    .blog-card__image {
         height: 160px;
     }
 
-    .v2-site .v2-blog-card__content {
+    .blog-card__content {
         padding: 20px;
     }
 
-    .v2-site .v2-blog-card__title {
+    .blog-card__title {
         font-size: 18px;
     }
 
-    .v2-site .v2-blog-card__excerpt {
+    .blog-card__excerpt {
         font-size: 14px;
     }
 
-    .v2-site .v2-blog-card__btn {
+    .blog-card__btn {
         padding: 10px 20px;
         font-size: 14px;
     }
 
-    .v2-site .v2-blog {
+    .blog {
         padding: 20px 0 40px;
     }
 
-    .v2-site .v2-blog__header {
+    .blog__header {
         margin-bottom: 40px;
     }
 
-    .v2-site .v2-blog__header h1 {
+    .blog__header h1 {
         font-size: 32px;
     }
 
-    .v2-site .v2-blog__header p {
+    .blog__header p {
         font-size: 16px;
     }
 
     /* Single post layout */
-    .v2-site .v2-single-post__layout {
+    .single-post__layout {
         flex-direction: column;
         gap: 40px;
     }
 
-    .v2-site .v2-single-post__content {
+    .single-post__content {
         max-width: 100%;
     }
 
-    .v2-site .v2-single-post__sidebar {
+    .single-post__sidebar {
         position: static;
         margin-top: 0;
     }
 
-    .v2-site .v2-single-post {
+    .single-post {
         padding: 20px 0 40px;
     }
 
-    .v2-site .v2-single-post__header h1 {
+    .single-post__header h1 {
         font-size: 32px;
     }
 
-    .v2-site .v2-single-post__text {
+    .single-post__text {
         font-size: 16px;
     }
 
-    .v2-site .v2-single-post__text h2 {
+    .single-post__text h2 {
         font-size: 24px;
     }
 
-    .v2-site .v2-single-post__text h3 {
+    .single-post__text h3 {
         font-size: 20px;
     }
 
     /* Related posts */
-    .v2-site .v2-single-post__related {
+    .single-post__related {
         margin-top: 40px;
         padding-top: 30px;
     }
 
-    .v2-site .v2-single-post__related-title {
+    .single-post__related-title {
         font-size: 24px;
         margin-bottom: 20px;
     }
 
-    .v2-site .v2-single-post__related-grid {
+    .single-post__related-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .v2-site .v2-single-post__related-image {
+    .single-post__related-image {
         height: 180px;
     }
 
-    .v2-site .v2-single-post__related-item-title {
+    .single-post__related-item-title {
         font-size: 18px;
         padding: 15px;
     }
@@ -447,40 +447,40 @@
 /* min-width: 768px and max-width: 1279px (планшеты) */
 @media (min-width: 768px) and (max-width: 1279px) {
     /* Blog grid */
-    .v2-site .v2-blog__grid {
+    .blog__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
 
     /* Blog card */
-    .v2-site .v2-blog-card__image {
+    .blog-card__image {
         height: 180px;
     }
 
-    .v2-site .v2-blog-card__content {
+    .blog-card__content {
         padding: 20px;
     }
 
-    .v2-site .v2-blog-card__title {
+    .blog-card__title {
         font-size: 20px;
     }
 
-    .v2-site .v2-blog__header h1 {
+    .blog__header h1 {
         font-size: 36px;
     }
 
-    .v2-site .v2-single-post__header h1 {
+    .single-post__header h1 {
         font-size: 36px;
     }
 }
 
 /* min-width: 1280px (десктоп) */
 @media (min-width: 1280px) {
-    .v2-site .v2-blog {
+    .blog {
         padding: 60px 0 80px;
     }
 
-    .v2-site .v2-single-post {
+    .single-post {
         padding: 60px 0 80px;
     }
 }

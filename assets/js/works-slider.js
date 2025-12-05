@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var slider = document.querySelector('[data-slider="works"]');
     if (!slider) return;
 
-    var list = slider.querySelector('.v2-works__list');
+    var list = slider.querySelector('.works__list');
     if (!list) return;
 
-    var cols = Array.prototype.slice.call(list.querySelectorAll('.v2-works__col'));
+    var cols = Array.prototype.slice.call(list.querySelectorAll('.works__col'));
     var dots = Array.prototype.slice.call(slider.querySelectorAll('[data-slider-dot]'));
     if (!cols.length || !dots.length) return;
 
@@ -35,14 +35,14 @@ document.addEventListener('DOMContentLoaded', function () {
             
             // Все карточки видимы для плавного скролла
             cols.forEach(function (col) {
-                col.classList.remove('v2-works__col--hidden');
+                col.classList.remove('works__col--hidden');
             });
         } else {
             // На десктопе показываем все карточки без transform
             list.style.transform = 'translateX(0)';
             list.style.transition = 'none';
             cols.forEach(function (col) {
-                col.classList.remove('v2-works__col--hidden');
+                col.classList.remove('works__col--hidden');
             });
         }
 
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
             list.style.transform = 'translateX(0)';
             list.style.transition = 'none';
             cols.forEach(function (col) {
-                col.classList.remove('v2-works__col--hidden');
+                col.classList.remove('works__col--hidden');
             });
         } else {
             // В режиме слайдера обновляем отображение
@@ -137,43 +137,43 @@ document.addEventListener('DOMContentLoaded', function () {
         list.style.transform = 'translateX(0)';
         list.style.transition = 'none';
         cols.forEach(function (col) {
-            col.classList.remove('v2-works__col--hidden');
+            col.classList.remove('works__col--hidden');
         });
     }
 
     // Лайтбокс для изображений работ
-    var mediaImages = slider.querySelectorAll('.v2-works__media img');
+    var mediaImages = slider.querySelectorAll('.works__media img');
     var overlay = null;
 
     function openLightbox(src, alt) {
         if (!overlay) {
             overlay = document.createElement('div');
-            overlay.className = 'v2-works-lightbox';
+            overlay.className = 'works-lightbox';
             overlay.innerHTML = '\
-<div class=\"v2-works-lightbox__backdrop\"></div>\
-<div class=\"v2-works-lightbox__inner\">\
-  <button class=\"v2-works-lightbox__close\" aria-label=\"Закрыть просмотр\">×</button>\
-  <img class=\"v2-works-lightbox__image\" alt=\"\" loading=\"eager\">\
+<div class=\"works-lightbox__backdrop\"></div>\
+<div class=\"works-lightbox__inner\">\
+  <button class=\"works-lightbox__close\" aria-label=\"Закрыть просмотр\">×</button>\
+  <img class=\"works-lightbox__image\" alt=\"\" loading=\"eager\">\
 </div>';
             document.body.appendChild(overlay);
 
-            overlay.querySelector('.v2-works-lightbox__backdrop').addEventListener('click', closeLightbox);
-            overlay.querySelector('.v2-works-lightbox__close').addEventListener('click', closeLightbox);
+            overlay.querySelector('.works-lightbox__backdrop').addEventListener('click', closeLightbox);
+            overlay.querySelector('.works-lightbox__close').addEventListener('click', closeLightbox);
             
             // Закрытие по Escape
             document.addEventListener('keydown', function handleEscape(e) {
-                if (e.key === 'Escape' && overlay && overlay.classList.contains('v2-works-lightbox--visible')) {
+                if (e.key === 'Escape' && overlay && overlay.classList.contains('works-lightbox--visible')) {
                     closeLightbox();
                 }
             });
         }
 
-        var img = overlay.querySelector('.v2-works-lightbox__image');
-        var inner = overlay.querySelector('.v2-works-lightbox__inner');
+        var img = overlay.querySelector('.works-lightbox__image');
+        var inner = overlay.querySelector('.works-lightbox__inner');
         
         // Показываем лайтбокс сразу
-        overlay.classList.add('v2-works-lightbox--visible');
-        document.body.classList.add('v2-popup-open');
+        overlay.classList.add('works-lightbox--visible');
+        document.body.classList.add('popup-open');
         
         // Показываем индикатор загрузки
         img.style.opacity = '0';
@@ -193,8 +193,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function closeLightbox() {
         if (!overlay) return;
-        overlay.classList.remove('v2-works-lightbox--visible');
-        document.body.classList.remove('v2-popup-open');
+        overlay.classList.remove('works-lightbox--visible');
+        document.body.classList.remove('popup-open');
     }
 
     mediaImages.forEach(function (img) {

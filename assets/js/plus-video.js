@@ -1,9 +1,9 @@
 /**
- * Автозапуск видео в блоке v2-plus__card--bg при появлении в поле зрения
+ * Автозапуск видео в блоке plus__card--bg при появлении в поле зрения
  * Запускается через 1 секунду после того, как блок попадает в viewport
  */
 document.addEventListener('DOMContentLoaded', function () {
-    var videoCard = document.querySelector('.v2-plus__card--bg .v2-plus__card-video');
+    var videoCard = document.querySelector('.plus__card--bg .plus__card-video');
     if (!videoCard) return;
 
     var hasPlayed = false;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     );
 
     // Начинаем наблюдать за элементом
-    var cardContainer = videoCard.closest('.v2-plus__card--bg');
+    var cardContainer = videoCard.closest('.plus__card--bg');
     if (cardContainer) {
         observer.observe(cardContainer);
     }

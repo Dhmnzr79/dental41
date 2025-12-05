@@ -3,25 +3,25 @@
  * Single doctor template (V2)
  */
 
-get_header('v2'); ?>
+get_header(); ?>
 
 <!-- Хлебные крошки -->
-<nav class="v2-breadcrumbs" aria-label="Хлебные крошки" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <div class="v2-container">
+<nav class="breadcrumbs" aria-label="Хлебные крошки" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <div class="container">
         <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <meta itemprop="position" content="1">
             <a href="<?php echo home_url(); ?>" itemprop="item">
                 <span itemprop="name">Главная</span>
             </a>
         </span>
-        <span class="v2-breadcrumbs__separator">/</span>
+        <span class="breadcrumbs__separator">/</span>
         <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <meta itemprop="position" content="2">
             <a href="<?php echo get_post_type_archive_link('doctor'); ?>" itemprop="item">
                 <span itemprop="name">Врачи</span>
             </a>
         </span>
-        <span class="v2-breadcrumbs__separator">/</span>
+        <span class="breadcrumbs__separator">/</span>
         <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <meta itemprop="position" content="3">
             <span itemprop="name"><?php the_title(); ?></span>
@@ -54,21 +54,21 @@ get_header('v2'); ?>
 ?>
 
 <!-- Страница врача -->
-<article class="v2-doctor-single" itemscope itemtype="https://schema.org/Person">
+<article class="doctor-single" itemscope itemtype="https://schema.org/Person">
     <meta itemprop="url" content="<?php echo esc_url(get_permalink()); ?>">
-    <div class="v2-container">
-        <div class="v2-row">
+    <div class="container">
+        <div class="row">
             <!-- Левая колонка - фото и основная информация -->
-            <div class="v2-col-12 v2-col-sm-6 v2-col-lg-4 v2-doctor-single__left">
-                <div class="v2-doctor-single__photo">
+            <div class="col-12 col-sm-6 col-lg-4 doctor-single__left">
+                <div class="doctor-single__photo">
                     <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('large', array('class' => 'v2-doctor-single__img', 'itemprop' => 'image', 'loading' => 'lazy', 'alt' => esc_attr($doctor_fio))); ?>
+                        <?php the_post_thumbnail('large', array('class' => 'doctor-single__img', 'itemprop' => 'image', 'loading' => 'lazy', 'alt' => esc_attr($doctor_fio))); ?>
                     <?php else : ?>
-                        <div class="v2-doctor-single__placeholder" aria-hidden="true">👨‍⚕️</div>
+                        <div class="doctor-single__placeholder" aria-hidden="true">👨‍⚕️</div>
                     <?php endif; ?>
                     
                     <?php if ($doctor_video) : ?>
-                        <button class="v2-doctor-single__video-btn" data-video="<?php echo esc_url($doctor_video); ?>" aria-label="Смотреть видео о враче">
+                        <button class="doctor-single__video-btn" data-video="<?php echo esc_url($doctor_video); ?>" aria-label="Смотреть видео о враче">
                             <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <g clip-path="url(#clip0_doctor_single_video)">
                                     <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
@@ -84,52 +84,52 @@ get_header('v2'); ?>
                     <?php endif; ?>
                 </div>
                 
-                <div class="v2-doctor-single__basic">
-                    <h1 class="v2-doctor-single__name" itemprop="name"><?php echo esc_html($doctor_fio); ?></h1>
+                <div class="doctor-single__basic">
+                    <h1 class="doctor-single__name" itemprop="name"><?php echo esc_html($doctor_fio); ?></h1>
                     <?php if ($doctor_position) : ?>
-                        <div class="v2-doctor-single__position" itemprop="jobTitle"><?php echo esc_html($doctor_position); ?></div>
+                        <div class="doctor-single__position" itemprop="jobTitle"><?php echo esc_html($doctor_position); ?></div>
                     <?php endif; ?>
                     <?php if ($doctor_experience) : ?>
-                        <div class="v2-doctor-single__experience">Опыт работы: <?php echo esc_html($doctor_experience); ?> лет</div>
+                        <div class="doctor-single__experience">Опыт работы: <?php echo esc_html($doctor_experience); ?> лет</div>
                     <?php endif; ?>
                     
-                    <button type="button" class="v2-btn v2-btn--primary" onclick="openPopup()" aria-label="Записаться к врачу">
+                    <button type="button" class="btn btn--primary" onclick="openPopup()" aria-label="Записаться к врачу">
                         Записаться к врачу
                     </button>
                 </div>
             </div>
             
             <!-- Правая колонка - подробная информация -->
-            <div class="v2-col-12 v2-col-sm-6 v2-col-lg-8 v2-doctor-single__content">
-                <div class="v2-doctor-single__details">
+            <div class="col-12 col-sm-6 col-lg-8 doctor-single__content">
+                <div class="doctor-single__details">
                     <!-- 3 Индекса -->
                     <?php if ($doctor_index1 || $doctor_index2 || $doctor_index3) : ?>
-                        <section class="v2-doctor-single__section v2-doctor-single__indices">
-                            <div class="v2-doctor-single__indices-grid">
+                        <section class="doctor-single__section doctor-single__indices">
+                            <div class="doctor-single__indices-grid">
                                 <?php if ($doctor_index1) : ?>
-                                    <div class="v2-doctor-single__index-item">
-                                        <div class="v2-doctor-single__index-icon">
+                                    <div class="doctor-single__index-item">
+                                        <div class="doctor-single__index-icon">
                                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-01.svg" alt="" aria-hidden="true">
                                         </div>
-                                        <div class="v2-doctor-single__index-value"><?php echo esc_html($doctor_index1); ?></div>
+                                        <div class="doctor-single__index-value"><?php echo esc_html($doctor_index1); ?></div>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <?php if ($doctor_index2) : ?>
-                                    <div class="v2-doctor-single__index-item">
-                                        <div class="v2-doctor-single__index-icon">
+                                    <div class="doctor-single__index-item">
+                                        <div class="doctor-single__index-icon">
                                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-02.svg" alt="" aria-hidden="true">
                                         </div>
-                                        <div class="v2-doctor-single__index-value"><?php echo esc_html($doctor_index2); ?></div>
+                                        <div class="doctor-single__index-value"><?php echo esc_html($doctor_index2); ?></div>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <?php if ($doctor_index3) : ?>
-                                    <div class="v2-doctor-single__index-item">
-                                        <div class="v2-doctor-single__index-icon">
+                                    <div class="doctor-single__index-item">
+                                        <div class="doctor-single__index-icon">
                                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-03.svg" alt="" aria-hidden="true">
                                         </div>
-                                        <div class="v2-doctor-single__index-value"><?php echo esc_html($doctor_index3); ?></div>
+                                        <div class="doctor-single__index-value"><?php echo esc_html($doctor_index3); ?></div>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -138,8 +138,8 @@ get_header('v2'); ?>
                     
                     <!-- Полное описание -->
                     <?php if ($doctor_description) : ?>
-                        <section class="v2-doctor-single__section">
-                            <div class="v2-doctor-single__text">
+                        <section class="doctor-single__section">
+                            <div class="doctor-single__text">
                                 <?php echo wp_kses_post($doctor_description); ?>
                             </div>
                         </section>
@@ -147,8 +147,8 @@ get_header('v2'); ?>
                     
                     <!-- Цитата -->
                     <?php if ($doctor_quote) : ?>
-                        <section class="v2-doctor-single__section v2-doctor-single__quote-section">
-                            <blockquote class="v2-doctor-single__quote" itemprop="description">
+                        <section class="doctor-single__section doctor-single__quote-section">
+                            <blockquote class="doctor-single__quote" itemprop="description">
                                 <?php echo esc_html($doctor_quote); ?>
                             </blockquote>
                         </section>
@@ -156,9 +156,9 @@ get_header('v2'); ?>
                     
                     <!-- Образование -->
                     <?php if ($doctor_education) : ?>
-                        <section class="v2-doctor-single__section">
+                        <section class="doctor-single__section">
                             <h3>Образование</h3>
-                            <ul class="v2-doctor-single__education-list" itemprop="alumniOf">
+                            <ul class="doctor-single__education-list" itemprop="alumniOf">
                                 <?php 
                                 // Разбиваем текст по переносам строк и выводим как список
                                 $education_lines = explode("\n", $doctor_education);
@@ -175,13 +175,13 @@ get_header('v2'); ?>
                     
                     <!-- Сертификаты и награды -->
                     <?php if (!empty($certificate_ids)) : ?>
-                        <section class="v2-doctor-single__section">
+                        <section class="doctor-single__section">
                             <h3>Сертификаты и награды</h3>
-                            <div class="v2-doctor-single__certificates" itemprop="award">
+                            <div class="doctor-single__certificates" itemprop="award">
                                 <?php foreach ($certificate_ids as $cert_id) : 
-                                    $cert_image = wp_get_attachment_image($cert_id, 'large', false, array('class' => 'v2-doctor-single__certificate-img', 'loading' => 'lazy'));
+                                    $cert_image = wp_get_attachment_image($cert_id, 'large', false, array('class' => 'doctor-single__certificate-img', 'loading' => 'lazy'));
                                     if ($cert_image) : ?>
-                                        <div class="v2-doctor-single__certificate-item">
+                                        <div class="doctor-single__certificate-item">
                                             <?php echo $cert_image; ?>
                                         </div>
                                     <?php endif;
@@ -196,20 +196,20 @@ get_header('v2'); ?>
 </article>
 
 <!-- Попап для видео -->
-<div id="v2-doctor-video-modal" class="v2-doctor-video-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="v2-doctor-video-title">
-    <div class="v2-doctor-video-modal__content">
-        <button class="v2-doctor-video-modal__close" aria-label="Закрыть видео">&times;</button>
-        <div class="v2-doctor-video-modal__video">
-            <iframe id="v2-doctor-video-iframe" src="" frameborder="0" allowfullscreen title="Видео о враче"></iframe>
+<div id="doctor-video-modal" class="doctor-video-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="doctor-video-title">
+    <div class="doctor-video-modal__content">
+        <button class="doctor-video-modal__close" aria-label="Закрыть видео">&times;</button>
+        <div class="doctor-video-modal__video">
+            <iframe id="doctor-video-iframe" src="" frameborder="0" allowfullscreen title="Видео о враче"></iframe>
         </div>
     </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('v2-doctor-video-modal');
-    const iframe = document.getElementById('v2-doctor-video-iframe');
-    const closeBtn = document.querySelector('.v2-doctor-video-modal__close');
+    const modal = document.getElementById('doctor-video-modal');
+    const iframe = document.getElementById('doctor-video-iframe');
+    const closeBtn = document.querySelector('.doctor-video-modal__close');
     
     function openVideoModal(videoUrl) {
         let embedUrl = videoUrl;
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
     
-    document.querySelectorAll('.v2-doctor-single__video-btn').forEach(btn => {
+    document.querySelectorAll('.doctor-single__video-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -276,4 +276,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <?php endwhile; endif; ?>
 
-<?php get_footer('v2'); ?>
+<?php get_footer(); ?>

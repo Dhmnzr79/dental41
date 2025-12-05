@@ -3,19 +3,19 @@
  * Template Name: История моей улыбки v2
  * Страница "История моей улыбки" v2
  */
-get_header('v2'); 
+get_header(); 
 ?>
 
 <!-- Хлебные крошки -->
-<nav class="v2-breadcrumbs" aria-label="Хлебные крошки" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <div class="v2-container">
+<nav class="breadcrumbs" aria-label="Хлебные крошки" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <div class="container">
         <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <meta itemprop="position" content="1">
             <a href="<?php echo home_url(); ?>" itemprop="item">
                 <span itemprop="name">Главная</span>
             </a>
         </span>
-        <span class="v2-breadcrumbs__separator">/</span>
+        <span class="breadcrumbs__separator">/</span>
         <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <meta itemprop="position" content="2">
             <span itemprop="name">История моей улыбки</span>
@@ -23,14 +23,14 @@ get_header('v2');
     </div>
 </nav>
 
-<section class="v2-section v2-story" itemscope itemtype="https://schema.org/Article">
-    <div class="v2-container">
+<section class="section story" itemscope itemtype="https://schema.org/Article">
+    <div class="container">
         <!-- Заголовок -->
-        <div class="v2-row">
-            <div class="v2-col-sm-12">
-                <header class="v2-story__header">
-                    <h1 class="v2-story__title" itemprop="headline">История моей улыбки</h1>
-                    <div class="v2-story__intro" itemprop="description">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="story__header">
+                    <h1 class="story__title" itemprop="headline">История моей улыбки</h1>
+                    <div class="story__intro" itemprop="description">
                         <p>Более 7 500 пациентов доказали своим примером, что имплантация зубов в клинике ЦЭСИ — это не только восстановление здоровья полости рта, но и желание улыбаться своему отражению каждый день!</p>
                         <p>Теперь они уверены, что не все стоматологические процедуры одинаковы. В нашей клинике ЦЭСИ процесс имплантации проходит комфортно и безболезненно, а профессионалы своего дела помогают преодолеть любой страх.</p>
                         <p>Друг ЦЭСИ и наш пациент, председатель «Союза женщин Камчатки», Лилия Питерская, делится своим опытом проведения стоматологической процедуры. В интервью она рассказывает, как она справилась с тревогой перед процедурой и что для нее значит доверие к специалистам. Вдохновитесь опытом Лилии Питерской и приходите за своей новой яркой улыбкой в ЦЭСИ.</p>
@@ -40,20 +40,20 @@ get_header('v2');
         </div>
         
         <!-- Первый блок: изображение слева, текст справа -->
-        <div class="v2-row">
-            <div class="v2-col-sm-12 v2-col-lg-6">
-                <div class="v2-story__image">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <div class="story__image">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/liliya-bg-01.jpg" alt="Лилия Питерская" itemprop="image" loading="lazy">
                 </div>
             </div>
             
-            <div class="v2-col-sm-12 v2-col-lg-6">
-                <div class="v2-story__content">
-                    <p class="v2-story__lead">Делюсь историей своей новой улыбки</p>
-                    <div class="v2-story__text" itemprop="articleBody">
+            <div class="col-sm-12 col-lg-6">
+                <div class="story__content">
+                    <p class="story__lead">Делюсь историей своей новой улыбки</p>
+                    <div class="story__text" itemprop="articleBody">
                         <p>Хотите иметь красивые зубы? Хотите здоровые зубы, красивую улыбку? Приходите в ЦЭСИ.</p>
                         <p>Моя мама — зубной техник. Моя тетя — зубной врач. И, конечно же, моими детскими игрушками часто были искусственные зубы, шпатели и прочие атрибуты кабинета стоматолога. Поэтому, приходя в клинику или стоматологию, я всегда интересовалась, насколько грамотные врачи, как выстроен процесс лечения. В ЦЭСИ я смогла сразу утолить свое любопытство — в мой первый визит вместе с главным врачом я прошла по всем кабинетам. Я увидела, что каждая деталь в клинике продумана до мелочей. На сегодняшний день все, что можно только пожелать, есть в ЦЭСИ.</p>
-                        <blockquote class="v2-story__quote" itemprop="citation">
+                        <blockquote class="story__quote" itemprop="citation">
                             <p>«Я — медик, и поэтому могу взглянуть на клинику с профессиональной стороны»</p>
                         </blockquote>
                         <p>Театр начинается с вешалки, а ЦЭСИ — с регистратуры. Место, где тебя радостно встречают, разъясняют все простым языком, успокаивают. Таким вниманием и заботой окутывает каждый специалист клиники. Уже первая консультация приятно удивила — мне сделали снимок всей полости рта. Такая услуга предлагается далеко не во всех клиниках даже на материке. Это важно, когда ты мо</p>
@@ -63,19 +63,19 @@ get_header('v2');
         </div>
         
         <!-- Второй блок: текст слева, изображение справа -->
-        <div class="v2-row">
-            <div class="v2-col-sm-12 v2-col-lg-6">
-                <div class="v2-story__content">
-                    <div class="v2-story__text">
-                        <blockquote class="v2-story__quote" itemprop="citation">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <div class="story__content">
+                    <div class="story__text">
+                        <blockquote class="story__quote" itemprop="citation">
                             <p>«Каждый раз, посещая клинику, я приходила с удовольствием»</p>
                         </blockquote>
                         <p>В ЦЭСИ я получала процедуру протезирования. Мы все понимаем, что это длительный процесс. Если вы хотите иметь красивые и здоровые зубы — торопиться не стоит. В ЦЭСИ существует специальная "служба заботы", которая в обязательном порядке обзванивает каждого пациента и интересуется состоянием после процедур, что несомненно является важным этапом лечения. Невозможно описать то чувство счастья, которое я испытала, когда через год увидела тот результат, который хотела. Именно тот.</p>
-                        <blockquote class="v2-story__quote" itemprop="citation">
+                        <blockquote class="story__quote" itemprop="citation">
                             <p>«Теперь я могу искренне широко улыбаться»</p>
                         </blockquote>
                         <p>Потому что моя улыбка — это моя гордость. Моя улыбка — это моя радость. А красота улыбки — успех и уверенность в себе. Каждый достоин почувствовать счастье улыбаться своему отражению в зеркале, видеть, как радостно горят глаза! И знаете, кто это мне сделал? Это сделала клиника ЦЭСИ!</p>
-                        <blockquote class="v2-story__quote" itemprop="citation">
+                        <blockquote class="story__quote" itemprop="citation">
                             <p>«Если вы ищите своего врача, и вас всё еще терзают сомнения — приходите в ЦЭСИ»</p>
                         </blockquote>
                         <p>Я с уверенностью советую ЦЭСИ друзьям и знакомым разных возрастов и уровня дохода. И получаю в ответ их искреннюю благодарность. Врачи клиники с легкостью подберут программу лечения и для пенсионеров, и для молодежи. Тут все настолько продумано и не больно — это ведь именно то, чего боятся очень многие.</p>
@@ -84,8 +84,8 @@ get_header('v2');
                 </div>
             </div>
             
-            <div class="v2-col-sm-12 v2-col-lg-6">
-                <div class="v2-story__image">
+            <div class="col-sm-12 col-lg-6">
+                <div class="story__image">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/liliya-bg-02.jpg" alt="Лилия Питерская" itemprop="image" loading="lazy">
                 </div>
             </div>
@@ -93,4 +93,4 @@ get_header('v2');
     </div>
 </section>
 
-<?php get_footer('v2'); ?>
+<?php get_footer(); ?>

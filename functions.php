@@ -45,8 +45,8 @@ function has_cookie_consent($type = 'all') {
 function dental_clinic_enqueue_v2_works_slider() {
     if (is_front_page()) {
         wp_enqueue_script(
-            'dental-clinic-v2-works-slider',
-            get_stylesheet_directory_uri() . '/v2-works-slider.js',
+            'dental-clinic-works-slider',
+            get_stylesheet_directory_uri() . '/assets/js/works-slider.js',
             array(),
             '1.0.0',
             true
@@ -58,8 +58,8 @@ add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_works_slider');
 function dental_clinic_enqueue_v2_reviews_slider() {
     if (is_front_page()) {
         wp_enqueue_script(
-            'dental-clinic-v2-reviews-slider',
-            get_stylesheet_directory_uri() . '/v2-reviews-slider.js',
+            'dental-clinic-reviews-slider',
+            get_stylesheet_directory_uri() . '/assets/js/reviews-slider.js',
             array(),
             '1.0.0',
             true
@@ -72,8 +72,8 @@ function dental_clinic_enqueue_v2_header_menu() {
     // Загружаем скрипт на главной странице, страницах блога и врачей
     if (is_front_page() || is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post') || is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
         wp_enqueue_script(
-            'dental-clinic-v2-header-menu',
-            get_stylesheet_directory_uri() . '/v2-header-menu.js',
+            'dental-clinic-header-menu',
+            get_stylesheet_directory_uri() . '/assets/js/header-menu.js',
             array(),
             '1.0.0',
             true
@@ -85,8 +85,8 @@ add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_header_menu');
 function dental_clinic_enqueue_v2_doctors_slider() {
     if (is_front_page()) {
         wp_enqueue_script(
-            'dental-clinic-v2-doctors-slider',
-            get_stylesheet_directory_uri() . '/v2-doctors-slider.js',
+            'dental-clinic-doctors-slider',
+            get_stylesheet_directory_uri() . '/assets/js/doctors-slider.js',
             array(),
             '1.0.0',
             true
@@ -98,8 +98,8 @@ add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_doctors_slider');
 function dental_clinic_enqueue_v2_implant_types() {
     if (is_front_page()) {
         wp_enqueue_script(
-            'dental-clinic-v2-implant-types',
-            get_stylesheet_directory_uri() . '/v2-implant-types.js',
+            'dental-clinic-implant-types',
+            get_stylesheet_directory_uri() . '/assets/js/implant-types.js',
             array(),
             '1.0.0',
             true
@@ -111,8 +111,8 @@ add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implant_types');
 function dental_clinic_enqueue_v2_implants_slider() {
     if (is_front_page()) {
         wp_enqueue_script(
-            'dental-clinic-v2-implants-slider',
-            get_stylesheet_directory_uri() . '/v2-implants-slider.js',
+            'dental-clinic-implants-slider',
+            get_stylesheet_directory_uri() . '/assets/js/implants-slider.js',
             array(),
             '1.0.0',
             true
@@ -124,8 +124,8 @@ add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implants_slider');
 function dental_clinic_enqueue_v2_plus_video() {
     if (is_front_page()) {
         wp_enqueue_script(
-            'dental-clinic-v2-plus-video',
-            get_stylesheet_directory_uri() . '/v2-plus-video.js',
+            'dental-clinic-plus-video',
+            get_stylesheet_directory_uri() . '/assets/js/plus-video.js',
             array(),
             '1.0.0',
             true
@@ -139,9 +139,9 @@ add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_plus_video');
  */
 function dental_clinic_v2_privacy_notice() {
     ?>
-    <label class="v2-form-consent">
-        <input type="checkbox" class="v2-form-consent__checkbox" checked required>
-        <span class="v2-form-consent__text">
+    <label class="form-consent">
+        <input type="checkbox" class="form-consent__checkbox" checked required>
+        <span class="form-consent__text">
             Нажимая кнопку, вы даете согласие на обработку
             <span><a href="<?php echo esc_url( home_url('/privacy.pdf') ); ?>" target="_blank" rel="noopener">персональных данных</a></span>
         </span>
@@ -150,7 +150,7 @@ function dental_clinic_v2_privacy_notice() {
 }
 
 function dental_clinic_v2_fallback_menu() {
-    echo '<ul class="v2-header__menu-list">';
+    echo '<ul class="header__menu-list">';
     echo '<li><a href="' . home_url() . '">Главная</a></li>';
     echo '<li><a href="' . home_url('/implantatsiya') . '">Имплантация</a></li>';
     echo '<li><a href="' . home_url('/doctor') . '">Врачи</a></li>';
@@ -235,47 +235,31 @@ class Dental_Clinic_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 
-// Добавляем класс v2-site на body для всех страниц, использующих v2 (header-v2.php и footer-v2.php)
-function dental_clinic_add_v2_body_class($classes) {
-    // Главная страница
-    if (is_front_page() && file_exists(get_stylesheet_directory() . '/front-page.php')) {
-        $classes[] = 'v2-site';
-    }
-    // Страницы блога
-    if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
-        $classes[] = 'v2-site';
-    }
-    // Страницы врачей
-    if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
-        $classes[] = 'v2-site';
-    }
-    // Страница "История моей улыбки"
-    if (is_page_template('page-istoriya-moei-ulybki.php') || (is_page() && get_post_field('post_name') == 'istoriya-moei-ulybki')) {
-        $classes[] = 'v2-site';
-    }
-    // Страницы клиники (Реквизиты, Лицензии, Информация)
-    if (is_page_template('page-clinic-info.php') || (is_page() && in_array(get_post_field('post_name'), array('rekvizity', 'litsenzii', 'o-organizatsii')))) {
-        $classes[] = 'v2-site';
-    }
-    // Стандартные шаблоны WordPress (index.php, single.php, page.php, archive.php)
-    // Теперь все используют header-v2.php и footer-v2.php
-    if (is_single() || is_page() || is_archive() || is_home()) {
-        $classes[] = 'v2-site';
+// Убираем классы блога с главной страницы
+function dental_clinic_remove_blog_classes_from_front_page($classes) {
+    if (is_front_page()) {
+        // Убираем все классы, связанные с блогом и страницами
+        $remove_classes = array('home', 'blog', 'page-template-front-page');
+        $classes = array_diff($classes, $remove_classes);
+        // Добавляем только нужный класс для главной страницы
+        if (!in_array('front-page', $classes)) {
+            $classes[] = 'front-page';
+        }
     }
     return $classes;
 }
-add_filter('body_class', 'dental_clinic_add_v2_body_class');
+add_filter('body_class', 'dental_clinic_remove_blog_classes_from_front_page', 20);
 
-// Подключение стилей v2 для всех страниц, использующих header-v2.php и footer-v2.php
-function dental_clinic_enqueue_v2_styles() {
+// Подключение стилей для всех страниц
+function dental_clinic_enqueue_styles_main() {
     $is_v2_page = false;
     
     if (is_front_page()) {
         $is_v2_page = true;
     }
     
-    // Страницы блога: список статей и отдельная статья
-    if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
+    // Страницы блога: список статей и отдельная статья (но НЕ главная страница)
+    if ((is_home() && !is_front_page()) || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
         $is_v2_page = true;
     }
     
@@ -295,8 +279,9 @@ function dental_clinic_enqueue_v2_styles() {
     }
     
     // Стандартные шаблоны WordPress (index.php, single.php, page.php, archive.php)
-    // Теперь все используют header-v2.php и footer-v2.php
-    if (is_single() || is_page() || is_archive() || is_home() || is_search()) {
+    // Теперь все используют header.php и footer.php
+    // Исключаем главную страницу, так как она уже обработана выше
+    if ((is_single() || is_page() || is_archive() || (is_home() && !is_front_page()) || is_search()) && !is_front_page()) {
         $is_v2_page = true;
     }
     
@@ -305,40 +290,34 @@ function dental_clinic_enqueue_v2_styles() {
         $uri = get_stylesheet_directory_uri() . '/assets/css/v2/';
         
         wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), $ver);
-        wp_enqueue_style('v2-base', $uri . 'base.css', array('local-fonts'), $ver);
-        wp_enqueue_style('v2-layout', $uri . 'layout.css', array('v2-base'), $ver);
-        wp_enqueue_style('v2-ui', $uri . 'ui.css', array('v2-layout'), $ver);
-        wp_enqueue_style('v2-components', $uri . 'components.css', array('v2-ui'), $ver);
+        wp_enqueue_style('base', $uri . 'base.css', array('local-fonts'), $ver);
+        wp_enqueue_style('layout', $uri . 'layout.css', array('base'), $ver);
+        wp_enqueue_style('ui', $uri . 'ui.css', array('layout'), $ver);
+        wp_enqueue_style('components', $uri . 'components.css', array('ui'), $ver);
         
-        // Подключаем стили блога для страниц блога
-        if (is_home() || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
-            wp_enqueue_style('v2-pages-blog', $uri . 'pages/blog.css', array('v2-components'), $ver);
+        // Подключаем стили блога для страниц блога (но НЕ для главной страницы)
+        if ((is_home() && !is_front_page()) || is_page_template('page-blog.php') || (is_single() && get_post_type() == 'post')) {
+            wp_enqueue_style('pages-blog', $uri . 'pages/blog.css', array('components'), $ver);
         }
         
         // Подключаем стили врачей для страниц врачей
         if (is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
-            wp_enqueue_style('v2-pages-doctors', $uri . 'pages/doctors.css', array('v2-components'), $ver);
+            wp_enqueue_style('pages-doctors', $uri . 'pages/doctors.css', array('components'), $ver);
         }
         
         // Подключаем общие стили для страниц
         if (is_page_template('page-istoriya-moei-ulybki.php') || (is_page() && get_post_field('post_name') == 'istoriya-moei-ulybki')) {
-            wp_enqueue_style('v2-pages', $uri . 'pages/pages.css', array('v2-components'), $ver);
+            wp_enqueue_style('pages', $uri . 'pages/pages.css', array('components'), $ver);
         }
         
         // Подключаем общие стили для страниц клиники
         if (is_page_template('page-clinic-info.php') || (is_page() && in_array(get_post_field('post_name'), array('rekvizity', 'litsenzii', 'o-organizatsii')))) {
-            wp_enqueue_style('v2-pages', $uri . 'pages/pages.css', array('v2-components'), $ver);
+            wp_enqueue_style('pages', $uri . 'pages/pages.css', array('components'), $ver);
         }
         
     }
 }
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_styles', 15);
-
-function dental_clinic_enqueue_styles() {
-    // Старые стили больше не загружаются, так как все страницы переведены на v2
-    // Оставляем эту функцию пустой для совместимости
-}
-add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles', 10);
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles_main', 15);
 
 function dental_clinic_setup() {
     register_nav_menus(array(

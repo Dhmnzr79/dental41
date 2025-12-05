@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var slider = document.querySelector('[data-slider="doctors"]');
     if (!slider) return;
 
-    var track = slider.querySelector('.v2-doctors__slider-track');
-    var cards = Array.prototype.slice.call(track.querySelectorAll('.v2-doctors__card'));
+    var track = slider.querySelector('.doctors__slider-track');
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.doctors__card'));
     if (!cards.length) return;
 
-    var pagination = slider.querySelector('.v2-doctors__pagination');
+    var pagination = slider.querySelector('.doctors__pagination');
     var prevBtn = slider.querySelector('[data-slider-nav="prev"]');
     var nextBtn = slider.querySelector('[data-slider-nav="next"]');
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (var i = 0; i < totalPages; i++) {
             var dot = document.createElement('button');
             dot.type = 'button';
-            dot.className = 'v2-doctors__dot';
+            dot.className = 'doctors__dot';
             dot.setAttribute('aria-label', 'Перейти к врачам ' + (i + 1));
             dot.setAttribute('data-slider-dot', i);
             if (i === currentIndex) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             track.style.transform = 'translateX(' + translateX + 'px)';
         }
 
-        var dots = pagination ? pagination.querySelectorAll('.v2-doctors__dot') : [];
+        var dots = pagination ? pagination.querySelectorAll('.doctors__dot') : [];
         dots.forEach(function (dot, i) {
             if (i === currentIndex) {
                 dot.setAttribute('aria-current', 'true');

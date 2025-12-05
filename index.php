@@ -1,4 +1,4 @@
-<?php get_header('v2'); ?>
+<?php get_header(); ?>
 
 <div class="page-content">
     <div class="container">
@@ -16,4 +16,4 @@
     </div>
 </div>
 
-<?php get_footer('v2'); ?>
+<?php get_footer(); ?>

@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var openBtn = document.getElementById('v2-menu-open');
-    var closeBtn = document.getElementById('v2-menu-close');
-    var dialog = document.getElementById('v2-menu-dialog');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var dialog = document.getElementById('menu-dialog');
     var body = document.body;
 
     if (!openBtn || !closeBtn || !dialog) return;
 
     function openMenu() {
         dialog.setAttribute('aria-hidden', 'false');
-        body.classList.add('v2-menu-open');
+        body.classList.add('menu-open');
         
         setTimeout(function () {
             var firstLink = dialog.querySelector('a, button[type="button"]');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function closeMenu() {
         dialog.setAttribute('aria-hidden', 'true');
-        body.classList.remove('v2-menu-open');
+        body.classList.remove('menu-open');
         
         if (openBtn && openBtn.focus) {
             openBtn.focus();
@@ -42,20 +42,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    var dropdownToggles = dialog.querySelectorAll('.v2-header__nav-link--toggle');
+    var dropdownToggles = dialog.querySelectorAll('.header__nav-link--toggle');
     dropdownToggles.forEach(function (toggle) {
         toggle.addEventListener('click', function (e) {
-            var parent = toggle.closest('.v2-header__nav-item--dropdown');
+            var parent = toggle.closest('.header__nav-item--dropdown');
             if (parent) {
-                var dropdown = parent.querySelector('.v2-header__dropdown');
+                var dropdown = parent.querySelector('.header__dropdown');
                 if (dropdown) {
                     e.preventDefault();
-                    var isExpanded = parent.classList.contains('v2-header__nav-item--expanded');
+                    var isExpanded = parent.classList.contains('header__nav-item--expanded');
                     if (isExpanded) {
-                        parent.classList.remove('v2-header__nav-item--expanded');
+                        parent.classList.remove('header__nav-item--expanded');
                         toggle.setAttribute('aria-expanded', 'false');
                     } else {
-                        parent.classList.add('v2-header__nav-item--expanded');
+                        parent.classList.add('header__nav-item--expanded');
                         toggle.setAttribute('aria-expanded', 'true');
                     }
                 }

@@ -1,11 +1,11 @@
 /* Общие стили для страниц v2 */
 
 /* ===== СТРАНИЦА "ИСТОРИЯ МОЕЙ УЛЫБКИ" ===== */
-.v2-site .v2-story__header {
+.story__header {
     margin-bottom: 60px;
 }
 
-.v2-site .v2-story__title {
+.story__title {
     margin-bottom: 30px;
     font-size: clamp(28px, 4vw, 44px);
     line-height: 1.2;
@@ -13,26 +13,26 @@
     color: var(--text-color);
 }
 
-.v2-site .v2-story__intro {
+.story__intro {
     font-size: 20px;
     line-height: 1.6;
     color: var(--text-color);
 }
 
-.v2-site .v2-story__intro p {
+.story__intro p {
     margin: 0 0 15px;
 }
 
-.v2-site .v2-story__intro p:last-child {
+.story__intro p:last-child {
     margin-bottom: 0;
 }
 
-.v2-site .v2-story__image {
+.story__image {
     width: 100%;
     margin-bottom: 30px;
 }
 
-.v2-site .v2-story__image img {
+.story__image img {
     width: 100%;
     height: auto;
     display: block;
@@ -40,13 +40,13 @@
     object-fit: cover;
 }
 
-.v2-site .v2-story__content {
+.story__content {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.v2-site .v2-story__lead {
+.story__lead {
     font-size: 22px;
     line-height: 1.4;
     font-weight: 600;
@@ -54,20 +54,20 @@
     margin: 0;
 }
 
-.v2-site .v2-story__text {
+.story__text {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.v2-site .v2-story__text p {
+.story__text p {
     margin: 0;
     font-size: 17px;
     line-height: 1.6;
     color: var(--text-color);
 }
 
-.v2-site .v2-story__quote {
+.story__quote {
     background: #f4f4f4;
     margin: 0;
     padding: 20px;
@@ -76,7 +76,7 @@
     font-weight: 500;
 }
 
-.v2-site .v2-story__quote p {
+.story__quote p {
     margin: 0;
     font-size: 17px;
     line-height: 1.5;
@@ -88,60 +88,60 @@
 
 /* Мобильные устройства (до 767px) */
 @media (max-width: 767px) {
-    .v2-site .v2-story__header {
+    .story__header {
         margin-bottom: 40px;
     }
 
-    .v2-site .v2-story__title {
+    .story__title {
         margin-bottom: 20px;
     }
 
-    .v2-site .v2-story__intro {
+    .story__intro {
         font-size: 17px;
     }
 
-    .v2-site .v2-story__image {
+    .story__image {
         margin-bottom: 20px;
     }
 
-    .v2-site .v2-story__image img {
+    .story__image img {
         border-radius: 15px;
     }
 
-    .v2-site .v2-story__lead {
+    .story__lead {
         font-size: 20px;
     }
 
-    .v2-site .v2-story__quote {
+    .story__quote {
         padding: 15px;
     }
 }
 
 /* Планшеты (768px - 1279px) */
 @media (min-width: 768px) and (max-width: 1279px) {
-    .v2-site .v2-story__header {
+    .story__header {
         margin-bottom: 50px;
     }
 }
 
 /* Десктоп (1280px+) */
 @media (min-width: 1280px) {
-    .v2-site .v2-story__header {
+    .story__header {
         margin-bottom: 60px;
     }
 }
 
 /* ===== СТРАНИЦЫ КЛИНИКИ (РЕКВИЗИТЫ, ЛИЦЕНЗИИ, ИНФОРМАЦИЯ) ===== */
-.v2-site .v2-clinic-info__content {
+.clinic-info__content {
     display: flex;
     flex-direction: column;
 }
 
-.v2-site .v2-clinic-info__header {
+.clinic-info__header {
     margin-bottom: 40px;
 }
 
-.v2-site .v2-clinic-info__title {
+.clinic-info__title {
     font-size: clamp(28px, 4vw, 44px);
     line-height: 1.2;
     font-weight: 700;
@@ -149,39 +149,39 @@
     margin: 0;
 }
 
-.v2-site .v2-clinic-info__text {
+.clinic-info__text {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.v2-site .v2-clinic-info__text p {
+.clinic-info__text p {
     margin: 0;
     font-size: 17px;
     line-height: 1.6;
     color: var(--text-color);
 }
 
-.v2-site .v2-clinic-info__text h2,
-.v2-site .v2-clinic-info__text h3,
-.v2-site .v2-clinic-info__text h4 {
+.clinic-info__text h2,
+.clinic-info__text h3,
+.clinic-info__text h4 {
     margin-top: 30px;
     margin-bottom: 15px;
 }
 
-.v2-site .v2-clinic-info__text h2:first-child,
-.v2-site .v2-clinic-info__text h3:first-child,
-.v2-site .v2-clinic-info__text h4:first-child {
+.clinic-info__text h2:first-child,
+.clinic-info__text h3:first-child,
+.clinic-info__text h4:first-child {
     margin-top: 0;
 }
 
-.v2-site .v2-clinic-info__text ul,
-.v2-site .v2-clinic-info__text ol {
+.clinic-info__text ul,
+.clinic-info__text ol {
     margin: 15px 0;
     padding-left: 25px;
 }
 
-.v2-site .v2-clinic-info__text li {
+.clinic-info__text li {
     margin-bottom: 10px;
     font-size: 17px;
     line-height: 1.6;
@@ -191,25 +191,25 @@
 
 /* Мобильные устройства (до 767px) */
 @media (max-width: 767px) {
-    .v2-site .v2-clinic-info__header {
+    .clinic-info__header {
         margin-bottom: 30px;
     }
 
-    .v2-site .v2-clinic-info__title {
+    .clinic-info__title {
         margin-bottom: 20px;
     }
 }
 
 /* Планшеты (768px - 1279px) */
 @media (min-width: 768px) and (max-width: 1279px) {
-    .v2-site .v2-clinic-info__header {
+    .clinic-info__header {
         margin-bottom: 35px;
     }
 }
 
 /* Десктоп (1280px+) */
 @media (min-width: 1280px) {
-    .v2-site .v2-clinic-info__header {
+    .clinic-info__header {
         margin-bottom: 40px;
     }
 }

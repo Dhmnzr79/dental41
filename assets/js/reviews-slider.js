@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var slider = document.querySelector('[data-slider="reviews"]');
     if (!slider) return;
 
-    var track = slider.querySelector('.v2-reviews__track');
-    var cards = Array.prototype.slice.call(track.querySelectorAll('.v2-reviews__card'));
+    var track = slider.querySelector('.reviews__track');
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.reviews__card'));
     if (!cards.length) return;
 
-    var pagination = slider.querySelector('.v2-reviews__pagination');
-    var wrapper = slider.closest('.v2-reviews__slider-wrapper');
+    var pagination = slider.querySelector('.reviews__pagination');
+    var wrapper = slider.closest('.reviews__slider-wrapper');
     var prevBtn = wrapper ? wrapper.querySelector('[data-slider-nav="prev"]') : null;
     var nextBtn = wrapper ? wrapper.querySelector('[data-slider-nav="next"]') : null;
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (var i = 0; i < totalSlides; i++) {
             var dot = document.createElement('button');
             dot.type = 'button';
-            dot.className = 'v2-reviews__dot';
+            dot.className = 'reviews__dot';
             dot.setAttribute('aria-label', 'Перейти к отзыву ' + (i + 1));
             dot.setAttribute('data-slider-dot', i);
             if (i === currentIndex) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
             track.style.transform = 'translateX(' + translateX + 'px)';
         }
 
-        var dots = pagination ? pagination.querySelectorAll('.v2-reviews__dot') : [];
+        var dots = pagination ? pagination.querySelectorAll('.reviews__dot') : [];
         dots.forEach(function (dot, i) {
             if (i === currentIndex) {
                 dot.setAttribute('aria-current', 'true');

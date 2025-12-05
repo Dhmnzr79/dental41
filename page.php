@@ -3,7 +3,7 @@
  * Шаблон для всех страниц
  */
 
-get_header('v2'); ?>
+get_header(); ?>
 
 <!-- Хлебные крошки -->
 <div class="breadcrumbs">
@@ -35,4 +35,4 @@ get_header('v2'); ?>
     </div>
 </main>
 
-<?php get_footer('v2'); ?>
+<?php get_footer(); ?>

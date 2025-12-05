@@ -4,13 +4,13 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    const tabsContainer = document.getElementById('v2-tabs-underline');
+    const tabsContainer = document.getElementById('tabs-underline');
     if (!tabsContainer) return;
 
-    const tablist = tabsContainer.querySelector('.v2-implant-types__tablist');
-    const tabs = [...tabsContainer.querySelectorAll('.v2-implant-types__tab')];
-    const panels = [...tabsContainer.querySelectorAll('.v2-implant-types__panel')];
-    const slider = tabsContainer.querySelector('.v2-implant-types__slider');
+    const tablist = tabsContainer.querySelector('.implant-types__tablist');
+    const tabs = [...tabsContainer.querySelectorAll('.implant-types__tab')];
+    const panels = [...tabsContainer.querySelectorAll('.implant-types__panel')];
+    const slider = tabsContainer.querySelector('.implant-types__slider');
 
     if (!tablist || tabs.length === 0 || panels.length === 0) return;
 
@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         tabs.forEach((t, k) => {
             const active = k === i;
-            t.classList.toggle('v2-implant-types__tab--active', active);
+            t.classList.toggle('implant-types__tab--active', active);
             t.setAttribute('aria-selected', active ? 'true' : 'false');
         });
 
         panels.forEach((p, k) => {
-            p.classList.toggle('v2-implant-types__panel--active', k === i);
+            p.classList.toggle('implant-types__panel--active', k === i);
         });
 
         if (scrollIntoView && tabs[i]) {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let activeIndex = Math.max(
         0,
-        tabs.findIndex(t => t.classList.contains('v2-implant-types__tab--active'))
+        tabs.findIndex(t => t.classList.contains('implant-types__tab--active'))
     );
     activate(activeIndex);
 
