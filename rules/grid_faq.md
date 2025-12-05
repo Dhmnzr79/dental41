@@ -1,29 +1,29 @@
 # FAQ: Промпты для сеток (12 колонок) — быстрый режим
 
-**Перед работой:** Cursor, прочитай правила из `cursor_frontend_rules.md` (БЭМ, контекст ≤ 1 уровень, без `!important`, только HTML для `.v2-row`/`.v2-col-*`).  
+**Перед работой:** Cursor, прочитай правила из `cursor_frontend_rules.md` (БЭМ, контекст ≤ 1 уровень, без `!important`, только HTML для `.row`/`.col-*`).  
 Брейки: **768 / 1280 / 1400**, десктопный `gap`: **30px**, `h2: 44px`, `h3: 22px`.
 
 ## Как пользоваться
 
 1. Назови **номер паттерна** и дай минимальные уточнения.
-2. Скажи «**только HTML** для `.v2-row` и `.v2-col-*`» (без оберток, без inline-стилей).
-3. При необходимости добавь: порядок на мобилке, смещения (`v2-offset`), количество карточек.
+2. Скажи «**только HTML** для `.row` и `.col-*`» (без оберток, без inline-стилей).
+3. При необходимости добавь: порядок на мобилке, смещения (`offset`), количество карточек.
 
 ### Универсальный промпт
 
-> Паттерн: **{PATTERN_ID}**. Сверстай по правилам сетки. Только HTML `.v2-row` + `.v2-col-*`.  
-> Мобилка — 12/12. Не трогай `v2-container`/`v2-row` стили. Без `!important` и без лишних оберток.
+> Паттерн: **{PATTERN_ID}**. Сверстай по правилам сетки. Только HTML `.row` + `.col-*`.  
+> Мобилка — 12/12. Не трогай `.container`/`.row` стили. Без `!important` и без лишних оберток.
 
 ## Каталог паттернов (ID → схема)
 
-- **301**: Композит — две `v2-row`: верх 8/4, низ 4/4/4 (как «заголовок + отзывы»).
+- **301**: Композит — две `row`: верх 8/4, низ 4/4/4 (как «заголовок + отзывы»).
 - **201**: 8/4 базовый.
 - **202**: 4/8 (зеркально).
 - **203**: 8/4, но на мобилке сначала правая колонка.
 - **204**: 6/3/3 (три колонки).
 - **205**: 4/4/4 (три равные).
 - **206**: 8/4, но на планшете 6/6.
-- **207**: 8 с v2-offset 2 (центрирование).
+- **207**: 8 с offset 2 (центрирование).
 - **208**: 3/3/3/3 (четыре равные по горизонтали).
 - **209**: 6/6 (50/50, две колонки).
 - **210**: 12 (100% ширины).
@@ -34,22 +34,22 @@
 
 **Промпт:**
 
-> Паттерн 301. Две независимые `v2-row` в одном контейнере:  
-> `v2-row--head` — 8/4 (`.v2-col-sm-12 .v2-col-lg-8` и `.v2-col-sm-12 .v2-col-lg-4`),  
-> `v2-row--testimonials` — 4/4/4 (`.v2-col-sm-6 .v2-col-lg-4` × 3). Только HTML.
+> Паттерн 301. Две независимые `row` в одном контейнере:  
+> `row--head` — 8/4 (`.col-sm-12 .col-lg-8` и `.col-sm-12 .col-lg-4`),  
+> `row--testimonials` — 4/4/4 (`.col-sm-6 .col-lg-4` × 3). Только HTML.
 
 **HTML:**
 
 ```html
-<div class="v2-row v2-row--head">
-    <div class="v2-col-sm-12 v2-col-lg-8"></div>
-    <div class="v2-col-sm-12 v2-col-lg-4"></div>
+<div class="row row--head">
+    <div class="col-sm-12 col-lg-8"></div>
+    <div class="col-sm-12 col-lg-4"></div>
 </div>
 
-<div class="v2-row v2-row--testimonials">
-    <div class="v2-col-sm-6 v2-col-lg-4"></div>
-    <div class="v2-col-sm-6 v2-col-lg-4"></div>
-    <div class="v2-col-sm-6 v2-col-lg-4"></div>
+<div class="row row--testimonials">
+    <div class="col-sm-6 col-lg-4"></div>
+    <div class="col-sm-6 col-lg-4"></div>
+    <div class="col-sm-6 col-lg-4"></div>
 </div>
 ```
 
@@ -62,8 +62,8 @@
 
 ## Скелет-промпт (заготовка)
 
-> 12-колоночная сетка. Сверстай `.v2-row` с колонками по схеме: [описание].  
-> На мобилке все колонки 12/12. Выведи **только HTML** для `.v2-row` и дочерних `.v2-col-*`, без лишних оберток и без inline-стилей.
+> 12-колоночная сетка. Сверстай `.row` с колонками по схеме: [описание].  
+> На мобилке все колонки 12/12. Выведи **только HTML** для `.row` и дочерних `.col-*`, без лишних оберток и без inline-стилей.
 
 ---
 
@@ -71,15 +71,15 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. Внутри `.v2-row` сделай две колонки: левая `.v2-col-sm-8 .v2-col-lg-8`, правая `.v2-col-sm-4 .v2-col-lg-4`.  
-> На мобилке обе — 12/12. Только HTML `.v2-row` + `.v2-col-*`.
+> 12-колоночная сетка. Внутри `.row` сделай две колонки: левая `.col-sm-8 .col-lg-8`, правая `.col-sm-4 .col-lg-4`.  
+> На мобилке обе — 12/12. Только HTML `.row` + `.col-*`.
 
 **HTML (ожидаемо):**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-8 v2-col-lg-8"><!-- контент --></div>
-    <div class="v2-col-sm-4 v2-col-lg-4"><!-- контент --></div>
+<div class="row">
+    <div class="col-sm-8 col-lg-8"><!-- контент --></div>
+    <div class="col-sm-4 col-lg-4"><!-- контент --></div>
 </div>
 ```
 
@@ -89,15 +89,15 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. В `.v2-row` сделай 2 колонки: левая `.v2-col-sm-4 .v2-col-lg-4`, правая `.v2-col-sm-8 .v2-col-lg-8`.  
+> 12-колоночная сетка. В `.row` сделай 2 колонки: левая `.col-sm-4 .col-lg-4`, правая `.col-sm-8 .col-lg-8`.  
 > На мобилке — 12/12. Только HTML.
 
 **HTML:**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-4 v2-col-lg-4"></div>
-    <div class="v2-col-sm-8 v2-col-lg-8"></div>
+<div class="row">
+    <div class="col-sm-4 col-lg-4"></div>
+    <div class="col-sm-8 col-lg-8"></div>
 </div>
 ```
 
@@ -107,15 +107,15 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. Колонки: левая `.v2-col-sm-8 .v2-col-lg-8`, правая `.v2-col-sm-4 .v2-col-lg-4`.  
-> На мобилке сначала показывай правую колонку, потом левую. Используй utility‑классы `v2-order` (если есть), без `!important`. Только HTML.
+> 12-колоночная сетка. Колонки: левая `.col-sm-8 .col-lg-8`, правая `.col-sm-4 .col-lg-4`.  
+> На мобилке сначала показывай правую колонку, потом левую. Используй utility‑классы `order` (если есть), без `!important`. Только HTML.
 
-**HTML (пример с хук‑классами):**
+**HTML (пример с utility‑классами):**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-8 v2-col-lg-8 v2-order-lg-1 v2-order-2"></div>
-    <div class="v2-col-sm-4 v2-col-lg-4 v2-order-lg-2 v2-order-1"></div>
+<div class="row">
+    <div class="col-sm-8 col-lg-8 order-lg-1 order-2"></div>
+    <div class="col-sm-4 col-lg-4 order-lg-2 order-1"></div>
 </div>
 ```
 
@@ -125,16 +125,16 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. В `.v2-row` три колонки: `.v2-col-sm-12 .v2-col-lg-6`, `.v2-col-sm-6 .v2-col-lg-3`, `.v2-col-sm-6 .v2-col-lg-3`.  
+> 12-колоночная сетка. В `.row` три колонки: `.col-sm-12 .col-lg-6`, `.col-sm-6 .col-lg-3`, `.col-sm-6 .col-lg-3`.  
 > На мобилке первая — 12/12, две другие — по 6/12 каждая. Только HTML.
 
 **HTML:**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-12 v2-col-lg-6"></div>
-    <div class="v2-col-sm-6 v2-col-lg-3"></div>
-    <div class="v2-col-sm-6 v2-col-lg-3"></div>
+<div class="row">
+    <div class="col-sm-12 col-lg-6"></div>
+    <div class="col-sm-6 col-lg-3"></div>
+    <div class="col-sm-6 col-lg-3"></div>
 </div>
 ```
 
@@ -144,16 +144,16 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. В `.v2-row` три одинаковые колонки: `.v2-col-sm-12 .v2-col-lg-4` × 3.  
+> 12-колоночная сетка. В `.row` три одинаковые колонки: `.col-sm-12 .col-lg-4` × 3.  
 > На мобилке каждая — 12/12. Только HTML.
 
 **HTML:**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-12 v2-col-lg-4"></div>
-    <div class="v2-col-sm-12 v2-col-lg-4"></div>
-    <div class="v2-col-sm-12 v2-col-lg-4"></div>
+<div class="row">
+    <div class="col-sm-12 col-lg-4"></div>
+    <div class="col-sm-12 col-lg-4"></div>
+    <div class="col-sm-12 col-lg-4"></div>
 </div>
 ```
 
@@ -163,17 +163,17 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. В `.v2-row` выведи **4 равные колонки**: `.v2-col-sm-6 .v2-col-lg-3` × 4.  
+> 12-колоночная сетка. В `.row` выведи **4 равные колонки**: `.col-sm-6 .col-lg-3` × 4.  
 > На мобилке — по две в ряд (по 6/12), на десктопе — 4 в ряд. Только HTML.
 
 **HTML:**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-6 v2-col-lg-3"></div>
-    <div class="v2-col-sm-6 v2-col-lg-3"></div>
-    <div class="v2-col-sm-6 v2-col-lg-3"></div>
-    <div class="v2-col-sm-6 v2-col-lg-3"></div>
+<div class="row">
+    <div class="col-sm-6 col-lg-3"></div>
+    <div class="col-sm-6 col-lg-3"></div>
+    <div class="col-sm-6 col-lg-3"></div>
+    <div class="col-sm-6 col-lg-3"></div>
 </div>
 ```
 
@@ -183,15 +183,15 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. Две колонки: левая `.v2-col-sm-6 .v2-col-lg-8`, правая `.v2-col-sm-6 .v2-col-lg-4`.  
+> 12-колоночная сетка. Две колонки: левая `.col-sm-6 .col-lg-8`, правая `.col-sm-6 .col-lg-4`.  
 > На мобилке — 12/12. Только HTML.
 
 **HTML:**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-6 v2-col-lg-8"></div>
-    <div class="v2-col-sm-6 v2-col-lg-4"></div>
+<div class="row">
+    <div class="col-sm-6 col-lg-8"></div>
+    <div class="col-sm-6 col-lg-4"></div>
 </div>
 ```
 
@@ -201,23 +201,23 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. Одна колонка шириной 8 на десктопе со смещением 2: `.v2-col-sm-12 .v2-col-lg-8` + `v2-offset-lg-2` (или добавь пустую колонку `.v2-col-lg-2` слева, если утилиты смещения нет). Только HTML.
+> 12-колоночная сетка. Одна колонка шириной 8 на десктопе со смещением 2: `.col-sm-12 .col-lg-8` + `offset-lg-2` (или добавь пустую колонку `.col-lg-2` слева, если утилиты смещения нет). Только HTML.
 
 **HTML (с утилитой смещения):**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-12 v2-col-lg-8 v2-offset-lg-2"></div>
+<div class="row">
+    <div class="col-sm-12 col-lg-8 offset-lg-2"></div>
 </div>
 ```
 
 **HTML (без утилиты смещения):**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-lg-2"></div>
-    <div class="v2-col-sm-12 v2-col-lg-8"></div>
-    <div class="v2-col-lg-2"></div>
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-sm-12 col-lg-8"></div>
+    <div class="col-lg-2"></div>
 </div>
 ```
 
@@ -226,8 +226,8 @@
 ### Мини‑чек‑лист для своих промптов
 
 - Укажи «12‑колоночная сетка».
-- Назови классы **на каждом брейке**: `.v2-col-sm-X`, `.v2-col-lg-Y` (и при необходимости `v2-offset-*`, `v2-order-*`).
-- Скажи «только HTML для `.v2-row` и `.v2-col-*`».
+- Назови классы **на каждом брейке**: `.col-sm-X`, `.col-lg-Y` (и при необходимости `offset-*`, `order-*`).
+- Скажи «только HTML для `.row` и `.col-*`».
 - Отдельно объясни поведение на мобилке.
 
 ---
@@ -236,14 +236,14 @@
 
 **Промпт:**
 
-> 12-колоночная сетка. В `.v2-row` сделай 2 равные колонки 50/50: `.v2-col-sm-12 .v2-col-lg-6` и `.v2-col-sm-12 .v2-col-lg-6`.  
-> На мобилке — каждая 12/12. Только HTML `.v2-row` + `.v2-col-*`.
+> 12-колоночная сетка. В `.row` сделай 2 равные колонки 50/50: `.col-sm-12 .col-lg-6` и `.col-sm-12 .col-lg-6`.  
+> На мобилке — каждая 12/12. Только HTML `.row` + `.col-*`.
 
 **HTML:**
 
 ```html
-<div class="v2-row">
-    <div class="v2-col-sm-12 v2-col-lg-6"></div>
-    <div class="v2-col-sm-12 v2-col-lg-6"></div>
+<div class="row">
+    <div class="col-sm-12 col-lg-6"></div>
+    <div class="col-sm-12 col-lg-6"></div>
 </div>
 ```

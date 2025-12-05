@@ -45,3 +45,4 @@
 - archive.php, single.php, page.php - стандартные шаблоны WordPress
 - cookie-banner.php, cookie-policy.php - могут использоваться
 
+
