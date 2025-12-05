@@ -200,6 +200,7 @@
 }
 
 .header__content {
+    /* Desktop header - скрыт на мобилках и планшетах, виден на десктопе */
     display: none;
 }
 
@@ -212,6 +213,22 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+/* Для desktop-main версии: лого + инфа + меню вертикально */
+.header__content--brand .header__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* Брендинг в desktop-main должен быть в строку (лого + инфа) */
+.header__branding-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
 }
 
 .header__brand {
@@ -246,6 +263,47 @@
 .header__right {
     display: flex;
     justify-content: flex-end;
+}
+
+.header__right--brand {
+    background-color: var(--brand-color, #23bfcf);
+    padding: 20px 30px;
+    margin-right: calc(-1 * var(--gutter-desk));
+    border-radius: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.header__right--brand .header__contacts {
+    color: var(--white);
+}
+
+.header__right--brand .header__phone {
+    color: var(--white);
+}
+
+.header__right--brand .header__phone:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.header__right--brand .header__hours {
+    color: var(--white);
+    opacity: 1;
+}
+
+.header__right--brand .header__cta-btn {
+    color: var(--white);
+    border: 2px solid var(--white);
+    background: transparent;
+    align-self: flex-start;
+}
+
+.header__right--brand .header__cta-btn:hover {
+    background: var(--white);
+    color: var(--brand-color);
 }
 
 .header__contacts {
@@ -1281,7 +1339,7 @@
 
 /* max-width: 1279px (планшеты и мобилки) */
 @media (max-width: 1279px) {
-    /* Header */
+    /* Header - мобильная версия видна, десктопная скрыта */
     .header__topbar {
         display: block;
     }
@@ -1384,7 +1442,7 @@ body.menu-open {
 
 /* min-width: 1280px (десктоп) */
 @media (min-width: 1280px) {
-    /* Header */
+    /* Header - мобильная версия скрыта, десктопная видна */
     .header__topbar {
         display: none;
     }
