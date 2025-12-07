@@ -645,6 +645,84 @@
     font-size: 20px;
 }
 
+/* ===== VIDEO LIGHTBOX ===== */
+.video-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+}
+
+.video-lightbox--visible {
+    display: block;
+}
+
+.video-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.video-lightbox__inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.video-lightbox__video-wrapper {
+    position: relative;
+    width: auto;
+    height: auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-lightbox__video-wrapper iframe {
+    border: none;
+    display: block;
+}
+
+.video-lightbox__iframe {
+    position: relative;
+    width: 90vw;
+    max-width: 1200px;
+    height: auto;
+    border: none;
+    aspect-ratio: 16 / 9;
+}
+
+.video-lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    line-height: 1;
+    transition: background 0.3s ease;
+    z-index: 10001;
+}
+
+.video-lightbox__close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 .btn--whatsapp {
     background: #25d366;
     color: var(--white);

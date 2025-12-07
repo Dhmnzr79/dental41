@@ -938,7 +938,7 @@ get_header();
                                             <button 
                                                 class="reviews__video-btn" 
                                                 type="button"
-                                                data-video="<?php echo esc_url($video_url); ?>"
+                                                data-video="<?php echo esc_attr($video_url); ?>"
                                                 aria-label="Смотреть видео отзыв <?php echo $reviewer_name ? esc_attr($reviewer_name) : 'пациента'; ?>"
                                             >
                                                 <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1115,7 +1115,7 @@ get_header();
                                         <button 
                                             class="doctors__video-btn" 
                                             type="button"
-                                            data-video="<?php echo esc_url($doctor_video); ?>"
+                                            data-video="<?php echo esc_attr($doctor_video); ?>"
                                             aria-label="Смотреть видео о враче <?php echo $doctor_fio ? esc_attr($doctor_fio) : 'враче'; ?>"
                                         >
                                             <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

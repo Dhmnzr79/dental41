@@ -142,6 +142,18 @@ function dental_clinic_enqueue_v2_trust_video() {
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_trust_video');
 
+function dental_clinic_enqueue_video_lightbox() {
+    // Подключаем на всех страницах, скрипт сам проверит наличие кнопок видео
+    wp_enqueue_script(
+        'dental-clinic-video-lightbox',
+        get_stylesheet_directory_uri() . '/assets/js/video-lightbox.js',
+        array(),
+        '1.0.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_video_lightbox');
+
 function dental_clinic_enqueue_popup() {
     // Подключаем скрипт попапов на всех страницах
     wp_enqueue_script(
@@ -592,8 +604,9 @@ function dental_clinic_doctor_meta_box_callback($post) {
     echo '<tr><th><label for="doctor_education">Образование:</label></th>';
     echo '<td><textarea id="doctor_education" name="doctor_education" rows="3" class="large-text" placeholder="Укажите образование врача">' . esc_textarea($education) . '</textarea></td></tr>';
     
-    echo '<tr><th><label for="doctor_video_url">Ссылка на видео (Vimeo/YouTube/RuTube):</label></th>';
-    echo '<td><input type="url" id="doctor_video_url" name="doctor_video_url" value="' . esc_url($video_url) . '" class="regular-text" placeholder="https://vimeo.com/... или https://youtube.com/... или https://rutube.ru/..." /></td></tr>';
+    echo '<tr><th><label for="doctor_video_url">Ссылка на видео или iframe код:</label></th>';
+    echo '<td><textarea id="doctor_video_url" name="doctor_video_url" rows="3" class="large-text" placeholder="Ссылка: https://vk.com/video... или https://youtube.com/...&#10;Или iframe код: &lt;iframe src=&quot;https://vk.com/video_ext.php?oid=...&quot;&gt;&lt;/iframe&gt;">' . esc_textarea($video_url) . '</textarea>';
+    echo '<p class="description">Можно вставить ссылку на видео или готовый iframe код (для VK используйте код из кнопки "Поделиться" → "Экспортировать")</p></td></tr>';
     
     echo '<tr><th><label for="doctor_short_preview">Краткое превью (1-2 предложения):</label></th>';
     echo '<td><textarea id="doctor_short_preview" name="doctor_short_preview" rows="2" class="large-text" placeholder="Краткое описание для карточек">' . esc_textarea($short_preview) . '</textarea></td></tr>';
@@ -745,8 +758,8 @@ function dental_clinic_save_doctor_meta($post_id) {
         }
     }
     
-    // Поля, которые разрешают HTML
-    $html_fields = ['full_description', 'education', 'quote'];
+    // Поля, которые разрешают HTML (включая iframe для видео)
+    $html_fields = ['full_description', 'education', 'quote', 'video_url'];
     
     // Обработка текстовых полей
     $text_fields = ['full_name', 'position', 'experience', 'education', 'video_url', 'short_preview', 'full_description', 'quote', 'index1', 'index2', 'index3'];
@@ -756,7 +769,24 @@ function dental_clinic_save_doctor_meta($post_id) {
             $value = $_POST['doctor_' . $field];
             if (in_array($field, $html_fields)) {
                 // Разрешаем HTML для определенных полей
-                update_post_meta($post_id, '_doctor_' . $field, wp_kses_post($value));
+                if ($field === 'video_url') {
+                    // Для video_url разрешаем iframe теги
+                    $allowed_tags = wp_kses_allowed_html('post');
+                    $allowed_tags['iframe'] = array(
+                        'src' => true,
+                        'width' => true,
+                        'height' => true,
+                        'frameborder' => true,
+                        'allow' => true,
+                        'allowfullscreen' => true,
+                        'style' => true,
+                        'class' => true,
+                        'id' => true
+                    );
+                    update_post_meta($post_id, '_doctor_' . $field, wp_kses($value, $allowed_tags));
+                } else {
+                    update_post_meta($post_id, '_doctor_' . $field, wp_kses_post($value));
+                }
             } else {
                 update_post_meta($post_id, '_doctor_' . $field, sanitize_text_field($value));
             }
@@ -795,8 +825,9 @@ function dental_clinic_review_meta_box_callback($post) {
     echo '<tr><th><label for="reviewer_name">Имя пациента:</label></th>';
     echo '<td><input type="text" id="reviewer_name" name="reviewer_name" value="' . esc_attr($reviewer_name) . '" class="regular-text" placeholder="например: Анна Петрова" /></td></tr>';
     
-    echo '<tr><th><label for="review_video_url">Ссылка на видео отзыв (Vimeo/YouTube/RuTube):</label></th>';
-    echo '<td><input type="url" id="review_video_url" name="review_video_url" value="' . esc_url($video_url) . '" class="regular-text" placeholder="https://vimeo.com/... или https://youtube.com/... или https://rutube.ru/..." /></td></tr>';
+    echo '<tr><th><label for="review_video_url">Ссылка на видео или iframe код:</label></th>';
+    echo '<td><textarea id="review_video_url" name="review_video_url" rows="3" class="large-text" placeholder="Ссылка: https://vk.com/video... или https://youtube.com/...&#10;Или iframe код: &lt;iframe src=&quot;https://vk.com/video_ext.php?oid=...&quot;&gt;&lt;/iframe&gt;">' . esc_textarea($video_url) . '</textarea>';
+    echo '<p class="description">Можно вставить ссылку на видео или готовый iframe код (для VK используйте код из кнопки "Поделиться" → "Экспортировать")</p></td></tr>';
     
     echo '<tr><th><label>Фото пациента:</label></th>';
     echo '<td><p>Используйте "Изображение записи" (Featured Image) для загрузки фото пациента</p></td></tr>';
@@ -875,7 +906,21 @@ function dental_clinic_force_save_review_meta($post_id) {
     }
     
     if (isset($_POST['review_video_url'])) {
-        $value = sanitize_text_field($_POST['review_video_url']);
+        $value = $_POST['review_video_url'];
+        // Разрешаем iframe теги для video_url
+        $allowed_tags = wp_kses_allowed_html('post');
+        $allowed_tags['iframe'] = array(
+            'src' => true,
+            'width' => true,
+            'height' => true,
+            'frameborder' => true,
+            'allow' => true,
+            'allowfullscreen' => true,
+            'style' => true,
+            'class' => true,
+            'id' => true
+        );
+        $value = wp_kses($value, $allowed_tags);
         update_post_meta($post_id, '_review_video_url', $value);
         error_log("FORCE SAVED review_video_url: " . $value);
     }
