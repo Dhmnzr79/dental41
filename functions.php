@@ -134,6 +134,19 @@ function dental_clinic_enqueue_v2_plus_video() {
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_plus_video');
 
+function dental_clinic_enqueue_v2_trust_video() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'dental-clinic-trust-video',
+            get_stylesheet_directory_uri() . '/assets/js/trust-video.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_trust_video');
+
 function dental_clinic_enqueue_popup() {
     // Подключаем скрипт попапов на всех страницах
     wp_enqueue_script(

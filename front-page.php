@@ -473,20 +473,13 @@ get_header();
 <section class="plus section">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-lg-8 plus__header">
-                <div class="plus__title-wrapper">
-                <h2 class="plus__title">Премиум-лечение<br>по адекватной цене</h2>
-                    <div class="plus__title-line"></div>
-                </div>
-        </div>
-            <div class="col-sm-12 col-lg-4 plus__header-plus">
-
-                <p class="plus__header-text">Мы используем только проверенные системы имплантов и гарантируем результат.</p>
-            </div>
-        </div>
-        
-        <div class="row">
             <div class="col-sm-12 col-lg-8 plus__left">
+                <div class="plus__header">
+                    <div class="plus__title-wrapper">
+                        <h2 class="plus__title">Премиум-лечение<br>по адекватной цене</h2>
+                    </div>
+                </div>
+
                 <div class="plus__cards-grid">
                     <div class="plus__card">
                         <div class="plus__icon">
@@ -525,17 +518,15 @@ get_header();
                         <p class="plus__card-text">Более 20 000 установленных имплантов, регулярное обучение в Европе и Москве.</p>
         </div>
         
-                    <div class="plus__card plus__card--bg">
-                        <video 
-                            class="plus__card-video" 
-                            playsinline
-                            muted
-                            loop
-                            preload="auto"
-                            aria-hidden="true"
-                        >
-                            <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/plus-bg.mp4" type="video/mp4">
-                        </video>
+                    <div class="plus__card">
+                        <div class="plus__icon">
+                            <svg width="74" height="66" viewBox="0 0 74 66" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M36.7817 4.3284C30.9138 4.3284 30.1197 1.13263 24.2968 1.00245C17.7524 0.856267 12.0546 7.27922 12.0546 14.253C12.0546 17.8715 13.2935 21.1851 15.3459 23.7455C15.6881 24.1724 16.0127 24.5911 16.3185 25.0108C22.5901 27.7338 29.5087 29.2465 36.7817 29.2465C44.0547 29.2465 50.9734 27.7337 57.2449 25.0108C57.5509 24.5911 57.8755 24.1725 58.2177 23.7455C60.2701 21.1851 61.509 17.8716 61.509 14.253C61.509 7.27922 55.8113 0.856267 49.2668 1.00245C43.444 1.13263 42.6496 4.3284 36.7817 4.3284Z" stroke="black" stroke-width="2" stroke-miterlimit="22.9256" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M42.3098 9.51733C40.5866 9.93697 38.8004 10.1467 36.7818 10.1467C34.7632 10.1467 32.977 9.93697 31.2538 9.51733M48.8427 28.2793L44.7021 57.0797C44.0823 61.3911 41.1377 65 36.782 65C32.2905 65 29.4566 61.2183 28.8617 57.0797L24.7211 28.2794M24.4335 35.6699H49.1301M25.4616 42.8206H48.1021M26.4896 49.9713H47.074M27.5443 57.1219H46.0191M12.4487 18.5006C9.65378 17.1202 3.9725 18.1096 1 21.0821M61.1149 18.5006C63.9098 17.1202 69.591 18.1096 72.5636 21.0821" stroke="black" stroke-width="2" stroke-miterlimit="22.9256" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+                        <h3 class="plus__card-title">Оригинальные импланты с пожизненной гарантией</h3>
+                        <p class="plus__card-text">Nobel (Швейцария) и Impro (Германия) — никаких подделок и дешёвых аналогов.</p>
         </div>
         
                     <div class="plus__card">
@@ -551,8 +542,8 @@ get_header();
                         <h3 class="plus__card-title">Куратор рядом</h3>
                         <p class="plus__card-text">Вы не одни: вас сопровождает специалист, который отвечает на все вопросы - до полного завершения лечения.</p>
         </div>
+                </div>
             </div>
-        </div>
 
             <div class="col-sm-12 col-lg-4 plus__right">
                 <div class="plus__card plus__card--featured">
@@ -561,7 +552,7 @@ get_header();
                         <h3 class="plus__card-title plus__card--featured-title">Имплантация<br>за 1 день</h3>
                         <p class="plus__card-text plus__card--featured-text">Без боли, с временной коронкой сразу. Благодаря нашей цифровой лаборатории вы уходите домой уже с зубом.</p>
                     </div>
-                        <button type="button" class="btn btn--primary" onclick="openPopup()" aria-label="Хочу зубы за один день">Хочу зубы за один день</button>
+                    <button type="button" class="btn btn--primary" onclick="openPopup()" aria-label="Хочу зубы за один день">Хочу зубы за один день</button>
                 </div>
             </div>
         </div>
@@ -572,43 +563,41 @@ get_header();
 <section class="trust section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-lg-12 trust__header">
-                <h2 class="trust__title">
-                    Нам доверяют<br>
-                    <span class="trust__title-span">потому что <span class="trust__highlight">у нас безопасно</span></span>
-            </h2>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-sm-12 col-lg-4 trust__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="1">
-                <div class="trust__icon">
-                    <div class="trust__icon-main"></div>
-                    <div class="trust__icon-arrow"></div>
-                                    </div>
-                <h3 class="trust__card-title" itemprop="name">Абсолютная стерильность</h3>
-                <p class="trust__card-text">Ваше здоровье под полной защитой — каждый инструмент проходит централизованную стерилизацию и строгий контроль.</p>
-                                </div>
-                                
-            <div class="col-sm-12 col-lg-4 trust__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="2">
-                <div class="trust__icon">
-                    <div class="trust__icon-main"></div>
-                    <div class="trust__icon-arrow"></div>
-                                    </div>
-                <h3 class="trust__card-title" itemprop="name">Гарантированная приживаемость 99,8%</h3>
-                <p class="trust__card-text">Импланты надежно приживаются благодаря опыту врачей и проверенным методикам — вы можете быть спокойны за результат.</p>
-                    </div>
-                    
-            <div class="col-sm-12 col-lg-4 trust__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="3">
+            <div class="col-sm-12 col-lg-4 trust__left">
                 <div class="trust__icon">
                     <div class="trust__icon-main"></div>
                     <div class="trust__icon-arrow"></div>
                 </div>
-                <h3 class="trust__card-title" itemprop="name">Биотехнология APRF</h3>
-                <p class="trust__card-text">Ваше заживление проходит быстрее и комфортнее: снижается риск отторжения и ускоряется восстановление тканей.</p>
+                <h2 class="trust__title">
+                    Нам доверяют<br>
+                    <span class="trust__title-span">потому что <span class="trust__highlight">у нас безопасно</span></span>
+                </h2>
+            </div>
+
+            <div class="col-sm-12 col-lg-4 trust__center">
+                <div class="trust__video-wrapper">
+                    <video 
+                        class="trust__video" 
+                        playsinline
+                        muted
+                        preload="auto"
+                        aria-hidden="true"
+                    >
+                        <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/implantaciya-video-01.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-4 trust__right">
+                <div class="trust__card">
+                    <h3 class="trust__card-title">Абсолютная стерильность</h3>
+                    <p class="trust__card-text">Ваше здоровье под полной защитой — каждый инструмент проходит централизованную стерилизацию и строгий контроль.</p>
+                </div>
+                <div class="trust__card-divider"></div>
+                <div class="trust__card">
+                    <h3 class="trust__card-title">Биотехнология APRF</h3>
+                    <p class="trust__card-text">Ваше заживление проходит быстрее и комфортнее: снижается риск отторжения и ускоряется восстановление тканей.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -1050,40 +1039,14 @@ get_header();
                 </h2>
             </div>
 
-            <div class="col-sm-12 col-lg-4 doctors__features-col">
-                <div class="doctors__features-grid">
-                    <div class="doctors__feature-icon">
-                        <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
-                        </svg>
-                    </div>
-                    <p class="doctors__feature-text">
-                        Каждый врач – специалист с опытом от 7 до 22 лет.
-                    </p>
-                    <p class="doctors__feature-text">
-                        Врачи, обученные у основателей имплантологии в Европе и Москве
-                    </p>
-                </div>
+            <div class="col-sm-12 col-lg-4 doctors__info-col">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-05.svg" alt="" class="doctors__info-icon" aria-hidden="true">
+                <p class="doctors__info-text">Каждый врач клиники — специалист с опытом от 7 до 22 лет, прошедший обучение у основателей современной имплантологии в Европе и Москве. За годы практики команда получила более 70 наград и сертификатов — от Германии до Кореи</p>
             </div>
 
-            <div class="col-sm-12 col-lg-4 doctors__features-col">
-                <div class="doctors__features-grid">
-                    <div class="doctors__feature-icon">
-                        <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.26316 6.375C5.26316 2.85418 8.09083 -7.07323e-07 11.5789 -1.01226e-06L18.9474 -1.65643e-06C19.5287 -1.70726e-06 20 0.475696 20 1.0625C20 1.6493 19.5287 2.125 18.9474 2.125L11.5789 2.125C9.25354 2.125 7.36842 4.02779 7.36842 6.375L7.36842 14.875C7.36842 15.4618 6.89714 15.9375 6.31579 15.9375C5.73444 15.9375 5.26316 15.4618 5.26316 14.875L5.26316 6.375Z" fill="#23BFCF"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3233 9.8737C12.7344 10.2886 12.7344 10.9614 12.3233 11.3763L7.06013 16.6888L5.57148 15.1862L10.8346 9.8737C11.2457 9.45877 11.9122 9.45877 12.3233 9.8737Z" fill="#23BFCF"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.06013 16.6888C7.47121 16.2739 7.47119 15.6011 7.06011 15.1862L1.79696 9.8737C1.38588 9.45877 0.719388 9.45877 0.30831 9.8737C-0.102769 10.2886 -0.102769 10.9614 0.30831 11.3763L5.57147 16.6888C5.98255 17.1037 6.64905 17.1037 7.06013 16.6888Z" fill="#23BFCF"/>
-                        </svg>
-                    </div>
-                    <p class="doctors__feature-text">
-                        70+ наград и сертификатов – от Германии до Кореи
-                    </p>
-                    <p class="doctors__feature-text">
-                        С вами работают сразу несколько специалистов – хирург, ортопед и куратор, а не один врач на всё
-                    </p>
-                </div>
+            <div class="col-sm-12 col-lg-4 doctors__info-col">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-06.svg" alt="" class="doctors__info-icon" aria-hidden="true">
+                <p class="doctors__info-text">С вами работают сразу несколько специалистов — хирург, ортопед и куратор, а не один врач на всё, чтобы каждое решение было более точным и взвешенным.</p>
             </div>
         </div>
 
@@ -1230,28 +1193,12 @@ get_header();
 <section class="section doctor-selection" itemscope itemtype="https://schema.org/Service">
     <div class="container">
         <div class="row doctor-selection__container">
-            <div class="col-sm-12 col-lg-6 doctor-selection__left">
-                <div class="doctor-selection__circles circle-group">
-                    <div class="doctor-selection__circle circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-05.jpg" alt="Довольный пациент" loading="lazy">
-                    </div>
-                    <div class="doctor-selection__circle circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-question.svg" alt="Вопрос" loading="lazy">
-                    </div>
-                </div>
-                <h2 class="doctor-selection__title" itemprop="name">
-                    Сомневаетесь, к<br>
-                    кому записаться?
-                </h2>
+            <div class="col-sm-12 col-lg-4 doctor-selection__left">
+                <h2 class="doctor-selection__title" itemprop="name">Важно помнить:</h2>
             </div>
 
-            <div class="col-sm-12 col-lg-6 doctor-selection__right">
-                <p class="doctor-selection__text" itemprop="description">
-                    Неправильный выбор врача может стоить вам времени, денег — и повторного лечения.
-                </p>
-                <p class="doctor-selection__text">
-                    Расскажите о своей ситуации — мы подберём проверенного специалиста и покажем похожие успешные кейсы.
-                </p>
+            <div class="col-sm-12 col-lg-8 doctor-selection__right">
+                <p class="doctor-selection__text" itemprop="description">Неправильный выбор врача может стоить вам времени, денег — и повторного лечения. Расскажите о своей ситуации — мы подберём проверенного специалиста и покажем похожие успешные кейсы.</p>
                 <button type="button" class="btn btn--primary doctor-selection__button" onclick="openPopup()">Подобрать врача</button>
             </div>
         </div>
@@ -1677,12 +1624,15 @@ get_header();
             <div class="col-sm-12 col-lg-8 implants__bonus-right">
                 <div class="implants__bonus-cards">
                     <div class="implants__bonus-card">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/white-chk.svg" alt="" class="implants__bonus-check" aria-hidden="true">
                         <h4 class="implants__bonus-card-title">Бесплатная консультация</h4>
                     </div>
                     <div class="implants__bonus-card">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/white-chk.svg" alt="" class="implants__bonus-check" aria-hidden="true">
                         <h4 class="implants__bonus-card-title">Налоговый вычет</h4>
                     </div>
                     <div class="implants__bonus-card">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/white-chk.svg" alt="" class="implants__bonus-check" aria-hidden="true">
                         <h4 class="implants__bonus-card-title">Полное сопровождение до результата</h4>
                     </div>
                 </div>
