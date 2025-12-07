@@ -43,28 +43,27 @@ function has_cookie_consent($type = 'all') {
 // function dental_clinic_enqueue_popup() - удален
 
 function dental_clinic_enqueue_v2_works_slider() {
-    if (is_front_page()) {
-        wp_enqueue_script(
-            'dental-clinic-works-slider',
-            get_stylesheet_directory_uri() . '/assets/js/works-slider.js',
-            array(),
-            '1.0.0',
-            true
-        );
-    }
+    // Подключаем на всех страницах, где используются v2 стили
+    // Скрипт сам проверит наличие [data-slider="works"] и инициализируется только при наличии
+    wp_enqueue_script(
+        'dental-clinic-works-slider',
+        get_stylesheet_directory_uri() . '/assets/js/works-slider.js',
+        array(),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_works_slider');
 
 function dental_clinic_enqueue_v2_reviews_slider() {
-    if (is_front_page()) {
-        wp_enqueue_script(
-            'dental-clinic-reviews-slider',
-            get_stylesheet_directory_uri() . '/assets/js/reviews-slider.js',
-            array(),
-            '1.0.0',
-            true
-        );
-    }
+    // Подключаем на всех страницах, скрипт сам проверит наличие [data-slider="reviews"]
+    wp_enqueue_script(
+        'dental-clinic-reviews-slider',
+        get_stylesheet_directory_uri() . '/assets/js/reviews-slider.js',
+        array(),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_reviews_slider');
 
@@ -83,41 +82,38 @@ function dental_clinic_enqueue_v2_header_menu() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_header_menu');
 
 function dental_clinic_enqueue_v2_doctors_slider() {
-    if (is_front_page()) {
-        wp_enqueue_script(
-            'dental-clinic-doctors-slider',
-            get_stylesheet_directory_uri() . '/assets/js/doctors-slider.js',
-            array(),
-            '1.0.0',
-            true
-        );
-    }
+    // Подключаем на всех страницах, скрипт сам проверит наличие [data-slider="doctors"]
+    wp_enqueue_script(
+        'dental-clinic-doctors-slider',
+        get_stylesheet_directory_uri() . '/assets/js/doctors-slider.js',
+        array(),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_doctors_slider');
 
 function dental_clinic_enqueue_v2_implant_types() {
-    if (is_front_page()) {
-        wp_enqueue_script(
-            'dental-clinic-implant-types',
-            get_stylesheet_directory_uri() . '/assets/js/implant-types.js',
-            array(),
-            '1.0.0',
-            true
-        );
-    }
+    // Подключаем на всех страницах, скрипт сам проверит наличие #tabs-underline
+    wp_enqueue_script(
+        'dental-clinic-implant-types',
+        get_stylesheet_directory_uri() . '/assets/js/implant-types.js',
+        array(),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implant_types');
 
 function dental_clinic_enqueue_v2_implants_slider() {
-    if (is_front_page()) {
-        wp_enqueue_script(
-            'dental-clinic-implants-slider',
-            get_stylesheet_directory_uri() . '/assets/js/implants-slider.js',
-            array(),
-            '1.0.0',
-            true
-        );
-    }
+    // Подключаем на всех страницах, скрипт сам проверит наличие [data-slider="implants"]
+    wp_enqueue_script(
+        'dental-clinic-implants-slider',
+        get_stylesheet_directory_uri() . '/assets/js/implants-slider.js',
+        array(),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implants_slider');
 
@@ -135,15 +131,14 @@ function dental_clinic_enqueue_v2_plus_video() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_plus_video');
 
 function dental_clinic_enqueue_v2_trust_video() {
-    if (is_front_page()) {
-        wp_enqueue_script(
-            'dental-clinic-trust-video',
-            get_stylesheet_directory_uri() . '/assets/js/trust-video.js',
-            array(),
-            '1.0.0',
-            true
-        );
-    }
+    // Подключаем на всех страницах, скрипт сам проверит наличие .trust__video
+    wp_enqueue_script(
+        'dental-clinic-trust-video',
+        get_stylesheet_directory_uri() . '/assets/js/trust-video.js',
+        array(),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_trust_video');
 
