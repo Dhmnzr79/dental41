@@ -61,7 +61,7 @@
 }
 
 .header__icon-btn:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .header__icon-btn svg {
@@ -116,7 +116,7 @@
 }
 
 .header__overlay-close:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .header__overlay-close svg {
@@ -158,7 +158,7 @@
 }
 
 .header__nav-link:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .header__nav-desc {
@@ -192,7 +192,7 @@
 }
 
 .header__dropdown-link:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .header__nav-item--expanded .header__dropdown {
@@ -212,22 +212,6 @@
     display: flex;
     align-items: center;
     gap: 20px;
-}
-
-/* Для desktop-main версии: лого + инфа + меню вертикально */
-.header__content--brand .header__left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-/* Брендинг в desktop-main должен быть в строку (лого + инфа) */
-.header__branding-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
 }
 
 .header__brand {
@@ -265,41 +249,6 @@
     box-sizing: border-box;
 }
 
-.header__right--brand {
-    background-color: var(--brand-color, #23bfcf);
-    padding: 20px 30px;
-    border-radius: 0;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 16px;
-    box-sizing: border-box;
-    align-items: end;
-}
-
-.header__right--brand .header__contacts {
-    color: var(--white);
-}
-
-.header__right--brand .header__phone {
-    color: var(--white);
-}
-
-.header__right--brand .header__phone:hover {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.header__right--brand .header__hours {
-    color: var(--white);
-    opacity: 1;
-}
-
-.header__right--brand .header__cta-btn:hover {
-    background: var(--white);
-    color: var(--brand-color);
-}
-
 .header__contacts {
     display: flex;
     flex-direction: column;
@@ -320,7 +269,7 @@
 }
 
 .header__phone:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .header__hours {
@@ -331,7 +280,7 @@
 .header__bottom {
     padding: 6px 0;
     align-items: center;
-    border-bottom: 2px solid var(--brand-color, #23bfcf);
+    border-bottom: 2px solid var(--primary);
 }
 
 .header__menu {
@@ -365,7 +314,7 @@
 }
 
 .header__menu-list a:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .header__menu-list .dropdown {
@@ -432,7 +381,7 @@
 }
 
 .header__cta-btn:hover {
-    color: var(--brand-color, #23bfcf);
+    color: var(--primary);
 }
 
 .header__cta-icon {
@@ -498,12 +447,12 @@
 
 .btn--secondary {
     background: transparent;
-    color: var(--brand-color);
-    border: 2px solid var(--brand-color);
+    color: var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .btn--secondary:hover {
-    background: var(--brand-color);
+    background: var(--primary);
     color: var(--white);
     transform: translateY(-2px);
 }
@@ -544,11 +493,11 @@
 
 .slider-arrow:hover {
     transform: scale(1.1);
-    background: rgba(35, 191, 207, 0.12);
+    background: var(--primary-10);
 }
 
 .slider-arrow:hover svg {
-    stroke: #23bfcf;
+    stroke: var(--primary);
 }
 
 .slider-arrow.left:hover svg {
@@ -794,7 +743,7 @@
 }
 
 .footer__contacts-link:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .footer__bottom {
@@ -832,7 +781,7 @@
 }
 
 .footer__link:hover {
-    color: var(--brand-color);
+    color: var(--primary);
     text-decoration: underline;
 }
 
@@ -860,7 +809,7 @@
 }
 
 .footer__recaptcha-link:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 /* ===== POPUP ===== */
@@ -1041,7 +990,7 @@
     .wpcf7-form-control-wrap
     input.wpcf7-form-control[type='email']:focus {
     outline: none;
-    border-color: var(--brand-color, #23bfcf);
+    border-color: var(--primary);
 }
 
 .popup__form .wpcf7-form-control-wrap textarea.wpcf7-form-control {
@@ -1050,7 +999,7 @@
     min-height: 100px;
     padding: 12px 16px;
     margin: 0 0 15px 0;
-    border: 1px solid var(--border, #e5e7eb);
+    border: 1px solid var(--secondary-20);
     border-radius: 8px;
     font: 16px/1 var(--body-font, 'Inter', sans-serif);
     background: #fff;
@@ -1062,7 +1011,7 @@
 
 .site .popup__form .wpcf7-form-control-wrap textarea.wpcf7-form-control:focus {
     outline: none;
-    border-color: var(--brand-color, #23bfcf);
+    border-color: var(--primary);
 }
 
 .popup__whatsapp {
@@ -1102,7 +1051,7 @@
     cursor: pointer;
     flex-shrink: 0;
     appearance: none;
-    border: 2px solid var(--brand-color, #23bfcf);
+    border: 2px solid var(--primary);
     border-radius: 4px;
     position: relative;
     box-sizing: border-box;
@@ -1110,8 +1059,8 @@
 }
 
 .form-consent__checkbox:checked {
-    background-color: var(--brand-color, #23bfcf);
-    border-color: var(--brand-color, #23bfcf);
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .form-consent__checkbox:checked::after {
@@ -1196,7 +1145,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid var(--border, #e5e7eb);
+    border-bottom: 1px solid var(--secondary-20);
 }
 
 .popup__price-item:last-child {
@@ -1215,7 +1164,7 @@
 .popup__price-total {
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 2px solid var(--brand-color, #23bfcf);
+    border-top: 2px solid var(--primary);
 }
 
 .popup__price-total-label {
@@ -1243,7 +1192,7 @@
 }
 
 .breadcrumbs a:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .breadcrumbs__separator {
@@ -1324,8 +1273,8 @@
 .site .sidebar-form__form .wpcf7-form-control-wrap input[type='tel']:focus,
 .site .sidebar-form__form .wpcf7-form-control-wrap input[type='email']:focus {
     outline: none;
-    border-color: var(--brand-color);
-    box-shadow: 0 0 0 3px rgba(35, 191, 207, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-10);
 }
 
 .sidebar-form__form .wpcf7-form-control-wrap textarea {
@@ -1345,8 +1294,8 @@
 
 .sidebar-form__form .wpcf7-form-control-wrap textarea:focus {
     outline: none;
-    border-color: var(--brand-color);
-    box-shadow: 0 0 0 3px rgba(35, 191, 207, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-10);
 }
 
 /* ===== CONTACTS ===== */
@@ -1386,7 +1335,7 @@
 }
 
 .contacts__text a:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .contacts__description {

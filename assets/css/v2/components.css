@@ -3,7 +3,7 @@
 
 /* ===== БЛОК НАШИХ РАБОТ ===== */
 .works {
-    background-color: var(--bg-dark);
+    background-color: var(--accent);
 }
 
 .works__head {
@@ -97,7 +97,7 @@
 }
 
 .works__dot[aria-current='true'] {
-    background-color: var(--brand-color);
+    background-color: var(--primary);
 }
 
 .works__cta-row {
@@ -105,7 +105,7 @@
 }
 
 .works .circle:not(:first-child) {
-    outline-color: var(--bg-dark);
+    outline-color: var(--accent);
 }
 
 .works h2 {
@@ -114,11 +114,13 @@
 
 /* ===== БЛОК ИНДЕКСОВ ===== */
 .indices {
-    padding-block: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: var(--accent);
 }
 
 .indices__card {
-    background: #dff0f2;
+    background: var(--bg);
     border-radius: 20px;
     padding: 20px 15px;
     position: relative;
@@ -138,35 +140,19 @@
 }
 
 .indices__icon {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
-    position: relative;
 }
 
 .indices__icon-image {
     width: 48px;
     height: 48px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    border-radius: 10px;
+    display: block;
 }
 
 .indices__content p {
     font-size: 16px;
-}
-
-.indices__icon-bg {
-    width: 48px;
-    height: 48px;
-    background: #fff;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    border-radius: 10px;
 }
 
 /* ===== БЛОК КОНСУЛЬТАЦИИ ===== */
@@ -194,11 +180,11 @@
 }
 
 .consultation__promo-date {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .consultation__highlight {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .consultation__benefits {
@@ -233,12 +219,7 @@
 .consultation__right {
     padding: 20px;
     border-radius: 20px;
-    background: linear-gradient(
-        143.28deg,
-        #d6e5e8 8.91%,
-        #9be8f4 46.48%,
-        #cec1de 98.73%
-    );
+    background-color: var(--primary-20);
 }
 
 .consultation__content {
@@ -361,7 +342,7 @@
 
 /* ===== БЛОК "НАШИ УСЛУГИ" ===== */
 .services {
-    background-color: var(--bg-dark);
+    background-color: var(--primary);
 }
 
 .services__title-col {
@@ -401,7 +382,7 @@
 }
 
 .services .circle:not(:first-child) {
-    outline-color: var(--bg-dark);
+    outline-color: var(--primary);
 }
 
 .services h2 {
@@ -542,7 +523,7 @@
 }
 
 .plus__icon {
-    color: var(--brand-color);
+    color: var(--primary);
     margin-bottom: 15px;
 }
 
@@ -564,7 +545,7 @@
     position: relative;
     overflow: hidden;
     padding: 25px;
-    background: var(--bg-light);
+    background: var(--primary-20);
     height: 100%;
 }
 
@@ -583,7 +564,7 @@
 }
 
 .plus__card--featured-title {
-    color: var(--brand-color);
+    color: var(--primary);
     font-size: 36px;
     line-height: 1.1;
 }
@@ -627,7 +608,7 @@
 }
 
 .trust__highlight {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .trust__center {
@@ -691,7 +672,7 @@
 
 .guarantees__left {
     padding: 30px;
-    background: var(--bg-light);
+    background: var(--primary-20);
     border-radius: 20px;
 }
 
@@ -705,8 +686,11 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    background: #ffffff;
+    background: #ffffff57;
     border-radius: 20px;
+    border: 1px solid #fff;
+    border-right: none;
+    border-bottom: none;
 }
 
 .guarantees__icon {
@@ -745,6 +729,7 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
+    flex-direction: column;
 }
 
 .guarantees__additional-icon {
@@ -755,6 +740,10 @@
     display: block;
     width: 24px;
     height: 24px;
+}
+
+.guarantees__additional-icon svg path {
+    fill: var(--accent);
 }
 
 .guarantees__additional-text {
@@ -787,6 +776,10 @@
 }
 
 /* ===== БЛОК ОТЗЫВОВ ===== */
+.reviews {
+    background-color: var(--secondary-40);
+}
+
 .reviews__left {
     display: flex;
     flex-direction: column;
@@ -843,7 +836,7 @@
 .reviews__card {
     flex-shrink: 0;
     box-sizing: border-box;
-    background-color: var(--bg-light);
+    background-color: var(--bg);
     border-radius: 16px;
     padding: 40px 25px;
     display: flex;
@@ -947,7 +940,7 @@
 }
 
 .reviews__dot[aria-current='true'] {
-    background-color: var(--brand-color);
+    background-color: var(--primary);
 }
 
 /* ===== БЛОК РЕЙТИНГОВ ===== */
@@ -959,8 +952,7 @@
 }
 
 .ratings__card {
-    background: var(--white);
-    border: 1px solid var(--brand-color);
+    background: var(--bg);
     border-radius: 15px;
     padding: 20px;
     height: 100%;
@@ -1101,30 +1093,30 @@
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #dff7f4 40%, #8fe0db 100%);
+    background-color: var(--primary-20);
     display: flex;
     flex-direction: column;
     min-height: 450px;
 }
 
-.doctors__card:nth-child(2n) {
-    background: linear-gradient(135deg, #e7f1fa 40%, #a8c9f0 100%);
+.doctors__card:nth-child(6n + 2) {
+    background-color: var(--secondary-40);
 }
 
-.doctors__card:nth-child(3n) {
-    background: linear-gradient(135deg, #f3e9f6 40%, #d8a9c9 100%);
+.doctors__card:nth-child(6n + 3) {
+    background-color: var(--gray-light);
 }
 
-.doctors__card:nth-child(4n) {
-    background: linear-gradient(135deg, #e4f7f9 40%, #8dd5e5 100%);
+.doctors__card:nth-child(6n + 4) {
+    background-color: var(--primary-10);
 }
 
-.doctors__card:nth-child(5n) {
-    background: linear-gradient(135deg, #eafbf6 40%, #9fdacb 100%);
+.doctors__card:nth-child(6n + 5) {
+    background-color: var(--secondary-40);
 }
 
-.doctors__card:nth-child(6n) {
-    background: linear-gradient(135deg, #fff4e6 40%, #ffd4a3 100%);
+.doctors__card:nth-child(6n + 6) {
+    background-color: var(--gray-light);
 }
 
 .doctors__photo {
@@ -1153,7 +1145,6 @@
 
 .doctors__card-info {
     position: relative;
-    padding-right: 45%;
 }
 
 .doctors__name {
@@ -1166,6 +1157,15 @@
     font-size: 15px;
 }
 
+.doctors__experience {
+    display: inline-block;
+}
+
+.doctors__experience span {
+    border-bottom: 5px solid var(--secondary);
+    display: inline-block;
+}
+
 .doctors__video-btn {
     width: 60px;
     height: 60px;
@@ -1175,7 +1175,8 @@
     cursor: pointer;
     transition: transform 0.2s ease;
     position: absolute;
-    top: 160px;
+    bottom: 30px;
+    left: 30px;
 }
 
 .doctors__video-btn:hover {
@@ -1185,18 +1186,6 @@
 .doctors__video-btn svg {
     width: 100%;
     height: 100%;
-}
-
-.doctors__preview {
-    margin-top: auto;
-    background: #fff;
-    z-index: 10;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.doctors__preview p {
-    font-size: 16px;
 }
 
 .doctors__pagination {
@@ -1218,7 +1207,7 @@
 }
 
 .doctors__dot[aria-current='true'] {
-    background-color: var(--brand-color);
+    background-color: var(--primary);
 }
 
 /* ===== БЛОК ПОДБОРА ВРАЧА ===== */
@@ -1256,9 +1245,107 @@
     margin-top: 0;
 }
 
+/* ===== БЛОК CTA ===== */
+.cta {
+    background-color: var(--primary);
+}
+
+.cta__form-wrapper {
+    background: #b8d5db;
+    height: 100%;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+/* ===== БЛОК FAQ ===== */
+.faq__title-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq__title {
+    margin: 0;
+}
+
+.faq__subtitle {
+    margin: 0;
+}
+
+.faq__accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq__item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 12px;
+}
+
+.faq__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.faq__question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 20px 25px;
+    padding-right: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: left;
+    position: relative;
+    transition: color 0.2s ease;
+    color: var(--text-color);
+}
+
+.faq__question:hover {
+    color: var(--primary);
+}
+
+.faq__question::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    color: var(--primary);
+}
+
+.faq__item--active .faq__question::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 25px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.faq__item--active .faq__answer {
+    max-height: 1000px;
+    padding: 0 25px 20px;
+}
+
+.faq__answer > div {
+    margin: 0;
+}
+
 /* ===== БЛОК ИМПЛАНТОВ ===== */
 .implants {
-    background: var(--bg-dark);
+    background: var(--accent);
 }
 
 .implants__head {
@@ -1362,12 +1449,12 @@
 .implants__current-price {
     font-weight: 700;
     font-size: 22px;
-    color: var(--brand-color);
+    color: var(--primary);
     font-family: var(--heading-font);
 }
 
 .implants__recommendation-badge {
-    background-color: var(--brand-color);
+    background-color: var(--primary);
     color: #fff;
     padding: 8px 12px;
     border-radius: 5px;
@@ -1424,7 +1511,7 @@
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--brand-color);
+    color: var(--primary);
     font-weight: 700;
 }
 
@@ -1473,7 +1560,7 @@
 }
 
 .implants__dot[aria-current='true'] {
-    background-color: var(--brand-color);
+    background-color: var(--primary);
 }
 
 .implants__bonus-title {
@@ -1510,7 +1597,7 @@
 }
 
 .implants .circle:not(:first-child) {
-    outline-color: var(--bg-dark);
+    outline-color: var(--accent);
 }
 
 .implants h2 {
@@ -1519,7 +1606,7 @@
 
 /* ===== БЛОК ВИДОВ ИМПЛАНТАЦИИ ===== */
 .implant-types {
-    background: var(--bg-light);
+    background: var(--primary-05);
 }
 
 .implant-types__title-col {
@@ -1895,7 +1982,7 @@
 }
 
 .china-risks__card--featured {
-    background: #23bfcf;
+    background: var(--primary);
     color: #fff;
     padding: 40px;
     text-align: center;
@@ -1969,6 +2056,66 @@
 
 .china-risks__card--featured .btn:hover {
     background: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== БЛОК СТРАХОВ ===== */
+.fears__right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.fears__visual-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fears__visual-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.fears__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
+
+.fears__percentage {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--secondary);
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.fears__percentage-image {
+    width: 100%;
+    max-width: 170px;
+    height: auto;
+}
+
+.fears__percentage-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.fears__image-container {
+    position: relative;
+}
+
+.fears__badge {
+    position: absolute;
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: auto;
 }
 
 /* ===== MOBILE HERO ===== */
@@ -2102,11 +2249,11 @@
 /* ===== DESKTOP HERO ===== */
 .hero {
     display: none;
-    padding-top: 0;
+    padding: 0;
 }
 
 .hero__left {
-    padding-top: 80px;
+    padding: 80px 0;
 }
 
 .hero__subtitle {
@@ -2161,7 +2308,7 @@
 }
 
 .hero__whatsapp-btn:hover {
-    color: var(--brand-color, #23bfcf);
+    color: var(--primary);
 }
 
 .hero__whatsapp-icon {
@@ -2180,18 +2327,16 @@
 
 .hero__right {
     position: relative;
-    background-color: var(--accent);
     overflow: visible;
-    padding: 25px;
-    border-radius: 0 0 250px 20px;
+    padding: 80px 0;
 }
 
 .hero__photo {
     position: absolute;
     bottom: 0px;
     left: -160px;
-    width: 105%;
-    height: 105%;
+    width: 100%;
+    height: 100%;
     z-index: 5;
 }
 
@@ -2203,7 +2348,7 @@
 
 .hero__stats {
     position: relative;
-    width: 40%;
+    width: 35%;
     margin-left: auto;
     height: 100%;
     display: flex;
@@ -2224,29 +2369,26 @@
 }
 
 .hero__stat p {
-    text-align: right;
     font-size: 16px;
     line-height: 1.4;
 }
 
 .hero__stat-number {
     font-family: var(--heading-font, 'NTSomic', sans-serif);
-    font-size: 54px;
+    font-size: 48px;
     font-weight: 600;
     line-height: 1.2;
     color: var(--heading-color);
-    text-align: right;
 }
 
 .hero__testimonial {
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: start;
 }
 
 .hero__testimonial p {
-    text-align: right;
     font-size: 16px;
     margin-bottom: 15px;
 }
@@ -2255,7 +2397,7 @@
     position: relative;
     display: inline-block;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--primary);
     transition: color 0.2s ease;
 }
 
@@ -2609,7 +2751,6 @@
         text-align: center;
     }
 
-
     .doctors__card {
         flex: 0 0 100%;
         padding: 20px;
@@ -2729,6 +2870,36 @@
         height: 100px;
     }
 
+    /* FAQ */
+    .faq__question {
+        padding: 15px 20px;
+        padding-right: 45px;
+        font-size: 16px;
+    }
+
+    .faq__answer {
+        padding: 0 20px;
+        font-size: 15px;
+    }
+
+    .faq__item--active .faq__answer {
+        padding: 0 20px 15px;
+    }
+
+    /* Fears */
+    .fears__right {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .fears__badge {
+        position: static;
+        transform: none;
+        margin-top: 15px;
+        width: auto;
+        height: auto;
+    }
+
     /* Mobile Hero */
     .hero-mobile .container {
         padding-inline: 0;
@@ -2789,7 +2960,8 @@
 
     /* Indices */
     .indices {
-        padding-block: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 
     /* Hero visibility */
@@ -2815,5 +2987,10 @@
     /* China Risks */
     .china-risks__left .row {
         gap: 40px;
+    }
+
+    /* Fears */
+    .fears__right {
+        gap: 30px;
     }
 }

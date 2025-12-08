@@ -130,6 +130,18 @@ function dental_clinic_enqueue_v2_plus_video() {
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_plus_video');
 
+function dental_clinic_enqueue_v2_faq() {
+    // Подключаем на всех страницах, скрипт сам проверит наличие .faq__accordion
+    wp_enqueue_script(
+        'dental-clinic-faq',
+        get_stylesheet_directory_uri() . '/assets/js/faq.js',
+        array(),
+        '1.0.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_faq');
+
 function dental_clinic_enqueue_v2_trust_video() {
     // Подключаем на всех страницах, скрипт сам проверит наличие .trust__video
     wp_enqueue_script(

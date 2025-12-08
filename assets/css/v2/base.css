@@ -26,24 +26,43 @@
     --col-gap-mob: 16px;
     --col-gap-desk: 30px;
 
-    --text-color: #393939;
-    --heading-color: #16253c;
-    --brand-color: #23bfcf;
-    --white: #ffffff;
+    /* Цвета текста и заголовков */
+    --text-color: #050315;
+    --heading-color: #050315;
+
+    /* Фон */
+    --bg: #fbfbfe;
+
+    /* Primary цвета */
+    --primary: #23bfcf;
+    --primary-20: rgba(35, 191, 207, 0.2);
+    --primary-10: rgba(35, 191, 207, 0.1);
+    --primary-05: rgba(35, 191, 207, 0.05);
+
+    /* Secondary цвета */
+    --secondary: #dedcff;
+    --secondary-40: rgba(222, 220, 255, 0.4);
+    --secondary-20: rgba(222, 220, 255, 0.2);
+    --secondary-10: rgba(222, 220, 255, 0.1);
+    --secondary-05: rgba(222, 220, 255, 0.05);
+
+    /* Accent */
+    --accent: #433bff;
+
+    /* Дополнительный цвет */
+    --gray-light: #eeeef2;
+
+    /* Шрифты */
     --heading-font: 'NTSomic', sans-serif;
     --body-font: 'Inter', sans-serif;
-    --accent: #23bfcf;
-    --muted: #8a8f98;
-    --border: #e8ebef;
-    --bg: #ffffff;
-    --text: #111827;
-    --bg-light: #d7edef;
-    --bg-dark: #2194da;
+
+    /* Белый цвет */
+    --white: #ffffff;
 }
 
 html {
     box-sizing: border-box;
-    background-color: #ffffff;
+    background-color: var(--bg);
 }
 
 body {
@@ -53,7 +72,7 @@ body {
     font-size: 17px;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #ffffff;
+    background-color: var(--bg);
 }
 
 *,

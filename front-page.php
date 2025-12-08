@@ -134,11 +134,6 @@ get_header();
                             <span class="hero__stat-number">25 000</span>
                             <p itemprop="name">имплантаций за 26 лет<br>работы на Камчатке</p>
                     </div>
-                        <div class="hero__stat hero__stat--second" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="2">
-                            <span class="hero__stat-number">99,8%</span>
-                            <p itemprop="name">приживаемость<br>имплантов</p>
-                    </div>
                 </div>
                 
                     <div class="hero__testimonial" itemscope itemtype="https://schema.org/Review">
@@ -160,7 +155,6 @@ get_header();
                 <div class="indices__content">
                 <div class="indices__icon">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-01.svg" alt="" class="indices__icon-image" aria-hidden="true">
-                        <div class="indices__icon-bg"></div>
             </div>
                     <p itemprop="name">Точная диагностика на оборудовании нового поколения — уровень клиник Москвы и Европы</p>
             </div>
@@ -171,7 +165,6 @@ get_header();
                 <div class="indices__content">
                     <div class="indices__icon">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-02.svg" alt="" class="indices__icon-image" aria-hidden="true">
-                        <div class="indices__icon-bg"></div>
                     </div>
                     <p itemprop="name">Помогаем в сложных случаях, когда другие бессильны</p>
             </div>
@@ -182,7 +175,6 @@ get_header();
                 <div class="indices__content">
                     <div class="indices__icon">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-03.svg" alt="" class="indices__icon-image" aria-hidden="true">
-                        <div class="indices__icon-bg"></div>
                     </div>
                     <p itemprop="name">Изготавливаем протезы у себя - это быстрее, точнее и надёжнее.</p>
             </div>
@@ -193,7 +185,6 @@ get_header();
                 <div class="indices__content">
                     <div class="indices__icon">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-04.svg" alt="" class="indices__icon-image" aria-hidden="true">
-                        <div class="indices__icon-bg"></div>
                     </div>
                     <p itemprop="name">Входим в ТОП рейтинга Яндекса, ПроДокторов и Google</p>
                 </div>
@@ -1109,33 +1100,29 @@ get_header();
                                         <?php echo esc_html($doctor_position); ?>
                                     </div>
                                     <div class="doctors__experience">
-                                        Опыт работы: <?php echo esc_html($doctor_experience); ?> лет
+                                        <span>Опыт работы: <?php echo esc_html($doctor_experience); ?> лет</span>
                                     </div>
-                                    <?php if ($doctor_video) : ?>
-                                        <button 
-                                            class="doctors__video-btn" 
-                                            type="button"
-                                            data-video="<?php echo esc_attr($doctor_video); ?>"
-                                            aria-label="Смотреть видео о враче <?php echo $doctor_fio ? esc_attr($doctor_fio) : 'враче'; ?>"
-                                        >
-                                            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                <g clip-path="url(#clip0_2402_132)">
-                                                    <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
-                                                    <path d="M50 0C22.3861 0 0 22.3857 0 50C0 77.6143 22.3861 100 50 100C77.6139 100 100 77.6143 100 50C100 22.3857 77.6139 0 50 0ZM67.2813 52.6504L42.2812 68.2754C41.808 68.5708 41.2644 68.7342 40.7067 68.7487C40.1491 68.7632 39.5977 68.6283 39.1098 68.3578C38.6219 68.0875 38.2153 67.6915 37.9323 67.2109C37.6492 66.7303 37.4999 66.1827 37.5 65.625V34.375C37.5 33.2383 38.1164 32.193 39.1098 31.6422C39.5974 31.3707 40.1489 31.2352 40.7068 31.2497C41.2647 31.2641 41.8084 31.4282 42.2812 31.7246L67.2813 47.3496C68.1945 47.9219 68.75 48.9229 68.75 50C68.75 51.0771 68.1945 52.0783 67.2813 52.6504Z" fill="#23BFCF"/>
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_2402_132">
-                                                        <rect width="100" height="100" fill="white"/>
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-                                        </button>
-                                    <?php endif; ?>
                                 </div>
-
-                                <div class="doctors__preview">
-                                    <p><?php echo esc_html($doctor_preview); ?></p>
-                                </div>
+                                <?php if ($doctor_video) : ?>
+                                    <button 
+                                        class="doctors__video-btn" 
+                                        type="button"
+                                        data-video="<?php echo esc_attr($doctor_video); ?>"
+                                        aria-label="Смотреть видео о враче <?php echo $doctor_fio ? esc_attr($doctor_fio) : 'враче'; ?>"
+                                    >
+                                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <g clip-path="url(#clip0_2402_132)">
+                                                <rect x="25.1797" y="25.1797" width="56.8345" height="52.518" fill="white"/>
+                                                <path d="M50 0C22.3861 0 0 22.3857 0 50C0 77.6143 22.3861 100 50 100C77.6139 100 100 77.6143 100 50C100 22.3857 77.6139 0 50 0ZM67.2813 52.6504L42.2812 68.2754C41.808 68.5708 41.2644 68.7342 40.7067 68.7487C40.1491 68.7632 39.5977 68.6283 39.1098 68.3578C38.6219 68.0875 38.2153 67.6915 37.9323 67.2109C37.6492 66.7303 37.4999 66.1827 37.5 65.625V34.375C37.5 33.2383 38.1164 32.193 39.1098 31.6422C39.5974 31.3707 40.1489 31.2352 40.7068 31.2497C41.2647 31.2641 41.8084 31.4282 42.2812 31.7246L67.2813 47.3496C68.1945 47.9219 68.75 48.9229 68.75 50C68.75 51.0771 68.1945 52.0783 67.2813 52.6504Z" fill="#23BFCF"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_2402_132">
+                                                    <rect width="100" height="100" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                <?php endif; ?>
                             </article>
                         <?php
                             endwhile;
@@ -1149,10 +1136,7 @@ get_header();
                                 <div class="doctors__card-info">
                                     <h3 class="doctors__name">Загрузка...</h3>
                                     <div class="doctors__position">Должность</div>
-                                    <div class="doctors__experience">Опыт работы</div>
-                                </div>
-                                <div class="doctors__preview">
-                                    <p>Информация о враче загружается...</p>
+                                    <div class="doctors__experience"><span>Опыт работы</span></div>
                                 </div>
                             </article>
                         <?php endif; ?>

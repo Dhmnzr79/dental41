@@ -62,7 +62,7 @@
 }
 
 .blog-card__title a:hover {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .blog-card__excerpt {
@@ -75,7 +75,7 @@
 .blog-card__btn {
     display: inline-block;
     padding: 12px 24px;
-    background: var(--brand-color);
+    background: var(--primary);
     color: #fff;
     text-decoration: none;
     border-radius: 8px;
@@ -160,7 +160,7 @@
 }
 
 .single-post__disclaimer {
-    background: var(--bg-light);
+    background: var(--primary-05);
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 20px;
@@ -179,7 +179,7 @@
 
 .single-post__brand-stripe {
     height: 4px;
-    background: var(--brand-color);
+    background: var(--primary);
     border-radius: 2px;
     margin-bottom: 30px;
 }
@@ -227,7 +227,7 @@
 }
 
 .single-post__text a {
-    color: var(--brand-color);
+    color: var(--primary);
     text-decoration: underline;
 }
 
@@ -306,7 +306,7 @@
 .site
     .single-post__related-link:hover
     .single-post__related-item-title {
-    color: var(--brand-color);
+    color: var(--primary);
 }
 
 .single-post__footer {
@@ -317,7 +317,7 @@
 
 .single-post__back-link {
     display: inline-block;
-    color: var(--brand-color);
+    color: var(--primary);
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
