@@ -7,17 +7,16 @@
 get_header();
 ?>
 
-<!-- Мобильный Hero Section -->
-<section class="section hero-mobile" itemscope itemtype="https://schema.org/MedicalBusiness">
+<section class="section hero-mobile">
     <div class="container">
         <div class="hero-mobile__wrapper">
             <div class="hero-mobile__content">
-                <h1 class="hero-mobile__title" itemprop="name">Стоматология нового поколения на Камчатке</h1>
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="hero-mobile__image" itemprop="image" loading="lazy">
+                <h1 class="hero-mobile__title">Стоматология нового поколения на Камчатке</h1>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="hero-mobile__image" loading="lazy">
             </div>
             
             <div class="hero-mobile__text">
-                <h2 class="hero-mobile__subtitle" itemprop="description">Все виды лечения. Бережная имплантация. С максимальным комфортом, без боли и переплат.</h2>
+                <h2 class="hero-mobile__subtitle">Все виды лечения. Бережная имплантация. С максимальным комфортом, без боли и переплат.</h2>
                 
                 <div class="hero-mobile__description">
                     <div class="hero-mobile__benefit">
@@ -81,15 +80,15 @@ get_header();
     </div>
 </section>
 
-<section class="hero section" itemscope itemtype="https://schema.org/MedicalBusiness">
+<section class="hero section">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-6 hero__left">
-                <h1 class="hero__title" itemprop="name">
+                <h1 class="hero__title">
                 Стоматология нового поколения на Камчатке
                 </h1>
         
-                <h2 class="hero__subtitle" itemprop="description">
+                <h2 class="hero__subtitle">
                 Все виды лечения. Бережная имплантация. С максимальным комфортом, без боли и переплат.
                 </h2>
                 
@@ -124,27 +123,38 @@ get_header();
         
             <div class="col-sm-12 col-lg-6 hero__right">
                 <div class="hero__photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Александр Хан - Главный врач стоматологической клиники" class="hero__doctor-photo" itemprop="image" loading="lazy">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Александр Хан - Главный врач стоматологической клиники" class="hero__doctor-photo" loading="lazy">
             </div>
             
                 <div class="hero__stats">
-                    <div class="hero__stats-list" itemscope itemtype="https://schema.org/ItemList">
-                        <div class="hero__stat hero__stat--first" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="1">
-                            <span class="hero__stat-number">25 000</span>
-                            <p itemprop="name">имплантаций за 26 лет<br>работы на Камчатке</p>
+                    <div class="hero__stat">
+                        
+                        <div class="hero__stat-images">
+                            <div class="circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" loading="lazy">
+                            </div>
+                            <div class="circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy">
+                            </div>
+                            <div class="circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="Довольная пациентка" loading="lazy">
+                            </div>
+                        </div>
+                        <span class="hero__stat-number">25 000</span>
+                        <p itemprop="name">имплантаций за 26 лет<br>работы на Камчатке</p>
                     </div>
-                </div>
-                
+                    
                     <div class="hero__testimonial" itemscope itemtype="https://schema.org/Review">
                         <p itemprop="reviewBody"><strong itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Лилия Питерская</span>:</strong><br>"Делюсь историей своей новой улыбки"</p>
                         <a href="<?php echo home_url('/istoriya-moei-ulybki'); ?>" class="hero__testimonial-link" aria-label="Читать отзыв Лилии Питерской">Читать далее</a>
-            </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+</div>
 
 <section class="indices section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">

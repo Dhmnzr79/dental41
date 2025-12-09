@@ -21,6 +21,14 @@
     get_template_part('template-parts/header/header', 'mobile');
     
     // Десктопная версия - видна только на десктопе (от 1280px)
+    // Этот контент также будет дублирован в wrapper для градиента
+    echo '<div class="header__desktop-content">';
     get_template_part('template-parts/header/header', 'desktop-default');
+    echo '</div>';
     ?>
 </header>
+
+<div class="header-hero-wrapper">
+    <div class="header__desktop-duplicate">
+        <?php get_template_part('template-parts/header/header', 'desktop-duplicate'); ?>
+    </div>

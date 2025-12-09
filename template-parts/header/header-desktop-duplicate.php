@@ -1,18 +1,13 @@
 <?php
-/**
- * Desktop Header - Default Variant
- * Используется на всех остальных страницах
- * Сетка 8/4 (левая колонка шире)
- */
 ?>
 <div class="header__content header__content--default">
     <div class="container">
         <div class="row header__top">
             <div class="col-sm-12 col-lg-8 header__left">
-                <?php get_template_part('template-parts/header/blocks/branding'); ?>
+                <?php get_template_part('template-parts/header/blocks/branding-duplicate'); ?>
             </div>
             <div class="col-sm-12 col-lg-4 header__right">
-                <?php get_template_part('template-parts/header/blocks/contacts'); ?>
+                <?php get_template_part('template-parts/header/blocks/contacts-duplicate'); ?>
             </div>
         </div>
         <div class="row header__bottom">
@@ -28,8 +23,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 
