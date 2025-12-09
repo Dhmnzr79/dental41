@@ -5,22 +5,6 @@
 .header {
     position: relative;
     z-index: 1000;
-    background-color: var(--primary-20);
-}
-
-/* Desktop header content внутри основного header (скрыт на мобилках) */
-.header__desktop-content {
-    display: none;
-}
-
-/* Wrapper для desktop header и hero с градиентом (скрыт на мобилках) */
-.header-hero-wrapper {
-    display: none;
-}
-
-/* Дубликат desktop header в wrapper (скрыт на мобилках) */
-.header__desktop-duplicate {
-    display: none;
 }
 
 .header__topbar {
@@ -239,7 +223,7 @@
 
 .header__brand-img {
     display: block;
-    width: 60px;
+    width: 120px;
     height: 60px;
 }
 
@@ -296,7 +280,6 @@
 .header__bottom {
     padding: 6px 0;
     align-items: center;
-    border-bottom: 2px solid var(--primary);
 }
 
 .header__menu {
@@ -322,9 +305,7 @@
 .header__menu-list a {
     display: block;
     text-decoration: none;
-    color: var(--text-color);
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15px;
     transition: color 0.2s ease;
     padding: 8px 0;
 }
@@ -1479,25 +1460,9 @@ body.menu-open {
 
 /* min-width: 1280px (десктоп) */
 @media (min-width: 1280px) {
-    /* Header - мобильная версия скрыта */
+    /* Header - мобильная версия скрыта, десктопная видна */
     .header__topbar {
         display: none;
-    }
-
-    /* Desktop header content в основном header (скрыт, т.к. используется дубликат в wrapper) */
-    .header__desktop-content {
-        display: none;
-    }
-
-    /* Desktop header content в wrapper (виден) */
-    .header__desktop-duplicate {
-        display: block;
-    }
-
-    /* Wrapper для desktop header и hero с градиентом */
-    .header-hero-wrapper {
-        display: block;
-        background: linear-gradient(103.28deg, rgba(35, 191, 207, 0.05) 0.35%, rgba(35, 191, 207, 0.2) 48.82%, #DEDCFF 99.2%);
     }
 
     .header__content {

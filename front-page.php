@@ -154,7 +154,6 @@ get_header();
         </div>
     </div>
 </section>
-</div>
 
 <section class="indices section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
@@ -549,7 +548,8 @@ get_header();
             <div class="col-sm-12 col-lg-4 plus__right">
                 <div class="plus__card plus__card--featured">
                     <div class="plus__card-content">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/arrow-2.svg" alt="" class="plus__card-arrow" aria-hidden="true">
+            10.
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/implant-plus-bg.png" alt="" class="plus__card-featured-bg" aria-hidden="true" loading="lazy">
                         <h3 class="plus__card-title plus__card--featured-title">Имплантация<br>за 1 день</h3>
                         <p class="plus__card-text plus__card--featured-text">Без боли, с временной коронкой сразу. Благодаря нашей цифровой лаборатории вы уходите домой уже с зубом.</p>
                     </div>
@@ -594,7 +594,6 @@ get_header();
                     <h3 class="trust__card-title">Абсолютная стерильность</h3>
                     <p class="trust__card-text">Ваше здоровье под полной защитой — каждый инструмент проходит централизованную стерилизацию и строгий контроль.</p>
                 </div>
-                <div class="trust__card-divider"></div>
                 <div class="trust__card">
                     <h3 class="trust__card-title">Биотехнология APRF</h3>
                     <p class="trust__card-text">Ваше заживление проходит быстрее и комфортнее: снижается риск отторжения и ускоряется восстановление тканей.</p>
@@ -609,89 +608,95 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-8 guarantees__left">
-                <div class="guarantees__header">
-                    <h2 class="guarantees__title">Мы отвечаем за свою работу и даём официальные гарантии</h2>
-                    <p class="guarantees__subtitle">Все гарантии прописаны в договоре — вы защищены документально.</p>
-            </div>
-            
-                <div class="guarantees__items-grid">
-                    <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="1">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/tech-icon-01.png" alt="" class="guarantees__icon" aria-hidden="true" loading="lazy">
-                        <p class="guarantees__text" itemprop="name"><strong>Работа врача</strong><span>— гарантия 1 год</span></p>
+                <div class="guarantees__row">
+                    <div class="guarantees__header">
+                        <h2 class="guarantees__title">Мы отвечаем за свою работу и даём официальные гарантии</h2>
+                        <p class="guarantees__subtitle">Все гарантии прописаны в договоре — вы защищены документально.</p>
                     </div>
+                    <div class="guarantees__items-list">
+                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="1">
+                                <p class="guarantees__text" itemprop="name"><strong>Работа врача</strong><span>— гарантия 1 год</span></p>
+                            </div>
 
-                    <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="2">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/tech-icon-02.jpg" alt="" class="guarantees__icon" aria-hidden="true" loading="lazy">
-                        <p class="guarantees__text" itemprop="name"><strong>Импланты Implantium (Корея)</strong><span>— 5 лет гарантии</span></p>
-                </div>
+                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="2">
+                                <p class="guarantees__text" itemprop="name"><strong>Импланты Implantium (Корея)</strong><span>— 5 лет гарантии</span></p>
+                            </div>
 
-                    <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="3">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/tech-icon-03.jpg" alt="" class="guarantees__icon" aria-hidden="true" loading="lazy">
-                        <p class="guarantees__text" itemprop="name"><strong>Импланты Nobel (Швейцария)</strong><span>— пожизненная гарантия</span></p>
-                    </div>
+                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="3">
+                                <p class="guarantees__text" itemprop="name"><strong>Импланты Nobel (Швейцария)</strong><span>— пожизненная гарантия</span></p>
+                            </div>
 
-                    <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="4">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="" class="guarantees__icon" aria-hidden="true" loading="lazy">
-                        <p class="guarantees__text" itemprop="name"><strong>Импланты Impro (Германия)</strong><span>— пожизненная гарантия</span></p>
+                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="4">
+                                <p class="guarantees__text" itemprop="name"><strong>Импланты Impro (Германия)</strong><span>— пожизненная гарантия</span></p>
+                            </div>
                     </div>
                 </div>
 
-                <div class="guarantees__additional">
-                    <h4 class="guarantees__additional-title">Дополнительно</h4>
+                <div class="guarantees__row">
+                    <div class="guarantees__additional-title">
+                        <h4>Дополнительно</h4>
+                        <div class="services__circles circle-group">
+                            <div class="services__circle circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-plus.jpg" alt="Довольная пациентка" loading="lazy">
+                            </div>
+                            <div class="services__circle circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-09.jpg" alt="Довольная пациентка" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
                     <div class="guarantees__additional-items">
-                        <div class="guarantees__additional-item">
-                            <div class="guarantees__additional-icon" aria-hidden="true">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip_guarantees_a1)">
-                                        <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip_guarantees_a1">
-                                            <rect width="24" height="24" fill="white"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
+                            <div class="guarantees__additional-item">
+                                <div class="guarantees__additional-icon" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip_guarantees_a1)">
+                                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip_guarantees_a1">
+                                                <rect width="24" height="24" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="guarantees__additional-text">Только сертифицированные импланты.</p>
                             </div>
-                            <p class="guarantees__additional-text">Только сертифицированные импланты.</p>
-        </div>
-                        <div class="guarantees__additional-item">
-                            <div class="guarantees__additional-icon" aria-hidden="true">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip_guarantees_a2)">
-                                        <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip_guarantees_a2">
-                                            <rect width="24" height="24" fill="white"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
+                            <div class="guarantees__additional-item">
+                                <div class="guarantees__additional-icon" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip_guarantees_a2)">
+                                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip_guarantees_a2">
+                                                <rect width="24" height="24" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="guarantees__additional-text">Честная цена с первой консультации.</p>
                             </div>
-                            <p class="guarantees__additional-text">Честная цена с первой консультации.</p>
-        </div>
-                        <div class="guarantees__additional-item">
-                            <div class="guarantees__additional-icon" aria-hidden="true">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip_guarantees_a3)">
-                                        <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip_guarantees_a3">
-                                            <rect width="24" height="24" fill="white"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
+                            <div class="guarantees__additional-item">
+                                <div class="guarantees__additional-icon" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip_guarantees_a3)">
+                                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip_guarantees_a3">
+                                                <rect width="24" height="24" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="guarantees__additional-text">Налоговый вычет</p>
                             </div>
-                            <p class="guarantees__additional-text">Налоговый вычет</p>
-        </div>
-        </div>
-        </div>
-        </div>
-        
+                    </div>
+                </div>
+            </div>
             <div class="col-sm-12 col-lg-4 guarantees__right">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/question.svg" alt="" class="guarantees__right-icon" aria-hidden="true" loading="lazy">
                 <h3 class="guarantees__right-title">Почему гарантия на работу врача — 1 год?</h3>

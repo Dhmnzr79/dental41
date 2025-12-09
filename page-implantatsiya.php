@@ -154,8 +154,6 @@ get_header();
         </div>
     </div>
 </section>
-</div>
-<!-- Конец wrapper для desktop header + hero -->
 
 <section class="indices section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
