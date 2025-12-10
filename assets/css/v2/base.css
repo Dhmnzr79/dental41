@@ -40,14 +40,19 @@
     --primary-05: rgba(35, 191, 207, 0.05);
 
     /* Secondary цвета */
-    --secondary: #dedcff;
-    --secondary-40: rgba(222, 220, 255, 0.4);
-    --secondary-20: rgba(222, 220, 255, 0.2);
-    --secondary-10: rgba(222, 220, 255, 0.1);
-    --secondary-05: rgba(222, 220, 255, 0.05);
+    --secondary: #8AA4EB;
+    --secondary-40: rgba(138, 164, 235, 0.4);
+    --secondary-30: rgba(138, 164, 235, 0.3);
+    --secondary-20: rgba(138, 164, 235, 0.2);
+    --secondary-10: rgba(138, 164, 235, 0.1);
+    --secondary-05: rgba(138, 164, 235, 0.05);
 
     /* Accent */
-    --accent: #433bff;
+    --accent: #0C93A3;
+
+    /* Button colors */
+    --button-color: #ffba28;
+    --button-color-hover: #ff8d28;
 
     /* Дополнительный цвет */
     --gray-light: #eeeef2;

@@ -4,6 +4,8 @@
 /* ===== БЛОК НАШИХ РАБОТ ===== */
 .works {
     background-color: var(--accent);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .works__head {
@@ -21,8 +23,7 @@
 }
 
 .works__card {
-    background-color: #f5f5f7;
-    border-radius: 16px;
+    border-radius: 30px;
     overflow: hidden;
     height: 100%;
     display: flex;
@@ -65,15 +66,28 @@
 }
 
 .works__content {
-    padding: 20px 20px 24px;
+    padding: 30px 20px 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     height: 100%;
+    background: var(--bg);
+    border-radius: 30px;
+    margin-top: -30px;
+    z-index: 5;
 }
-
 .works__card-title {
     margin: 0;
+    font-size: 20px;
+}
+
+.works__card-text {
+    font-size: 15px;
+}
+
+.works__subtitle {
+    color: #fff;
+    padding-top: 20px;
 }
 
 .works__pagination-row {
@@ -349,11 +363,29 @@
 .consultation__form input[type='submit'],
 .consultation__form .wpcf7-submit {
     width: 100%;
+    color: var(--text-color);
+    background-color: var(--button-color);
+    transition: background-color 0.3s ease;
+    padding: 18px 30px;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+.consultation__form input[type='submit']:hover,
+.consultation__form .wpcf7-submit:hover {
+    background-color: var(--button-color-hover);
 }
 
 /* ===== БЛОК "НАШИ УСЛУГИ" ===== */
 .services {
-    background-color: var(--primary);
+    background-color: var(--accent);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .services__title-col {
@@ -386,6 +418,10 @@
     display: block;
 }
 
+.services__rating-stars path {
+    fill: var(--button-color);
+}
+
 .services__description-caption {
     margin: 0;
     font-size: 15px;
@@ -393,7 +429,7 @@
 }
 
 .services .circle:not(:first-child) {
-    outline-color: var(--primary);
+    outline-color: var(--accent);
 }
 
 .services h2 {
@@ -569,7 +605,6 @@
 }
 
 .plus__card-featured-bg {
-    width: 100%;
     height: auto;
     margin-bottom: 20px;
 }
@@ -788,10 +823,6 @@
 }
 
 /* ===== БЛОК ОТЗЫВОВ ===== */
-.reviews {
-    background-color: var(--secondary-40);
-}
-
 .reviews__left {
     display: flex;
     flex-direction: column;
@@ -848,7 +879,7 @@
 .reviews__card {
     flex-shrink: 0;
     box-sizing: border-box;
-    background-color: var(--bg);
+    background-color: var(--primary-20);
     border-radius: 16px;
     padding: 40px 25px;
     display: flex;
@@ -1052,7 +1083,7 @@
 
 /* ===== БЛОК ДОКТОРОВ ===== */
 .doctors__info {
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     row-gap: 40px;
     align-items: flex-start;
 }
@@ -1066,12 +1097,12 @@
 .doctors__info-col {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 
 .doctors__info-icon {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     flex-shrink: 0;
 }
 
@@ -1081,6 +1112,10 @@
 
 .doctors__slider-row {
     margin-top: 40px;
+}
+
+.doctors__slider-wrapper {
+    position: relative;
 }
 
 .doctors__slider {
@@ -1222,7 +1257,18 @@
     background-color: var(--primary);
 }
 
+.doctors__nav {
+    position: absolute;
+    bottom: -60px;
+    right: 0;
+    z-index: 10;
+}
+
 /* ===== БЛОК ПОДБОРА ВРАЧА ===== */
+.doctor-selection {
+    padding-top: 0;
+}
+
 .doctor-selection__container {
     row-gap: 40px;
     align-items: flex-start;
@@ -1235,7 +1281,9 @@
 }
 
 .doctor-selection__title {
-    margin: 0;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 24px;
 }
 
 .doctor-selection__right {
@@ -1247,10 +1295,7 @@
 }
 
 .doctor-selection__text {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 20px;
 }
 
 .doctor-selection__button {
@@ -1260,6 +1305,13 @@
 /* ===== БЛОК CTA ===== */
 .cta {
     background-color: var(--primary);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta__form-wrapper {
@@ -1358,6 +1410,8 @@
 /* ===== БЛОК ИМПЛАНТОВ ===== */
 .implants {
     background: var(--accent);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .implants__head {
@@ -1618,7 +1672,9 @@
 
 /* ===== БЛОК ВИДОВ ИМПЛАНТАЦИИ ===== */
 .implant-types {
-    background: var(--primary-05);
+    background: rgb(125 222 231);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .implant-types__title-col {
@@ -2043,6 +2099,7 @@
     left: -3%;
     width: clamp(60px, 7vw, 90px);
     height: clamp(60px, 7vw, 90px);
+    animation: float-face-1 4s ease-in-out infinite;
 }
 
 .china-risks__face--2 {
@@ -2050,6 +2107,7 @@
     right: 30%;
     width: clamp(70px, 9vw, 100px);
     height: clamp(70px, 9vw, 100px);
+    animation: float-face-2 5.5s ease-in-out infinite;
 }
 
 .china-risks__face--3 {
@@ -2057,6 +2115,7 @@
     left: 25%;
     width: clamp(65px, 8vw, 75px);
     height: clamp(65px, 8vw, 75px);
+    animation: float-face-3 3.5s ease-in-out infinite;
 }
 
 .china-risks__face--4 {
@@ -2064,6 +2123,47 @@
     right: 10%;
     width: clamp(75px, 10vw, 100px);
     height: clamp(75px, 10vw, 100px);
+    animation: float-face-4 6s ease-in-out infinite;
+}
+
+@keyframes float-face-1 {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes float-face-2 {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+@keyframes float-face-3 {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float-face-4 {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(13px);
+    }
 }
 
 .china-risks__card--featured .btn:hover {
@@ -2262,10 +2362,21 @@
 .hero {
     display: none;
     padding: 0;
+    background-color: #7ddee7;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero__left {
     padding: 80px 0;
+}
+
+.hero__title-highlight {
+    color: var(--white);
+}
+
+.hero-mobile__title .hero__title-highlight {
+    color: var(--white);
 }
 
 .hero__subtitle {
@@ -2287,13 +2398,13 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    padding: 40px 0;
+    padding: 40px 0 20px;
 }
 
 .hero__benefit {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     align-items: flex-start;
     position: relative;
 }
@@ -2302,20 +2413,13 @@
     content: '';
     width: 20px;
     height: 20px;
-    background-color: var(--primary);
+    background-color: #ffffff;
     border-radius: 5px;
     flex-shrink: 0;
 }
 
-.hero__icon {
-    display: none;
-}
-
 .hero__whatsapp-btn {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 16px;
+    padding: 18px;
     border: none;
     border-radius: 10px;
     background: #1ab839;
@@ -2326,17 +2430,6 @@
     text-decoration: none;
     transition: color 0.2s ease;
 }
-
-.hero__whatsapp-btn:hover {
-    color: var(--primary);
-}
-
-.hero__whatsapp-icon {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-}
-
 .hero .row {
     overflow: visible;
 }
@@ -2379,9 +2472,13 @@
     display: flex;
     flex-direction: column;
     gap: 0px;
-    background: var(--white);
+    background: #ffffff70;
     padding: 40px 10px 80px;
     border-radius: 10px 10px 150px 150px;
+    align-items: center;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    backdrop-filter: blur(10px);
 }
 
 .hero__stat-images {
@@ -2406,13 +2503,18 @@
 }
 
 .hero__stat-images .circle:nth-child(2) {
-    width: 80px;
-    height: 80px;
-    margin-left: -15px;
-    margin-right: -15px;
-    outline: 4px solid var(--white);
+    width: 60px;
+    height: 60px;
+    margin-left: -10px;
+    margin-right: -10px;
+    outline: 4px solid #b6ecf2;
     outline-offset: 0;
     z-index: 3;
+}
+
+.hero__stat-images .circle:nth-child(3) {
+    outline: 4px solid #b6ecf2;
+    z-index: 5;
 }
 
 .hero__stat p {
@@ -2423,67 +2525,65 @@
 
 .hero__stat-number {
     font-family: var(--heading-font, 'NTSomic', sans-serif);
-    font-size: 48px;
-    font-weight: 600;
+    font-size: 40px;
     line-height: 1.2;
-    color: var(--heading-color);
     text-align: center;
+    padding-top: 30px;
 }
 
 .hero__testimonial {
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: end;
 }
 
 .hero__testimonial p {
     font-size: 16px;
     margin-bottom: 15px;
+    text-align: right;
 }
 
 .hero__testimonial-link {
-    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    color: var(--primary);
+    color: #0b7c87;
     transition: color 0.2s ease;
 }
 
-.hero__testimonial-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: currentColor;
-    transition: width 0.3s ease;
+.hero__testimonial-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--white);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
-.hero__testimonial-link:hover::before {
-    width: 100%;
+.hero__testimonial-link:hover .hero__testimonial-link-icon {
+    transform: scale(1.1);
 }
 
-.hero__testimonial-link::after {
-    content: '';
-    display: block;
+.hero__testimonial-link svg {
     width: 20px;
     height: 18px;
-    background-image: url('../../svg/link-arrow.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    flex-shrink: 0;
+}
+
+.hero__testimonial-link svg path {
+    stroke: #0b7c87;
 }
 
 .hero__conclusion {
-    font-size: 22px;
+    font-size: 20px;
     background-image: url('../../svg/heart.svg');
     background-repeat: no-repeat;
     background-position: left;
+    padding: 30px 35px;
 }
 
 .hero__actions {
@@ -2491,9 +2591,8 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
-
 /* ===== MEDIA QUERIES ===== */
 /* Все медиазапросы сгруппированы по брейкпоинтам в конце файла */
 
@@ -3050,5 +3149,31 @@
     /* Fears */
     .fears__right {
         gap: 30px;
+    }
+}
+
+/* Секции с заливкой: стили для секций */
+@media (min-width: 1280px) and (max-width: 1399px) {
+    .works,
+    .services,
+    .implants,
+    .implant-types,
+    .hero,
+    .footer,
+    .cta {
+        max-width: calc(100% - 40px);
+    }
+}
+
+@media (min-width: 1400px) {
+    .works,
+    .services,
+    .implants,
+    .implant-types,
+    .hero,
+    .footer,
+    .cta {
+        max-width: calc(100% - 80px);
+        border-radius: 30px;
     }
 }
