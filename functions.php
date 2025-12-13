@@ -179,6 +179,146 @@ function dental_clinic_enqueue_popup() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_popup');
 
 /**
+ * Добавляем defer для всех наших JS скриптов для оптимизации PageSpeed
+ */
+function dental_clinic_add_defer_to_scripts($tag, $handle, $src) {
+    // Список наших скриптов, которым нужен defer
+    $defer_scripts = array(
+        'dental-clinic-works-slider',
+        'dental-clinic-reviews-slider',
+        'dental-clinic-header-menu',
+        'dental-clinic-doctors-slider',
+        'dental-clinic-implant-types',
+        'dental-clinic-implants-slider',
+        'dental-clinic-plus-video',
+        'dental-clinic-faq',
+        'dental-clinic-trust-video',
+        'dental-clinic-video-lightbox',
+        'dental-clinic-popup'
+    );
+    
+    if (in_array($handle, $defer_scripts)) {
+        return str_replace(' src', ' defer src', $tag);
+    }
+    
+    return $tag;
+}
+add_filter('script_loader_tag', 'dental_clinic_add_defer_to_scripts', 10, 3);
+
+/**
+ * Отключение лишних функций WordPress для оптимизации PageSpeed
+ */
+// Отключаем emoji скрипты и стили
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('admin_print_styles', 'print_emoji_styles');
+remove_filter('the_content_feed', 'wp_staticize_emoji');
+remove_filter('comment_text_rss', 'wp_staticize_emoji');
+remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+
+// Отключаем embed скрипты
+remove_action('wp_head', 'wp_oembed_add_discovery_links');
+remove_action('wp_head', 'wp_oembed_add_host_js');
+remove_action('rest_api_init', 'wp_oembed_register_route');
+remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
+
+// Отключаем XML-RPC (если не используется)
+add_filter('xmlrpc_enabled', '__return_false');
+
+// Отключаем jQuery migrate (если jQuery не используется)
+function dental_clinic_remove_jquery_migrate($scripts) {
+    if (!is_admin() && isset($scripts->registered['jquery'])) {
+        $script = $scripts->registered['jquery'];
+        if ($script->deps) {
+            $script->deps = array_diff($script->deps, array('jquery-migrate'));
+        }
+    }
+}
+add_action('wp_default_scripts', 'dental_clinic_remove_jquery_migrate');
+
+// Отключаем лишние CSS ядра WordPress на фронте
+function dental_clinic_remove_wp_block_library() {
+    if (!is_admin()) {
+        wp_dequeue_style('wp-block-library');
+        wp_dequeue_style('wp-block-library-theme');
+        wp_dequeue_style('wc-block-style');
+        wp_dequeue_style('global-styles');
+        wp_dequeue_style('classic-theme-styles');
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_remove_wp_block_library', 100);
+
+// Отключаем dashicons на фронте (если не нужны)
+function dental_clinic_remove_dashicons() {
+    if (!is_admin()) {
+        wp_deregister_style('dashicons');
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_remove_dashicons');
+
+// Отключаем admin bar CSS на фронте
+add_filter('show_admin_bar', '__return_false');
+
+/**
+ * Асинхронная загрузка CSS для оптимизации PageSpeed
+ */
+function dental_clinic_async_load_css($tag, $handle, $href) {
+    // Список CSS файлов для асинхронной загрузки (кроме critical)
+    $async_styles = array(
+        'base',
+        'layout',
+        'ui',
+        'components',
+        'pages-blog',
+        'pages-doctors',
+        'pages'
+    );
+    
+    if (in_array($handle, $async_styles)) {
+        // Заменяем обычную загрузку на асинхронную через media="print" trick
+        // Обрабатываем оба варианта кавычек
+        if (strpos($tag, "rel='stylesheet'") !== false) {
+            return str_replace(
+                "rel='stylesheet'",
+                "rel='stylesheet' media='print' onload=\"this.media='all'\"",
+                $tag
+            ) . '<noscript>' . $tag . '</noscript>';
+        } elseif (strpos($tag, 'rel="stylesheet"') !== false) {
+            return str_replace(
+                'rel="stylesheet"',
+                'rel="stylesheet" media="print" onload="this.media=\'all\'"',
+                $tag
+            ) . '<noscript>' . $tag . '</noscript>';
+        }
+    }
+    
+    return $tag;
+}
+add_filter('style_loader_tag', 'dental_clinic_async_load_css', 10, 3);
+
+/**
+ * Получает размеры изображения и возвращает атрибуты width и height для оптимизации CLS
+ * @param string $image_path Путь к изображению относительно темы
+ * @return string Атрибуты width и height или пустая строка, если файл не найден
+ */
+function dental_clinic_get_image_dimensions($image_path) {
+    $full_path = get_stylesheet_directory() . '/' . $image_path;
+    
+    if (!file_exists($full_path)) {
+        return '';
+    }
+    
+    $image_size = @getimagesize($full_path);
+    
+    if ($image_size === false) {
+        return '';
+    }
+    
+    return ' width="' . esc_attr($image_size[0]) . '" height="' . esc_attr($image_size[1]) . '"';
+}
+
+/**
  * Единый блок согласия на обработку персональных данных для всех форм v2
  */
 function dental_clinic_v2_privacy_notice() {

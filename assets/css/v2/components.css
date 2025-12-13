@@ -654,6 +654,12 @@
     flex-shrink: 0;
 }
 
+.plus__card-text {
+}
+
+.plus__card--featured-text {
+}
+
 .plus__card--featured-title {
     font-size: 40px;
     line-height: 1.1;
@@ -1138,6 +1144,9 @@
     justify-content: flex-start;
 }
 
+.doctors__title {
+}
+
 .doctors__info-col {
     display: flex;
     flex-direction: column;
@@ -1485,8 +1494,9 @@
 }
 
 .faq__item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 12px;
+    background: #f5effc;
+    border-radius: 20px;
 }
 
 .faq__item:last-child {
@@ -1508,10 +1518,6 @@
     position: relative;
     transition: color 0.2s ease;
     color: var(--text-color);
-}
-
-.faq__question:hover {
-    color: var(--primary);
 }
 
 .faq__question::after {
@@ -2923,7 +2929,22 @@
 @media (max-width: 767px) {
     /* Indices */
     .indices__card {
-        padding: 15px 20px;
+        padding: 5px;
+        grid-column: span 6;
+    }
+
+    .indices__content p {
+        font-size: 14px;
+    }
+
+    .indices__icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .indices__icon-image {
+        width: 30px;
+        height: 30px;
     }
 
     /* Consultation */
@@ -2931,6 +2952,14 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+
+    .consultation__benefits {
+        padding-left: 30px;
+    }
+
+    .consultation__right {
+        padding: 10px;
     }
 
     .consultation__quote {
@@ -2984,6 +3013,16 @@
         padding: 20px;
     }
 
+    .plus__card-text,
+    .plus__card--featured-text {
+        padding-bottom: 20px;
+    }
+
+    .plus__card--featured-title {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
     /* Trust */
     .trust__left {
         gap: 30px;
@@ -3007,6 +3046,14 @@
     }
 
     /* Guarantees */
+    .guarantees__left {
+        padding: 20px;
+    }
+
+    .guarantees__title {
+        font-size: 24px;
+    }
+
     .guarantees__row {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -3068,15 +3115,18 @@
         text-align: center;
     }
 
+    .doctors__title {
+        text-align: left;
+    }
+
     .doctors__card {
         flex: 0 0 100%;
         padding: 20px;
+        min-height: 360px;
     }
 
-    .doctors__photo {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 15px;
+    .doctors__card-info {
+        padding-right: 40%;
     }
 
     .doctors__name {
@@ -3090,6 +3140,14 @@
     /* Doctor Selection */
     .doctor-selection__container {
         row-gap: 20px;
+    }
+
+    .doctor-selection__title {
+        font-size: 20px;
+    }
+
+    .doctor-selection__text {
+        font-size: 16px;
     }
 
     /* Implants */
@@ -3167,6 +3225,19 @@
 
     .technologies__card {
         gap: 15px;
+        padding: 20px;
+    }
+
+    .technologies__card--featured h3 {
+        font-size: 24px;
+    }
+
+    .technologies__card--featured {
+        padding-top: 180px;
+    }
+
+    .technologies__card--featured .technologies__card-text p {
+        font-size: 16px;
     }
 
     /* China Risks */
@@ -3176,15 +3247,20 @@
 
     .china-risks__card {
         padding: 20px;
-        gap: 15px;
+        gap: 7px;
     }
 
     .china-risks__card--featured {
         padding: 30px;
     }
 
+    .china-risks__card--featured p {
+        margin-bottom: 10px;
+    }
+
     .china-risks__faces-container {
         height: 100px;
+        margin-bottom: 0px;
     }
 
     /* FAQ */

@@ -12,7 +12,7 @@ get_header();
         <div class="hero-mobile__wrapper">
             <div class="hero-mobile__content">
                 <h1 class="hero-mobile__title">Стоматология <span class="hero__title-highlight">нового поколения</span> на Камчатке</h1>
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="hero-mobile__image" loading="lazy">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="hero-mobile__image"<?php echo dental_clinic_get_image_dimensions('assets/images/khan-mob-1.png'); ?>>
             </div>
             
             <div class="hero-mobile__text">
@@ -120,7 +120,7 @@ get_header();
         
             <div class="col-sm-12 col-lg-6 hero__right">
                 <div class="hero__photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Александр Хан - Главный врач стоматологической клиники" class="hero__doctor-photo" loading="lazy">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Александр Хан - Главный врач стоматологической клиники" class="hero__doctor-photo"<?php echo dental_clinic_get_image_dimensions('assets/images/bg-action.png'); ?>>
             </div>
             
                 <div class="hero__stats">
@@ -128,13 +128,13 @@ get_header();
                         
                         <div class="hero__stat-images">
                             <div class="circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-01.jpg'); ?>>
                             </div>
                             <div class="circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
                             </div>
                             <div class="circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-03.jpg'); ?>>
                             </div>
                         </div>
                         <span class="hero__stat-number">25 000</span>
@@ -246,7 +246,7 @@ get_header();
                 <div class="consultation__content">
                 <div class="consultation__quote" itemscope itemtype="https://schema.org/Review">
                     <div class="consultation__quote-photo">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="consultation__quote-img" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="consultation__quote-img" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/moiseev-small.png'); ?>>
                 </div>
                     <div class="consultation__quote-text">
                         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
@@ -287,13 +287,13 @@ get_header();
                     <div class="services__description-avatars">
                     <div class="services__circles circle-group">
                         <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-06.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-06.jpg'); ?>>
                             </div>
                         <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-03.jpg'); ?>>
                             </div>
                         <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-05.jpg" alt="Довольный пациент" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-05.jpg" alt="Довольный пациент" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-05.jpg'); ?>>
                             </div>
                         </div>
                     </div>
@@ -557,7 +557,7 @@ get_header();
             <div class="col-sm-12 col-lg-4 plus__right">
                 <div class="plus__card plus__card--featured">
                     <div class="plus__card-content">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/implant-plus-bg.png" alt="" class="plus__card-featured-bg" aria-hidden="true" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/implant-plus-bg.png" alt="" class="plus__card-featured-bg" aria-hidden="true" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/implant-plus-bg.png'); ?>>
                         <h3 class="plus__card-title plus__card--featured-title">Имплантация<br>за 1 день</h3>
                         <p class="plus__card-text plus__card--featured-text">Без боли, с временной коронкой сразу. Благодаря нашей цифровой лаборатории вы уходите домой уже с зубом.</p>
                     </div>
@@ -649,10 +649,10 @@ get_header();
                         <h4>Дополнительно</h4>
                         <div class="services__circles circle-group">
                             <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-plus.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-plus.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-plus.jpg'); ?>>
                             </div>
                             <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-09.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-09.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-09.jpg'); ?>>
                             </div>
                         </div>
                     </div>
@@ -703,13 +703,13 @@ get_header();
             <div class="col-sm-12 col-lg-4 works__head-aside">
                     <div class="services__circles circle-group">
                         <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
                             </div>
                         <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Довольная пациентка" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-04.jpg'); ?>>
                             </div>
                         <div class="services__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-10.jpg" alt="Довольный пациент" loading="lazy">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-10.jpg" alt="Довольный пациент" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-10.jpg'); ?>>
                             </div>
                         </div>
                 <p class="works__subtitle" itemprop="description">
@@ -1212,7 +1212,7 @@ get_header();
                     <section id="p1" class="implant-types__panel implant-types__panel--active" role="tabpanel" aria-labelledby="t1" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="1">
                         <div class="implant-types__photo">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/odnomoment.jpg" alt="Одномоментная имплантация" loading="lazy">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/odnomoment.jpg" alt="Одномоментная имплантация" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/odnomoment.jpg'); ?>>
                         </div>
                         <div class="implant-types__content">
                             <div class="implant-types__text-block">
@@ -1257,7 +1257,7 @@ get_header();
                     <section id="p2" class="implant-types__panel" role="tabpanel" aria-labelledby="t2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="2">
                         <div class="implant-types__photo">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/classik.jpg" alt="Классическая имплантация" loading="lazy">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/classik.jpg" alt="Классическая имплантация" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/classik.jpg'); ?>>
                         </div>
                         <div class="implant-types__content">
                             <div class="implant-types__text-block">
@@ -1302,7 +1302,7 @@ get_header();
                     <section id="p3" class="implant-types__panel" role="tabpanel" aria-labelledby="t3" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="3">
                         <div class="implant-types__photo">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/four.jpg" alt="All-on-4 имплантация" loading="lazy">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/four.jpg" alt="All-on-4 имплантация" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/four.jpg'); ?>>
                         </div>
                         <div class="implant-types__content">
                             <div class="implant-types__text-block">
@@ -1347,7 +1347,7 @@ get_header();
                     <section id="p4" class="implant-types__panel" role="tabpanel" aria-labelledby="t4" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <meta itemprop="position" content="4">
                         <div class="implant-types__photo">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/six.jpg" alt="All-on-6 имплантация" loading="lazy">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/six.jpg" alt="All-on-6 имплантация" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/six.jpg'); ?>>
                         </div>
                         <div class="implant-types__content">
                             <div class="implant-types__text-block">
@@ -1403,10 +1403,10 @@ get_header();
             <div class="col-sm-12 col-lg-4 implants__desc-col">
                 <div class="implants__circles circle-group">
                     <div class="implants__circle circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-01.jpg" alt="Тип импланта 1" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-01.jpg" alt="Тип импланта 1" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/imp-type-01.jpg'); ?>>
                     </div>
                     <div class="implants__circle circle">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-02.jpg" alt="Тип импланта 2" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/imp-type-02.jpg" alt="Тип импланта 2" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/imp-type-02.jpg'); ?>>
                     </div>
                 </div>
                 <p class="implants__subtitle">Мы используем только проверенные импланты от ведущих производителей с гарантией качества и приживаемости.</p>
@@ -1637,7 +1637,7 @@ get_header();
                     <div class="prices__description">
                         <div class="prices__circles circle-group">
                             <div class="prices__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Лицо">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Лицо"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-07.jpg'); ?>>
                             </div>
                             <div class="prices__circle circle">
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="Вопрос" aria-hidden="true">
@@ -1650,7 +1650,7 @@ get_header();
             
             <div class="col-sm-12 col-lg-4">
                 <div class="prices__image">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/price-bg.jpg" alt="Цены на имплантацию" loading="lazy">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/price-bg.jpg" alt="Цены на имплантацию" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/price-bg.jpg'); ?>>
                 </div>
             </div>
             
@@ -1832,10 +1832,10 @@ get_header();
                 <article class="china-risks__card china-risks__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <meta itemprop="position" content="5">
                     <div class="china-risks__faces-container">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" class="china-risks__face china-risks__face--1" loading="lazy">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" class="china-risks__face china-risks__face--2" loading="lazy">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Довольный пациент" class="china-risks__face china-risks__face--3" loading="lazy">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Довольная пациентка" class="china-risks__face china-risks__face--4" loading="lazy">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" class="china-risks__face china-risks__face--1" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-01.jpg'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" class="china-risks__face china-risks__face--2" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Довольный пациент" class="china-risks__face china-risks__face--3" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-07.jpg'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Довольная пациентка" class="china-risks__face china-risks__face--4" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-08.jpg'); ?>>
                     </div>
                     <h3 itemprop="name">В ЦЭСИ – всё прозрачно и безопасно:</h3>
                     <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
@@ -1885,7 +1885,7 @@ get_header();
             
             <div class="col-sm-12 col-lg-6">
                 <div class="contacts__photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map-pin.jpg" alt="Здание клиники" class="contacts__image" loading="lazy">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map-pin.jpg" alt="Здание клиники" class="contacts__image" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/map-pin.jpg'); ?>>
                 </div>
             </div>
         </div>

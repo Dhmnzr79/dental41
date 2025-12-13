@@ -587,11 +587,5 @@
 
 /* min-width: 1280px (десктоп) */
 @media (min-width: 1280px) {
-    .doctors-archive {
-        padding: 60px 0 80px;
-    }
-
-    .doctor-single {
-        padding: 60px 0 80px;
-    }
+ 
 }

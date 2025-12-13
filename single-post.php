@@ -38,24 +38,21 @@
         <div class="single-post__layout">
             <!-- Контент статьи -->
             <div class="col-12 col-lg-8 single-post__content">
-                <header class="single-post__header">
-                    <h1 itemprop="headline"><?php the_title(); ?></h1>
-                </header>
-                
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="single-post__image">
                         <?php the_post_thumbnail('large', array('class' => 'single-post__img', 'itemprop' => 'image', 'loading' => 'lazy', 'alt' => get_the_title())); ?>
                     </div>
                 <?php endif; ?>
                 
+                <header class="single-post__header">
+                    <h1 itemprop="headline"><?php the_title(); ?></h1>
+                </header>
+                
                 <?php if (!is_featured_article()) : ?>
                     <!-- Дисклеймер -->
                     <div class="single-post__disclaimer">
                         <p><strong>Уважаемый пациент!</strong> Клиника «ЦЭСИ» уведомляет Вас, что тщательное соблюдение данных рекомендаций очень важно и является обязательным условием обеспечения высокой вероятности положительного результата проведенного лечения, безопасного пользования результатами оказанной медицинской услуги, отсутствия осложнений.</p>
                     </div>
-                    
-                    <!-- Бирюзовая полоска -->
-                    <div class="single-post__brand-stripe"></div>
                 <?php endif; ?>
                 
                 <div class="single-post__text" itemprop="articleBody">
@@ -105,7 +102,7 @@
                 ?>
                 
                 <footer class="single-post__footer">
-                    <a href="<?php echo home_url('/blog/'); ?>" class="single-post__back-link">← Вернуться к блогу</a>
+                    <a href="<?php echo home_url('/blog/'); ?>" class="single-post__back-link link-underline">Вернуться к блогу</a>
                 </footer>
             </div>
             
