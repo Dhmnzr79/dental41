@@ -114,11 +114,9 @@ get_header(); ?>
                             <div class="doctor-card__experience">Опыт работы: <?php echo esc_html($doctor_experience); ?> лет</div>
                         <?php endif; ?>
                         
-                        <div class="doctor-card__actions">
-                            <a href="<?php the_permalink(); ?>" class="doctor-card__btn" aria-label="Подробнее о враче: <?php echo esc_attr($doctor_fio); ?>">
-                                Подробнее о враче
-                            </a>
-                        </div>
+                        <a href="<?php the_permalink(); ?>" class="doctor-card__btn link-underline" aria-label="Подробнее о враче: <?php echo esc_attr($doctor_fio); ?>">
+                            Подробнее о враче
+                        </a>
                     </div>
                 </article>
             <?php 

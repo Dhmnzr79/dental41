@@ -2,8 +2,6 @@
 
 /* ===== КАРТОЧКА ВРАЧА ===== */
 .doctor-card {
-    background: #fff;
-    border-radius: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -14,8 +12,8 @@
     width: 100%;
     height: 400px;
     overflow: hidden;
-    background: linear-gradient(135deg, #dff7f4 40%, #8fe0db 100%);
-    border-radius: 16px 16px 0 0;
+    background: rgba(125, 222, 231, 0.2);
+    border-radius: 30px;
     position: relative;
     display: flex;
     align-items: center;
@@ -23,23 +21,31 @@
 }
 
 .doctor-card:nth-child(2n) .doctor-card__photo {
-    background: linear-gradient(135deg, #e7f1fa 40%, #a8c9f0 100%);
+    background: rgba(125, 232, 205, 0.1);
 }
 
 .doctor-card:nth-child(3n) .doctor-card__photo {
-    background: linear-gradient(135deg, #f3e9f6 40%, #d8a9c9 100%);
+    background: rgba(35, 191, 207, 0.2);
 }
 
 .doctor-card:nth-child(4n) .doctor-card__photo {
-    background: linear-gradient(135deg, #e4f7f9 40%, #8dd5e5 100%);
+    background: rgba(198, 138, 235, 0.1);
 }
 
 .doctor-card:nth-child(5n) .doctor-card__photo {
-    background: linear-gradient(135deg, #eafbf6 40%, #9fdacb 100%);
+    background: rgba(125, 222, 231, 0.1);
 }
 
 .doctor-card:nth-child(6n) .doctor-card__photo {
-    background: linear-gradient(135deg, #c8e1f2 44%, #379fea 100%);
+    background: rgba(125, 232, 205, 0.2);
+}
+
+.doctor-card:nth-child(7n) .doctor-card__photo {
+    background: rgba(35, 191, 207, 0.1);
+}
+
+.doctor-card:nth-child(8n) .doctor-card__photo {
+    background: rgba(198, 138, 235, 0.2);
 }
 
 .doctor-card__img {
@@ -82,13 +88,13 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
+    align-items: flex-start;
 }
 
 .doctor-card__name {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.3;
     margin: 0 0 10px 0;
-    color: var(--heading-color);
 }
 
 .doctor-card__name a {
@@ -109,32 +115,10 @@
     margin-bottom: 15px;
 }
 
-.doctor-card__actions {
-    margin-top: auto;
-}
-
 .doctor-card__btn {
-    color: var(--accent);
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.doctor-card__btn::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-}
-
-.doctor-card__btn:hover::before {
-    width: 100%;
+    align-self: flex-start;
+    margin-top: auto;
+    /* Использует универсальный класс .link-underline из ui.css */
 }
 
 /* ===== СТРАНИЦА ВСЕХ ВРАЧЕЙ ===== */

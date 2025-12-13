@@ -28,8 +28,7 @@ get_header(); ?>
 <section class="blog">
     <div class="container">
         <header class="blog__header">
-            <h1><?php the_title(); ?></h1>
-            <p>Полезные статьи о стоматологии и имплантации</p>
+            <h1>Рассказываем просто о сложном<br>в стоматологии</h1>
         </header>
         
         <div class="blog__grid">
@@ -68,7 +67,7 @@ get_header(); ?>
                                 </div>
                             </div>
                             
-                            <a href="<?php echo get_permalink($post->ID); ?>" class="blog-card__btn" aria-label="Читать статью: <?php echo esc_attr(get_the_title($post->ID)); ?>">Читать далее</a>
+                            <a href="<?php echo get_permalink($post->ID); ?>" class="blog-card__btn link-underline" aria-label="Читать статью: <?php echo esc_attr(get_the_title($post->ID)); ?>">Читать далее</a>
                         </div>
                     </article>
                 <?php endforeach; 
