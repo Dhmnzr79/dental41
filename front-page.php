@@ -95,12 +95,12 @@ get_header();
                 <div class="hero__description">
                     <div class="hero__benefits-row">
                         <div class="hero__benefit">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/arrow-2.svg" alt="" class="hero__icon" aria-hidden="true">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-2.svg" alt="" class="hero__icon" aria-hidden="true">
                             <span>Без переплат — прозрачные цены</span>
                         </div>
                         
                         <div class="hero__benefit">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/arrow-2.svg" alt="" class="hero__icon" aria-hidden="true">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-2.svg" alt="" class="hero__icon" aria-hidden="true">
                             <span>99,8% приживаемость + пожизненная гарантия на импланты</span>
                         </div>
                 </div>
@@ -280,7 +280,7 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-8 services__title-col">
-                <h2 class="services__title">Все виды стоматологических услуг в одном месте</h2>
+                <h2 class="services__title"><span class="services__title-highlight">Все виды</span> стоматологических услуг в одном месте</h2>
         </div>
             <div class="col-sm-12 col-lg-4 services__description-col">
                 <div class="services__description">
@@ -659,46 +659,19 @@ get_header();
                     <div class="guarantees__additional-items">
                             <div class="guarantees__additional-item">
                                 <div class="guarantees__additional-icon" aria-hidden="true">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip_guarantees_a1)">
-                                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip_guarantees_a1">
-                                                <rect width="24" height="24" fill="white"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-3.svg" alt="" loading="lazy">
                                 </div>
                                 <p class="guarantees__additional-text">Только сертифицированные импланты.</p>
                             </div>
                             <div class="guarantees__additional-item">
                                 <div class="guarantees__additional-icon" aria-hidden="true">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip_guarantees_a2)">
-                                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip_guarantees_a2">
-                                                <rect width="24" height="24" fill="white"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-3.svg" alt="" loading="lazy">
                                 </div>
                                 <p class="guarantees__additional-text">Честная цена с первой консультации.</p>
                             </div>
                             <div class="guarantees__additional-item">
                                 <div class="guarantees__additional-icon" aria-hidden="true">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip_guarantees_a3)">
-                                            <path d="M10.1333 13.8667L7.26667 11C7.02222 10.7556 6.71111 10.6333 6.33333 10.6333C5.95555 10.6333 5.64444 10.7556 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.46666 16.9333 9.77778 17.0667 10.1333 17.0667C10.4889 17.0667 10.8 16.9333 11.0667 16.6667L18.6 9.13333C18.8444 8.88889 18.9667 8.57778 18.9667 8.2C18.9667 7.82222 18.8444 7.51111 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667ZM2.66667 24C1.93333 24 1.30578 23.7391 0.784 23.2173C0.262222 22.6956 0.000888889 22.0676 0 21.3333V2.66667C0 1.93333 0.261333 1.30578 0.784 0.784C1.30667 0.262222 1.93422 0.000888889 2.66667 0H21.3333C22.0667 0 22.6947 0.261333 23.2173 0.784C23.74 1.30667 24.0009 1.93422 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6956 23.74 22.0676 24.0009 21.3333 24H2.66667Z" fill="#23BFCF"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip_guarantees_a3">
-                                                <rect width="24" height="24" fill="white"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-3.svg" alt="" loading="lazy">
                                 </div>
                                 <p class="guarantees__additional-text">Налоговый вычет</p>
                             </div>

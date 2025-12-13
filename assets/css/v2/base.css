@@ -35,17 +35,21 @@
 
     /* Primary цвета */
     --primary: #23bfcf;
+    --primary-40: rgba(35, 191, 207, 0.4);
     --primary-20: rgba(35, 191, 207, 0.2);
     --primary-10: rgba(35, 191, 207, 0.1);
     --primary-05: rgba(35, 191, 207, 0.05);
 
+    /* Основные фоновые цвета */
+    --bg-primary-1: #7ddee7;
+    --bg-primary-2: #7de8cd;
+    --bg-primary-main: #23bfcf;
+
     /* Secondary цвета */
-    --secondary: #8AA4EB;
-    --secondary-40: rgba(138, 164, 235, 0.4);
-    --secondary-30: rgba(138, 164, 235, 0.3);
-    --secondary-20: rgba(138, 164, 235, 0.2);
-    --secondary-10: rgba(138, 164, 235, 0.1);
-    --secondary-05: rgba(138, 164, 235, 0.05);
+    --secondary: #c68aeb;
+    --secondary-20: rgba(198, 138, 235, 0.2);
+    --secondary-10: rgba(198, 138, 235, 0.1);
+    --secondary-05: rgba(198, 138, 235, 0.05);
 
     /* Accent */
     --accent: #0C93A3;
