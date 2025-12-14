@@ -1420,7 +1420,7 @@ get_header();
                 <article class="implants__card">
                     <div class="implants__card-header">
                         <div class="implants__brand-info">
-                            <div class="implants__tariff-name">Стандарт</div>
+                            <h3 class="implants__tariff-name">Стандарт</h3>
                             <div class="implants__brand-name" itemprop="name">Implantium</div>
                             <div class="implants__brand-origin">Южная Корея</div>
                         </div>
@@ -1475,7 +1475,7 @@ get_header();
                 <article class="implants__card">
                     <div class="implants__card-header">
                         <div class="implants__brand-info">
-                            <div class="implants__tariff-name">Оптимальный</div>
+                            <h3 class="implants__tariff-name">Оптимальный</h3>
                             <div class="implants__brand-name" itemprop="name">Impro</div>
                             <div class="implants__brand-origin">Германия</div>
                         </div>
@@ -1535,7 +1535,7 @@ get_header();
                 <article class="implants__card">
                     <div class="implants__card-header">
                         <div class="implants__brand-info">
-                            <div class="implants__tariff-name">Премиум</div>
+                            <h3 class="implants__tariff-name">Премиум</h3>
                             <div class="implants__brand-name" itemprop="name">Nobel Biocare</div>
                             <div class="implants__brand-origin">Швейцария</div>
                         </div>
@@ -1623,14 +1623,14 @@ get_header();
 </section>
 
 <!-- Блок с ценами -->
-<section class="section prices" itemscope itemtype="https://schema.org/ItemList">
+<section class="section prices">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-4">
                 <div class="prices__content">
                     <div class="prices__header">
                         <h2>Нашли дешевле?</h2>
-                        <h3 class="prices__subtitle">Не спешите – разберитесь, за что вы платите</h3>
+                        <p class="prices__subtitle">Не спешите – разберитесь, за что вы платите</p>
                     </div>
                     
                     <div class="prices__description">
@@ -1639,7 +1639,7 @@ get_header();
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Лицо"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-07.jpg'); ?>>
                             </div>
                             <div class="prices__circle circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="Вопрос" aria-hidden="true">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="" aria-hidden="true">
                             </div>
                         </div>
                         <p>Многие клиники занижают цену на старте и добавляют скрытые платежи позже. В ЦЭСИ стоимость лечения прозрачна с самого начала и не меняется по ходу работы.</p>
@@ -1655,8 +1655,7 @@ get_header();
             
             <div class="col-sm-12 col-lg-4">
                 <div class="prices__cards">
-                    <article class="prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="1">
+                    <article class="prices__card">
                         <svg class="prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_prices_1)">
                                 <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
@@ -1667,12 +1666,11 @@ get_header();
                                 </clipPath>
                             </defs>
                         </svg>
-                        <h3 itemprop="name">Качество важнее скидок</h3>
+                        <h3>Качество важнее скидок</h3>
                         <p>Мы не используем дешёвые аналоги и «одноразовые» материалы. В работе только сертифицированные импланты и современное оборудование.</p>
                     </article>
                     
-                    <article class="prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="2">
+                    <article class="prices__card">
                         <svg class="prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_prices_2)">
                                 <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
@@ -1683,12 +1681,11 @@ get_header();
                                 </clipPath>
                             </defs>
                         </svg>
-                        <h3 itemprop="name">Прозрачность с первой консультации</h3>
+                        <h3>Прозрачность с первой консультации</h3>
                         <p>Вы сразу получаете план лечения с точными цифрами. Стоимость фиксируется в договоре и не меняется в процессе.</p>
                     </article>
                     
-                    <article class="prices__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="3">
+                    <article class="prices__card">
                         <svg class="prices__icon" width="16" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <g clip-path="url(#clip0_prices_3)">
                                 <path d="M7.5 15.5L0 8L2.5 5.5L7.5 10.5L17.5 0.5L20 3" fill="#23BFCF"/>
@@ -1699,7 +1696,7 @@ get_header();
                                 </clipPath>
                             </defs>
                         </svg>
-                        <h3 itemprop="name">Дополнительная выгода</h3>
+                        <h3>Дополнительная выгода</h3>
                         <p>Часть суммы можно вернуть через налоговый вычет (13%). Оплата возможна поэтапно, без скрытых переплат.</p>
                     </article>
                 </div>
@@ -1709,49 +1706,45 @@ get_header();
 </section>
 
 <!-- Блок технологий -->
-<section class="section technologies" itemscope itemtype="https://schema.org/ItemList">
+<section class="section technologies">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-8">
                 <div class="technologies__grid">
-                    <article class="technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="1">
+                    <article class="technologies__card">
                         <div class="technologies__card-header">
                             <h2>Самые современные технологии</h2>
                             <p class="technologies__subtitle">Для достижения точного и быстрого результата на Европейском уровне</p>
                         </div>
                     </article>
                     
-                    <article class="technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="2">
+                    <article class="technologies__card">
                         <div class="technologies__card-icon">
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3 itemprop="name">3D-моделирование</h3>
+                        <h3>3D-моделирование</h3>
                         <div class="technologies__card-text">
                             <p>Врач заранее создаёт точную цифровую модель вашей улыбки.</p>
                             <p>Вы видите, каким будет результат ещё до начала лечения.</p>
                         </div>
                     </article>
                     
-                    <article class="technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="3">
+                    <article class="technologies__card">
                         <div class="technologies__card-icon">
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3 itemprop="name">Компьютерная диагностика</h3>
+                        <h3>Компьютерная диагностика</h3>
                         <div class="technologies__card-text">
                             <p>Высокоточный анализ снимка по каждому зубу, с помощью специальных программ.</p>
                             <p>План лечения составляется максимально точно и без ошибок.</p>
                         </div>
                     </article>
                     
-                    <article class="technologies__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="4">
+                    <article class="technologies__card">
                         <div class="technologies__card-icon">
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3 itemprop="name">Название технологии</h3>
+                        <h3>Название технологии</h3>
                         <div class="technologies__card-text">
                             <p>Описание первой особенности технологии.</p>
                             <p>Описание второй особенности технологии.</p>
@@ -1761,9 +1754,8 @@ get_header();
             </div>
             
             <div class="col-sm-12 col-lg-4">
-                <article class="technologies__card technologies__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <meta itemprop="position" content="3">
-                    <h3 itemprop="name">Своя цифровая лаборатория</h3>
+                <article class="technologies__card technologies__card--featured">
+                    <h3>Своя цифровая лаборатория</h3>
                     <div class="technologies__card-text">
                         <p>Коронки и протезы изготавливаются прямо в клинике.</p>
                         <p>Уже через 1 день вы можете уйти с новым зубом.</p>
@@ -1775,7 +1767,7 @@ get_header();
 </section>
 
 <!-- Блок рисков лечения в Китае -->
-<section class="section china-risks" itemscope itemtype="https://schema.org/ItemList">
+<section class="section china-risks">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-8">
@@ -1789,37 +1781,33 @@ get_header();
                     
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
-                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="1">
+                            <article class="china-risks__card">
                                 <div class="china-risks__number">.01</div>
-                                <h3 itemprop="name">Языковой барьер</h3>
+                                <h3>Языковой барьер</h3>
                                 <p>Вы не объясните врачу, что чувствуете. Ошибка на этапе имплантации – это не возврат товара.</p>
                             </article>
                         </div>
                         
                         <div class="col-sm-12 col-lg-6">
-                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="2">
+                            <article class="china-risks__card">
                                 <div class="china-risks__number">.02</div>
-                                <h3 itemprop="name">Выбор клиники вслепую</h3>
+                                <h3>Выбор клиники вслепую</h3>
                                 <p>По факту, вы доверяете здоровье и деньги неизвестной системе.</p>
                             </article>
                         </div>
                         
                         <div class="col-sm-12 col-lg-6">
-                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="3">
+                            <article class="china-risks__card">
                                 <div class="china-risks__number">.03</div>
-                                <h3 itemprop="name">Скрытые доплаты</h3>
+                                <h3>Скрытые доплаты</h3>
                                 <p>Один счёт за операцию, другой – за «мелочи» на месте, а через неделю ещё за «коронки».</p>
                             </article>
                         </div>
                         
                         <div class="col-sm-12 col-lg-6">
-                            <article class="china-risks__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="4">
+                            <article class="china-risks__card">
                                 <div class="china-risks__number">.04</div>
-                                <h3 itemprop="name">Гарантия?</h3>
+                                <h3>Гарантия?</h3>
                                 <p>Только пока вы в стране. А если что – останетесь с проблемой один на один.</p>
                             </article>
                         </div>
@@ -1828,15 +1816,14 @@ get_header();
             </div>
             
             <div class="col-sm-12 col-lg-4">
-                <article class="china-risks__card china-risks__card--featured" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <meta itemprop="position" content="5">
+                <article class="china-risks__card china-risks__card--featured">
                     <div class="china-risks__faces-container">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" class="china-risks__face china-risks__face--1" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-01.jpg'); ?>>
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" class="china-risks__face china-risks__face--2" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="Довольный пациент" class="china-risks__face china-risks__face--3" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-07.jpg'); ?>>
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="Довольная пациентка" class="china-risks__face china-risks__face--4" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-08.jpg'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="" class="china-risks__face china-risks__face--1" loading="lazy" aria-hidden="true"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-01.jpg'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="" class="china-risks__face china-risks__face--2" loading="lazy" aria-hidden="true"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-07.jpg" alt="" class="china-risks__face china-risks__face--3" loading="lazy" aria-hidden="true"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-07.jpg'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-08.jpg" alt="" class="china-risks__face china-risks__face--4" loading="lazy" aria-hidden="true"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-08.jpg'); ?>>
                     </div>
-                    <h3 itemprop="name">В ЦЭСИ – всё прозрачно и безопасно:</h3>
+                    <h3>В ЦЭСИ – всё прозрачно и безопасно:</h3>
                     <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
                     <button class="btn btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Записаться на консультацию</button>
                 </article>
@@ -1891,132 +1878,5 @@ get_header();
     </div>
 </section>
 
-<footer class="footer" itemscope itemtype="https://schema.org/MedicalBusiness">
-    <div class="container">
-        <div class="row footer__content">
-            <div class="col-sm-12 col-lg-6 footer__section">
-                <div class="footer__logo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="ЦЭСИ" class="footer__logo-img" itemprop="logo">
-                </div>
-                <p class="footer__name" itemprop="name">Центр Эстетической стоматологии и имплантации</p>
-            </div>
-
-            <div class="col-sm-12 col-lg-6 footer__section footer__contacts">
-                <h3 class="footer__contacts-title">Контакты</h3>
-                <ul class="footer__contacts-list" itemscope itemprop="address" itemtype="https://schema.org/PostalAddress">
-                    <li class="footer__contacts-item" itemprop="streetAddress">г. Елизово, ул. Ленина 15-а</li>
-                    <li class="footer__contacts-item">
-                        <a href="tel:+74152500129" class="footer__contacts-link" itemprop="telephone">+7(4152) 50-01-29</a>
-                    </li>
-                    <li class="footer__contacts-item">
-                        <meta itemprop="openingHours" content="Mo-Fr 08:00-20:00">
-                        Пн-Пт: 8:00 - 20:00
-                    </li>
-                    <li class="footer__contacts-item">
-                        <meta itemprop="openingHours" content="Sa 08:00-14:00">
-                        Сб: 8:00 – 14:00
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row footer__bottom">
-            <div class="col-sm-12 col-lg-8 footer__legal">
-                <p class="footer__legal-text">ООО «Дента» ИНН 4105000950 КПП 410501001 ОГРН 1024101222408</p>
-                <p class="footer__legal-text">Имеются противопоказания. Необходима консультация специалиста</p>
-            </div>
-            <div class="col-sm-12 col-lg-4 footer__links">
-                <a href="<?php echo home_url('/privacy.pdf'); ?>" target="_blank" rel="noopener" class="footer__link">Политика конфиденциальности</a>
-                <a href="#" onclick="showCookieSettings(); return false;" class="footer__link">Настройки cookies</a>
-            </div>
-        </div>
-
-        <div class="row footer__recaptcha">
-            <div class="col-sm-12 col-lg-12">
-                <div class="footer__recaptcha-notice">
-                    <p class="footer__recaptcha-text">
-                        This site is protected by reCAPTCHA and the Google
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="footer__recaptcha-link">Privacy Policy</a>
-                        and
-                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="footer__recaptcha-link">Terms of Service</a>
-                        apply.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<?php 
-include get_stylesheet_directory() . '/popup.php'; 
-// include 'cookie-banner.php'; 
-?>
-
-<?php wp_footer(); ?>
-
-<script>
-// Переопределение стандартных сообщений валидации HTML5 на русский
-(function() {
-    'use strict';
-    
-    function setupRussianValidation() {
-        const forms = document.querySelectorAll('form');
-        
-        forms.forEach(function(form) {
-            const inputs = form.querySelectorAll('input, textarea, select');
-            
-            inputs.forEach(function(input) {
-                // Устанавливаем title для русских сообщений
-                if (input.hasAttribute('required')) {
-                    input.setAttribute('title', 'Пожалуйста, заполните это поле');
-                }
-                
-                // Переопределяем сообщения при валидации
-                input.addEventListener('invalid', function(e) {
-                    const field = e.target;
-                    
-                    if (field.validity.valueMissing) {
-                        field.setCustomValidity('Пожалуйста, заполните это поле');
-                    } else if (field.validity.typeMismatch) {
-                        if (field.type === 'email') {
-                            field.setCustomValidity('Пожалуйста, введите корректный email адрес');
-                        } else if (field.type === 'tel') {
-                            field.setCustomValidity('Пожалуйста, введите корректный номер телефона');
-                        } else {
-                            field.setCustomValidity('Пожалуйста, введите корректное значение');
-                        }
-                    } else {
-                        field.setCustomValidity('Пожалуйста, заполните это поле');
-                    }
-                });
-                
-                // Сбрасываем сообщение при вводе
-                input.addEventListener('input', function() {
-                    if (this.validity.valid) {
-                        this.setCustomValidity('');
-                    }
-                });
-            });
-        });
-    }
-    
-    // Применяем при загрузке DOM
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupRussianValidation);
-    } else {
-        setupRussianValidation();
-    }
-    
-    // Также применяем для форм, загруженных через CF7
-    setTimeout(setupRussianValidation, 1000);
-    
-    // Перехватываем события загрузки форм CF7
-    if (typeof jQuery !== 'undefined') {
-        jQuery(document).on('wpcf7mailsent', setupRussianValidation);
-    }
-})();
-</script>
-
-</body>
-</html>
+<?php get_footer(); ?>
 
