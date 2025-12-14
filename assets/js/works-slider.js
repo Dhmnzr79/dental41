@@ -73,20 +73,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     var startX = 0;
+    var startY = 0;
     var isDragging = false;
+    var isHorizontalSwipe = false;
 
     function onPointerDown(event) {
         if (!isSliderMode()) return;
         isDragging = true;
-        startX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
+        isHorizontalSwipe = false;
+        var touch = event.type === 'touchstart' ? event.touches[0] : event;
+        startX = touch.clientX;
+        startY = touch.clientY;
         event.stopPropagation();
     }
 
     function onPointerMove(event) {
         if (!isDragging || !isSliderMode()) return;
-        event.preventDefault();
+        
+        var touch = event.type === 'touchmove' ? event.touches[0] : event;
+        var diffX = Math.abs(touch.clientX - startX);
+        var diffY = Math.abs(touch.clientY - startY);
+        
+        // Определяем направление свайпа: если горизонтальное движение больше вертикального
+        if (diffX > diffY && diffX > 10) {
+            isHorizontalSwipe = true;
+            // Блокируем только горизонтальный скролл, вертикальный разрешаем
+            event.preventDefault();
+        }
+        // Если вертикальное движение больше - не блокируем, разрешаем скролл страницы
         event.stopPropagation();
-        // При свайпе не перемещаем визуально, только определяем направление в onPointerUp
     }
 
     function onPointerUp(event) {
@@ -97,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var diffX = currentX - startX;
         var threshold = 50;
 
-        if (Math.abs(diffX) > threshold) {
+        // Обрабатываем свайп только если это был горизонтальный свайп
+        if (isHorizontalSwipe && Math.abs(diffX) > threshold) {
             event.preventDefault();
             event.stopPropagation();
             if (diffX < 0) {
@@ -108,6 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 goTo(currentIndex - 1);
             }
         }
+        
+        isHorizontalSwipe = false;
     }
 
     slider.addEventListener('touchstart', onPointerDown, { passive: true });

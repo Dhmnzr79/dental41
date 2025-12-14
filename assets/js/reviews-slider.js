@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Используем оба события: DOMContentLoaded для быстрой инициализации и load для надежности
+function initReviewsSlider() {
     var slider = document.querySelector('[data-slider="reviews"]');
     if (!slider) return;
 
@@ -15,18 +16,33 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalSlides = cards.length;
 
     function initSlider() {
-        // Используем requestAnimationFrame для избежания forced reflow
+        // Ждем загрузки CSS и используем двойной requestAnimationFrame для надежности
         requestAnimationFrame(function() {
-            var sliderWidth = slider.offsetWidth;
-            if (sliderWidth > 0 && totalSlides > 0) {
-                var cardWidth = sliderWidth;
-                var trackWidth = cardWidth * totalSlides;
-                track.style.width = trackWidth + 'px';
-                cards.forEach(function (card) {
-                    card.style.width = cardWidth + 'px';
-                    card.style.flexShrink = '0';
-                });
-            }
+            requestAnimationFrame(function() {
+                // Берем ширину у viewport (wrapper), а не у slider
+                var viewport = wrapper || slider;
+                // Используем getBoundingClientRect для более точного измерения
+                var viewportRect = viewport ? viewport.getBoundingClientRect() : slider.getBoundingClientRect();
+                var sliderWidth = viewportRect.width;
+                
+                // Если ширина еще не определена (CSS не загружен), повторяем через небольшую задержку
+                if (sliderWidth <= 0) {
+                    setTimeout(initSlider, 50);
+                    return;
+                }
+                
+                if (totalSlides > 0) {
+                    var cardWidth = sliderWidth;
+                    var trackWidth = cardWidth * totalSlides;
+                    track.style.width = trackWidth + 'px';
+                    cards.forEach(function (card) {
+                        card.style.width = cardWidth + 'px';
+                        card.style.maxWidth = '100%';
+                        card.style.flexShrink = '0';
+                        card.style.boxSizing = 'border-box';
+                    });
+                }
+            });
         });
     }
 
@@ -56,7 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Используем requestAnimationFrame для избежания forced reflow
         requestAnimationFrame(function() {
-            var sliderWidth = slider.offsetWidth;
+            // Берем ширину у viewport (wrapper), а не у slider
+            var viewport = wrapper || slider;
+            // Используем getBoundingClientRect для более точного измерения
+            var viewportRect = viewport ? viewport.getBoundingClientRect() : slider.getBoundingClientRect();
+            var sliderWidth = viewportRect.width;
+            
             if (sliderWidth > 0) {
                 var translateX = -(index * sliderWidth);
                 track.style.transform = 'translateX(' + translateX + 'px)';
@@ -150,5 +171,26 @@ document.addEventListener('DOMContentLoaded', function () {
     initSlider();
     createPagination();
     updateSlides(0);
+}
+
+// Инициализация при DOMContentLoaded (быстро)
+document.addEventListener('DOMContentLoaded', initReviewsSlider);
+
+// Повторная инициализация при полной загрузке (надежно, особенно для асинхронного CSS)
+window.addEventListener('load', function() {
+    // Проверяем, нужно ли переинициализировать (если CSS загрузился позже)
+    var slider = document.querySelector('[data-slider="reviews"]');
+    if (slider) {
+        var wrapper = slider.closest('.reviews__slider-wrapper');
+        var viewport = wrapper || slider;
+        var viewportRect = viewport ? viewport.getBoundingClientRect() : slider.getBoundingClientRect();
+        // Если ширина изменилась или была неправильной, переинициализируем
+        if (viewportRect.width > 0) {
+            // Небольшая задержка для гарантии применения CSS
+            setTimeout(function() {
+                initReviewsSlider();
+            }, 100);
+        }
+    }
 });
 

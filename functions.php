@@ -68,16 +68,14 @@ function dental_clinic_enqueue_v2_reviews_slider() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_reviews_slider');
 
 function dental_clinic_enqueue_v2_header_menu() {
-    // Загружаем скрипт на главной странице, страницах блога, врачей и имплантации
-    if (is_front_page() || is_home() || is_page_template('page-blog.php') || is_page_template('page-implantatsiya.php') || is_page_template('page-contacts.php') || (is_single() && get_post_type() == 'post') || is_post_type_archive('doctor') || (is_single() && get_post_type() == 'doctor')) {
-        wp_enqueue_script(
-            'dental-clinic-header-menu',
-            get_stylesheet_directory_uri() . '/assets/js/header-menu.js',
-            array(),
-            '1.0.0',
-            true
-        );
-    }
+    // Загружаем скрипт на всех страницах, так как мобильное меню используется везде
+    wp_enqueue_script(
+        'dental-clinic-header-menu',
+        get_stylesheet_directory_uri() . '/assets/js/header-menu.js',
+        array(),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_header_menu');
 

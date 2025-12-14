@@ -836,18 +836,19 @@ a.link-underline {
     position: fixed;
     inset: 0;
     z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
     transition:
         opacity 0.28s ease,
         visibility 0.28s step-end;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .popup.show {
+    display: flex;
     visibility: visible;
     opacity: 1;
     pointer-events: auto;

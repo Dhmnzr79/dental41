@@ -11,12 +11,12 @@ get_header();
     <div class="container">
         <div class="hero-mobile__wrapper">
             <div class="hero-mobile__content">
-                <h1 class="hero-mobile__title">Имплантация нового поколения</h1>
+                <h1 class="hero-mobile__title">У вас отсутствует зубы?</h1>
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="hero-mobile__image" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/khan-mob-1.png'); ?>>
             </div>
             
             <div class="hero-mobile__text">
-                <h2 class="hero-mobile__subtitle">Все виды лечения. Бережная имплантация. С максимальным комфортом, без боли и переплат.</h2>
+                <h2 class="hero-mobile__subtitle">Восстановление зубов с помощью имплантации — красивая улыбка и уверенность за 1 день</h2>
                 
                 <div class="hero-mobile__description">
                     <div class="hero-mobile__benefit">
@@ -85,11 +85,11 @@ get_header();
         <div class="row">
             <div class="col-sm-12 col-lg-6 hero__left">
                 <h1 class="hero__title">
-                Имплантация нового поколения
+                У вас отсутствует зубы?
                 </h1>
         
                 <h2 class="hero__subtitle">
-                Все виды лечения. Бережная имплантация. С максимальным комфортом, без боли и переплат.
+                Восстановление зубов с помощью имплантации — красивая улыбка и уверенность за 1 день
                 </h2>
                 
                 <div class="hero__description">
@@ -163,7 +163,7 @@ get_header();
                 <div class="indices__icon">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-01.svg" alt="" class="indices__icon-image" aria-hidden="true">
             </div>
-                    <p itemprop="name">Точная диагностика на оборудовании нового поколения — уровень клиник Москвы и Европы</p>
+                    <p itemprop="name">Точная диагностика перед имплантацией на оборудовании нового поколения — уровень клиник Москвы и Европы</p>
             </div>
         </div>
 
@@ -183,7 +183,7 @@ get_header();
                     <div class="indices__icon">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/index-icon-03.svg" alt="" class="indices__icon-image" aria-hidden="true">
                     </div>
-                    <p itemprop="name">Изготавливаем протезы у себя - это быстрее, точнее и надёжнее.</p>
+                    <p itemprop="name">Изготавливаем протезы для имплантации у себя — это быстрее, точнее и надёжнее.</p>
             </div>
         </div>
 
@@ -219,9 +219,9 @@ get_header();
             </h2>
             
                 <ul class="consultation__benefits" itemprop="description">
-                    <li>Составим для вас понятный план: 3 варианта по бюджету, этапы, сроки</li>
+                    <li>Составим для вас понятный план имплантации: 3 варианта по бюджету, этапы и сроки лечения</li>
                     <li>При необходимости проведём КТ с высокоточной диагностикой. Это позволит составить точный план и рекомендации по каждому зубу. КТ оплачивается отдельно.</li>
-                    <li>Осмотр врачом с 20-ти летним стажем, который провел более 20 000 имплантации.</li>
+                    <li>Осмотр врачом с 20-летним стажем, который провёл более 20 000 операций по имплантации зубов.</li>
                 </ul>
                 <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                     <meta itemprop="price" content="0">
@@ -337,22 +337,27 @@ get_header();
         <div class="row">
             <div class="col-sm-12 col-lg-8 cta__left">
                 <div class="cta__content">
-                    <h2 class="cta__title">
-                        Начните сейчас<br><span class="cta__title-highlight">и через 2 приема:</span>
-                    </h2>
-                    
-                    <div class="cta__benefits" itemscope itemtype="https://schema.org/ItemList">
-                        <div class="cta__benefit" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="1">
-                            <p itemprop="name">Снова едите любую пищу</p>
-                        </div>
-                        <div class="cta__benefit" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="2">
-                            <p itemprop="name">Улыбаетесь без стеснения</p>
-                        </div>
-                        <div class="cta__benefit" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="3">
-                            <p itemprop="name">Выглядите на 10 лет моложе</p>
+                    <div class="cta__header">
+                        <h2 class="cta__title">
+                            Начните сейчас<br><span class="cta__title-highlight">и через 2 приема:</span>
+                        </h2>
+                        
+                        <div class="cta__benefits" itemscope itemtype="https://schema.org/ItemList">
+                            <div class="cta__benefit" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="1">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-2.svg" alt="" class="cta__benefit-icon" aria-hidden="true">
+                                <p itemprop="name">Снова едите любую пищу</p>
+                            </div>
+                            <div class="cta__benefit" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="2">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-2.svg" alt="" class="cta__benefit-icon" aria-hidden="true">
+                                <p itemprop="name">Улыбаетесь без стеснения</p>
+                            </div>
+                            <div class="cta__benefit" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <meta itemprop="position" content="3">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/chk-2.svg" alt="" class="cta__benefit-icon" aria-hidden="true">
+                                <p itemprop="name">Выглядите на 10 лет моложе</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -360,6 +365,14 @@ get_header();
                 <div class="cta__warning">
                     <div class="cta__warning-overlay"></div>
                     <div class="cta__warning-content">
+                        <div class="circle-group">
+                            <div class="circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
+                            </div>
+                            <div class="circle">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-04.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-04.jpg'); ?>>
+                            </div>
+                        </div>
                         <h3 class="cta__warning-title">Все за 1 день</h3>
                         <p class="cta__warning-text">Утром - проблема, вечером - новая жизнь</p>
                     </div>
@@ -390,7 +403,7 @@ get_header();
             <div class="col-sm-12 col-lg-8 plus__left">
                 <div class="plus__header">
                     <div class="plus__title-wrapper">
-                        <h2 class="plus__title">Премиум-лечение<br>по адекватной цене</h2>
+                        <h2 class="plus__title">Премиум имплантация<br>по адекватной цене</h2>
                     </div>
                 </div>
 
@@ -439,8 +452,8 @@ get_header();
                     <path d="M42.3098 9.51733C40.5866 9.93697 38.8004 10.1467 36.7818 10.1467C34.7632 10.1467 32.977 9.93697 31.2538 9.51733M48.8427 28.2793L44.7021 57.0797C44.0823 61.3911 41.1377 65 36.782 65C32.2905 65 29.4566 61.2183 28.8617 57.0797L24.7211 28.2794M24.4335 35.6699H49.1301M25.4616 42.8206H48.1021M26.4896 49.9713H47.074M27.5443 57.1219H46.0191M12.4487 18.5006C9.65378 17.1202 3.9725 18.1096 1 21.0821M61.1149 18.5006C63.9098 17.1202 69.591 18.1096 72.5636 21.0821" stroke="black" stroke-width="2" stroke-miterlimit="22.9256" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-                        <h3 class="plus__card-title">Оригинальные импланты с пожизненной гарантией</h3>
-                        <p class="plus__card-text">Nobel (Швейцария) и Impro (Германия) — никаких подделок и дешёвых аналогов.</p>
+                        <h3 class="plus__card-title">Цифровое планирование имплантации</h3>
+                        <p class="plus__card-text">КТ + 3D-план дают точность установки импланта и прогнозируемый результат.</p>
         </div>
         
                     <div class="plus__card">
@@ -483,7 +496,7 @@ get_header();
                 </div>
                 <h2 class="trust__title">
                     Нам доверяют<br>
-                    <span class="trust__title-span">потому что <span class="trust__highlight">у нас безопасно</span></span>
+                    <span class="trust__title-span">потому что <span class="trust__highlight">у нас безопасно при имплантации</span></span>
                 </h2>
             </div>
 
@@ -504,7 +517,7 @@ get_header();
             <div class="col-sm-12 col-lg-4 trust__right">
                 <div class="trust__card">
                     <h3 class="trust__card-title">Абсолютная стерильность</h3>
-                    <p class="trust__card-text">Ваше здоровье под полной защитой — каждый инструмент проходит централизованную стерилизацию и строгий контроль.</p>
+                    <p class="trust__card-text">Ваше здоровье под полной защитой при имплантации зубов — каждый инструмент проходит централизованную стерилизацию и строгий контроль.</p>
                 </div>
                 <div class="trust__card-divider"></div>
                 <div class="trust__card">
@@ -523,7 +536,7 @@ get_header();
                 <div class="guarantees__row">
                     <div class="guarantees__header">
                         <h2 class="guarantees__title">Мы отвечаем за свою работу и даём официальные гарантии</h2>
-                        <p class="guarantees__subtitle">Все гарантии прописаны в договоре — вы защищены документально.</p>
+                        <p class="guarantees__subtitle">Все гарантии на имплантацию прописаны в договоре — вы защищены документально.</p>
                     </div>
                     <div class="guarantees__items-list">
                             <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -718,7 +731,7 @@ get_header();
                 <div class="reviews__header">
                     <h2 id="reviews-title" class="reviews__title" itemprop="name">
                         Что говорят пациенты<br>
-                        после лечения
+                        после имплантации зубов
                     </h2>
                     <p class="reviews__caption">Более 20 000 улыбок мы подарили нашим клиентам за 26 лет работы</p>
                 </div>
@@ -928,7 +941,7 @@ get_header();
             <div class="col-sm-12 col-lg-4 doctors__title-col">
                 <h2 class="doctors__title" itemprop="name">
                     Лучшие
-                специалисты
+                имплантологи
                     Камчатки в одной
                     клинике
                 </h2>
@@ -941,7 +954,7 @@ get_header();
 
             <div class="col-sm-12 col-lg-4 doctors__info-col">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-06.svg" alt="" class="doctors__info-icon" aria-hidden="true">
-                <p class="doctors__info-text">С вами работают сразу несколько специалистов — хирург, ортопед и куратор, а не один врач на всё, чтобы каждое решение было более точным и взвешенным.</p>
+                <p class="doctors__info-text">При имплантации с вами работают сразу несколько специалистов — хирург, ортопед и куратор, а не один врач на всё, чтобы каждое решение было более точным и взвешенным.</p>
             </div>
         </div>
 
@@ -1536,7 +1549,7 @@ get_header();
             <div class="col-sm-12 col-lg-4">
                 <div class="prices__content">
                     <div class="prices__header">
-                        <h2>Нашли дешевле?</h2>
+                        <h2>Нашли имплантацию дешевле?</h2>
                         <h3 class="prices__subtitle">Не спешите – разберитесь, за что вы платите</h3>
                     </div>
                     
@@ -1549,7 +1562,7 @@ get_header();
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/circle-ex.svg" alt="Вопрос" aria-hidden="true">
                             </div>
                         </div>
-                        <p>Многие клиники занижают цену на старте и добавляют скрытые платежи позже. В ЦЭСИ стоимость лечения прозрачна с самого начала и не меняется по ходу работы.</p>
+                        <p>Многие клиники занижают цену на имплантацию на старте и добавляют скрытые платежи позже. В ЦЭСИ стоимость лечения прозрачна с самого начала и не меняется по ходу работы.</p>
                     </div>
                 </div>
             </div>
@@ -1843,6 +1856,53 @@ get_header();
         </div>
     </div>
 </section>
+
+<!-- Блок контактов -->
+<section class="section contacts" itemscope itemtype="https://schema.org/MedicalBusiness">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <div class="contacts__info">
+                    <h2>Найти нас легко</h2>
+                    
+                    <div class="contacts__details" itemscope itemprop="address" itemtype="https://schema.org/PostalAddress">
+                        <div class="contacts__item">
+                            <div class="contacts__icon" aria-hidden="true">📍</div>
+                            <div class="contacts__text" itemprop="streetAddress">г. Елизово, ул. Ленина 15-а</div>
+                        </div>
+                        
+                        <div class="contacts__item">
+                            <div class="contacts__icon" aria-hidden="true">🕒</div>
+                            <div class="contacts__text">
+                                <meta itemprop="openingHours" content="Mo-Fr 08:00-20:00">
+                                <meta itemprop="openingHours" content="Sa 08:00-14:00">
+                                Пн-Пт: 8:00 - 20:00, Сб 8:00 – 14:00
+                            </div>
+                        </div>
+                        
+                        <div class="contacts__item">
+                            <div class="contacts__icon" aria-hidden="true">📞</div>
+                            <div class="contacts__text">
+                                <a href="tel:+74152500129" itemprop="telephone">+7(4152) 50-01-29</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="contacts__description">Мы расположены в современном бизнес-центре с охраняемой парковкой. В клинике действует IP телефония, не одно обращение не останется без внимания.</p>
+                    
+                    <button class="btn btn--primary" onclick="openPopup()" aria-label="Заказать обратный звонок">Заказать обратный звонок</button>
+                </div>
+            </div>
+            
+            <div class="col-sm-12 col-lg-6">
+                <div class="contacts__photo">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map-pin.jpg" alt="Здание клиники" class="contacts__image" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/map-pin.jpg'); ?>>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <?php get_footer(); ?>
 
