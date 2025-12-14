@@ -48,12 +48,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (cards.length === 0) return;
 
-        var sliderWidth = slider.offsetWidth;
-        if (sliderWidth > 0) {
-            var cardWidth = (sliderWidth - (slidesToShow - 1) * 30) / slidesToShow;
-            var translateX = -(currentIndex * (cardWidth + 30));
-            track.style.transform = 'translateX(' + translateX + 'px)';
-        }
+        // Используем requestAnimationFrame для избежания forced reflow
+        requestAnimationFrame(function() {
+            // Используем реальную ширину первой карточки + gap для правильного расчета
+            var firstCard = cards[0];
+            if (!firstCard) return;
+            
+            // Измерения DOM в одном кадре для избежания layout thrashing
+            var cardWidth = firstCard.offsetWidth;
+            var gap = 30; // gap из CSS
+            
+            if (cardWidth > 0) {
+                // Правильный расчет: ширина карточки + gap между карточками
+                var translateX = -(currentIndex * (cardWidth + gap));
+                track.style.transform = 'translateX(' + translateX + 'px)';
+            }
+        });
 
         var dots = pagination ? pagination.querySelectorAll('.doctors__dot') : [];
         dots.forEach(function (dot, i) {
@@ -141,11 +151,20 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesToShow = getSlidesToShow();
         currentIndex = 0;
         createPagination();
-        updateSlides(0);
+        // Небольшая задержка для правильного расчета после resize
+        setTimeout(function() {
+            updateSlides(0);
+        }, 100);
     });
 
-    createPagination();
-    updateSlides(0);
+    // Инициализация с задержкой для правильного расчета размеров после defer загрузки
+    // Используем requestAnimationFrame для гарантии, что DOM готов
+    requestAnimationFrame(function() {
+        setTimeout(function() {
+            createPagination();
+            updateSlides(0);
+        }, 50);
+    });
 });
 
 

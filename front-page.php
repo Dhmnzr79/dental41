@@ -120,7 +120,7 @@ get_header();
         
             <div class="col-sm-12 col-lg-6 hero__right">
                 <div class="hero__photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Александр Хан - Главный врач стоматологической клиники" class="hero__doctor-photo"<?php echo dental_clinic_get_image_dimensions('assets/images/bg-action.png'); ?>>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Амбассадор стоматологической клиники — Лилия Питерская" class="hero__doctor-photo"<?php echo dental_clinic_get_image_dimensions('assets/images/bg-action.png'); ?>>
             </div>
             
                 <div class="hero__stats">
@@ -128,13 +128,13 @@ get_header();
                         
                         <div class="hero__stat-images">
                             <div class="circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="Довольный пациент" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-01.jpg'); ?>>
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-01.jpg" alt="" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-01.jpg'); ?>>
                             </div>
                             <div class="circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-02.jpg" alt="" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-02.jpg'); ?>>
                             </div>
                             <div class="circle">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="Довольная пациентка" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-03.jpg'); ?>>
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-03.jpg" alt="" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-03.jpg'); ?>>
                             </div>
                         </div>
                         <span class="hero__stat-number">25 000</span>
@@ -214,7 +214,7 @@ get_header();
 
 
 <!-- Блок консультации -->
-<section class="consultation section" itemscope itemtype="https://schema.org/Service">
+<section class="consultation section" itemscope itemtype="https://schema.org/Offer">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-6 consultation__left">
@@ -231,28 +231,27 @@ get_header();
                     по имплантации
             </h2>
             
-                <ul class="consultation__benefits" itemprop="description">
-                    <li>Составим для вас понятный план: 3 варианта по бюджету, этапы, сроки</li>
-                    <li>При необходимости проведём КТ с высокоточной диагностикой. Это позволит составить точный план и рекомендации по каждому зубу. КТ оплачивается отдельно.</li>
-                    <li>Осмотр врачом с 20-ти летним стажем, который провел более 20 000 имплантации.</li>
-                </ul>
-                <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <meta itemprop="price" content="0">
-                    <meta itemprop="priceCurrency" content="RUB">
-            </div>
+                <div itemprop="description">
+                    <ul class="consultation__benefits">
+                        <li>Составим для вас понятный план: 3 варианта по бюджету, этапы, сроки</li>
+                        <li>При необходимости проведём КТ с высокоточной диагностикой. Это позволит составить точный план и рекомендации по каждому зубу. КТ оплачивается отдельно.</li>
+                        <li>Осмотр врачом с 20-ти летним стажем, который провел более 20 000 имплантации.</li>
+                    </ul>
+                </div>
+                <meta itemprop="price" content="0">
+                <meta itemprop="priceCurrency" content="RUB">
                 </div>
         
             <div class="col-sm-6 col-lg-6 consultation__right">
                 <div class="consultation__content">
-                <div class="consultation__quote" itemscope itemtype="https://schema.org/Review">
+                <div class="consultation__quote">
                     <div class="consultation__quote-photo">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Доктор" class="consultation__quote-img" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/moiseev-small.png'); ?>>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-small.png" alt="Врач-имплантолог стоматологической клиники" class="consultation__quote-img" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/moiseev-small.png'); ?>>
                 </div>
-                    <div class="consultation__quote-text">
-                        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                            <meta itemprop="name" content="Доктор">
-                        </div>
-                        <p class="consultation__quote-content" itemprop="reviewBody">
+                    <div class="consultation__quote-text" itemscope itemtype="https://schema.org/Person">
+                        <meta itemprop="name" content="Врач-имплантолог">
+                        <meta itemprop="jobTitle" content="Имплантолог">
+                        <p class="consultation__quote-content">
                     "Чем дольше ждёте — тем сложнее и дороже будет лечение"
                 </p>
                 </div>
@@ -326,10 +325,13 @@ get_header();
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-06.svg" alt="" loading="lazy" aria-hidden="true">
                     </div>
                         <h3 class="services__card-title" itemprop="name">Бережная имплантация</h3>
-                        <p class="services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="76200"><meta itemprop="priceCurrency" content="RUB">От 76 200 тыс.</p>
+                        <p class="services__card-price">От 76 200 тыс.</p>
+                        <div itemprop="provider" itemscope itemtype="https://schema.org/Organization">
+                            <meta itemprop="name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                        </div>
                 </div>
                             <div class="col-sm-12 col-lg-6 services__card-description">
-                                <p class="services__card-text" itemprop="description">Используем только проверенные имплантаты зубов от ведущих мировых производителей. Возможна установка за одно посещение. Пожизненная гарантия на модели имплантов Nobel (Швейцария) и Impro (Германия). Опытные имплантологи, прошедшие обучение за границей.</p>
+                                <p class="services__card-text">Используем только проверенные имплантаты зубов от ведущих мировых производителей. Возможна установка за одно посещение. Пожизненная гарантия на модели имплантов Nobel (Швейцария) и Impro (Германия). Опытные имплантологи, прошедшие обучение за границей.</p>
                             </div>
                         </div>
                         <div class="row">
@@ -352,10 +354,13 @@ get_header();
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-05.svg" alt="" loading="lazy" aria-hidden="true">
                     </div>
                         <h3 class="services__card-title" itemprop="name">Коронки</h3>
-                        <p class="services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="25000"><meta itemprop="priceCurrency" content="RUB">От 25 000 тыс.</p>
+                        <p class="services__card-price">От 25 000 тыс.</p>
+                        <div itemprop="provider" itemscope itemtype="https://schema.org/Organization">
+                            <meta itemprop="name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                        </div>
                 </div>
                             <div class="col-sm-12 col-lg-6 services__card-description">
-                                <p class="services__card-text" itemprop="description">Коронки изготавливаются из импортных материалов в собственной лаборатории. Быстрое изготовление конструкции — в большинстве случаев всего за 1 день! Мы предлагаем все виды коронок с гарантией до 5 лет.</p>
+                                <p class="services__card-text">Коронки изготавливаются из импортных материалов в собственной лаборатории. Быстрое изготовление конструкции — в большинстве случаев всего за 1 день! Мы предлагаем все виды коронок с гарантией до 5 лет.</p>
                             </div>
                         </div>
                         <div class="row">
@@ -380,9 +385,12 @@ get_header();
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" loading="lazy" aria-hidden="true">
                         </div>
                         <h3 class="services__card-title" itemprop="name">Виниры</h3>
+                        <div itemprop="provider" itemscope itemtype="https://schema.org/Organization">
+                            <meta itemprop="name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                        </div>
                             </div>
                             <div class="col-sm-12 col-lg-6 services__card-description">
-                        <p class="services__card-text" itemprop="description">Только у нас виниры, созданные по технологии ведущего мирового специалиста в области реставрации Назария Махайлюка. Полная реставрация всего за 1–2 визита, без дискомфорта.</p>
+                        <p class="services__card-text">Только у нас виниры, созданные по технологии ведущего мирового специалиста в области реставрации Назария Махайлюка. Полная реставрация всего за 1–2 визита, без дискомфорта.</p>
                         </div>
                         </div>
                         <div class="row">
@@ -405,10 +413,13 @@ get_header();
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-04.svg" alt="" loading="lazy" aria-hidden="true">
         </div>
                         <h3 class="services__card-title" itemprop="name">Все виды лечения</h3>
-                        <p class="services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="8500"><meta itemprop="priceCurrency" content="RUB">От 8 500 тыс.</p>
+                        <p class="services__card-price">От 8 500 тыс.</p>
+                        <div itemprop="provider" itemscope itemtype="https://schema.org/Organization">
+                            <meta itemprop="name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                        </div>
                         </div>
                             <div class="col-sm-12 col-lg-6 services__card-description">
-                                <p class="services__card-text" itemprop="description">Все виды лечения зубов без боли с гарантией результата. Мы используем самую современную анестезию, в том числе электронную. Применяем надёжные пломбировочные материалы.</p>
+                                <p class="services__card-text">Все виды лечения зубов без боли с гарантией результата. Мы используем самую современную анестезию, в том числе электронную. Применяем надёжные пломбировочные материалы.</p>
                             </div>
                         </div>
                         <div class="row">
@@ -433,10 +444,13 @@ get_header();
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-03.svg" alt="" loading="lazy" aria-hidden="true">
                         </div>
                         <h3 class="services__card-title" itemprop="name">Отбеливание</h3>
-                        <p class="services__card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="price" content="18000"><meta itemprop="priceCurrency" content="RUB">От 18 000 тыс.</p>
+                        <p class="services__card-price">От 18 000 тыс.</p>
+                        <div itemprop="provider" itemscope itemtype="https://schema.org/Organization">
+                            <meta itemprop="name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                        </div>
                         </div>
                             <div class="col-sm-12 col-lg-6 services__card-description">
-                                <p class="services__card-text" itemprop="description">Красивые белые зубы без вреда для эмали! Зубы светлее на 7–10 тонов всего за 1 посещение. Эффект сохраняется на 3–5 лет.</p>
+                                <p class="services__card-text">Красивые белые зубы без вреда для эмали! Зубы светлее на 7–10 тонов всего за 1 посещение. Эффект сохраняется на 3–5 лет.</p>
                             </div>
                         </div>
                         <div class="row">
@@ -459,9 +473,12 @@ get_header();
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-02.svg" alt="" loading="lazy" aria-hidden="true">
             </div>
                         <h3 class="services__card-title" itemprop="name">Миорелаксация жевательных мышц (TENS-терапия)</h3>
+                        <div itemprop="provider" itemscope itemtype="https://schema.org/Organization">
+                            <meta itemprop="name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                        </div>
                             </div>
                             <div class="col-sm-12 col-lg-6 services__card-description">
-                        <p class="services__card-text" itemprop="description">Безболезненная процедура, которая расслабляет жевательные мышцы и восстанавливает правильное положение челюсти. Подходит при бруксизме, болях, щелчках и напряжении в лице. За 40 минут мягкие импульсы улучшают кровоток, снимают спазмы и восстанавливают симметрию лица.</p>
+                        <p class="services__card-text">Безболезненная процедура, которая расслабляет жевательные мышцы и восстанавливает правильное положение челюсти. Подходит при бруксизме, болях, щелчках и напряжении в лице. За 40 минут мягкие импульсы улучшают кровоток, снимают спазмы и восстанавливают симметрию лица.</p>
                 </div>
                     </div>
                         <div class="row">
@@ -569,7 +586,7 @@ get_header();
 </section>
 
 <!-- Блок доверия -->
-<section class="trust section" itemscope itemtype="https://schema.org/ItemList">
+<section class="trust section">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-4 trust__left">
@@ -612,7 +629,7 @@ get_header();
 </section>
 
 <!-- Блок гарантий -->
-<section class="guarantees section" itemscope itemtype="https://schema.org/ItemList">
+<section class="guarantees section">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-8 guarantees__left">
@@ -622,24 +639,20 @@ get_header();
                         <p class="guarantees__subtitle">Все гарантии прописаны в договоре — вы защищены документально.</p>
                     </div>
                     <div class="guarantees__items-list">
-                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="1">
-                                <p class="guarantees__text" itemprop="name"><strong>Работа врача</strong><span>— гарантия 1 год</span></p>
+                            <div class="guarantees__item">
+                                <p class="guarantees__text"><strong>Работа врача</strong><span>— гарантия 1 год</span></p>
                             </div>
 
-                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="2">
-                                <p class="guarantees__text" itemprop="name"><strong>Импланты Implantium (Корея)</strong><span>— 5 лет гарантии</span></p>
+                            <div class="guarantees__item">
+                                <p class="guarantees__text"><strong>Импланты Implantium (Корея)</strong><span>— 5 лет гарантии</span></p>
                             </div>
 
-                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="3">
-                                <p class="guarantees__text" itemprop="name"><strong>Импланты Nobel (Швейцария)</strong><span>— пожизненная гарантия</span></p>
+                            <div class="guarantees__item">
+                                <p class="guarantees__text"><strong>Импланты Nobel (Швейцария)</strong><span>— пожизненная гарантия</span></p>
                             </div>
 
-                            <div class="guarantees__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <meta itemprop="position" content="4">
-                                <p class="guarantees__text" itemprop="name"><strong>Импланты Impro (Германия)</strong><span>— пожизненная гарантия</span></p>
+                            <div class="guarantees__item">
+                                <p class="guarantees__text"><strong>Импланты Impro (Германия)</strong><span>— пожизненная гарантия</span></p>
                             </div>
                     </div>
                 </div>
@@ -690,11 +703,11 @@ get_header();
     </div>
 </section>
 
-<section class="section works" aria-labelledby="works-title" itemscope itemtype="https://schema.org/ItemList">
+<section class="section works" aria-labelledby="works-title">
     <div class="container">
         <div class="row works__head">
             <div class="col-sm-12 col-lg-8 works__head-main">
-                <h2 id="works-title" class="works__title" itemprop="name">
+                <h2 id="works-title" class="works__title">
                     Посмотрите, как мы
                     возвращаем людям улыбку и
                 уверенность
@@ -712,7 +725,7 @@ get_header();
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/circle-face-10.jpg" alt="Довольный пациент" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/circle-face-10.jpg'); ?>>
                             </div>
                         </div>
-                <p class="works__subtitle" itemprop="description">
+                <p class="works__subtitle">
                     Настоящие истории наших пациентов. Эти результаты достигнуты у нас, в клинике ЦЭСИ.
                 </p>
             </div>
@@ -721,19 +734,17 @@ get_header();
         <div class="works__slider" data-slider="works" aria-roledescription="carousel" aria-label="Наши работы">
             <div class="row works__list">
                 <div class="col-sm-12 col-lg-4 works__col">
-                    <article class="works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="1">
+                    <article class="works__card">
                         <div class="works__media">
                             <img
                                 src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after01.jpg"
                                 alt="Улыбка для свадьбы - результат"
                                 loading="lazy"
-                                itemprop="image"
                             >
                         </div>
                         <div class="works__content">
-                            <h3 class="works__card-title" itemprop="name">Улыбка для свадьбы</h3>
-                            <p class="works__card-text" itemprop="description">
+                            <h3 class="works__card-title">Улыбка для свадьбы</h3>
+                            <p class="works__card-text">
                                 Виктория, 32 года, п. Палана. Перед свадьбой прилетела к нам, чтобы быть безупречной в важный день. В ЦЭСИ выполнили: костную пластику верхней челюсти; установку имплантов Impro (Германия); полное лечение своих зубов; протезирование коронками из диоксида циркония.
                             </p>
                         </div>
@@ -741,19 +752,17 @@ get_header();
                 </div>
 
                 <div class="col-sm-12 col-lg-4 works__col">
-                    <article class="works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="2">
+                    <article class="works__card">
                         <div class="works__media">
                             <img
                                 src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after02.jpg"
                                 alt="Перерождение улыбки - результат"
                                 loading="lazy"
-                                itemprop="image"
                             >
                         </div>
                         <div class="works__content">
-                            <h3 class="works__card-title" itemprop="name">Перерождение улыбки</h3>
-                            <p class="works__card-text" itemprop="description">
+                            <h3 class="works__card-title">Перерождение улыбки</h3>
+                            <p class="works__card-text">
                                 Комплексное лечение: импланты, виниры и коронки. Работали Моисеев К.Н. и Ларин К.Е. Результат — естественная и надёжная улыбка.
                             </p>
                         </div>
@@ -761,19 +770,17 @@ get_header();
                 </div>
 
                 <div class="col-sm-12 col-lg-4 works__col">
-                    <article class="works__card" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-                        <meta itemprop="position" content="3">
+                    <article class="works__card">
                         <div class="works__media">
                             <img
                                 src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/be-after03.jpg"
                                 alt="Новая улыбка — новая уверенность - результат"
                                 loading="lazy"
-                                itemprop="image"
                             >
                         </div>
                         <div class="works__content">
-                            <h3 class="works__card-title" itemprop="name">Новая улыбка — новая уверенность</h3>
-                            <p class="works__card-text" itemprop="description">
+                            <h3 class="works__card-title">Новая улыбка — новая уверенность</h3>
+                            <p class="works__card-text">
                                 Зубы пролечены под микроскопом. Установлены импланты. Установлены коронки из циркония. Результат — восстановлены здоровье и эстетика, пациент снова улыбается без стеснения.
                             </p>
                         </div>
@@ -806,12 +813,12 @@ get_header();
     </div>
 </section>
 
-<section class="section reviews" aria-labelledby="reviews-title" itemscope itemtype="https://schema.org/ItemList">
+<section class="section reviews" aria-labelledby="reviews-title">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-8 reviews__left">
                 <div class="reviews__header">
-                    <h2 id="reviews-title" class="reviews__title" itemprop="name">
+                    <h2 id="reviews-title" class="reviews__title">
                         Что говорят пациенты<br>
                         после лечения
                     </h2>
@@ -820,12 +827,11 @@ get_header();
                 
                 <div class="ratings__list">
                     <div class="ratings__col">
-                        <article class="ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
-                            <meta itemprop="position" content="1">
+                        <article class="ratings__card">
                             <div class="ratings__icon ratings__icon--ya"></div>
                             <div class="ratings__info">
-                                <div class="ratings__number" itemprop="ratingValue">4.9</div>
-                                <div class="ratings__stars" itemprop="ratingCount" content="1">
+                                <div class="ratings__number">4.9</div>
+                                <div class="ratings__stars">
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
@@ -837,12 +843,11 @@ get_header();
                     </div>
 
                     <div class="ratings__col">
-                        <article class="ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
-                            <meta itemprop="position" content="2">
+                        <article class="ratings__card">
                             <div class="ratings__icon ratings__icon--google"></div>
                             <div class="ratings__info">
-                                <div class="ratings__number" itemprop="ratingValue">4.5</div>
-                                <div class="ratings__stars" itemprop="ratingCount" content="1">
+                                <div class="ratings__number">4.5</div>
+                                <div class="ratings__stars">
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
@@ -854,12 +859,11 @@ get_header();
                     </div>
 
                     <div class="ratings__col">
-                        <article class="ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
-                            <meta itemprop="position" content="3">
+                        <article class="ratings__card">
                             <div class="ratings__icon ratings__icon--2gis"></div>
                             <div class="ratings__info">
-                                <div class="ratings__number" itemprop="ratingValue">4.8</div>
-                                <div class="ratings__stars" itemprop="ratingCount" content="1">
+                                <div class="ratings__number">4.8</div>
+                                <div class="ratings__stars">
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
@@ -871,12 +875,11 @@ get_header();
                     </div>
 
                     <div class="ratings__col">
-                        <article class="ratings__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/AggregateRating">
-                            <meta itemprop="position" content="4">
+                        <article class="ratings__card">
                             <div class="ratings__icon ratings__icon--prodoctorov"></div>
                             <div class="ratings__info">
-                                <div class="ratings__number" itemprop="ratingValue">4.9</div>
-                                <div class="ratings__stars" itemprop="ratingCount" content="1">
+                                <div class="ratings__number">4.9</div>
+                                <div class="ratings__stars">
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
                                     <span class="ratings__star ratings__star--filled" aria-label="Звезда" aria-hidden="true">★</span>
@@ -909,13 +912,11 @@ get_header();
                                     $reviewer_name = get_post_meta(get_the_ID(), '_reviewer_name', true);
                                     $video_url = get_post_meta(get_the_ID(), '_review_video_url', true);
                             ?>
-                                <article class="reviews__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
-                                    <meta itemprop="position" content="<?php echo esc_attr($review_index); ?>">
-                                    
+                                <article class="reviews__card" itemscope itemtype="https://schema.org/Review">
                                     <div class="reviews__header">
                                         <div class="reviews__photo">
                                             <?php if (has_post_thumbnail()) : ?>
-                                                <?php the_post_thumbnail('thumbnail', array('itemprop' => 'image', 'loading' => 'lazy', 'alt' => $reviewer_name ? esc_attr($reviewer_name) : 'Фото пациента')); ?>
+                                                <?php the_post_thumbnail('thumbnail', array('itemprop' => 'image', 'loading' => 'lazy', 'alt' => $reviewer_name ? esc_attr($reviewer_name) : '')); ?>
                                             <?php else : ?>
                                                 <div class="reviews__photo-placeholder" aria-hidden="true">👤</div>
                                             <?php endif; ?>
@@ -1014,11 +1015,11 @@ get_header();
     </div>
 </section>
 
-<section class="section doctors" itemscope itemtype="https://schema.org/ItemList">
+<section class="section doctors">
     <div class="container">
         <div class="row doctors__info">
             <div class="col-sm-12 col-lg-4 doctors__title-col">
-                <h2 class="doctors__title" itemprop="name">
+                <h2 class="doctors__title">
                     Лучшие
                 специалисты
                     Камчатки в одной
@@ -1078,9 +1079,7 @@ get_header();
                                 $doctor_preview = get_post_meta(get_the_ID(), '_doctor_short_preview', true);
                                 $doctor_video = get_post_meta(get_the_ID(), '_doctor_video_url', true);
                         ?>
-                            <article class="doctors__card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Person">
-                                <meta itemprop="position" content="<?php echo esc_attr($doctor_index); ?>">
-                                
+                            <article class="doctors__card" itemscope itemtype="https://schema.org/Person">
                                 <div class="doctors__photo">
                                     <?php if (has_post_thumbnail()) : ?>
                                         <?php the_post_thumbnail('doctor-medium', array('itemprop' => 'image', 'loading' => 'lazy', 'alt' => $doctor_fio ? esc_attr($doctor_fio) : 'Фото врача')); ?>
@@ -1172,15 +1171,15 @@ get_header();
     </div>
 </section>
 
-<section class="section doctor-selection" itemscope itemtype="https://schema.org/Service">
+<section class="section doctor-selection">
     <div class="container">
         <div class="row doctor-selection__container">
             <div class="col-sm-12 col-lg-4 doctor-selection__left">
-                <h2 class="doctor-selection__title" itemprop="name">Важно помнить:</h2>
+                <h2 class="doctor-selection__title">Важно помнить:</h2>
             </div>
 
             <div class="col-sm-12 col-lg-8 doctor-selection__right">
-                <p class="doctor-selection__text" itemprop="description">Неправильный выбор врача может стоить вам времени, денег — и повторного лечения. Расскажите о своей ситуации — мы подберём проверенного специалиста и покажем похожие успешные кейсы.</p>
+                <p class="doctor-selection__text">Неправильный выбор врача может стоить вам времени, денег — и повторного лечения. Расскажите о своей ситуации — мы подберём проверенного специалиста и покажем похожие успешные кейсы.</p>
                 <button type="button" class="btn btn--primary doctor-selection__button" onclick="openPopup()">Подобрать врача</button>
             </div>
         </div>

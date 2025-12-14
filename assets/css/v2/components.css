@@ -1638,7 +1638,7 @@
 }
 
 .implants__brand-name {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px;
 }
 
@@ -1661,7 +1661,7 @@
 }
 
 .implants__current-price {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 22px;
     color: var(--primary);
     font-family: var(--heading-font);
@@ -1726,7 +1726,7 @@
     position: absolute;
     left: 0;
     color: var(--primary);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .implants__details-text {

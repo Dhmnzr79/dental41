@@ -298,6 +298,120 @@ function dental_clinic_async_load_css($tag, $handle, $href) {
 add_filter('style_loader_tag', 'dental_clinic_async_load_css', 10, 3);
 
 /**
+ * Полное отключение Swiper (он не используется в теме)
+ * Все слайдеры написаны на чистом JS без Swiper
+ */
+function dental_clinic_disable_swiper() {
+    if (!is_admin()) {
+        // Отключаем Swiper CSS и JS если они подключены родительской темой или плагином
+        wp_deregister_style('swiper');
+        wp_deregister_style('swiper-bundle');
+        wp_deregister_style('swiper-css');
+        wp_dequeue_style('swiper');
+        wp_dequeue_style('swiper-bundle');
+        wp_dequeue_style('swiper-css');
+        
+        wp_deregister_script('swiper');
+        wp_deregister_script('swiper-bundle');
+        wp_deregister_script('swiper-js');
+        wp_dequeue_script('swiper');
+        wp_dequeue_script('swiper-bundle');
+        wp_dequeue_script('swiper-js');
+    }
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_disable_swiper', 999);
+
+/**
+ * Удаление Swiper из HTML через output buffering (если подключен inline)
+ */
+function dental_clinic_remove_swiper_output_buffer() {
+    ob_start(function($buffer) {
+        // Удаляем любые inline подключения Swiper
+        $buffer = preg_replace('/<script[^>]*swiper[^>]*>.*?<\/script>/is', '', $buffer);
+        $buffer = preg_replace('/<link[^>]*swiper[^>]*>/i', '', $buffer);
+        return $buffer;
+    });
+}
+add_action('template_redirect', 'dental_clinic_remove_swiper_output_buffer', 1);
+add_action('shutdown', function() {
+    if (ob_get_level() > 0) {
+        ob_end_flush();
+    }
+}, 999);
+
+/**
+ * Полное отключение CF7 и reCAPTCHA
+ * КРИТИЧНО: reCAPTCHA блокирует LCP (~700 KB JS) - это приоритет №1
+ */
+// Полностью запрещаем CF7 и reCAPTCHA грузиться
+add_filter('wpcf7_load_js', '__return_false');
+add_filter('wpcf7_load_css', '__return_false');
+
+add_action('wp_enqueue_scripts', function () {
+    wp_dequeue_script('google-recaptcha');
+    wp_deregister_script('google-recaptcha');
+
+    wp_dequeue_script('wpcf7-recaptcha');
+    wp_deregister_script('wpcf7-recaptcha');
+}, 100);
+
+/**
+ * Блокировка Inter-Variable шрифта (подключается родительской темой или плагином)
+ * КРИТИЧНО: Inter-Variable блокирует FCP
+ */
+add_action('wp_enqueue_scripts', function () {
+    // Удаляем все стили, связанные с Inter-Variable
+    global $wp_styles;
+    if (isset($wp_styles->registered)) {
+        foreach ($wp_styles->registered as $handle => $style) {
+            if (isset($style->src) && (strpos($style->src, 'Inter-Var') !== false || 
+                strpos($style->src, 'inter-var') !== false ||
+                strpos($style->src, 'VariableFont') !== false)) {
+                wp_dequeue_style($handle);
+                wp_deregister_style($handle);
+            }
+        }
+    }
+}, 999);
+
+// Блокируем вывод Inter-Variable через фильтр
+add_filter('style_loader_tag', function($tag, $handle, $href) {
+    if ($href && (strpos($href, 'Inter-Var') !== false || 
+        strpos($href, 'inter-var') !== false ||
+        strpos($href, 'VariableFont') !== false ||
+        strpos($href, 'variable') !== false && strpos($href, 'inter') !== false)) {
+        return ''; // Удаляем тег полностью
+    }
+    return $tag;
+}, 10, 3);
+
+// Блокируем через output buffering (на случай если подключается inline или родительской темой)
+add_action('template_redirect', function() {
+    ob_start(function($buffer) {
+        // Удаляем любые ссылки на Inter-Variable из любых источников
+        $buffer = preg_replace('/<link[^>]*Inter-Var[^>]*>/i', '', $buffer);
+        $buffer = preg_replace('/<link[^>]*inter-var[^>]*>/i', '', $buffer);
+        $buffer = preg_replace('/<link[^>]*VariableFont[^>]*>/i', '', $buffer);
+        $buffer = preg_replace('/<link[^>]*variable[^>]*inter[^>]*>/i', '', $buffer);
+        $buffer = preg_replace('/<link[^>]*inter[^>]*variable[^>]*>/i', '', $buffer);
+        // Удаляем @font-face для Inter-Variable
+        $buffer = preg_replace('/@font-face[^{]*\{[^}]*Inter-Var[^}]*\}/is', '', $buffer);
+        $buffer = preg_replace('/@font-face[^{]*\{[^}]*inter-var[^}]*\}/is', '', $buffer);
+        $buffer = preg_replace('/@font-face[^{]*\{[^}]*VariableFont[^}]*\}/is', '', $buffer);
+        // Удаляем preload для Inter-Variable
+        $buffer = preg_replace('/<link[^>]*rel=["\']preload["\'][^>]*Inter-Var[^>]*>/i', '', $buffer);
+        $buffer = preg_replace('/<link[^>]*rel=["\']preload["\'][^>]*inter-var[^>]*>/i', '', $buffer);
+        return $buffer;
+    });
+}, 1);
+
+add_action('shutdown', function() {
+    if (ob_get_level() > 0) {
+        ob_end_flush();
+    }
+}, 999);
+
+/**
  * Получает размеры изображения и возвращает атрибуты width и height для оптимизации CLS
  * @param string $image_path Путь к изображению относительно темы
  * @return string Атрибуты width и height или пустая строка, если файл не найден
@@ -2373,5 +2487,299 @@ function save_related_posts_meta($post_id) {
     }
 }
 add_action('save_post', 'save_related_posts_meta');
+
+/**
+ * ========================================
+ * SEO-РАЗМЕТКА ДЛЯ МЕДИЦИНСКОГО САЙТА
+ * ========================================
+ */
+
+/**
+ * Получает название клиники (используется в title и Schema)
+ */
+function dental_clinic_get_clinic_name() {
+    return 'Центр Эстетической стоматологии и имплантации';
+}
+
+/**
+ * Генерирует SEO title для разных типов страниц
+ */
+function dental_clinic_get_seo_title() {
+    $clinic_name = dental_clinic_get_clinic_name();
+    
+    // Главная страница
+    if (is_front_page()) {
+        return 'Стоматология в Елизово — имплантация зубов, протезирование | ' . $clinic_name;
+    }
+    
+    // Страница врача
+    if (is_singular('doctor')) {
+        $doctor_name = get_the_title();
+        $specialization = get_post_meta(get_the_ID(), 'doctor_specialization', true);
+        if (empty($specialization)) {
+            $specialization = 'Стоматолог';
+        }
+        return $doctor_name . ' — ' . $specialization . ' | ' . $clinic_name;
+    }
+    
+    // Страница услуги (имплантация)
+    if (is_page_template('page-implantatsiya.php')) {
+        return 'Имплантация зубов в Камчатке — цены, врачи, гарантии | ' . $clinic_name;
+    }
+    
+    // Статья блога
+    if (is_single() && get_post_type() == 'post') {
+        $post_title = get_the_title();
+        return $post_title . ' | ' . $clinic_name;
+    }
+    
+    // Страница контактов
+    if (is_page_template('page-contacts.php')) {
+        return 'Контакты стоматологической клиники в Елизово | ' . $clinic_name;
+    }
+    
+    // Обычная страница
+    if (is_page()) {
+        $page_title = get_the_title();
+        return $page_title . ' | ' . $clinic_name;
+    }
+    
+    // Архив врачей
+    if (is_post_type_archive('doctor')) {
+        return 'Врачи стоматологической клиники в Елизово | ' . $clinic_name;
+    }
+    
+    // Дефолтный title
+    return wp_get_document_title();
+}
+
+/**
+ * Генерирует meta description
+ * Приоритет: кастомное поле meta_description > дефолтные значения
+ */
+function dental_clinic_get_meta_description() {
+    // Проверяем кастомное поле meta_description
+    $custom_description = '';
+    
+    if (is_singular()) {
+        $custom_description = get_post_meta(get_the_ID(), 'meta_description', true);
+    }
+    
+    // Если кастомное поле заполнено - используем его
+    if (!empty($custom_description)) {
+        return wp_strip_all_tags($custom_description);
+    }
+    
+    // Дефолтные описания для разных типов страниц
+    if (is_front_page()) {
+        return 'Стоматологическая клиника в Елизово. Имплантация зубов, протезирование, лечение. Опытные врачи, современное оборудование, гарантии. Запись на консультацию.';
+    }
+    
+    if (is_singular('doctor')) {
+        $doctor_name = get_the_title();
+        $specialization = get_post_meta(get_the_ID(), 'doctor_specialization', true);
+        if (empty($specialization)) {
+            $specialization = 'стоматолог';
+        }
+        $experience = get_post_meta(get_the_ID(), 'doctor_experience', true);
+        $exp_text = !empty($experience) ? ', стаж ' . $experience . ' лет' : '';
+        return $doctor_name . ' — ' . $specialization . $exp_text . '. Приём в стоматологической клинике в Елизово. Запись на консультацию.';
+    }
+    
+    if (is_page_template('page-implantatsiya.php')) {
+        return 'Имплантация зубов в Елизово. Современные импланты, опытные врачи, гарантия. Цены, виды имплантации, отзывы пациентов. Запись на консультацию.';
+    }
+    
+    if (is_single() && get_post_type() == 'post') {
+        $excerpt = get_the_excerpt();
+        if (!empty($excerpt)) {
+            return wp_strip_all_tags($excerpt);
+        }
+        return 'Статья о стоматологии и здоровье зубов от специалистов клиники ' . dental_clinic_get_clinic_name();
+    }
+    
+    if (is_page_template('page-contacts.php')) {
+        return 'Контакты стоматологической клиники в Елизово. Адрес: ул. Ленина 15-а. Телефон: +7(4152) 50-01-29. Режим работы: Пн-Пт 8:00-20:00, Сб 8:00-14:00.';
+    }
+    
+    if (is_page()) {
+        $excerpt = get_the_excerpt();
+        if (!empty($excerpt)) {
+            return wp_strip_all_tags($excerpt);
+        }
+    }
+    
+    // Безопасное дефолтное значение
+    return 'Стоматологическая клиника в Елизово. Профессиональное лечение зубов, имплантация, протезирование.';
+}
+
+/**
+ * Генерирует canonical URL
+ */
+function dental_clinic_get_canonical_url() {
+    if (is_singular()) {
+        return get_permalink();
+    }
+    
+    if (is_post_type_archive('doctor')) {
+        return get_post_type_archive_link('doctor');
+    }
+    
+    if (is_home() && !is_front_page()) {
+        return get_permalink(get_option('page_for_posts'));
+    }
+    
+    // Для главной страницы и других случаев
+    return home_url('/');
+}
+
+/**
+ * Генерирует Schema.org разметку в формате JSON-LD
+ */
+function dental_clinic_get_schema_markup() {
+    $schemas = array();
+    
+    // 1. Organization / MedicalClinic для сайта (на всех страницах)
+    $clinic_schema = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'MedicalClinic',
+        'name' => dental_clinic_get_clinic_name(),
+        'alternateName' => 'ЦЭСИ',
+        'url' => home_url('/'),
+        'address' => array(
+            '@type' => 'PostalAddress',
+            'streetAddress' => 'ул. Ленина 15-а',
+            'addressLocality' => 'Елизово',
+            'addressRegion' => 'Камчатский край',
+            'addressCountry' => 'RU'
+        ),
+        'telephone' => '+74152500129',
+        'priceRange' => '$$',
+        'medicalSpecialty' => array(
+            'Dentistry',
+            'OralSurgery',
+            'Prosthodontics'
+        ),
+        'openingHoursSpecification' => array(
+            array(
+                '@type' => 'OpeningHoursSpecification',
+                'dayOfWeek' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'),
+                'opens' => '08:00',
+                'closes' => '20:00'
+            ),
+            array(
+                '@type' => 'OpeningHoursSpecification',
+                'dayOfWeek' => 'Saturday',
+                'opens' => '08:00',
+                'closes' => '14:00'
+            )
+        )
+    );
+    $schemas[] = $clinic_schema;
+    
+    // 2. Специфичные схемы для разных типов страниц
+    if (is_singular('doctor')) {
+        // Physician для страницы врача
+        $doctor_schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'Physician',
+            'name' => get_the_title(),
+            'url' => get_permalink(),
+            'medicalSpecialty' => get_post_meta(get_the_ID(), 'doctor_specialization', true) ?: 'Dentistry',
+            'worksFor' => array(
+                '@type' => 'MedicalClinic',
+                'name' => dental_clinic_get_clinic_name()
+            )
+        );
+        
+        // Добавляем образование и опыт, если есть
+        $education = get_post_meta(get_the_ID(), 'doctor_education', true);
+        if (!empty($education)) {
+            $doctor_schema['hasCredential'] = $education;
+        }
+        
+        $schemas[] = $doctor_schema;
+    }
+    
+    if (is_single() && get_post_type() == 'post') {
+        // BlogPosting для статьи
+        $post_schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'BlogPosting',
+            'headline' => get_the_title(),
+            'url' => get_permalink(),
+            'datePublished' => get_the_date('c'),
+            'dateModified' => get_the_modified_date('c'),
+            'author' => array(
+                '@type' => 'Organization',
+                'name' => dental_clinic_get_clinic_name()
+            ),
+            'publisher' => array(
+                '@type' => 'Organization',
+                'name' => dental_clinic_get_clinic_name(),
+                'logo' => array(
+                    '@type' => 'ImageObject',
+                    'url' => get_stylesheet_directory_uri() . '/assets/svg/logo.svg'
+                )
+            )
+        );
+        
+        $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+        if ($thumbnail) {
+            $post_schema['image'] = $thumbnail;
+        }
+        
+        $excerpt = get_the_excerpt();
+        if (!empty($excerpt)) {
+            $post_schema['description'] = wp_strip_all_tags($excerpt);
+        }
+        
+        $schemas[] = $post_schema;
+    }
+    
+    if (is_page_template('page-implantatsiya.php')) {
+        // MedicalProcedure для страницы имплантации
+        $procedure_schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'MedicalProcedure',
+            'name' => 'Имплантация зубов',
+            'description' => dental_clinic_get_meta_description(),
+            'url' => get_permalink(),
+            'medicalSpecialty' => 'Dentistry',
+            'procedureType' => 'DentalImplant',
+            'provider' => array(
+                '@type' => 'MedicalClinic',
+                'name' => dental_clinic_get_clinic_name()
+            )
+        );
+        $schemas[] = $procedure_schema;
+    }
+    
+    if (is_page_template('page-contacts.php')) {
+        // ContactPage / LocalBusiness для страницы контактов
+        $contact_schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => array('ContactPage', 'LocalBusiness'),
+            'name' => dental_clinic_get_clinic_name(),
+            'url' => get_permalink(),
+            'address' => array(
+                '@type' => 'PostalAddress',
+                'streetAddress' => 'ул. Ленина 15-а',
+                'addressLocality' => 'Елизово',
+                'addressRegion' => 'Камчатский край',
+                'addressCountry' => 'RU'
+            ),
+            'telephone' => '+74152500129',
+            'openingHours' => array(
+                'Mo-Fr 08:00-20:00',
+                'Sa 08:00-14:00'
+            )
+        );
+        $schemas[] = $contact_schema;
+    }
+    
+    // Возвращаем массив схем для вывода
+    return $schemas;
+}
 
 ?>

@@ -15,16 +15,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalSlides = cards.length;
 
     function initSlider() {
-        var sliderWidth = slider.offsetWidth;
-        if (sliderWidth > 0 && totalSlides > 0) {
-            var cardWidth = sliderWidth;
-            var trackWidth = cardWidth * totalSlides;
-            track.style.width = trackWidth + 'px';
-            cards.forEach(function (card) {
-                card.style.width = cardWidth + 'px';
-                card.style.flexShrink = '0';
-            });
-        }
+        // Используем requestAnimationFrame для избежания forced reflow
+        requestAnimationFrame(function() {
+            var sliderWidth = slider.offsetWidth;
+            if (sliderWidth > 0 && totalSlides > 0) {
+                var cardWidth = sliderWidth;
+                var trackWidth = cardWidth * totalSlides;
+                track.style.width = trackWidth + 'px';
+                cards.forEach(function (card) {
+                    card.style.width = cardWidth + 'px';
+                    card.style.flexShrink = '0';
+                });
+            }
+        });
     }
 
     function createPagination() {
@@ -51,11 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateSlides(index) {
         currentIndex = index;
 
-        var sliderWidth = slider.offsetWidth;
-        if (sliderWidth > 0) {
-            var translateX = -(index * sliderWidth);
-            track.style.transform = 'translateX(' + translateX + 'px)';
-        }
+        // Используем requestAnimationFrame для избежания forced reflow
+        requestAnimationFrame(function() {
+            var sliderWidth = slider.offsetWidth;
+            if (sliderWidth > 0) {
+                var translateX = -(index * sliderWidth);
+                track.style.transform = 'translateX(' + translateX + 'px)';
+            }
+        });
 
         var dots = pagination ? pagination.querySelectorAll('.reviews__dot') : [];
         dots.forEach(function (dot, i) {

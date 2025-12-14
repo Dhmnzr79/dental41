@@ -9,7 +9,7 @@
     margin-bottom: 30px;
     font-size: clamp(28px, 4vw, 44px);
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-color);
 }
 
@@ -144,7 +144,7 @@
 .clinic-info__title {
     font-size: clamp(28px, 4vw, 44px);
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-color);
     margin: 0;
 }

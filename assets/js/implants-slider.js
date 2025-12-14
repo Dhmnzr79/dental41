@@ -60,43 +60,47 @@ document.addEventListener('DOMContentLoaded', function () {
         var cardsPerView = getCardsPerView();
         var sliderActive = isSliderMode();
 
-        if (sliderActive) {
-            // В режиме слайдера используем transform для плавного скролла
-            var wrapperWidth = sliderWrapper.offsetWidth;
-            var firstCol = cols[0];
-            if (!firstCol) return;
-            
-            var colWidth = firstCol.offsetWidth;
-            var computedStyle = window.getComputedStyle(slider);
-            var gap = parseFloat(computedStyle.gap) || 0;
-            var cardWidthWithGap = colWidth + gap;
-            
-            // Вычисляем offset для плавного перехода
-            var offset = -currentIndex * cardWidthWithGap;
-            
-            // Для последней страницы на планшете (когда осталась 1 карточка)
-            var remainingCards = cols.length - currentIndex;
-            if (remainingCards < cardsPerView && remainingCards > 0 && isTabletMode()) {
-                // На планшете при показе последней карточки выравниваем по правому краю
-                var totalCardsWidth = remainingCards * cardWidthWithGap - gap;
-                offset = -(wrapperWidth - totalCardsWidth);
+        // Используем requestAnimationFrame для избежания forced reflow
+        requestAnimationFrame(function() {
+            if (sliderActive) {
+                // В режиме слайдера используем transform для плавного скролла
+                var firstCol = cols[0];
+                if (!firstCol) return;
+                
+                // Измерения DOM в одном кадре для избежания layout thrashing
+                var wrapperWidth = sliderWrapper.offsetWidth;
+                var colWidth = firstCol.offsetWidth;
+                var computedStyle = window.getComputedStyle(slider);
+                var gap = parseFloat(computedStyle.gap) || 0;
+                var cardWidthWithGap = colWidth + gap;
+                
+                // Вычисляем offset для плавного перехода
+                var offset = -currentIndex * cardWidthWithGap;
+                
+                // Для последней страницы на планшете (когда осталась 1 карточка)
+                var remainingCards = cols.length - currentIndex;
+                if (remainingCards < cardsPerView && remainingCards > 0 && isTabletMode()) {
+                    // На планшете при показе последней карточки выравниваем по правому краю
+                    var totalCardsWidth = remainingCards * cardWidthWithGap - gap;
+                    offset = -(wrapperWidth - totalCardsWidth);
+                }
+                
+                slider.style.transform = 'translateX(' + offset + 'px)';
+                slider.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                
+                // Все карточки видимы для плавного скролла
+                cols.forEach(function (col) {
+                    col.classList.remove('implants__col--hidden');
+                });
+            } else {
+                // На десктопе показываем все карточки без transform
+                slider.style.transform = 'translateX(0)';
+                slider.style.transition = 'none';
+                cols.forEach(function (col) {
+                    col.classList.remove('implants__col--hidden');
+                });
             }
-            
-            slider.style.transform = 'translateX(' + offset + 'px)';
-            slider.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            
-            // Все карточки видимы для плавного скролла
-            cols.forEach(function (col) {
-                col.classList.remove('implants__col--hidden');
-            });
-        } else {
-            // На десктопе показываем все карточки без transform
-            slider.style.transform = 'translateX(0)';
-            slider.style.transition = 'none';
-            cols.forEach(function (col) {
-                col.classList.remove('implants__col--hidden');
-            });
-        }
+        });
 
         // Обновляем пагинацию
         if (dots.length > 0) {
