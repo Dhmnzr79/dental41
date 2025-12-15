@@ -137,6 +137,10 @@
     flex-direction: column;
 }
 
+.clinic-info__content h2 {
+    font-size: 26px;
+}
+
 .clinic-info__header {
     margin-bottom: 40px;
 }

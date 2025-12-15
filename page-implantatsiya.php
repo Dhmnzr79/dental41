@@ -121,7 +121,7 @@ get_header();
         
             <div class="col-sm-12 col-lg-6 hero__right">
                 <div class="hero__photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Александр Хан - Главный врач стоматологической клиники" class="hero__doctor-photo" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/bg-action.png'); ?>>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-hero.png" alt="Хирург-имплантолог Александр Хан — главный врач стоматологической клиники" class="hero__doctor-photo" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/khan-hero.png'); ?>>
             </div>
             
                 <div class="hero__stats">
@@ -142,9 +142,9 @@ get_header();
                         <p itemprop="name">имплантаций за 26 лет<br>работы на Камчатке</p>
                     </div>
                     
-                    <div class="hero__testimonial" itemscope itemtype="https://schema.org/Review">
-                        <p itemprop="reviewBody"><strong itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Лилия Питерская</span>:</strong><br>"Делюсь историей своей новой улыбки"</p>
-                        <a href="<?php echo home_url('/istoriya-moei-ulybki'); ?>" class="hero__testimonial-link" aria-label="Читать отзыв Лилии Питерской">Читать далее</a>
+                    <div class="hero__doctor-info">
+                        <p class="hero__doctor-name">Александр Хан</p>
+                        <p class="hero__doctor-position">Главный врач, хирург-имплантолог</p>
                     </div>
                 </div>
                 </div>
@@ -1671,10 +1671,10 @@ get_header();
                         <div class="technologies__card-icon">
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3 itemprop="name">Название технологии</h3>
+                        <h3 itemprop="name">ИИ-диагностика по снимкам</h3>
                         <div class="technologies__card-text">
-                            <p>Описание первой особенности технологии.</p>
-                            <p>Описание второй особенности технологии.</p>
+                            <p>Анализируем 2D и 3D снимки с помощью ИИ, чтобы быстрее собрать полную картину.</p>
+                            <p>Наглядно объясняем пациенту план лечения.</p>
                         </div>
                     </article>
                 </div>

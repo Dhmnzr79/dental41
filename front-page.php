@@ -120,7 +120,7 @@ get_header();
         
             <div class="col-sm-12 col-lg-6 hero__right">
                 <div class="hero__photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bg-action.png" alt="Амбассадор стоматологической клиники — Лилия Питерская" class="hero__doctor-photo"<?php echo dental_clinic_get_image_dimensions('assets/images/bg-action.png'); ?>>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moiseev-hero.png" alt="Хирург-имплантолог Александр Хан — главный врач стоматологической клиники" class="hero__doctor-photo"<?php echo dental_clinic_get_image_dimensions('assets/images/moiseev-hero.png'); ?>>
             </div>
             
                 <div class="hero__stats">
@@ -141,21 +141,9 @@ get_header();
                         <p itemprop="name">имплантаций за 26 лет<br>работы на Камчатке</p>
                     </div>
                     
-                    <div class="hero__testimonial" itemscope itemtype="https://schema.org/Review">
-                        <p itemprop="reviewBody"><strong itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Лилия Питерская</span>:</strong><br>"Делюсь историей своей новой улыбки"</p>
-                        <a href="<?php echo home_url('/istoriya-moei-ulybki'); ?>" class="hero__testimonial-link" aria-label="Читать отзыв Лилии Питерской">
-                            Читать далее
-                            <span class="hero__testimonial-link-icon">
-                                <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <mask id="mask0_2916_98" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="18">
-                                        <path d="M20 17.3913V0L0 0V17.3913H20Z" fill="white"/>
-                                    </mask>
-                                    <g mask="url(#mask0_2916_98)">
-                                        <path d="M18.3695 8.69564L11.1956 15.8696M18.3695 8.69564L11.1956 1.52173M18.3695 8.69564H1.63037" stroke="#0B7C87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </g>
-                                </svg>
-                            </span>
-                        </a>
+                    <div class="hero__doctor-info">
+                        <p class="hero__doctor-name">Александр Хан</p>
+                        <p class="hero__doctor-position">Главный врач, хирург-имплантолог</p>
                     </div>
                 </div>
                 </div>
@@ -1744,10 +1732,10 @@ get_header();
                         <div class="technologies__card-icon">
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/service-icon-01.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3>Название технологии</h3>
+                        <h3>ИИ-диагностика по снимкам</h3>
                         <div class="technologies__card-text">
-                            <p>Описание первой особенности технологии.</p>
-                            <p>Описание второй особенности технологии.</p>
+                            <p>Анализируем 2D и 3D снимки с помощью ИИ, чтобы быстрее собрать полную картину.</p>
+                            <p>Наглядно объясняем пациенту план лечения.</p>
                         </div>
                     </article>
                 </div>

@@ -654,11 +654,6 @@
     flex-shrink: 0;
 }
 
-.plus__card-text {
-}
-
-.plus__card--featured-text {
-}
 
 .plus__card--featured-title {
     font-size: 40px;
@@ -1162,9 +1157,6 @@
     justify-content: flex-start;
 }
 
-.doctors__title {
-}
-
 .doctors__info-col {
     display: flex;
     flex-direction: column;
@@ -1280,8 +1272,9 @@
 }
 
 .doctors__experience span {
-    border-bottom: 5px solid var(--secondary);
+    border-bottom: 10px solid hwb(277deg 54% 8% / 30%);
     display: inline-block;
+    line-height: 0.5;
 }
 
 .doctors__video-btn {
@@ -1431,6 +1424,8 @@
 }
 
 .cta__form-wrapper {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     background: hwb(0deg 100% 0% / 60%);
     height: 100%;
     padding: 30px;
@@ -2734,51 +2729,24 @@
     padding-top: 30px;
 }
 
-.hero__testimonial {
+.hero__doctor-info {
     margin-top: auto;
     display: flex;
     flex-direction: column;
     align-items: end;
-}
-
-.hero__testimonial p {
-    font-size: 16px;
-    margin-bottom: 15px;
     text-align: right;
 }
 
-.hero__testimonial-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: #0b7c87;
-    transition: color 0.2s ease;
+.hero__doctor-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
 }
 
-.hero__testimonial-link-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background-color: var(--white);
-    border-radius: 50%;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-}
-
-.hero__testimonial-link:hover .hero__testimonial-link-icon {
-    transform: scale(1.1);
-}
-
-.hero__testimonial-link svg {
-    width: 20px;
-    height: 18px;
-}
-
-.hero__testimonial-link svg path {
-    stroke: #0b7c87;
+.hero__doctor-position {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.8;
 }
 
 .hero__conclusion {
@@ -3110,6 +3078,10 @@
     }
 
     /* Reviews */
+    .reviews__caption {
+        font-size: 18px;
+    }
+
     .reviews__stats {
         gap: 16px;
     }
@@ -3395,6 +3367,10 @@
         background-image: url('../../images/cta-bg-mob.png');
         background-size: 60%;
         padding-top: 150px;
+    }
+
+    .cta__form-wrapper {
+        padding: 20px;
     }
 
     .cta__warning-content p {

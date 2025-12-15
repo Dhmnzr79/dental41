@@ -22,6 +22,7 @@
             <div class="col-sm-12 col-lg-2 header__button-col">
                 <button type="button" class="header__cta-btn" onclick="openPopup()">
                     Заказать звонок
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/arrow-phone.svg" alt="" class="header__cta-icon" aria-hidden="true">
                 </button>
             </div>
         </div>

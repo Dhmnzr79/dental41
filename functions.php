@@ -140,6 +140,18 @@ function dental_clinic_enqueue_v2_faq() {
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_faq');
 
+function dental_clinic_enqueue_phone_mask() {
+    // Подключаем маску телефона на всех страницах для всех форм
+    wp_enqueue_script(
+        'dental-clinic-phone-mask',
+        get_stylesheet_directory_uri() . '/assets/js/phone-mask.js',
+        array(),
+        '1.0.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_phone_mask');
+
 function dental_clinic_enqueue_v2_trust_video() {
     // Подключаем на всех страницах, скрипт сам проверит наличие .trust__video
     wp_enqueue_script(
@@ -352,6 +364,99 @@ add_action('wp_enqueue_scripts', function () {
     wp_dequeue_script('wpcf7-recaptcha');
     wp_deregister_script('wpcf7-recaptcha');
 }, 100);
+
+/**
+ * Honeypot защита от спама для всех форм Contact Form 7
+ * Автоматически добавляет скрытое поле ко всем формам
+ */
+// 1. Добавляем honeypot поле программно ко всем формам CF7
+add_filter('wpcf7_form_elements', function ($content) {
+    $honeypot = '<span class="hidden-fields-container">
+        <input type="text" name="honeypot-field" value="">
+    </span>';
+
+    return $content . $honeypot;
+});
+
+// 2. Серверная проверка honeypot поля
+add_filter('wpcf7_validate_text', function ($result, $tag) {
+    if ($tag->name === 'honeypot-field' && !empty($_POST['honeypot-field'])) {
+        $result->invalidate($tag, 'Spam detected');
+    }
+    return $result;
+}, 10, 2);
+
+/**
+ * Time-based защита от спама
+ * Отсеивает быстрых ботов (менее 3 секунд на заполнение формы)
+ */
+// Добавляем скрытое поле времени загрузки формы
+add_filter('wpcf7_form_elements', function ($content) {
+    $time_field = '<input type="hidden" name="form_loaded_time" value="">';
+    return $content . $time_field;
+});
+
+// Серверная проверка времени заполнения формы
+add_action('wpcf7_before_send_mail', function ($contact_form) {
+    $submitted = intval($_POST['form_loaded_time'] ?? 0);
+    if ($submitted && (time() * 1000 - $submitted) < 3000) {
+        wp_die('Spam detected: Form submitted too quickly');
+    }
+}, 10, 1);
+
+/**
+ * Rate limiting - ограничение количества заявок с одного IP
+ * Максимум 5 заявок в минуту
+ */
+add_action('wpcf7_before_send_mail', function () {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    $key = 'cf7_rate_' . md5($ip);
+    $count = get_transient($key) ?: 0;
+
+    if ($count >= 5) {
+        wp_die('Too many requests. Please try again later.');
+    }
+
+    set_transient($key, $count + 1, 60); // 60 секунд = 1 минута
+}, 5, 0); // Приоритет 5, чтобы выполнялось раньше других проверок
+
+/**
+ * Дополнительная серверная валидация
+ * Отсеивает "умных" ботов
+ */
+add_action('wpcf7_before_send_mail', function () {
+    // Проверка User-Agent
+    if (empty($_SERVER['HTTP_USER_AGENT'])) {
+        wp_die('Spam detected: Invalid request');
+    }
+
+    // Проверка длины имени (слишком короткое или слишком длинное)
+    if (!empty($_POST['your-name'])) {
+        $name_length = strlen(trim($_POST['your-name']));
+        if ($name_length < 2 || $name_length > 100) {
+            wp_die('Spam detected: Invalid name length');
+        }
+        // Проверка на URL в имени (признак спама)
+        if (preg_match('/https?:\/\//i', $_POST['your-name'])) {
+            wp_die('Spam detected: URL in name field');
+        }
+    }
+
+    // Проверка email на кириллицу (недопустимо в email)
+    if (!empty($_POST['your-email'])) {
+        if (preg_match('/[а-яё]/iu', $_POST['your-email'])) {
+            wp_die('Spam detected: Invalid email format');
+        }
+    }
+
+    // Проверка длины сообщения (если есть поле сообщения)
+    if (!empty($_POST['your-message'])) {
+        $message_length = strlen(trim($_POST['your-message']));
+        if ($message_length > 5000) {
+            wp_die('Spam detected: Message too long');
+        }
+    }
+}, 10, 0);
 
 /**
  * Блокировка Inter-Variable шрифта (подключается родительской темой или плагином)
