@@ -32,13 +32,13 @@ function initReviewsSlider() {
                 }
                 
                 if (totalSlides > 0) {
-                    var cardWidth = sliderWidth;
-                    var trackWidth = cardWidth * totalSlides;
-                    track.style.width = trackWidth + 'px';
-                    cards.forEach(function (card) {
-                        card.style.width = cardWidth + 'px';
+            var cardWidth = sliderWidth;
+            var trackWidth = cardWidth * totalSlides;
+            track.style.width = trackWidth + 'px';
+            cards.forEach(function (card) {
+                card.style.width = cardWidth + 'px';
                         card.style.maxWidth = '100%';
-                        card.style.flexShrink = '0';
+                card.style.flexShrink = '0';
                         card.style.boxSizing = 'border-box';
                     });
                 }
@@ -78,10 +78,10 @@ function initReviewsSlider() {
             var viewportRect = viewport ? viewport.getBoundingClientRect() : slider.getBoundingClientRect();
             var sliderWidth = viewportRect.width;
             
-            if (sliderWidth > 0) {
-                var translateX = -(index * sliderWidth);
-                track.style.transform = 'translateX(' + translateX + 'px)';
-            }
+        if (sliderWidth > 0) {
+            var translateX = -(index * sliderWidth);
+            track.style.transform = 'translateX(' + translateX + 'px)';
+        }
         });
 
         var dots = pagination ? pagination.querySelectorAll('.reviews__dot') : [];

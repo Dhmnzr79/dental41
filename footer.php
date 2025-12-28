@@ -56,8 +56,9 @@
 
 <?php 
 include get_stylesheet_directory() . '/popup.php'; 
-// include 'cookie-banner.php'; 
+include get_stylesheet_directory() . '/cookie-banner.php'; 
 ?>
+
 
 <?php wp_footer(); ?>
 
@@ -121,54 +122,6 @@ include get_stylesheet_directory() . '/popup.php';
     if (typeof jQuery !== 'undefined') {
         jQuery(document).on('wpcf7mailsent', setupRussianValidation);
     }
-})();
-
-// Time-based защита: устанавливаем время загрузки формы
-(function() {
-    'use strict';
-    
-    function setFormLoadTime() {
-        const timeFields = document.querySelectorAll('input[name="form_loaded_time"]');
-        const currentTime = Date.now();
-        
-        timeFields.forEach(function(field) {
-            if (!field.value) {
-                field.value = currentTime;
-            }
-        });
-    }
-    
-    // Устанавливаем время при загрузке DOM
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setFormLoadTime);
-    } else {
-        setFormLoadTime();
-    }
-    
-    // Также устанавливаем для динамически загруженных форм
-    if (typeof MutationObserver !== 'undefined') {
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                mutation.addedNodes.forEach(function(node) {
-                    if (node.nodeType === 1) {
-                        const timeField = node.querySelector ? node.querySelector('input[name="form_loaded_time"]') : null;
-                        if (timeField && !timeField.value) {
-                            timeField.value = Date.now();
-                        }
-                    }
-                });
-            });
-        });
-        
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    }
-    
-    // Дополнительная проверка через небольшую задержку
-    setTimeout(setFormLoadTime, 500);
-    setTimeout(setFormLoadTime, 1000);
 })();
 </script>
 

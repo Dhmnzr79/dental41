@@ -147,7 +147,7 @@
 }
 
 .cookie-btn-accept {
-    background: var(--brand-color);
+    background: #0B7C87;
     color: white;
 }
 

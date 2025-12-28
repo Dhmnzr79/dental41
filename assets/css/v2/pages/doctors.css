@@ -137,6 +137,21 @@
     color: var(--heading-color);
 }
 
+.doctors-archive__pd-notice {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(11, 124, 135, 0.1);
+    border-left: 4px solid #0B7C87;
+    border-radius: 8px;
+}
+
+.doctors-archive__pd-notice p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
 .doctors-archive__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -473,6 +488,15 @@
 
     .doctors-archive__header p {
         font-size: 16px;
+    }
+
+    .doctors-archive__pd-notice {
+        margin-bottom: 30px;
+        padding: 15px;
+    }
+
+    .doctors-archive__pd-notice p {
+        font-size: 13px;
     }
 
     .doctors-archive__grid {

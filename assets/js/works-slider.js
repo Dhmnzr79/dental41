@@ -20,34 +20,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Используем requestAnimationFrame для избежания forced reflow
         requestAnimationFrame(function() {
-            if (isSliderMode()) {
-                // В режиме слайдера используем transform для плавного скролла
-                var firstCol = cols[0];
-                if (!firstCol) return;
-                
+        if (isSliderMode()) {
+            // В режиме слайдера используем transform для плавного скролла
+            var firstCol = cols[0];
+            if (!firstCol) return;
+            
                 // Измерения DOM в одном кадре для избежания layout thrashing
                 var sliderWidth = slider.offsetWidth;
-                var colWidth = firstCol.offsetWidth;
-                var computedStyle = window.getComputedStyle(list);
-                var gap = parseFloat(computedStyle.gap) || 0;
-                var cardWidthWithGap = colWidth + gap;
-                
-                var offset = -currentIndex * cardWidthWithGap;
-                list.style.transform = 'translateX(' + offset + 'px)';
-                list.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                
-                // Все карточки видимы для плавного скролла
-                cols.forEach(function (col) {
-                    col.classList.remove('works__col--hidden');
-                });
-            } else {
-                // На десктопе показываем все карточки без transform
-                list.style.transform = 'translateX(0)';
-                list.style.transition = 'none';
-                cols.forEach(function (col) {
-                    col.classList.remove('works__col--hidden');
-                });
-            }
+            var colWidth = firstCol.offsetWidth;
+            var computedStyle = window.getComputedStyle(list);
+            var gap = parseFloat(computedStyle.gap) || 0;
+            var cardWidthWithGap = colWidth + gap;
+            
+            var offset = -currentIndex * cardWidthWithGap;
+            list.style.transform = 'translateX(' + offset + 'px)';
+            list.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            // Все карточки видимы для плавного скролла
+            cols.forEach(function (col) {
+                col.classList.remove('works__col--hidden');
+            });
+        } else {
+            // На десктопе показываем все карточки без transform
+            list.style.transform = 'translateX(0)';
+            list.style.transition = 'none';
+            cols.forEach(function (col) {
+                col.classList.remove('works__col--hidden');
+            });
+        }
         });
 
         dots.forEach(function (dot, i) {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (diffX > diffY && diffX > 10) {
             isHorizontalSwipe = true;
             // Блокируем только горизонтальный скролл, вертикальный разрешаем
-            event.preventDefault();
+        event.preventDefault();
         }
         // Если вертикальное движение больше - не блокируем, разрешаем скролл страницы
         event.stopPropagation();

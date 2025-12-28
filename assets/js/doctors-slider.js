@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (cardWidth > 0) {
                 // Правильный расчет: ширина карточки + gap между карточками
                 var translateX = -(currentIndex * (cardWidth + gap));
-                track.style.transform = 'translateX(' + translateX + 'px)';
-            }
+            track.style.transform = 'translateX(' + translateX + 'px)';
+        }
         });
 
         var dots = pagination ? pagination.querySelectorAll('.doctors__dot') : [];
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
         createPagination();
         // Небольшая задержка для правильного расчета после resize
         setTimeout(function() {
-            updateSlides(0);
+        updateSlides(0);
         }, 100);
     });
 
@@ -161,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Используем requestAnimationFrame для гарантии, что DOM готов
     requestAnimationFrame(function() {
         setTimeout(function() {
-            createPagination();
-            updateSlides(0);
+    createPagination();
+    updateSlides(0);
         }, 50);
     });
 });

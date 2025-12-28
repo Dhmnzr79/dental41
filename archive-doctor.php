@@ -65,6 +65,10 @@ get_header(); ?>
             </div>
         </header>
         
+        <div class="doctors-archive__pd-notice">
+            <p>ПДн опубликованы на сайте с согласия на обработку персональных данных, разрешенных субъектом персональных данных для распространения, полученного в соответствии со ст. 10.1 152-ФЗ. Субъектами установлены запреты на обработку неограниченным кругом лиц, опубликованных персональных данных</p>
+        </div>
+        
         <div class="doctors-archive__grid" itemscope itemtype="https://schema.org/ItemList">
             <?php if (have_posts()) : 
                 $doctor_index = 0;
@@ -115,8 +119,8 @@ get_header(); ?>
                         <?php endif; ?>
                         
                         <a href="<?php the_permalink(); ?>" class="doctor-card__btn link-underline" aria-label="Подробнее о враче: <?php echo esc_attr($doctor_fio); ?>">
-                            Подробнее о враче
-                        </a>
+                                Подробнее о враче
+                            </a>
                     </div>
                 </article>
             <?php 

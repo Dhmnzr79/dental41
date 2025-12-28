@@ -679,6 +679,11 @@ function dental_clinic_enqueue_styles_main() {
         $is_v2_page = true;
     }
     
+    // Страница благодарности
+    if (is_page_template('page-spasibo-za-zayavku.php')) {
+        $is_v2_page = true;
+    }
+    
     // Стандартные шаблоны WordPress (index.php, single.php, page.php, archive.php)
     // Теперь все используют header.php и footer.php
     // Исключаем главную страницу, так как она уже обработана выше
@@ -716,6 +721,11 @@ function dental_clinic_enqueue_styles_main() {
             wp_enqueue_style('pages', $uri . 'pages/pages.css', array('components'), $ver);
         }
         
+        // Подключаем общие стили для страницы благодарности
+        if (is_page_template('page-spasibo-za-zayavku.php')) {
+            wp_enqueue_style('pages', $uri . 'pages/pages.css', array('components'), $ver);
+        }
+        
     }
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles_main', 15);
@@ -735,16 +745,78 @@ add_action('after_setup_theme', 'dental_clinic_setup');
 /**
  * Добавляем JavaScript для переадресации после успешной отправки CF7
  */
+// Редирект на страницу благодарности после успешной отправки формы CF7
+add_action('wpcf7_mail_sent', function($contact_form) {
+    // Если это не AJAX запрос, делаем серверный редирект
+    if (!wp_doing_ajax()) {
+        wp_redirect(home_url('/spasibo-za-zayavku/'));
+        exit;
+    }
+});
+
+// Для AJAX запросов добавляем редирект в ответ
+add_filter('wpcf7_ajax_json_echo', function($items, $result) {
+    if ($result['status'] === 'mail_sent') {
+        $items['redirect'] = home_url('/spasibo-za-zayavku/');
+    }
+    return $items;
+}, 10, 2);
+
+// Дублирующий редирект через JavaScript (на случай AJAX отправки)
 function dental_clinic_cf7_redirect_script() {
     ?>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Обработчик для всех форм CF7
+    (function() {
+        var thankYouUrl = '<?php echo home_url('/spasibo-za-zayavku/'); ?>';
+        
+        // Обработчик для всех форм CF7 (работает даже без CF7 JS)
+        function handleFormSubmit(event) {
+            var form = event.target.closest('form.wpcf7-form');
+            if (form) {
+                // Перехватываем AJAX ответ
+                var originalFetch = window.fetch;
+                window.fetch = function() {
+                    var promise = originalFetch.apply(this, arguments);
+                    promise.then(function(response) {
+                        if (response.ok) {
+                            response.clone().json().then(function(data) {
+                                if (data.status === 'mail_sent' || data.redirect) {
+                                    setTimeout(function() {
+                                        window.location.href = data.redirect || thankYouUrl;
+                                    }, 500);
+                                }
+                            }).catch(function() {});
+                        }
+                    });
+                    return promise;
+                };
+                
+                // Проверяем успешную отправку через изменение DOM
+                var observer = new MutationObserver(function(mutations) {
+                    var successMessage = form.querySelector('.wpcf7-mail-sent-ok, .wpcf7-mail-sent');
+                    if (successMessage) {
+                        setTimeout(function() {
+                            window.location.href = thankYouUrl;
+                        }, 500);
+                        observer.disconnect();
+                    }
+                });
+                
+                observer.observe(form, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        }
+        
+        // Обработчик отправки формы
+        document.addEventListener('submit', handleFormSubmit, true);
+        
+        // Обработчик события wpcf7mailsent (если CF7 JS все же загружен)
         document.addEventListener('wpcf7mailsent', function(event) {
-            // Переадресация на страницу благодарности
-            window.location.href = '<?php echo home_url('/spasibo-za-zayavku/'); ?>';
+            window.location.href = thankYouUrl;
         }, false);
-    });
+    })();
     </script>
     <?php
 }
@@ -2884,5 +2956,87 @@ function dental_clinic_get_schema_markup() {
     // Возвращаем массив схем для вывода
     return $schemas;
 }
+
+/**
+ * Calltouch скрипт в head
+ */
+function dental_clinic_add_calltouch_head() {
+    ?>
+    <!-- calltouch -->
+    <script>
+    (function(w,d,n,c){w.CalltouchDataObject=n;w[n]=function(){w[n]["callbacks"].push(arguments)};if(!w[n]["callbacks"]){w[n]["callbacks"]=[]}w[n]["loaded"]=false;if(typeof c!=="object"){c=[c]}w[n]["counters"]=c;for(var i=0;i<c.length;i+=1){p(c[i])}function p(cId){var a=d.getElementsByTagName("script")[0],s=d.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)},m=typeof Array.prototype.find === 'function',n=m?"init-min.js":"init.js";s.async=true;s.src="https://mod.calltouch.ru/"+n+"?id="+cId;if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",i,false)}else{i()}}})(window,document,"ct","za1zrghd");
+    </script>
+    <!-- calltouch -->
+    <?php
+}
+add_action('wp_head', 'dental_clinic_add_calltouch_head', 5);
+
+/**
+ * Яндекс Метрика в head
+ */
+function dental_clinic_add_yandex_metrika() {
+    ?>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(98616842, 'init', {webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/98616842" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <?php
+}
+add_action('wp_head', 'dental_clinic_add_yandex_metrika', 10);
+
+/**
+ * Calltouch requests скрипт в footer
+ */
+function dental_clinic_add_calltouch_footer() {
+    ?>
+    <!-- calltouch requests -->
+    <script>
+    Element.prototype.matches||(Element.prototype.matches=Element.prototype.matchesSelector||Element.prototype.webkitMatchesSelector||Element.prototype.mozMatchesSelector||Element.prototype.msMatchesSelector),Element.prototype.closest||(Element.prototype.closest=function(e){for(var t=this;t;){if(t.matches(e))return t;t=t.parentElement}return null});
+    var ct_get_val=function(form,selector){if(!!form.querySelector(selector)){return form.querySelector(selector).value;}else{return '';}}
+    document.addEventListener('click', function(e) {                                           
+        var t_el = e.target;
+        if (t_el.closest('form [type="submit"]')){ try {
+            var f = t_el.closest('form'); 
+            var fio = ct_get_val(f,'input[name="your-name"]');
+            var phone = ct_get_val(f,'input[name="your-phone"]');
+            var email = ct_get_val(f,'input[name="email"]');
+            var comment = ct_get_val(f,'textarea[placeholder="Дополнительная информация"]');
+            var sub = 'Заявка с ' + location.hostname;
+            var ct_data = {            
+                fio: fio,
+                phoneNumber: phone,
+                email: email,
+                subject: sub,
+                requestUrl: location.href,
+                comment: comment,
+                sessionId: window.call_value
+            };
+            var post_data = Object.keys(ct_data).reduce(function(a,k){if(!!ct_data[k]){a.push(k+'='+encodeURIComponent(ct_data[k]));}return a},[]).join('&');
+            var site_id = '71606';
+            var CT_URL = 'https://api.calltouch.ru/calls-service/RestAPI/requests/'+site_id+'/register/';
+            var ct_valid = !!phone && !!fio;
+            console.log(ct_data,ct_valid);
+            if (ct_valid && !window.ct_snd_flag){
+                window.ct_snd_flag = 1; setTimeout(function(){ window.ct_snd_flag = 0; }, 20000);
+                var request = window.ActiveXObject?new ActiveXObject("Microsoft.XMLHTTP"):new XMLHttpRequest();
+                request.open("POST", CT_URL, true); request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                request.send(post_data);
+            }
+        } catch (e) { console.log(e); } }
+    });
+    </script>
+    <!-- calltouch requests -->
+    <?php
+}
+add_action('wp_footer', 'dental_clinic_add_calltouch_footer', 20);
 
 ?>
