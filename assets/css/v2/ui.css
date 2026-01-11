@@ -718,6 +718,10 @@ a.link-underline {
     margin-right: auto;
 }
 
+body.error404 .footer {
+    width: 100%;
+}
+
 .footer__content {
     margin-bottom: 40px;
     row-gap: 32px;

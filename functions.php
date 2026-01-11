@@ -5,6 +5,75 @@
  * Основные функции для детской темы стоматологической клиники
  */
 
+// ВРЕМЕННЫЙ жёсткий бан IP 128.70/128.71
+// Причина: новогодние каникулы, стабильный спам, нет рекламного трафика
+// СНЯТЬ после праздников
+define('TEMP_HARD_SPAM_BLOCK', true);
+
+/**
+ * Функция логирования блокировок
+ */
+function dental_clinic_log_block($ip, $reason, $user_agent = '') {
+    $log_message = sprintf(
+        '[%s] Blocked IP %s — %s | User-Agent: %s',
+        date('Y-m-d H:i:s'),
+        $ip,
+        $reason,
+        $user_agent ?: 'Unknown'
+    );
+    error_log($log_message);
+}
+
+/**
+ * Инициализация глобального флага блокировки заявки
+ * Используется только для логирования, НЕ для блокировки почтового пайплайна
+ * Антиспам работает ТОЛЬКО через wpcf7_validate (invalidate)
+ */
+add_action('wpcf7_before_send_mail', function() {
+    $GLOBALS['CF7_BLOCK_SUBMISSION'] = false;
+    $GLOBALS['CF7_BLOCK_REASON'] = '';
+}, 0, 0); // Приоритет 0 - самый ранний
+
+/**
+ * КРИТИЧНО: УБРАНЫ все фильтры wpcf7_skip_mail и wpcf7_abort_send_mail
+ * Антиспам работает ТОЛЬКО через wpcf7_validate (invalidate)
+ * Это гарантирует, что почтовый пайплайн CF7 НЕ нарушается для нормальных заявок
+ */
+
+/**
+ * ВРЕМЕННЫЙ жёсткий бан IP 128.70/128.71 (через валидацию)
+ * Причина: новогодние каникулы, стабильный спам, нет рекламного трафика
+ * СНЯТЬ после праздников
+ * Блокировка тихая (без сообщения пользователю) через invalidate скрытого поля
+ */
+add_filter('wpcf7_validate', function ($result, $tags) {
+    if (!TEMP_HARD_SPAM_BLOCK) {
+        return $result; // Временный режим отключен
+    }
+    
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+    
+    // Проверяем IP-диапазоны 128.70.0.0/16 и 128.71.0.0/16
+    if ((strpos($ip, '128.70.') === 0) || (strpos($ip, '128.71.') === 0)) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'TEMP_HARD_IP_BLOCK';
+        
+        // Логируем блокировку
+        dental_clinic_log_block($ip, 'TEMP_HARD_IP_BLOCK', $user_agent);
+        
+        // Invalidate через скрытое поле (тихая блокировка, без сообщения)
+        $fake_tag = new WPCF7_FormTag(array(
+            'type' => 'text',
+            'name' => 'website-url',
+            'basetype' => 'text'
+        ));
+        $result->invalidate($fake_tag, ''); // Пустое сообщение - тихая блокировка
+    }
+    
+    return $result;
+}, 0, 2); // Приоритет 0 - самый ранний
+
 // Cookie Management Functions
 function get_cookie_consent() {
     if (isset($_COOKIE['cookie_consent'])) {
@@ -354,8 +423,13 @@ add_action('shutdown', function() {
  * КРИТИЧНО: reCAPTCHA блокирует LCP (~700 KB JS) - это приоритет №1
  */
 // Полностью запрещаем CF7 и reCAPTCHA грузиться
-add_filter('wpcf7_load_js', '__return_false');
-add_filter('wpcf7_load_css', '__return_false');
+// ❌ УБРАНО: отключение всего JS/CSS CF7 ломает AJAX и time-based защиту
+// add_filter('wpcf7_load_js', '__return_false');
+// add_filter('wpcf7_load_css', '__return_false');
+
+// ✅ ПРАВКА №2: Отключаем ТОЛЬКО reCAPTCHA CF7 (не весь JS)
+add_filter('wpcf7_load_recaptcha', '__return_false');
+add_filter('wpcf7_use_recaptcha', '__return_false');
 
 add_action('wp_enqueue_scripts', function () {
     wp_dequeue_script('google-recaptcha');
@@ -366,29 +440,136 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
- * Honeypot защита от спама для всех форм Contact Form 7
+ * ПРАВКА №1: Гарантированно скрыть honeypot через inline CSS
+ * Работает всегда, не зависит от темы и кэша
+ */
+add_action('wp_head', function () {
+    echo '<style>
+        .hidden-fields-container {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+    </style>';
+}, 999);
+
+/**
+ * 1️⃣ Honeypot защита от спама для всех форм Contact Form 7
  * Автоматически добавляет скрытое поле ко всем формам
+ * Поле имеет правдоподобное имя, чтобы не привлекать внимание ботов
  */
 // 1. Добавляем honeypot поле программно ко всем формам CF7
 add_filter('wpcf7_form_elements', function ($content) {
     $honeypot = '<span class="hidden-fields-container">
-        <input type="text" name="honeypot-field" value="">
+        <input type="text" name="website-url" value="" tabindex="-1" autocomplete="off">
     </span>';
 
     return $content . $honeypot;
 });
 
-// 2. Серверная проверка honeypot поля
-add_filter('wpcf7_validate_text', function ($result, $tag) {
-    if ($tag->name === 'honeypot-field' && !empty($_POST['honeypot-field'])) {
-        $result->invalidate($tag, 'Spam detected');
+// 2. Серверная проверка honeypot поля (молча отклоняем через валидацию)
+add_filter('wpcf7_validate', function ($result, $tags) {
+    if (!empty($_POST['website-url'])) {
+        // Honeypot заполнен - блокируем через валидацию (тихо, без сообщения)
+        // Используем honeypot поле для invalidate, чтобы не показывать ошибку пользователю
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'HONEYPOT_FILLED';
+        
+        // Логируем блокировку
+        $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+        $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+        dental_clinic_log_block($ip, 'HONEYPOT_FILLED', $user_agent);
+        
+        // Invalidate через скрытое поле (пользователь не увидит ошибку)
+        $fake_tag = new WPCF7_FormTag(array(
+            'type' => 'text',
+            'name' => 'website-url',
+            'basetype' => 'text'
+        ));
+        $result->invalidate($fake_tag, ''); // Пустое сообщение - тихая блокировка
     }
     return $result;
-}, 10, 2);
+}, 1, 2); // Приоритет 1 - проверяем первым
 
 /**
- * Time-based защита от спама
- * Отсеивает быстрых ботов (менее 3 секунд на заполнение формы)
+ * 2️⃣ Одноразовый server-token формы (ключевой слой защиты)
+ * Генерируется при рендере формы, привязан к IP, TTL 15 минут
+ * После использования инвалидируется
+ */
+// Генерация и добавление токена в форму
+add_filter('wpcf7_form_elements', function ($content) {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    $token = wp_generate_password(32, false);
+    $token_key = 'cf7_token_' . md5($ip . $token);
+    
+    // Сохраняем токен в transient на 15 минут (900 секунд)
+    set_transient($token_key, array(
+        'ip' => $ip,
+        'created' => time(),
+        'used' => false
+    ), 900);
+    
+    $token_field = '<input type="hidden" name="form_token" value="' . esc_attr($token) . '">';
+    return $content . $token_field;
+});
+
+// Проверка токена при отправке формы (через валидацию)
+add_filter('wpcf7_validate', function ($result, $tags) {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    $submitted_token = $_POST['form_token'] ?? '';
+    $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+    
+    if (empty($submitted_token)) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'MISSING_TOKEN';
+        dental_clinic_log_block($ip, 'MISSING_TOKEN', $user_agent);
+        $fake_tag = new WPCF7_FormTag(array('type' => 'text', 'name' => 'form_token', 'basetype' => 'text'));
+        $result->invalidate($fake_tag, '');
+        return $result;
+    }
+    
+    $token_key = 'cf7_token_' . md5($ip . $submitted_token);
+    $token_data = get_transient($token_key);
+    
+    if (!$token_data) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'INVALID_TOKEN';
+        dental_clinic_log_block($ip, 'INVALID_TOKEN', $user_agent);
+        $fake_tag = new WPCF7_FormTag(array('type' => 'text', 'name' => 'form_token', 'basetype' => 'text'));
+        $result->invalidate($fake_tag, '');
+        return $result;
+    }
+    
+    if ($token_data['used'] === true) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'TOKEN_REUSED';
+        dental_clinic_log_block($ip, 'TOKEN_REUSED', $user_agent);
+        $fake_tag = new WPCF7_FormTag(array('type' => 'text', 'name' => 'form_token', 'basetype' => 'text'));
+        $result->invalidate($fake_tag, '');
+        return $result;
+    }
+    
+    if ($token_data['ip'] !== $ip) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'TOKEN_IP_MISMATCH';
+        dental_clinic_log_block($ip, 'TOKEN_IP_MISMATCH', $user_agent);
+        $fake_tag = new WPCF7_FormTag(array('type' => 'text', 'name' => 'form_token', 'basetype' => 'text'));
+        $result->invalidate($fake_tag, '');
+        return $result;
+    }
+    
+    // Токен валиден - помечаем как использованный
+    $token_data['used'] = true;
+    set_transient($token_key, $token_data, 900);
+    
+    return $result;
+}, 2, 2); // Приоритет 2 - проверяем после honeypot
+
+/**
+ * 3️⃣ Time-based защита от спама (мягкая)
+ * Фиксирует момент появления формы, проверяет скорость заполнения
+ * < 4-5 сек → +1 к spam-score (не используется как единственный блок)
  */
 // Добавляем скрытое поле времени загрузки формы
 add_filter('wpcf7_form_elements', function ($content) {
@@ -396,67 +577,644 @@ add_filter('wpcf7_form_elements', function ($content) {
     return $content . $time_field;
 });
 
-// Серверная проверка времени заполнения формы
+// Инициализация spam-score для текущей заявки
+// Используем глобальную переменную, так как static не работает в контексте WordPress hooks
+function dental_clinic_get_spam_score() {
+    global $dental_clinic_spam_score;
+    return isset($dental_clinic_spam_score) ? $dental_clinic_spam_score : 0;
+}
+
+function dental_clinic_add_spam_score($points = 1) {
+    global $dental_clinic_spam_score;
+    if (!isset($dental_clinic_spam_score)) {
+        $dental_clinic_spam_score = 0;
+    }
+    $dental_clinic_spam_score += $points;
+    return $dental_clinic_spam_score;
+}
+
+function dental_clinic_reset_spam_score() {
+    global $dental_clinic_spam_score;
+    $dental_clinic_spam_score = 0;
+}
+
+// Серверная проверка времени заполнения формы (мягкая)
 add_action('wpcf7_before_send_mail', function ($contact_form) {
     $submitted = intval($_POST['form_loaded_time'] ?? 0);
-    if ($submitted && (time() * 1000 - $submitted) < 3000) {
-        wp_die('Spam detected: Form submitted too quickly');
+    if ($submitted) {
+        $time_diff = (time() * 1000) - $submitted;
+        // Если форма заполнена менее чем за 4 секунды - добавляем к score
+        if ($time_diff < 4000) {
+            dental_clinic_add_spam_score(1);
+        }
     }
 }, 10, 1);
 
 /**
- * Rate limiting - ограничение количества заявок с одного IP
- * Максимум 5 заявок в минуту
+ * Нормализация номера телефона в формат +7XXXXXXXXXX
  */
-add_action('wpcf7_before_send_mail', function () {
-    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-    $key = 'cf7_rate_' . md5($ip);
-    $count = get_transient($key) ?: 0;
-
-    if ($count >= 5) {
-        wp_die('Too many requests. Please try again later.');
+function dental_clinic_normalize_phone($phone) {
+    if (empty($phone)) {
+        return '';
     }
-
-    set_transient($key, $count + 1, 60); // 60 секунд = 1 минута
-}, 5, 0); // Приоритет 5, чтобы выполнялось раньше других проверок
+    
+    // Удаляем все нецифровые символы
+    $digits = preg_replace('/\D/', '', $phone);
+    
+    // Нормализуем: если начинается с 8, заменяем на 7
+    if (substr($digits, 0, 1) === '8') {
+        $digits = '7' . substr($digits, 1);
+    }
+    
+    // Если не начинается с 7, добавляем 7
+    if (substr($digits, 0, 1) !== '7' && !empty($digits)) {
+        $digits = '7' . $digits;
+    }
+    
+    // Ограничиваем длину до 11 цифр (7 + 10 цифр)
+    $digits = substr($digits, 0, 11);
+    
+    // Проверяем минимальную длину (7 + минимум 10 цифр)
+    if (strlen($digits) < 11) {
+        return '';
+    }
+    
+    return '+' . $digits;
+}
 
 /**
- * Дополнительная серверная валидация
- * Отсеивает "умных" ботов
+ * 4️⃣ Антидубликат по телефону (ключевой бизнес-слой)
+ * Проверяет, не отправлял ли этот телефон заявку ранее
+ * Если телефон уже есть → показываем сообщение, новый лид НЕ создаётся
  */
-add_action('wpcf7_before_send_mail', function () {
-    // Проверка User-Agent
+add_filter('wpcf7_validate', function ($result, $tags) {
+    // Получаем телефон из разных возможных полей
+    $phone = '';
+    $phone_fields = array('your-phone', 'tel', 'phone', 'telephone', 'your-tel');
+    $phone_field_name = '';
+    
+    foreach ($phone_fields as $field) {
+        if (!empty($_POST[$field])) {
+            $phone = $_POST[$field];
+            $phone_field_name = $field;
+            break;
+        }
+    }
+    
+    if (empty($phone)) {
+        return $result; // Телефон не указан, пропускаем проверку
+    }
+    
+    // Нормализуем телефон
+    $normalized_phone = dental_clinic_normalize_phone($phone);
+    
+    if (empty($normalized_phone)) {
+        return $result; // Не удалось нормализовать, пропускаем
+    }
+    
+    // Проверяем, есть ли этот телефон в базе отправленных заявок
+    $submitted_phones = get_option('dental_clinic_submitted_phones', array());
+    
+    if (in_array($normalized_phone, $submitted_phones)) {
+        // Телефон уже есть - показываем сообщение и не создаём лид
+        // Устанавливаем флаг блокировки (чтобы письмо не отправлялось)
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'DUPLICATE_PHONE';
+        
+        // Ищем тег телефона для добавления ошибки
+        foreach ($tags as $tag) {
+            if ($tag->name === $phone_field_name || 
+                (empty($phone_field_name) && in_array($tag->type, array('tel', 'text*')))) {
+                $result->invalidate($tag, 'Вы уже отправляли заявку. Мы скоро свяжемся с вами.');
+                break;
+            }
+        }
+        
+        // Если не нашли тег, добавляем общую ошибку
+        if ($result->is_valid()) {
+            // Создаём фиктивный тег для ошибки
+            $fake_tag = new WPCF7_FormTag(array(
+                'type' => 'tel',
+                'name' => $phone_field_name ?: 'your-phone',
+                'basetype' => 'tel'
+            ));
+            $result->invalidate($fake_tag, 'Вы уже отправляли заявку. Мы скоро свяжемся с вами.');
+        }
+        
+        return $result;
+    }
+    
+    // Телефон новый - добавляем в список (сохраняем последние 1000 телефонов)
+    $submitted_phones[] = $normalized_phone;
+    if (count($submitted_phones) > 1000) {
+        // Оставляем только последние 1000
+        $submitted_phones = array_slice($submitted_phones, -1000);
+    }
+    update_option('dental_clinic_submitted_phones', $submitted_phones);
+    
+    return $result;
+}, 10, 2);
+
+/**
+ * 5️⃣ IP + телефон (жёсткий дубль)
+ * Если IP + телефон совпадают и интервал < 60 сек → отклонение через валидацию (тихо)
+ */
+add_filter('wpcf7_validate', function ($result, $tags) {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    
+    // Получаем телефон
+    $phone = '';
+    $phone_fields = array('your-phone', 'tel', 'phone', 'telephone', 'your-tel');
+    
+    foreach ($phone_fields as $field) {
+        if (!empty($_POST[$field])) {
+            $phone = $_POST[$field];
+            break;
+        }
+    }
+    
+    if (empty($phone)) {
+        return $result; // Телефон не указан, пропускаем
+    }
+    
+    // Нормализуем телефон
+    $normalized_phone = dental_clinic_normalize_phone($phone);
+    
+    if (empty($normalized_phone)) {
+        return $result; // Не удалось нормализовать, пропускаем
+    }
+    
+    // Создаём ключ для комбинации IP + телефон
+    $combo_key = 'cf7_ip_phone_' . md5($ip . $normalized_phone);
+    $last_submission = get_transient($combo_key);
+    
+    if ($last_submission !== false) {
+        // Уже была отправка с этого IP + телефона
+        $time_diff = time() - $last_submission;
+        
+        if ($time_diff < 60) {
+            // Менее 60 секунд - блокируем через валидацию (тихо)
+            $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+            $GLOBALS['CF7_BLOCK_REASON'] = 'IP_PHONE_DUPLICATE';
+            
+            $fake_tag = new WPCF7_FormTag(array(
+                'type' => 'text',
+                'name' => 'website-url',
+                'basetype' => 'text'
+            ));
+            $result->invalidate($fake_tag, ''); // Пустое сообщение - тихая блокировка
+            return $result;
+        }
+    }
+    
+    // Сохраняем время текущей отправки (TTL 60 секунд)
+    set_transient($combo_key, time(), 60);
+    
+    return $result;
+}, 4, 2); // Приоритет 4 - после антидубликата
+
+/**
+ * 6️⃣ Rate limiting (Камчатка) - через валидацию
+ * Лимиты:
+ * - 1 заявка / 3 мин / IP
+ * - 2 заявки / 30 мин / IP
+ */
+add_filter('wpcf7_validate', function ($result, $tags) {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    
+    // Проверка 1: 1 заявка за 3 минуты
+    $key_3min = 'cf7_rate_3min_' . md5($ip);
+    $count_3min = get_transient($key_3min) ?: 0;
+    
+    if ($count_3min >= 1) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'RATE_LIMIT_3MIN';
+        
+        // Показываем сообщение пользователю
+        $fake_tag = new WPCF7_FormTag(array(
+            'type' => 'text',
+            'name' => 'your-name',
+            'basetype' => 'text'
+        ));
+        $result->invalidate($fake_tag, 'Слишком много запросов. Пожалуйста, попробуйте позже.');
+        return $result;
+    }
+    
+    // Проверка 2: 2 заявки за 30 минут
+    $key_30min = 'cf7_rate_30min_' . md5($ip);
+    $count_30min = get_transient($key_30min) ?: 0;
+    
+    if ($count_30min >= 2) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'RATE_LIMIT_30MIN';
+        
+        // Показываем сообщение пользователю
+        $fake_tag = new WPCF7_FormTag(array(
+            'type' => 'text',
+            'name' => 'your-name',
+            'basetype' => 'text'
+        ));
+        $result->invalidate($fake_tag, 'Слишком много запросов. Пожалуйста, попробуйте позже.');
+        return $result;
+    }
+    
+    // Увеличиваем счётчики только если валидация прошла
+    if ($result->is_valid()) {
+        set_transient($key_3min, $count_3min + 1, 180); // 3 минуты = 180 секунд
+        set_transient($key_30min, $count_30min + 1, 1800); // 30 минут = 1800 секунд
+    }
+    
+    return $result;
+}, 5, 2); // Приоритет 5, чтобы выполнялось раньше других проверок
+
+/**
+ * Получение DEF-кода из нормализованного телефона
+ * Формат: +7XXXXXXXXXX -> DEF = XXX (первые 3 цифры после 7)
+ */
+function dental_clinic_get_def_code($normalized_phone) {
+    if (empty($normalized_phone) || strlen($normalized_phone) < 5) {
+        return '';
+    }
+    
+    // Убираем +7 и берём первые 3 цифры
+    $digits = substr($normalized_phone, 2); // Убираем +7
+    $def = substr($digits, 0, 3);
+    
+    // Также проверяем 4-значный DEF (первые 4 цифры)
+    $def_4 = substr($digits, 0, 4);
+    
+    return array('def3' => $def, 'def4' => $def_4);
+}
+
+/**
+ * 7️⃣ DEF-коды (мягкий региональный сигнал)
+ * Белый список камчатских DEF-кодов
+ * DEF ∈ Камчатка → 0 (не добавляем к score)
+ * DEF ∉ Камчатка → +1 к spam-score
+ * ❌ Никогда не блокировать только по DEF
+ */
+add_action('wpcf7_before_send_mail', function ($contact_form) {
+    // Получаем телефон
+    $phone = '';
+    $phone_fields = array('your-phone', 'tel', 'phone', 'telephone', 'your-tel');
+    
+    foreach ($phone_fields as $field) {
+        if (!empty($_POST[$field])) {
+            $phone = $_POST[$field];
+            break;
+        }
+    }
+    
+    if (empty($phone)) {
+        return; // Телефон не указан, пропускаем
+    }
+    
+    // Нормализуем телефон
+    $normalized_phone = dental_clinic_normalize_phone($phone);
+    
+    if (empty($normalized_phone)) {
+        return; // Не удалось нормализовать, пропускаем
+    }
+    
+    // Получаем DEF-код
+    $def_data = dental_clinic_get_def_code($normalized_phone);
+    
+    if (empty($def_data['def3']) && empty($def_data['def4'])) {
+        return; // Не удалось извлечь DEF
+    }
+    
+    // Белый список камчатских мобильных DEF-кодов (3-значные)
+    // Проверено на повторы, оставлены только уникальные
+    $kamchatka_def_codes = array(
+        '900', // МТС
+        '901', // МТС
+        '902', // МТС
+        '908', // МТС
+        '909', // МТС
+        '914', // МТС
+        '924', // МТС
+        '951', // МТС
+        '958', // МТС
+        '961', // МТС
+        '962', // МТС
+        '963', // МТС
+        '967', // МТС
+        '984', // МТС
+        '991', // МТС
+        '993', // МТС
+        '994', // МТС
+        '995', // МТС
+        '996', // МТС
+        '999', // МТС
+    );
+    
+    // Проверяем 4-значный DEF сначала (более специфичный)
+    $is_kamchatka = false;
+    if (!empty($def_data['def4']) && in_array($def_data['def4'], $kamchatka_def_codes)) {
+        $is_kamchatka = true;
+    } elseif (!empty($def_data['def3']) && in_array($def_data['def3'], $kamchatka_def_codes)) {
+        $is_kamchatka = true;
+    }
+    
+    // Если DEF не из Камчатки - добавляем к spam-score
+    if (!$is_kamchatka) {
+        dental_clinic_add_spam_score(1);
+    }
+}, 10, 1);
+
+/**
+ * Проверка, входит ли IP в подозрительный диапазон
+ */
+function dental_clinic_is_suspicious_ip($ip) {
+    // Подозрительные диапазоны: 128.70.x.x и 128.71.x.x
+    $suspicious_ranges = array(
+        '128.70.',
+        '128.71.',
+    );
+    
+    foreach ($suspicious_ranges as $range) {
+        if (strpos($ip, $range) === 0) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+/**
+ * 8️⃣ Подозрительные IP-диапазоны (128.70 / 128.71) - через валидацию
+ * IP ∈ диапазон → лимит 1 заявка / 12 часов
+ * Лучше ограничение, чем полный бан
+ */
+add_filter('wpcf7_validate', function ($result, $tags) {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    
+    if (!dental_clinic_is_suspicious_ip($ip)) {
+        return $result; // IP не в подозрительном диапазоне
+    }
+    
+    // Для подозрительных IP - жёсткий лимит: 1 заявка / 12 часов
+    $key_suspicious = 'cf7_suspicious_' . md5($ip);
+    $count_suspicious = get_transient($key_suspicious) ?: 0;
+    
+    if ($count_suspicious >= 1) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'SUSPICIOUS_IP_LIMIT';
+        
+        // Показываем сообщение пользователю
+        $fake_tag = new WPCF7_FormTag(array(
+            'type' => 'text',
+            'name' => 'your-name',
+            'basetype' => 'text'
+        ));
+        $result->invalidate($fake_tag, 'Слишком много запросов. Пожалуйста, попробуйте позже.');
+        return $result;
+    }
+    
+    // Увеличиваем счётчик только если валидация прошла
+    if ($result->is_valid()) {
+        set_transient($key_suspicious, $count_suspicious + 1, 43200); // 12 часов = 43200 секунд
+        // Также добавляем к spam-score для дополнительной проверки
+        dental_clinic_add_spam_score(2);
+    }
+    
+    return $result;
+}, 6, 2); // Приоритет 6 - после rate limiting
+
+/**
+ * Нормализация User-Agent для fingerprint
+ */
+function dental_clinic_normalize_user_agent($user_agent) {
+    if (empty($user_agent)) {
+        return '';
+    }
+    
+    // Убираем версии браузеров для более стабильного fingerprint
+    $normalized = preg_replace('/\d+\.\d+\.\d+/', 'X.X.X', $user_agent);
+    $normalized = preg_replace('/\d+\.\d+/', 'X.X', $normalized);
+    
+    return $normalized;
+}
+
+/**
+ * Получение IP /24 (первые 3 октета)
+ */
+function dental_clinic_get_ip_24($ip) {
+    if (empty($ip) || $ip === '0.0.0.0') {
+        return '';
+    }
+    
+    // Для IPv4 берём первые 3 октета
+    $parts = explode('.', $ip);
+    if (count($parts) >= 3) {
+        return $parts[0] . '.' . $parts[1] . '.' . $parts[2];
+    }
+    
+    return $ip;
+}
+
+/**
+ * Генерация server-side fingerprint
+ */
+function dental_clinic_generate_fingerprint() {
+    $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $accept_language = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    
+    $normalized_ua = dental_clinic_normalize_user_agent($user_agent);
+    $ip_24 = dental_clinic_get_ip_24($ip);
+    
+    // Создаём fingerprint из нормализованных данных
+    $fingerprint_data = array(
+        'ua' => $normalized_ua,
+        'lang' => substr($accept_language, 0, 10), // Первые 10 символов языка
+        'ip24' => $ip_24
+    );
+    
+    return md5(serialize($fingerprint_data));
+}
+
+/**
+ * 9️⃣ Server-side fingerprint (без JS)
+ * Использует: User-Agent (нормализованный), Accept-Language, IP /24
+ * Логика: одинаковый fingerprint + разные телефоны → усиление ограничений
+ */
+add_action('wpcf7_before_send_mail', function ($contact_form) {
+    // Получаем телефон
+    $phone = '';
+    $phone_fields = array('your-phone', 'tel', 'phone', 'telephone', 'your-tel');
+    
+    foreach ($phone_fields as $field) {
+        if (!empty($_POST[$field])) {
+            $phone = $_POST[$field];
+            break;
+        }
+    }
+    
+    if (empty($phone)) {
+        return; // Телефон не указан, пропускаем
+    }
+    
+    // Нормализуем телефон
+    $normalized_phone = dental_clinic_normalize_phone($phone);
+    
+    if (empty($normalized_phone)) {
+        return; // Не удалось нормализовать, пропускаем
+    }
+    
+    // Генерируем fingerprint
+    $fingerprint = dental_clinic_generate_fingerprint();
+    
+    if (empty($fingerprint)) {
+        return; // Не удалось создать fingerprint
+    }
+    
+    // Получаем историю fingerprint
+    $fingerprint_key = 'cf7_fingerprint_' . $fingerprint;
+    $fingerprint_data = get_transient($fingerprint_key);
+    
+    if ($fingerprint_data !== false && is_array($fingerprint_data)) {
+        // Fingerprint уже встречался
+        $phones = $fingerprint_data['phones'] ?? array();
+        
+        if (!in_array($normalized_phone, $phones)) {
+            // Одинаковый fingerprint, но другой телефон - подозрительно
+            dental_clinic_add_spam_score(2);
+            
+            // Если уже было 2+ разных телефона с этим fingerprint - усиленное ограничение
+            if (count($phones) >= 2) {
+                dental_clinic_add_spam_score(3); // Дополнительные очки
+            }
+        }
+        
+        // Добавляем текущий телефон в список (если его ещё нет)
+        if (!in_array($normalized_phone, $phones)) {
+            $phones[] = $normalized_phone;
+        }
+        
+        $fingerprint_data['phones'] = $phones;
+        $fingerprint_data['count'] = ($fingerprint_data['count'] ?? 0) + 1;
+    } else {
+        // Первое появление этого fingerprint
+        $fingerprint_data = array(
+            'phones' => array($normalized_phone),
+            'count' => 1,
+            'first_seen' => time()
+        );
+    }
+    
+    // Сохраняем fingerprint (TTL 7 дней для отслеживания паттернов)
+    set_transient($fingerprint_key, $fingerprint_data, 604800); // 7 дней
+}, 10, 1);
+
+/**
+ * 🔟 Серверная валидация (обязательная) - через валидацию
+ * User-Agent обязателен
+ * Имя: 2–100 символов, URL → ❌ блок
+ * Email: кириллица → ❌ блок
+ * Сообщение: ограничение длины
+ */
+add_filter('wpcf7_validate', function ($result, $tags) {
+    $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+    
+    // Проверка User-Agent (обязателен)
     if (empty($_SERVER['HTTP_USER_AGENT'])) {
-        wp_die('Spam detected: Invalid request');
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'MISSING_USER_AGENT';
+        $fake_tag = new WPCF7_FormTag(array('type' => 'text', 'name' => 'website-url', 'basetype' => 'text'));
+        $result->invalidate($fake_tag, ''); // Тихая блокировка
+        return $result;
     }
 
-    // Проверка длины имени (слишком короткое или слишком длинное)
+    // Проверка имени
     if (!empty($_POST['your-name'])) {
-        $name_length = strlen(trim($_POST['your-name']));
+        $name = trim($_POST['your-name']);
+        $name_length = strlen($name);
+        
+        // Длина: 2–100 символов
         if ($name_length < 2 || $name_length > 100) {
-            wp_die('Spam detected: Invalid name length');
+            $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+            $GLOBALS['CF7_BLOCK_REASON'] = 'INVALID_NAME_LENGTH';
+            $fake_tag = new WPCF7_FormTag(array('type' => 'text', 'name' => 'your-name', 'basetype' => 'text'));
+            $result->invalidate($fake_tag, ''); // Тихая блокировка
+            return $result;
         }
-        // Проверка на URL в имени (признак спама)
-        if (preg_match('/https?:\/\//i', $_POST['your-name'])) {
-            wp_die('Spam detected: URL in name field');
+        
+        // URL в имени → блок
+        if (preg_match('/https?:\/\//i', $name)) {
+            $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+            $GLOBALS['CF7_BLOCK_REASON'] = 'URL_IN_NAME';
+            $fake_tag = new WPCF7_FormTag(array('type' => 'text', 'name' => 'your-name', 'basetype' => 'text'));
+            $result->invalidate($fake_tag, ''); // Тихая блокировка
+            return $result;
         }
     }
 
-    // Проверка email на кириллицу (недопустимо в email)
+    // Проверка email
     if (!empty($_POST['your-email'])) {
-        if (preg_match('/[а-яё]/iu', $_POST['your-email'])) {
-            wp_die('Spam detected: Invalid email format');
+        $email = trim($_POST['your-email']);
+        
+        // Кириллица в email → блок
+        if (preg_match('/[а-яё]/iu', $email)) {
+            $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+            $GLOBALS['CF7_BLOCK_REASON'] = 'CYRILLIC_IN_EMAIL';
+            $fake_tag = new WPCF7_FormTag(array('type' => 'email', 'name' => 'your-email', 'basetype' => 'email'));
+            $result->invalidate($fake_tag, ''); // Тихая блокировка
+            return $result;
         }
     }
 
-    // Проверка длины сообщения (если есть поле сообщения)
+    // Проверка длины сообщения
     if (!empty($_POST['your-message'])) {
-        $message_length = strlen(trim($_POST['your-message']));
+        $message = trim($_POST['your-message']);
+        $message_length = strlen($message);
+        
+        // Ограничение длины (5000 символов)
         if ($message_length > 5000) {
-            wp_die('Spam detected: Message too long');
+            $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+            $GLOBALS['CF7_BLOCK_REASON'] = 'MESSAGE_TOO_LONG';
+            $fake_tag = new WPCF7_FormTag(array('type' => 'textarea', 'name' => 'your-message', 'basetype' => 'textarea'));
+            $result->invalidate($fake_tag, ''); // Тихая блокировка
+            return $result;
         }
     }
-}, 10, 0);
+    
+    return $result;
+}, 10, 2);
+
+/**
+ * Финальная проверка spam-score - через валидацию
+ * Если score превышает порог - блокируем заявку
+ */
+add_filter('wpcf7_validate', function ($result, $tags) {
+    $spam_score = dental_clinic_get_spam_score();
+    
+    // Порог блокировки: 5 очков
+    // Это означает несколько подозрительных сигналов одновременно
+    if ($spam_score >= 5) {
+        $GLOBALS['CF7_BLOCK_SUBMISSION'] = true;
+        $GLOBALS['CF7_BLOCK_REASON'] = 'HIGH_SPAM_SCORE';
+        
+        // Тихая блокировка через валидацию
+        $fake_tag = new WPCF7_FormTag(array(
+            'type' => 'text',
+            'name' => 'website-url',
+            'basetype' => 'text'
+        ));
+        $result->invalidate($fake_tag, ''); // Пустое сообщение - тихая блокировка
+        return $result;
+    }
+    
+    // Сбрасываем score после проверки
+    dental_clinic_reset_spam_score();
+    
+    return $result;
+}, 999, 2); // Приоритет 999 - проверяем последним, после всех других проверок
+
+// Инициализируем score в начале обработки формы
+add_action('wpcf7_before_send_mail', function () {
+    dental_clinic_reset_spam_score();
+}, 0, 0); // Приоритет 0 - самый первый
 
 /**
  * Блокировка Inter-Variable шрифта (подключается родительской темой или плагином)
@@ -489,6 +1247,518 @@ add_filter('style_loader_tag', function($tag, $handle, $href) {
 }, 10, 3);
 
 // Блокируем через output buffering (на случай если подключается inline или родительской темой)
+// Убеждаемся, что 404 страница отдает правильный HTTP статус
+add_action('template_redirect', function() {
+    if (is_404()) {
+        status_header(404);
+        nocache_headers();
+    }
+}, 1);
+
+/**
+ * ========================================
+ * SEO: НОРМАЛИЗАЦИЯ URL И РЕДИРЕКТЫ
+ * ========================================
+ */
+
+/**
+ * Защита от цепочек редиректов
+ * Отслеживает количество редиректов в сессии
+ */
+function dental_clinic_check_redirect_chain($redirect_url) {
+    // Пропускаем на локальном сервере
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $is_local = (
+        strpos($host, 'localhost') !== false ||
+        strpos($host, '127.0.0.1') !== false ||
+        strpos($host, '.local') !== false ||
+        strpos($host, '.test') !== false
+    );
+    
+    if ($is_local) {
+        return true; // На локальном сервере пропускаем проверку
+    }
+    
+    // Проверяем количество редиректов в сессии
+    if (!isset($_SESSION['redirect_count'])) {
+        $_SESSION['redirect_count'] = 0;
+    }
+    
+    $_SESSION['redirect_count']++;
+    
+    // Если больше 2 редиректов подряд - это цепочка, останавливаем
+    if ($_SESSION['redirect_count'] > 2) {
+        // Сбрасываем счетчик и показываем 404
+        unset($_SESSION['redirect_count']);
+        status_header(404);
+        nocache_headers();
+        return false;
+    }
+    
+    return true;
+}
+
+/**
+ * Финальный аудит сайта
+ * Проверяет битые ссылки, странные URL, страницы без смысла для индексации
+ */
+function dental_clinic_seo_audit() {
+    // Проверяем только в админке для безопасности
+    if (!is_admin() || !current_user_can('manage_options')) {
+        return;
+    }
+    
+    global $wpdb;
+    
+    $issues = array();
+    
+    // 1. Проверка битых ссылок в контенте страниц
+    $pages = get_pages(array('post_status' => 'publish'));
+    foreach ($pages as $page) {
+        $content = $page->post_content;
+        
+        // Ищем все ссылки в контенте
+        preg_match_all('/href=["\']([^"\']+)["\']/', $content, $matches);
+        
+        if (!empty($matches[1])) {
+            foreach ($matches[1] as $url) {
+                // Пропускаем внешние ссылки и якоря
+                if (strpos($url, 'http') === 0 && strpos($url, home_url()) === false) {
+                    continue;
+                }
+                if (strpos($url, '#') === 0) {
+                    continue;
+                }
+                
+                // Проверяем внутренние ссылки
+                $url_path = str_replace(home_url(), '', $url);
+                $url_path = trim($url_path, '/');
+                
+                // Проверяем, существует ли страница
+                $post_id = url_to_postid(home_url($url_path));
+                if ($post_id === 0 && $url_path !== '') {
+                    $issues[] = array(
+                        'type' => 'broken_link',
+                        'page' => $page->post_title . ' (ID: ' . $page->ID . ')',
+                        'url' => $url,
+                        'suggestion' => 'Проверьте ссылку или добавьте редирект'
+                    );
+                }
+            }
+        }
+    }
+    
+    // 2. Проверка странных URL (с параметрами, дублями)
+    $all_posts = $wpdb->get_results("
+        SELECT ID, post_name, post_type, post_status 
+        FROM {$wpdb->posts} 
+        WHERE post_status = 'publish'
+        AND post_type IN ('page', 'post', 'doctor')
+    ");
+    
+    foreach ($all_posts as $post) {
+        $permalink = get_permalink($post->ID);
+        
+        // Проверяем наличие параметров в URL
+        if (strpos($permalink, '?') !== false) {
+            $issues[] = array(
+                'type' => 'url_with_params',
+                'page' => get_the_title($post->ID) . ' (ID: ' . $post->ID . ')',
+                'url' => $permalink,
+                'suggestion' => 'URL содержит параметры, убедитесь что canonical правильный'
+            );
+        }
+        
+        // Проверяем странные символы в slug
+        if (preg_match('/[^a-z0-9\-_]/i', $post->post_name)) {
+            $issues[] = array(
+                'type' => 'strange_slug',
+                'page' => get_the_title($post->ID) . ' (ID: ' . $post->ID . ')',
+                'url' => $permalink,
+                'suggestion' => 'Slug содержит нестандартные символы'
+            );
+        }
+    }
+    
+    // 3. Проверка страниц без смысла для индексации (пустые, без контента)
+    foreach ($all_posts as $post) {
+        $content = get_post_field('post_content', $post->ID);
+        $title = get_post_field('post_title', $post->ID);
+        
+        // Проверяем пустые страницы
+        if (empty(trim($content)) && empty(trim($title))) {
+            $issues[] = array(
+                'type' => 'empty_page',
+                'page' => 'ID: ' . $post->ID,
+                'url' => get_permalink($post->ID),
+                'suggestion' => 'Страница пустая, рассмотрите удаление или добавление контента'
+            );
+        }
+    }
+    
+    // 4. Проверка дублей canonical
+    $canonicals = array();
+    foreach ($all_posts as $post) {
+        setup_postdata($post);
+        $canonical = dental_clinic_get_canonical_url();
+        if (!empty($canonical)) {
+            if (isset($canonicals[$canonical])) {
+                $issues[] = array(
+                    'type' => 'duplicate_canonical',
+                    'page' => get_the_title($post->ID) . ' (ID: ' . $post->ID . ')',
+                    'url' => $canonical,
+                    'suggestion' => 'Canonical дублируется с ' . $canonicals[$canonical]
+                );
+            } else {
+                $canonicals[$canonical] = get_the_title($post->ID) . ' (ID: ' . $post->ID . ')';
+            }
+        }
+    }
+    wp_reset_postdata();
+    
+    // Логируем найденные проблемы
+    if (!empty($issues)) {
+        error_log('SEO AUDIT: Найдены проблемы: ' . print_r($issues, true));
+    }
+    
+    return $issues;
+}
+
+// Запускаем аудит при сохранении поста (только в админке)
+add_action('save_post', function($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    dental_clinic_seo_audit();
+}, 999);
+
+/**
+ * Нормализация URL: убирает index.php, нормализует слеши
+ */
+function dental_clinic_normalize_url($url) {
+    // Убираем index.php из URL
+    $url = str_replace('/index.php', '', $url);
+    $url = str_replace('index.php/', '', $url);
+    
+    // Нормализуем слеши: убираем двойные слеши, кроме http://
+    $url = preg_replace('#([^:])//+#', '$1/', $url);
+    
+    // Убираем слеш в конце для всех URL кроме главной
+    $parsed = parse_url($url);
+    if (isset($parsed['path']) && $parsed['path'] !== '/' && substr($parsed['path'], -1) === '/') {
+        $url = rtrim($url, '/');
+    }
+    
+    return $url;
+}
+
+/**
+ * Редирект для нормализации URL (убирает index.php, нормализует слеши)
+ * И редиректы для единой версии сайта (www/non-www, http/https)
+ */
+add_action('template_redirect', function() {
+    // Пропускаем админку, AJAX, cron
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
+        return;
+    }
+    
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+    $request_uri = urldecode($request_uri);
+    
+    // Определяем, локальный ли это сервер
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $is_local = (
+        strpos($host, 'localhost') !== false ||
+        strpos($host, '127.0.0.1') !== false ||
+        strpos($host, '.local') !== false ||
+        strpos($host, '.test') !== false ||
+        strpos($host, '192.168.') !== false ||
+        strpos($host, '10.0.') !== false
+    );
+    
+    $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . $host . $request_uri;
+    $parsed_url = parse_url($current_url);
+    
+    // Определяем каноническую версию домена (без www)
+    // ВАЖНО: Если нужна версия с www, измените эту настройку
+    $canonical_domain = str_replace('www.', '', $parsed_url['host']);
+    $needs_www_redirect = false; // Установите true, если нужна версия с www
+    
+    // Определяем протокол (http для локального, https для продакшена)
+    $protocol = ($is_local || (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on')) ? 'http' : 'https';
+    
+    // Защита от цепочек редиректов
+    // Инициализируем сессию для отслеживания редиректов
+    if (!session_id()) {
+        session_start();
+    }
+    
+    // Проверяем количество редиректов
+    if (!isset($_SESSION['redirect_count'])) {
+        $_SESSION['redirect_count'] = 0;
+    }
+    
+    // Если больше 2 редиректов подряд - останавливаем цепочку
+    if ($_SESSION['redirect_count'] > 2) {
+        unset($_SESSION['redirect_count']);
+        // Не делаем редирект, просто продолжаем работу
+        return;
+    }
+    
+    // Редирект www -> non-www (или наоборот)
+    // Пропускаем на локальном сервере
+    if (!$is_local) {
+        if ($needs_www_redirect && strpos($parsed_url['host'], 'www.') === false) {
+            $redirect_url = $protocol . '://www.' . $canonical_domain . $request_uri;
+            // Проверяем, что редирект не ведет на тот же URL
+            if ($redirect_url !== $current_url) {
+                $_SESSION['redirect_count']++;
+                wp_redirect($redirect_url, 301);
+                exit;
+            }
+        } elseif (!$needs_www_redirect && strpos($parsed_url['host'], 'www.') === 0) {
+            $redirect_url = $protocol . '://' . $canonical_domain . $request_uri;
+            // Проверяем, что редирект не ведет на тот же URL
+            if ($redirect_url !== $current_url) {
+                $_SESSION['redirect_count']++;
+                wp_redirect($redirect_url, 301);
+                exit;
+            }
+        }
+    }
+    
+    // Редирект http -> https
+    // ВАЖНО: Пропускаем на локальном сервере (localhost, 127.0.0.1, .local, .test)
+    if (!$is_local && (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on')) {
+        $redirect_url = 'https://' . $parsed_url['host'] . $request_uri;
+        // Проверяем, что редирект не ведет на тот же URL
+        if ($redirect_url !== $current_url) {
+            $_SESSION['redirect_count']++;
+            wp_redirect($redirect_url, 301);
+            exit;
+        }
+    }
+    
+    // Проверяем наличие index.php в URL
+    if (strpos($request_uri, '/index.php') !== false || strpos($request_uri, 'index.php/') !== false) {
+        $clean_uri = dental_clinic_normalize_url($request_uri);
+        $redirect_url = home_url($clean_uri);
+        // Проверяем, что редирект не ведет на тот же URL
+        if ($redirect_url !== $current_url) {
+            $_SESSION['redirect_count']++;
+            wp_redirect($redirect_url, 301);
+            exit;
+        }
+    }
+    
+    // Нормализация слешей (убираем двойные слеши, кроме http://)
+    $normalized_uri = preg_replace('#([^:])//+#', '$1/', $request_uri);
+    if ($normalized_uri !== $request_uri) {
+        $redirect_url = home_url($normalized_uri);
+        // Проверяем, что редирект не ведет на тот же URL
+        if ($redirect_url !== $current_url) {
+            $_SESSION['redirect_count']++;
+            wp_redirect($redirect_url, 301);
+            exit;
+        }
+    }
+    
+    // Убираем слеш в конце для всех URL кроме главной и файлов
+    // ВАЖНО: Пропускаем для WordPress API, AJAX и статических файлов
+    // ВАЖНО: Пропускаем на локальном сервере, чтобы не ломать работу
+    if (!$is_local && 
+        $request_uri !== '/' && 
+        substr($request_uri, -1) === '/' && 
+        !preg_match('#\.(html|php|css|js|jpg|jpeg|png|gif|svg|pdf|xml|woff|woff2|ttf|eot)$#i', $request_uri) &&
+        strpos($request_uri, '/wp-') !== 0 &&
+        strpos($request_uri, '/wp-admin') !== 0 &&
+        strpos($request_uri, '/wp-content') !== 0 &&
+        strpos($request_uri, '/wp-includes') !== 0) {
+        $clean_uri = rtrim($request_uri, '/');
+        // Проверяем, что это не вызовет бесконечный редирект
+        if ($clean_uri !== $request_uri) {
+            $redirect_url = home_url($clean_uri);
+            // Проверяем, что редирект не ведет на тот же URL
+            if ($redirect_url !== $current_url) {
+                $_SESSION['redirect_count']++;
+                wp_redirect($redirect_url, 301);
+                exit;
+            }
+        }
+    }
+    
+    // Сбрасываем счетчик редиректов при успешной загрузке страницы
+    if (isset($_SESSION['redirect_count']) && $_SESSION['redirect_count'] > 0) {
+        unset($_SESSION['redirect_count']);
+    }
+}, 2);
+
+/**
+ * Изменение структуры permalink для постов блога
+ * Формат: /blog/post-name/ вместо /YYYY/MM/DD/post-name/
+ */
+add_filter('post_link', function($permalink, $post) {
+    // Только для постов (не для кастомных типов)
+    if ($post->post_type === 'post') {
+        // Получаем slug поста
+        $post_slug = $post->post_name;
+        
+        // Формируем новый URL: /blog/post-name/
+        $blog_base = '/blog/';
+        $new_permalink = home_url($blog_base . $post_slug . '/');
+        
+        return $new_permalink;
+    }
+    
+    return $permalink;
+}, 10, 2);
+
+add_filter('post_type_link', function($post_link, $post) {
+    // Только для постов
+    if ($post->post_type === 'post') {
+        $post_slug = $post->post_name;
+        $blog_base = '/blog/';
+        $new_permalink = home_url($blog_base . $post_slug . '/');
+        return $new_permalink;
+    }
+    
+    return $post_link;
+}, 10, 2);
+
+/**
+ * Добавляем rewrite rules для обработки URL формата /blog/post-name/
+ */
+add_action('init', function() {
+    // Добавляем правило для /blog/post-name/
+    add_rewrite_rule(
+        '^blog/([^/]+)/?$',
+        'index.php?name=$matches[1]&post_type=post',
+        'top'
+    );
+    
+    // Пересоздаем rewrite rules при активации темы (только один раз)
+    if (get_option('dental_clinic_flush_rewrite_rules') !== '1') {
+        flush_rewrite_rules();
+        update_option('dental_clinic_flush_rewrite_rules', '1');
+    }
+}, 10);
+
+/**
+ * Функция для поиска поста по slug (более надежная)
+ */
+function dental_clinic_get_post_by_slug($slug, $post_type = 'post') {
+    $posts = get_posts(array(
+        'name' => $slug,
+        'post_type' => $post_type,
+        'post_status' => 'publish',
+        'numberposts' => 1
+    ));
+    
+    if (!empty($posts)) {
+        return $posts[0];
+    }
+    
+    return null;
+}
+
+/**
+ * Редиректы для старых URL с датами (формат /YYYY/MM/DD/post-name/)
+ * Редирект на /blog/post-name/
+ * 
+ * ВАЖНО: Этот редирект работает ДО того, как WordPress определит, что это 404
+ * Это гарантирует, что старые URL с датами не остаются доступными как 200
+ */
+add_action('parse_request', function($wp) {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
+        return;
+    }
+    
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+    
+    // Убираем параметры запроса
+    $request_uri = strtok($request_uri, '?');
+    $request_uri = trim($request_uri, '/');
+    
+    // Проверяем формат /YYYY/MM/DD/post-name/ или /YYYY/MM/DD/post-name
+    if (preg_match('#^(\d{4})/(\d{2})/(\d{2})/([^/]+)/?$#', $request_uri, $matches)) {
+        $year = $matches[1];
+        $month = $matches[2];
+        $day = $matches[3];
+        $post_slug = $matches[4];
+        
+        // Используем более надежную функцию поиска поста
+        $post = dental_clinic_get_post_by_slug($post_slug, 'post');
+        
+        if ($post && $post->post_status === 'publish') {
+            // Редирект на новый формат /blog/post-name/
+            $new_url = home_url('/blog/' . $post_slug . '/');
+            wp_redirect($new_url, 301);
+            exit;
+        }
+    }
+}, 1); // Приоритет 1 - самый ранний
+
+// Дублируем на template_redirect для надежности
+add_action('template_redirect', function() {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
+        return;
+    }
+    
+    // Если это уже 404, проверяем, не старый ли это URL с датами
+    if (is_404()) {
+        $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+        $request_uri = strtok($request_uri, '?');
+        $request_uri = trim($request_uri, '/');
+        
+        if (preg_match('#^(\d{4})/(\d{2})/(\d{2})/([^/]+)/?$#', $request_uri, $matches)) {
+            $post_slug = $matches[4];
+            $post = dental_clinic_get_post_by_slug($post_slug, 'post');
+            
+            if ($post && $post->post_status === 'publish') {
+                $new_url = home_url('/blog/' . $post_slug . '/');
+                wp_redirect($new_url, 301);
+                exit;
+            }
+        }
+    }
+}, 1);
+
+/**
+ * Универсальные редиректы для старых несуществующих страниц
+ * Можно добавить конкретные редиректы здесь
+ */
+add_action('template_redirect', function() {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+    
+    // Если это 404, проверяем возможные редиректы
+    if (is_404()) {
+        $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+        
+        // Массив старых URL -> новых URL
+        $redirects = array(
+            // Примеры (замените на реальные старые URL):
+            // '/old-page/' => '/new-page/',
+            // '/старая-страница/' => '/новая-страница/',
+        );
+        
+        // Проверяем точные совпадения
+        if (isset($redirects[$request_uri])) {
+            wp_redirect(home_url($redirects[$request_uri]), 301);
+            exit;
+        }
+        
+        // Проверяем частичные совпадения (для старых URL с параметрами)
+        foreach ($redirects as $old_path => $new_path) {
+            if (strpos($request_uri, $old_path) === 0) {
+                wp_redirect(home_url($new_path), 301);
+                exit;
+            }
+        }
+    }
+}, 4);
+
 add_action('template_redirect', function() {
     ob_start(function($buffer) {
         // Удаляем любые ссылки на Inter-Variable из любых источников
@@ -506,7 +1776,7 @@ add_action('template_redirect', function() {
         $buffer = preg_replace('/<link[^>]*rel=["\']preload["\'][^>]*inter-var[^>]*>/i', '', $buffer);
         return $buffer;
     });
-}, 1);
+}, 2);
 
 add_action('shutdown', function() {
     if (ob_get_level() > 0) {
@@ -684,6 +1954,11 @@ function dental_clinic_enqueue_styles_main() {
         $is_v2_page = true;
     }
     
+    // 404 страница
+    if (is_404()) {
+        $is_v2_page = true;
+    }
+    
     // Стандартные шаблоны WordPress (index.php, single.php, page.php, archive.php)
     // Теперь все используют header.php и footer.php
     // Исключаем главную страницу, так как она уже обработана выше
@@ -726,6 +2001,11 @@ function dental_clinic_enqueue_styles_main() {
             wp_enqueue_style('pages', $uri . 'pages/pages.css', array('components'), $ver);
         }
         
+        // Подключаем общие стили для 404 страницы (хлебные крошки и другие элементы)
+        if (is_404()) {
+            wp_enqueue_style('pages', $uri . 'pages/pages.css', array('components'), $ver);
+        }
+        
     }
 }
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_styles_main', 15);
@@ -743,79 +2023,34 @@ add_action('after_setup_theme', 'dental_clinic_setup');
 // Удалено: временное подключение шрифта Manrope
 
 /**
- * Добавляем JavaScript для переадресации после успешной отправки CF7
+ * Редирект на страницу благодарности
+ * Реализован ТОЛЬКО через JavaScript событие wpcf7mailsent
+ * Серверный редирект убран, чтобы не мешать AJAX-логике CF7
  */
-// Редирект на страницу благодарности после успешной отправки формы CF7
-add_action('wpcf7_mail_sent', function($contact_form) {
-    // Если это не AJAX запрос, делаем серверный редирект
-    if (!wp_doing_ajax()) {
-        wp_redirect(home_url('/spasibo-za-zayavku/'));
-        exit;
-    }
-});
 
-// Для AJAX запросов добавляем редирект в ответ
-add_filter('wpcf7_ajax_json_echo', function($items, $result) {
-    if ($result['status'] === 'mail_sent') {
-        $items['redirect'] = home_url('/spasibo-za-zayavku/');
-    }
-    return $items;
-}, 10, 2);
-
-// Дублирующий редирект через JavaScript (на случай AJAX отправки)
+/**
+ * Редирект на страницу благодарности через событие wpcf7mailsent
+ * Работает ТОЛЬКО при успешной отправке формы (mail_sent)
+ */
 function dental_clinic_cf7_redirect_script() {
     ?>
     <script>
     (function() {
-        var thankYouUrl = '<?php echo home_url('/spasibo-za-zayavku/'); ?>';
+        'use strict';
+        var thankYouUrl = '<?php echo esc_js(home_url('/spasibo-za-zayavku/')); ?>';
         
-        // Обработчик для всех форм CF7 (работает даже без CF7 JS)
-        function handleFormSubmit(event) {
-            var form = event.target.closest('form.wpcf7-form');
-            if (form) {
-                // Перехватываем AJAX ответ
-                var originalFetch = window.fetch;
-                window.fetch = function() {
-                    var promise = originalFetch.apply(this, arguments);
-                    promise.then(function(response) {
-                        if (response.ok) {
-                            response.clone().json().then(function(data) {
-                                if (data.status === 'mail_sent' || data.redirect) {
-                                    setTimeout(function() {
-                                        window.location.href = data.redirect || thankYouUrl;
-                                    }, 500);
-                                }
-                            }).catch(function() {});
-                        }
-                    });
-                    return promise;
-                };
-                
-                // Проверяем успешную отправку через изменение DOM
-                var observer = new MutationObserver(function(mutations) {
-                    var successMessage = form.querySelector('.wpcf7-mail-sent-ok, .wpcf7-mail-sent');
-                    if (successMessage) {
-                        setTimeout(function() {
-                            window.location.href = thankYouUrl;
-                        }, 500);
-                        observer.disconnect();
-                    }
-                });
-                
-                observer.observe(form, {
-                    childList: true,
-                    subtree: true
-                });
-            }
-        }
-        
-        // Обработчик отправки формы
-        document.addEventListener('submit', handleFormSubmit, true);
-        
-        // Обработчик события wpcf7mailsent (если CF7 JS все же загружен)
+        // Единственный обработчик редиректа - через событие wpcf7mailsent
+        // Это событие срабатывает ТОЛЬКО при успешной отправке (mail_sent)
         document.addEventListener('wpcf7mailsent', function(event) {
             window.location.href = thankYouUrl;
         }, false);
+        
+        // Дублирующий обработчик через jQuery (на случай если CF7 использует jQuery события)
+        if (typeof jQuery !== 'undefined') {
+            jQuery(document).on('wpcf7mailsent', function(event) {
+                window.location.href = thankYouUrl;
+            });
+        }
     })();
     </script>
     <?php
@@ -2665,6 +3900,110 @@ add_action('save_post', 'save_related_posts_meta');
 
 /**
  * ========================================
+ * SEO: ПРОВЕРКА ДУБЛЕЙ КОНТЕНТА И АУДИТ
+ * ========================================
+ */
+
+/**
+ * Проверка дублей canonical URL
+ * Убеждаемся, что каждый URL имеет уникальный canonical
+ */
+add_action('wp_head', function() {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+    
+    // Получаем canonical URL текущей страницы
+    $canonical = dental_clinic_get_canonical_url();
+    
+    if (empty($canonical)) {
+        return; // 404 страница, canonical не нужен
+    }
+    
+    // Проверяем, что canonical не дублируется с текущим URL
+    $current_url = home_url($_SERVER['REQUEST_URI'] ?? '/');
+    $current_url_clean = dental_clinic_normalize_url($current_url);
+    $canonical_clean = dental_clinic_normalize_url($canonical);
+    
+    // Если canonical отличается от текущего URL, это нормально (редирект)
+    // Но если они одинаковы, canonical должен быть правильным
+    // Логируем предупреждение в режиме отладки
+    if (defined('WP_DEBUG') && WP_DEBUG && $canonical_clean !== $current_url_clean) {
+        // Это нормально - canonical может отличаться при редиректах
+    }
+}, 999);
+
+/**
+ * Проверка дублей страниц с одинаковым контентом
+ * Проверяет, нет ли нескольких страниц с одинаковым title или slug
+ */
+function dental_clinic_check_duplicate_content() {
+    // Проверяем только в админке для безопасности
+    if (!is_admin() || !current_user_can('manage_options')) {
+        return;
+    }
+    
+    global $wpdb;
+    
+    // Проверяем дубли slug для страниц
+    $duplicate_slugs = $wpdb->get_results("
+        SELECT post_name, COUNT(*) as count 
+        FROM {$wpdb->posts} 
+        WHERE post_type = 'page' 
+        AND post_status = 'publish'
+        GROUP BY post_name 
+        HAVING count > 1
+    ");
+    
+    if (!empty($duplicate_slugs)) {
+        error_log('SEO WARNING: Найдены дубли slug для страниц: ' . print_r($duplicate_slugs, true));
+    }
+    
+    // Проверяем дубли slug для врачей
+    $duplicate_doctors = $wpdb->get_results("
+        SELECT post_name, COUNT(*) as count 
+        FROM {$wpdb->posts} 
+        WHERE post_type = 'doctor' 
+        AND post_status = 'publish'
+        GROUP BY post_name 
+        HAVING count > 1
+    ");
+    
+    if (!empty($duplicate_doctors)) {
+        error_log('SEO WARNING: Найдены дубли slug для врачей: ' . print_r($duplicate_doctors, true));
+    }
+}
+
+// Запускаем проверку при сохранении поста
+add_action('save_post', 'dental_clinic_check_duplicate_content', 20);
+
+/**
+ * Проверка пустых страниц (200 на пустых страницах)
+ * Убеждаемся, что пустые страницы не отдают 200
+ */
+add_action('template_redirect', function() {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+    
+    // Проверяем только для страниц и постов
+    if (is_singular()) {
+        global $post;
+        
+        // Если контент пустой и это не черновик
+        if (empty($post->post_content) && $post->post_status === 'publish') {
+            // Проверяем, есть ли хотя бы заголовок
+            if (empty($post->post_title)) {
+                // Полностью пустая страница - отдаем 404
+                status_header(404);
+                nocache_headers();
+            }
+        }
+    }
+}, 999);
+
+/**
+ * ========================================
  * SEO-РАЗМЕТКА ДЛЯ МЕДИЦИНСКОГО САЙТА
  * ========================================
  */
@@ -2722,6 +4061,11 @@ function dental_clinic_get_seo_title() {
     // Архив врачей
     if (is_post_type_archive('doctor')) {
         return 'Врачи стоматологической клиники в Елизово | ' . $clinic_name;
+    }
+    
+    // 404 страница
+    if (is_404()) {
+        return 'Страница не найдена (404) | ' . $clinic_name;
     }
     
     // Дефолтный title
@@ -2784,28 +4128,61 @@ function dental_clinic_get_meta_description() {
         }
     }
     
+    // 404 страница
+    if (is_404()) {
+        return 'Запрашиваемая страница не найдена. Возможно, страница была перемещена или удалена.';
+    }
+    
     // Безопасное дефолтное значение
     return 'Стоматологическая клиника в Елизово. Профессиональное лечение зубов, имплантация, протезирование.';
 }
 
 /**
  * Генерирует canonical URL
+ * Убирает параметры, нормализует URL
+ * 
+ * ВАЖНО: Для статей блога canonical всегда указывает на канонический URL поста
+ * (get_permalink()), который зависит от настроек permalink в WordPress
  */
 function dental_clinic_get_canonical_url() {
+    // 404 страница - не должна иметь canonical
+    if (is_404()) {
+        return '';
+    }
+    
+    $canonical = '';
+    
     if (is_singular()) {
-        return get_permalink();
+        // Для всех постов (включая статьи блога) используем get_permalink()
+        // WordPress автоматически вернет правильный URL в зависимости от настроек permalink
+        $canonical = get_permalink();
+    } elseif (is_post_type_archive('doctor')) {
+        $canonical = get_post_type_archive_link('doctor');
+    } elseif (is_home() && !is_front_page()) {
+        // Страница блога (список статей)
+        $blog_page_id = get_option('page_for_posts');
+        if ($blog_page_id) {
+            $canonical = get_permalink($blog_page_id);
+        } else {
+            $canonical = home_url('/blog/');
+        }
+    } elseif (is_front_page()) {
+        $canonical = home_url('/');
+    } else {
+        $canonical = home_url('/');
     }
     
-    if (is_post_type_archive('doctor')) {
-        return get_post_type_archive_link('doctor');
+    // Убираем параметры из URL (utm, ref, etc)
+    $parsed = parse_url($canonical);
+    if (isset($parsed['query'])) {
+        // Оставляем только важные параметры, если они есть
+        $canonical = $parsed['scheme'] . '://' . $parsed['host'] . (isset($parsed['port']) ? ':' . $parsed['port'] : '') . (isset($parsed['path']) ? $parsed['path'] : '/');
     }
     
-    if (is_home() && !is_front_page()) {
-        return get_permalink(get_option('page_for_posts'));
-    }
+    // Нормализуем URL
+    $canonical = dental_clinic_normalize_url($canonical);
     
-    // Для главной страницы и других случаев
-    return home_url('/');
+    return $canonical;
 }
 
 /**

@@ -125,6 +125,52 @@ include get_stylesheet_directory() . '/cookie-banner.php';
 })();
 </script>
 
+<script>
+/**
+ * 3️⃣ Time-based защита от спама
+ * Фиксирует момент появления формы для проверки скорости заполнения
+ */
+(function() {
+    'use strict';
+    
+    function setFormLoadedTime() {
+        const timeFields = document.querySelectorAll('input[name="form_loaded_time"]');
+        const timestamp = Date.now();
+        
+        timeFields.forEach(function(field) {
+            if (!field.value) {
+                field.value = timestamp;
+            }
+        });
+    }
+    
+    // При загрузке DOM
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setFormLoadedTime);
+    } else {
+        setFormLoadedTime();
+    }
+    
+    // Для динамически загруженных форм CF7
+    if (typeof jQuery !== 'undefined') {
+        jQuery(document).on('wpcf7formcreated', function(event) {
+            const form = event.detail ? event.detail.container : jQuery(event.target);
+            const timeField = form.find('input[name="form_loaded_time"]');
+            if (timeField.length && !timeField.val()) {
+                timeField.val(Date.now());
+            }
+        });
+        
+        // Также для стандартных событий CF7
+        jQuery(document).on('DOMContentLoaded', setFormLoadedTime);
+    }
+    
+    // Дополнительная проверка через небольшую задержку для динамических форм
+    setTimeout(setFormLoadedTime, 500);
+    setTimeout(setFormLoadedTime, 1000);
+})();
+</script>
+
 </body>
 </html>
 

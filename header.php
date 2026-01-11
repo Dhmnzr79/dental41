@@ -18,15 +18,26 @@
         echo '<meta name="description" content="' . esc_attr($meta_description) . '">' . "\n";
     }
     
-    // Canonical URL
+    // Canonical URL (не выводим для 404)
     $canonical_url = dental_clinic_get_canonical_url();
-    echo '<link rel="canonical" href="' . esc_url($canonical_url) . '">' . "\n";
+    if (!empty($canonical_url) && !is_404()) {
+        echo '<link rel="canonical" href="' . esc_url($canonical_url) . '">' . "\n";
+    }
     
-    // Open Graph (базовые теги для соцсетей)
-    echo '<meta property="og:title" content="' . esc_attr($seo_title) . '">' . "\n";
-    echo '<meta property="og:description" content="' . esc_attr($meta_description) . '">' . "\n";
-    echo '<meta property="og:url" content="' . esc_url($canonical_url) . '">' . "\n";
-    echo '<meta property="og:type" content="' . (is_single() ? 'article' : 'website') . '">' . "\n";
+    // Robots meta (noindex для 404 страницы)
+    if (is_404()) {
+        echo '<meta name="robots" content="noindex, nofollow">' . "\n";
+    }
+    
+    // Open Graph (базовые теги для соцсетей, не для 404)
+    if (!is_404()) {
+        echo '<meta property="og:title" content="' . esc_attr($seo_title) . '">' . "\n";
+        echo '<meta property="og:description" content="' . esc_attr($meta_description) . '">' . "\n";
+        if (!empty($canonical_url)) {
+            echo '<meta property="og:url" content="' . esc_url($canonical_url) . '">' . "\n";
+        }
+        echo '<meta property="og:type" content="' . (is_single() ? 'article' : 'website') . '">' . "\n";
+    }
     
     if (is_singular() && has_post_thumbnail()) {
         $og_image = get_the_post_thumbnail_url(get_the_ID(), 'large');

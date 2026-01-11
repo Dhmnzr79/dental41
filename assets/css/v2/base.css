@@ -94,6 +94,12 @@ body.popup-open {
     overflow: hidden;
 }
 
+body.error404 {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 p {
     font-size: 17px;
     line-height: 1.6;
