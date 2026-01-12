@@ -354,6 +354,18 @@ function dental_clinic_async_load_css($tag, $handle, $href) {
         'pages'
     );
     
+    /**
+     * IMPORTANT (FOUC protection on hard refresh):
+     * `media="print"` async CSS can cause a flash of unstyled content (white screen / unstyled HTML)
+     * on hard refresh (Ctrl+F5). To keep the first render stable on the homepage, we keep the core
+     * CSS render-blocking there.
+     *
+     * Note: this exception is intentionally limited to the homepage so the optimization stays active elsewhere.
+     */
+    if (is_front_page() && in_array($handle, array('base', 'layout', 'ui', 'components'), true)) {
+        return $tag;
+    }
+
     if (in_array($handle, $async_styles)) {
         // Заменяем обычную загрузку на асинхронную через media="print" trick
         // Обрабатываем оба варианта кавычек
@@ -1248,6 +1260,7 @@ add_filter('style_loader_tag', function($tag, $handle, $href) {
 
 // Блокируем через output buffering (на случай если подключается inline или родительской темой)
 // Убеждаемся, что 404 страница отдает правильный HTTP статус
+// POTENTIAL REDIRECT / URL LOGIC
 add_action('template_redirect', function() {
     if (is_404()) {
         status_header(404);
@@ -1265,6 +1278,7 @@ add_action('template_redirect', function() {
  * Защита от цепочек редиректов
  * Отслеживает количество редиректов в сессии
  */
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_check_redirect_chain($redirect_url) {
     // Пропускаем на локальном сервере
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
@@ -1302,6 +1316,7 @@ function dental_clinic_check_redirect_chain($redirect_url) {
  * Финальный аудит сайта
  * Проверяет битые ссылки, странные URL, страницы без смысла для индексации
  */
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_seo_audit() {
     // Проверяем только в админке для безопасности
     if (!is_admin() || !current_user_can('manage_options')) {
@@ -1435,6 +1450,7 @@ add_action('save_post', function($post_id) {
 /**
  * Нормализация URL: убирает index.php, нормализует слеши
  */
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_normalize_url($url) {
     // Убираем index.php из URL
     $url = str_replace('/index.php', '', $url);
@@ -1458,6 +1474,7 @@ function dental_clinic_normalize_url($url) {
  * 
  * ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО - редиректы должны быть только в .htaccess
  */
+// POTENTIAL REDIRECT / URL LOGIC
 /*
 add_action('template_redirect', function() {
     // Пропускаем админку, AJAX, cron
@@ -1612,6 +1629,7 @@ add_action('template_redirect', function() {
  * Изменение структуры permalink для постов блога
  * Формат: /blog/post-name/ вместо /YYYY/MM/DD/post-name/
  */
+// POTENTIAL REDIRECT / URL LOGIC
 add_filter('post_link', function($permalink, $post) {
     // Только для постов (не для кастомных типов)
     if ($post->post_type === 'post') {
@@ -1628,6 +1646,7 @@ add_filter('post_link', function($permalink, $post) {
     return $permalink;
 }, 10, 2);
 
+// POTENTIAL REDIRECT / URL LOGIC
 add_filter('post_type_link', function($post_link, $post) {
     // Только для постов
     if ($post->post_type === 'post') {
@@ -1643,6 +1662,7 @@ add_filter('post_type_link', function($post_link, $post) {
 /**
  * Добавляем rewrite rules для обработки URL формата /blog/post-name/
  */
+// POTENTIAL REDIRECT / URL LOGIC
 add_action('init', function() {
     // Добавляем правило для /blog/post-name/
     add_rewrite_rule(
@@ -1682,6 +1702,7 @@ function dental_clinic_get_post_by_slug($slug, $post_type = 'post') {
  * 
  * ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО - вернём после того, как сайт заработает
  */
+// POTENTIAL REDIRECT / URL LOGIC
 /*
 add_action('parse_request', function($wp) {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
@@ -1716,6 +1737,7 @@ add_action('parse_request', function($wp) {
 
 // Дублируем на template_redirect для надежности
 // ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО
+// POTENTIAL REDIRECT / URL LOGIC
 /*
 add_action('template_redirect', function() {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
@@ -1748,6 +1770,7 @@ add_action('template_redirect', function() {
  * 
  * ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО - вернём после того, как сайт заработает
  */
+// POTENTIAL REDIRECT / URL LOGIC
 /*
 add_action('template_redirect', function() {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
@@ -2054,6 +2077,7 @@ add_action('after_setup_theme', 'dental_clinic_setup');
  * Редирект на страницу благодарности через событие wpcf7mailsent
  * Работает ТОЛЬКО при успешной отправке формы (mail_sent)
  */
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_cf7_redirect_script() {
     ?>
     <script>
@@ -2080,6 +2104,7 @@ function dental_clinic_cf7_redirect_script() {
 add_action('wp_footer', 'dental_clinic_cf7_redirect_script');
 
 
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_register_post_types() {
     register_post_type('doctor', array(
         'labels' => array(
@@ -2212,6 +2237,7 @@ function dental_clinic_add_regenerate_images_button() {
 add_action('edit_form_after_title', 'dental_clinic_add_regenerate_images_button');
 
 // Обработчик для регенерации изображений
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_handle_regenerate_images() {
     if (current_user_can('administrator')) {
         dental_clinic_regenerate_doctor_images();
@@ -3206,6 +3232,7 @@ function dental_clinic_ensure_menu() {
 add_action('init', 'dental_clinic_ensure_menu');
 
 // Принудительное пересоздание меню с правильным порядком
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_recreate_menu() {
     if (isset($_GET['recreate_menu']) && current_user_can('administrator')) {
         // Удаляем старое меню
@@ -3447,6 +3474,7 @@ add_action('after_switch_theme', 'dental_clinic_create_sample_reviews');
 /**
  * Функция дублирования постов
  */
+// POTENTIAL REDIRECT / URL LOGIC
 function duplicate_post_as_draft() {
     global $wpdb;
     
@@ -3930,6 +3958,7 @@ add_action('save_post', 'save_related_posts_meta');
  * Проверка дублей canonical URL
  * Убеждаемся, что каждый URL имеет уникальный canonical
  */
+// POTENTIAL REDIRECT / URL LOGIC
 add_action('wp_head', function() {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
         return;
@@ -4003,6 +4032,7 @@ add_action('save_post', 'dental_clinic_check_duplicate_content', 20);
  * Проверка пустых страниц (200 на пустых страницах)
  * Убеждаемся, что пустые страницы не отдают 200
  */
+// POTENTIAL REDIRECT / URL LOGIC
 add_action('template_redirect', function() {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
         return;
@@ -4166,6 +4196,7 @@ function dental_clinic_get_meta_description() {
  * ВАЖНО: Для статей блога canonical всегда указывает на канонический URL поста
  * (get_permalink()), который зависит от настроек permalink в WordPress
  */
+// POTENTIAL REDIRECT / URL LOGIC
 function dental_clinic_get_canonical_url() {
     // 404 страница - не должна иметь canonical
     if (is_404()) {
@@ -4355,6 +4386,43 @@ function dental_clinic_get_schema_markup() {
     // Возвращаем массив схем для вывода
     return $schemas;
 }
+
+/**
+ * ========================================
+ * SITEMAP: CLEANUP (ONLY wp-sitemap.xml)
+ * ========================================
+ * Требования:
+ * - убрать users из sitemap
+ * - убрать category из sitemap
+ * - убрать post type "review" из sitemap
+ * - НЕ добавлять редиректы
+ * - НЕ использовать wp_redirect
+ * - НЕ трогать template_redirect
+ * - НЕ вмешиваться в URL
+ */
+
+add_filter('wp_sitemaps_add_provider', function ($provider, $name) {
+    // POTENTIAL REDIRECT / URL LOGIC
+    // (URL output logic) — affects ONLY sitemap providers
+    if ($name === 'users') {
+        return false; // disables users sitemap
+    }
+    return $provider;
+}, 10, 2);
+
+add_filter('wp_sitemaps_taxonomies', function (array $taxonomies) {
+    // POTENTIAL REDIRECT / URL LOGIC
+    // (URL output logic) — affects ONLY sitemap taxonomies
+    unset($taxonomies['category']);
+    return $taxonomies;
+});
+
+add_filter('wp_sitemaps_post_types', function (array $post_types) {
+    // POTENTIAL REDIRECT / URL LOGIC
+    // (URL output logic) — affects ONLY sitemap post types
+    unset($post_types['review']);
+    return $post_types;
+});
 
 /**
  * Calltouch скрипт в head
