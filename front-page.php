@@ -142,8 +142,8 @@ get_header();
                     </div>
                     
                     <div class="hero__doctor-info">
-                        <p class="hero__doctor-name">Александр Хан</p>
-                        <p class="hero__doctor-position">Главный врач, хирург-имплантолог</p>
+                        <p class="hero__doctor-name">Кирилл Моисеев</p>
+                        <p class="hero__doctor-position">Хирург-имплантолог</p>
                     </div>
                 </div>
                 </div>
@@ -209,7 +209,7 @@ get_header();
                 <div class="consultation__promo">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/calendar-icon.svg" alt="" class="consultation__calendar-icon" aria-hidden="true">
                     <p class="consultation__promo-text">
-                        Акция <span class="consultation__promo-date">до 30 ноября</span>
+                        Акция <span class="consultation__promo-date">до 31 января</span>
                     </p>
             </div>
             
@@ -1815,6 +1815,26 @@ get_header();
                     <p>Мы работаем по договору и с гарантией. И главное – мы рядом, когда вы нас действительно нуждаетесь</p>
                     <button class="btn btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Записаться на консультацию</button>
                 </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Виртуальная экскурсия по клинике -->
+<section class="section panotour">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h2>Виртуальная экскурсия по клинике</h2>
+                <div class="panotour__wrapper">
+                    <iframe 
+                        src="/panotour/index.html"
+                        width="100%" 
+                        height="600"
+                        style="border:none;"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
     </div>

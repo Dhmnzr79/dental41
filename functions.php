@@ -1455,7 +1455,10 @@ function dental_clinic_normalize_url($url) {
 /**
  * Редирект для нормализации URL (убирает index.php, нормализует слеши)
  * И редиректы для единой версии сайта (www/non-www, http/https)
+ * 
+ * ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО - редиректы должны быть только в .htaccess
  */
+/*
 add_action('template_redirect', function() {
     // Пропускаем админку, AJAX, cron
     if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
@@ -1488,110 +1491,122 @@ add_action('template_redirect', function() {
     $protocol = ($is_local || (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on')) ? 'http' : 'https';
     
     // Защита от цепочек редиректов
-    // Инициализируем сессию для отслеживания редиректов
-    if (!session_id()) {
-        session_start();
-    }
-    
-    // Проверяем количество редиректов
-    if (!isset($_SESSION['redirect_count'])) {
-        $_SESSION['redirect_count'] = 0;
-    }
+    // ВАЖНО: Используем cookies вместо сессий для более надежной работы
+    $redirect_count = isset($_COOKIE['redirect_count']) ? intval($_COOKIE['redirect_count']) : 0;
     
     // Если больше 2 редиректов подряд - останавливаем цепочку
-    if ($_SESSION['redirect_count'] > 2) {
-        unset($_SESSION['redirect_count']);
+    if ($redirect_count > 2) {
+        // Сбрасываем счетчик
+        setcookie('redirect_count', '0', time() - 3600, '/');
         // Не делаем редирект, просто продолжаем работу
         return;
     }
     
     // Редирект www -> non-www (или наоборот)
-    // Пропускаем на локальном сервере
-    if (!$is_local) {
-        if ($needs_www_redirect && strpos($parsed_url['host'], 'www.') === false) {
-            $redirect_url = $protocol . '://www.' . $canonical_domain . $request_uri;
-            // Проверяем, что редирект не ведет на тот же URL
-            if ($redirect_url !== $current_url) {
-                $_SESSION['redirect_count']++;
-                wp_redirect($redirect_url, 301);
-                exit;
-            }
-        } elseif (!$needs_www_redirect && strpos($parsed_url['host'], 'www.') === 0) {
-            $redirect_url = $protocol . '://' . $canonical_domain . $request_uri;
-            // Проверяем, что редирект не ведет на тот же URL
-            if ($redirect_url !== $current_url) {
-                $_SESSION['redirect_count']++;
-                wp_redirect($redirect_url, 301);
-                exit;
-            }
-        }
-    }
+    // ВАЖНО: Если редирект WWW->non-WWW настроен в .htaccess, закомментируйте этот блок
+    // ОТКЛЮЧЕНО: Редирект WWW->non-WWW должен быть в .htaccess, чтобы избежать циклов
+    // Раскомментируйте только если .htaccess редиректы не работают
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // if (!$is_local) {
+    //     if ($needs_www_redirect && strpos($parsed_url['host'], 'www.') === false) {
+    //         $redirect_url = $protocol . '://www.' . $canonical_domain . $request_uri;
+    //         if ($redirect_url !== $current_url) {
+    //             $_SESSION['redirect_count']++;
+    //             wp_redirect($redirect_url, 301);
+    //             exit;
+    //         }
+    //     } elseif (!$needs_www_redirect && strpos($parsed_url['host'], 'www.') === 0) {
+    //         $redirect_url = $protocol . '://' . $canonical_domain . $request_uri;
+    //         if ($redirect_url !== $current_url) {
+    //             $_SESSION['redirect_count']++;
+    //             wp_redirect($redirect_url, 301);
+    //             exit;
+    //         }
+    //     }
+    // }
     
     // Редирект http -> https
     // ВАЖНО: Пропускаем на локальном сервере (localhost, 127.0.0.1, .local, .test)
-    if (!$is_local && (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on')) {
-        $redirect_url = 'https://' . $parsed_url['host'] . $request_uri;
-        // Проверяем, что редирект не ведет на тот же URL
-        if ($redirect_url !== $current_url) {
-            $_SESSION['redirect_count']++;
-            wp_redirect($redirect_url, 301);
-            exit;
-        }
-    }
+    // ВАЖНО: Если редирект HTTP->HTTPS настроен в .htaccess, закомментируйте этот блок
+    // Проверяем HTTPS более надежным способом (для разных хостингов)
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // $is_https = (
+    //     (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ||
+    //     (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+    //     (isset($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
+    //     (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+    // );
+    
+    // ОТКЛЮЧЕНО: Редирект HTTP->HTTPS должен быть в .htaccess, чтобы избежать циклов
+    // Раскомментируйте только если .htaccess редиректы не работают
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // if (!$is_local && !$is_https) {
+    //     $redirect_url = 'https://' . $parsed_url['host'] . $request_uri;
+    //     if ($redirect_url !== $current_url) {
+    //         $_SESSION['redirect_count']++;
+    //         wp_redirect($redirect_url, 301);
+    //         exit;
+    //     }
+    // }
     
     // Проверяем наличие index.php в URL
-    if (strpos($request_uri, '/index.php') !== false || strpos($request_uri, 'index.php/') !== false) {
-        $clean_uri = dental_clinic_normalize_url($request_uri);
-        $redirect_url = home_url($clean_uri);
-        // Проверяем, что редирект не ведет на тот же URL
-        if ($redirect_url !== $current_url) {
-            $_SESSION['redirect_count']++;
-            wp_redirect($redirect_url, 301);
-            exit;
-        }
-    }
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // if (strpos($request_uri, '/index.php') !== false || strpos($request_uri, 'index.php/') !== false) {
+    //     $clean_uri = dental_clinic_normalize_url($request_uri);
+    //     $redirect_url = home_url($clean_uri);
+    //     $current_path = parse_url($current_url, PHP_URL_PATH);
+    //     $redirect_path = parse_url($redirect_url, PHP_URL_PATH);
+    //     if ($redirect_path && $current_path && $redirect_path !== $current_path) {
+    //         setcookie('redirect_count', strval($redirect_count + 1), time() + 60, '/');
+    //         wp_redirect($redirect_url, 301);
+    //         exit;
+    //     }
+    // }
     
     // Нормализация слешей (убираем двойные слеши, кроме http://)
-    $normalized_uri = preg_replace('#([^:])//+#', '$1/', $request_uri);
-    if ($normalized_uri !== $request_uri) {
-        $redirect_url = home_url($normalized_uri);
-        // Проверяем, что редирект не ведет на тот же URL
-        if ($redirect_url !== $current_url) {
-            $_SESSION['redirect_count']++;
-            wp_redirect($redirect_url, 301);
-            exit;
-        }
-    }
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // $normalized_uri = preg_replace('#([^:])//+#', '$1/', $request_uri);
+    // if ($normalized_uri !== $request_uri) {
+    //     $redirect_url = home_url($normalized_uri);
+    //     $current_path = parse_url($current_url, PHP_URL_PATH);
+    //     $redirect_path = parse_url($redirect_url, PHP_URL_PATH);
+    //     if ($redirect_path && $current_path && $redirect_path !== $current_path) {
+    //         setcookie('redirect_count', strval($redirect_count + 1), time() + 60, '/');
+    //         wp_redirect($redirect_url, 301);
+    //         exit;
+    //     }
+    // }
     
     // Убираем слеш в конце для всех URL кроме главной и файлов
-    // ВАЖНО: Пропускаем для WordPress API, AJAX и статических файлов
-    // ВАЖНО: Пропускаем на локальном сервере, чтобы не ломать работу
-    if (!$is_local && 
-        $request_uri !== '/' && 
-        substr($request_uri, -1) === '/' && 
-        !preg_match('#\.(html|php|css|js|jpg|jpeg|png|gif|svg|pdf|xml|woff|woff2|ttf|eot)$#i', $request_uri) &&
-        strpos($request_uri, '/wp-') !== 0 &&
-        strpos($request_uri, '/wp-admin') !== 0 &&
-        strpos($request_uri, '/wp-content') !== 0 &&
-        strpos($request_uri, '/wp-includes') !== 0) {
-        $clean_uri = rtrim($request_uri, '/');
-        // Проверяем, что это не вызовет бесконечный редирект
-        if ($clean_uri !== $request_uri) {
-            $redirect_url = home_url($clean_uri);
-            // Проверяем, что редирект не ведет на тот же URL
-            if ($redirect_url !== $current_url) {
-                $_SESSION['redirect_count']++;
-                wp_redirect($redirect_url, 301);
-                exit;
-            }
-        }
-    }
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // if (!$is_local && 
+    //     $request_uri !== '/' && 
+    //     substr($request_uri, -1) === '/' && 
+    //     !preg_match('#\.(html|php|css|js|jpg|jpeg|png|gif|svg|pdf|xml|woff|woff2|ttf|eot)$#i', $request_uri) &&
+    //     strpos($request_uri, '/wp-') !== 0 &&
+    //     strpos($request_uri, '/wp-admin') !== 0 &&
+    //     strpos($request_uri, '/wp-content') !== 0 &&
+    //     strpos($request_uri, '/wp-includes') !== 0) {
+    //     $clean_uri = rtrim($request_uri, '/');
+    //     if ($clean_uri !== $request_uri) {
+    //         $redirect_url = home_url($clean_uri);
+    //         $current_path = parse_url($current_url, PHP_URL_PATH);
+    //         $redirect_path = parse_url($redirect_url, PHP_URL_PATH);
+    //         if ($redirect_path && $current_path && $redirect_path !== $current_path) {
+    //             setcookie('redirect_count', strval($redirect_count + 1), time() + 60, '/');
+    //             wp_redirect($redirect_url, 301);
+    //             exit;
+    //         }
+    //     }
+    // }
     
     // Сбрасываем счетчик редиректов при успешной загрузке страницы
-    if (isset($_SESSION['redirect_count']) && $_SESSION['redirect_count'] > 0) {
-        unset($_SESSION['redirect_count']);
-    }
-}, 2);
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // if ($redirect_count > 0) {
+    //     setcookie('redirect_count', '0', time() - 3600, '/');
+    // }
+    // }, 2);
+*/
 
 /**
  * Изменение структуры permalink для постов блога
@@ -1665,9 +1680,9 @@ function dental_clinic_get_post_by_slug($slug, $post_type = 'post') {
  * Редиректы для старых URL с датами (формат /YYYY/MM/DD/post-name/)
  * Редирект на /blog/post-name/
  * 
- * ВАЖНО: Этот редирект работает ДО того, как WordPress определит, что это 404
- * Это гарантирует, что старые URL с датами не остаются доступными как 200
+ * ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО - вернём после того, как сайт заработает
  */
+/*
 add_action('parse_request', function($wp) {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
         return;
@@ -1697,8 +1712,11 @@ add_action('parse_request', function($wp) {
         }
     }
 }, 1); // Приоритет 1 - самый ранний
+*/
 
 // Дублируем на template_redirect для надежности
+// ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО
+/*
 add_action('template_redirect', function() {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed()) {
         return;
@@ -1722,11 +1740,15 @@ add_action('template_redirect', function() {
         }
     }
 }, 1);
+*/
 
 /**
  * Универсальные редиректы для старых несуществующих страниц
  * Можно добавить конкретные редиректы здесь
+ * 
+ * ⚠️ ВРЕМЕННО ОТКЛЮЧЕНО - вернём после того, как сайт заработает
  */
+/*
 add_action('template_redirect', function() {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
         return;

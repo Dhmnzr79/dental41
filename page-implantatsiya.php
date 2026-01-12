@@ -208,7 +208,7 @@ get_header();
                 <div class="consultation__promo">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/calendar-icon.svg" alt="" class="consultation__calendar-icon" aria-hidden="true">
                     <p class="consultation__promo-text">
-                        Акция <span class="consultation__promo-date">до 30 ноября</span>
+                        Акция <span class="consultation__promo-date">до 31 января</span>
                     </p>
             </div>
             
