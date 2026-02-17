@@ -49,6 +49,8 @@
     <?php
     // Preconnect для оптимизации загрузки ресурсов
     echo '<link rel="preconnect" href="' . get_stylesheet_directory_uri() . '" crossorigin>' . "\n";
+    echo '<link rel="dns-prefetch" href="https://mc.yandex.ru">' . "\n";
+    echo '<link rel="dns-prefetch" href="https://mod.calltouch.ru">' . "\n";
     
     // Preload для hero-изображений (LCP оптимизация)
     if (is_front_page()) {
@@ -68,7 +70,7 @@
         /* Critical CSS - минимальные стили для первого экрана */
         @font-face{font-family:'Inter';src:url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
         @font-face{font-family:'NTSomic';src:url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/NTSomic-Semibold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-        :root{--brk-sm:768px;--brk-lg:1280px;--brk-xl:1400px;--container-max:1400px;--gutter-mob:16px;--gutter-desk:24px;--col-gap-mob:16px;--col-gap-desk:30px;--text-color:#050315;--heading-color:#050315;--bg:#fbfbfe;--primary:#23bfcf;--bg-primary-1:#7ddee7;--bg-primary-2:#7de8cd;--bg-primary-main:#23bfcf;--button-color:#ffba28;--button-color-hover:#ff8d28;--heading-font:'NTSomic',sans-serif;--body-font:'Inter',sans-serif;--white:#ffffff;--header-topbar-offset:88px}
+        :root{--brk-sm:768px;--brk-lg:1280px;--brk-xl:1400px;--container-max:1400px;--gutter-mob:16px;--gutter-desk:24px;--col-gap-mob:16px;--col-gap-desk:30px;--text-color:#050315;--heading-color:#050315;--bg:#fbfbfe;--primary:#23bfcf;--bg-primary-1:#7ddee7;--bg-primary-2:#7de8cd;--bg-primary-main:#23bfcf;--button-color:#ffba28;--button-color-hover:#ff8d28;--heading-font:'Inter',sans-serif;--body-font:'Inter',sans-serif;--white:#ffffff;--header-topbar-offset:88px}
         html{box-sizing:border-box;background-color:var(--bg)}
         /* Reserve space for fixed mobile topbar to avoid layout shift on first paint.
            Important: base.css contains a mobile rule `body{padding-top:64px}` which would otherwise override and cause a jump. */
@@ -104,7 +106,6 @@
         .btn--primary{color:var(--text-color);background-color:var(--button-color);transition:background-color 0.3s ease}
         .btn--primary:hover{background-color:var(--button-color-hover)}
         /* Mobile CTA styling needs to be critical to avoid unstyled button -> styled jump */
-        .btn--whatsapp{background:#25d366;color:var(--white)}
         .hero{display:none;padding:0;background-color:var(--bg-primary-1);margin-left:auto;margin-right:auto}
         .hero__left{padding:80px 0}
         .hero__title-highlight{color:var(--white)}
@@ -151,7 +152,6 @@
             .hero__stat-number{font-family:var(--heading-font);font-size:40px;line-height:1.2;text-align:center;padding-top:30px}
             .hero__conclusion{font-size:20px;padding:30px 35px}
             .hero__actions{display:flex;flex-direction:row;align-items:center;gap:20px;margin-top:30px}
-            .hero__whatsapp-btn{padding:18px;border:none;border-radius:10px;background:#1ab839;color:#fff;font-size:17px;font-weight:500;cursor:pointer;text-decoration:none}
         }
     </style>
     <?php wp_head(); ?>

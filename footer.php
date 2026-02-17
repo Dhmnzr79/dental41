@@ -37,20 +37,6 @@
                 <a href="#" onclick="showCookieSettings(); return false;" class="footer__link">Настройки cookies</a>
             </div>
         </div>
-
-        <div class="row footer__recaptcha">
-            <div class="col-sm-12 col-lg-12">
-                <div class="footer__recaptcha-notice">
-                    <p class="footer__recaptcha-text">
-                        This site is protected by reCAPTCHA and the Google
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="footer__recaptcha-link">Privacy Policy</a>
-                        and
-                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="footer__recaptcha-link">Terms of Service</a>
-                        apply.
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 </footer>
 

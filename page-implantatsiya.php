@@ -12,7 +12,7 @@ get_header();
         <div class="hero-mobile__wrapper">
             <div class="hero-mobile__content">
                 <h1 class="hero-mobile__title">У вас отсутствует зубы?</h1>
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="hero-mobile__image" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/khan-mob-1.png'); ?>>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-mob-1.png" alt="Александр Хан" class="hero-mobile__image" loading="eager" decoding="async" fetchpriority="high"<?php echo dental_clinic_get_image_dimensions('assets/images/khan-mob-1.png'); ?>>
             </div>
             
             <div class="hero-mobile__text">
@@ -75,7 +75,6 @@ get_header();
         
         <div class="hero-mobile__actions">
             <button type="button" class="btn btn--primary" onclick="openPopup()" aria-label="Вернуть улыбку">Вернуть улыбку</button>
-            <button type="button" class="btn btn--whatsapp" onclick="window.open('https://wa.me/79084952424', '_blank')" aria-label="Рассчитать стоимость в WhatsApp">Рассчитать стоимость в WhatsApp</button>
         </div>
     </div>
 </section>
@@ -112,16 +111,12 @@ get_header();
             
                 <div class="hero__actions">
                     <button type="button" class="btn btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Вернуть улыбку</button>
-                    <button type="button" class="hero__whatsapp-btn" onclick="window.open('https://wa.me/79084952424', '_blank')" aria-label="Связаться через WhatsApp">
-                        
-                        Рассчитать стоимость в WhatsApp
-                    </button>
             </div>
         </div>
         
             <div class="col-sm-12 col-lg-6 hero__right">
                 <div class="hero__photo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-hero.png" alt="Хирург-имплантолог Александр Хан — главный врач стоматологической клиники" class="hero__doctor-photo" loading="lazy"<?php echo dental_clinic_get_image_dimensions('assets/images/khan-hero.png'); ?>>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/khan-hero.png" alt="Хирург-имплантолог Александр Хан — главный врач стоматологической клиники" class="hero__doctor-photo" loading="eager" decoding="async" fetchpriority="high"<?php echo dental_clinic_get_image_dimensions('assets/images/khan-hero.png'); ?>>
             </div>
             
                 <div class="hero__stats">

@@ -75,7 +75,6 @@ get_header();
         
         <div class="hero-mobile__actions">
             <button type="button" class="btn btn--primary" onclick="openPopup()" aria-label="Вернуть улыбку">Вернуть улыбку</button>
-            <button type="button" class="btn btn--whatsapp" onclick="window.open('https://wa.me/79084952424', '_blank')" aria-label="Рассчитать стоимость в WhatsApp">Рассчитать стоимость в WhatsApp</button>
         </div>
     </div>
 </section>
@@ -112,9 +111,6 @@ get_header();
             
                 <div class="hero__actions">
                     <button type="button" class="btn btn--primary" onclick="openPopup()" aria-label="Записаться на консультацию">Вернуть улыбку</button>
-                    <button type="button" class="hero__whatsapp-btn" onclick="window.open('https://wa.me/79084952424', '_blank')" aria-label="Связаться через WhatsApp">
-                        <span>Рассчитать стоимость в WhatsApp</span>
-                    </button>
             </div>
         </div>
         

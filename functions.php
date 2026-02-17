@@ -112,8 +112,9 @@ function has_cookie_consent($type = 'all') {
 // function dental_clinic_enqueue_popup() - удален
 
 function dental_clinic_enqueue_v2_works_slider() {
-    // Подключаем на всех страницах, где используются v2 стили
-    // Скрипт сам проверит наличие [data-slider="works"] и инициализируется только при наличии
+    if (!is_front_page() && !is_page_template('page-implantatsiya.php')) {
+        return;
+    }
     wp_enqueue_script(
         'dental-clinic-works-slider',
         get_stylesheet_directory_uri() . '/assets/js/works-slider.js',
@@ -125,7 +126,9 @@ function dental_clinic_enqueue_v2_works_slider() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_works_slider');
 
 function dental_clinic_enqueue_v2_reviews_slider() {
-    // Подключаем на всех страницах, скрипт сам проверит наличие [data-slider="reviews"]
+    if (!is_front_page() && !is_page_template('page-implantatsiya.php')) {
+        return;
+    }
     wp_enqueue_script(
         'dental-clinic-reviews-slider',
         get_stylesheet_directory_uri() . '/assets/js/reviews-slider.js',
@@ -149,7 +152,9 @@ function dental_clinic_enqueue_v2_header_menu() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_header_menu');
 
 function dental_clinic_enqueue_v2_doctors_slider() {
-    // Подключаем на всех страницах, скрипт сам проверит наличие [data-slider="doctors"]
+    if (!is_front_page() && !is_page_template('page-implantatsiya.php')) {
+        return;
+    }
     wp_enqueue_script(
         'dental-clinic-doctors-slider',
         get_stylesheet_directory_uri() . '/assets/js/doctors-slider.js',
@@ -161,7 +166,9 @@ function dental_clinic_enqueue_v2_doctors_slider() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_doctors_slider');
 
 function dental_clinic_enqueue_v2_implant_types() {
-    // Подключаем на всех страницах, скрипт сам проверит наличие #tabs-underline
+    if (!is_front_page() && !is_page_template('page-implantatsiya.php')) {
+        return;
+    }
     wp_enqueue_script(
         'dental-clinic-implant-types',
         get_stylesheet_directory_uri() . '/assets/js/implant-types.js',
@@ -173,7 +180,9 @@ function dental_clinic_enqueue_v2_implant_types() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_implant_types');
 
 function dental_clinic_enqueue_v2_implants_slider() {
-    // Подключаем на всех страницах, скрипт сам проверит наличие [data-slider="implants"]
+    if (!is_front_page() && !is_page_template('page-implantatsiya.php')) {
+        return;
+    }
     wp_enqueue_script(
         'dental-clinic-implants-slider',
         get_stylesheet_directory_uri() . '/assets/js/implants-slider.js',
@@ -198,7 +207,9 @@ function dental_clinic_enqueue_v2_plus_video() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_v2_plus_video');
 
 function dental_clinic_enqueue_v2_faq() {
-    // Подключаем на всех страницах, скрипт сам проверит наличие .faq__accordion
+    if (!is_page_template('page-implantatsiya.php')) {
+        return;
+    }
     wp_enqueue_script(
         'dental-clinic-faq',
         get_stylesheet_directory_uri() . '/assets/js/faq.js',
@@ -222,7 +233,9 @@ function dental_clinic_enqueue_phone_mask() {
 add_action('wp_enqueue_scripts', 'dental_clinic_enqueue_phone_mask');
 
 function dental_clinic_enqueue_v2_trust_video() {
-    // Подключаем на всех страницах, скрипт сам проверит наличие .trust__video
+    if (!is_front_page() && !is_page_template('page-implantatsiya.php')) {
+        return;
+    }
     wp_enqueue_script(
         'dental-clinic-trust-video',
         get_stylesheet_directory_uri() . '/assets/js/trust-video.js',
@@ -271,6 +284,7 @@ function dental_clinic_add_defer_to_scripts($tag, $handle, $src) {
         'dental-clinic-implants-slider',
         'dental-clinic-plus-video',
         'dental-clinic-faq',
+        'dental-clinic-phone-mask',
         'dental-clinic-trust-video',
         'dental-clinic-video-lightbox',
         'dental-clinic-popup'
@@ -2015,8 +2029,7 @@ function dental_clinic_enqueue_styles_main() {
         $ver = wp_get_theme()->get('Version');
         $uri = get_stylesheet_directory_uri() . '/assets/css/v2/';
         
-        wp_enqueue_style('local-fonts', get_stylesheet_directory_uri() . '/assets/fonts.css', array(), $ver);
-        wp_enqueue_style('base', $uri . 'base.css', array('local-fonts'), $ver);
+        wp_enqueue_style('base', $uri . 'base.css', array(), $ver);
         wp_enqueue_style('layout', $uri . 'layout.css', array('base'), $ver);
         wp_enqueue_style('ui', $uri . 'ui.css', array('layout'), $ver);
         wp_enqueue_style('components', $uri . 'components.css', array('ui'), $ver);
@@ -4439,20 +4452,15 @@ function dental_clinic_add_calltouch_head() {
 add_action('wp_head', 'dental_clinic_add_calltouch_head', 5);
 
 /**
- * Яндекс Метрика в head
+ * Яндекс Метрика — асинхронная загрузка после DOMContentLoaded (не блокирует LCP)
  */
 function dental_clinic_add_yandex_metrika() {
     ?>
-    <!-- Yandex.Metrika counter -->
+    <!-- Yandex.Metrika counter (async) -->
     <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
-
-        ym(98616842, 'init', {webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+        window.ym=window.ym||function(){(ym.a=ym.a||[]).push(arguments)};ym.l=1*new Date();
+        function dental_clinic_load_metrika(){var s=document.createElement('script');s.async=1;s.src='https://mc.yandex.ru/metrika/tag.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(s,f);ym(98616842,'init',{webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});}
+        if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',dental_clinic_load_metrika); else dental_clinic_load_metrika();
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/98616842" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
